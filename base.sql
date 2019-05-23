@@ -1,13 +1,12 @@
-CREATE TABLE Ecole (
+CREATE TABLE Ecole(
     Id int(8) NOT NULL PRIMARY KEY,
-    Nom varchar(255) NOT NULL,
-
+    Nom varchar(255) NOT NULL
 );
 
 CREATE TABLE AnneeScolaire(
     Id int(8) NOT NULL PRIMARY KEY,
     AnneeDebut int(4) NOT NULL,
-    AnneeFin int(4) NOT NULL,
+    AnneeFin int(4) NOT NULL
 );
 
 CREATE TABLE Trimestre(
@@ -22,7 +21,7 @@ CREATE TABLE Trimestre(
 
 CREATE TABLE Niveau(
     Id int(8) NOT NULL PRIMARY KEY,
-    Nom varchar(255) NOT NULL,
+    Nom varchar(255) NOT NULL
 );
 
 CREATE TABLE Classe(
@@ -39,14 +38,14 @@ CREATE TABLE Classe(
 
 CREATE TABLE Discipline(
     Id int(8) NOT NULL PRIMARY KEY,
-    Nom varchar(255) NOT NULL,
+    Nom varchar(255) NOT NULL
 );
 
 CREATE TABLE Personne(
     Id int(8) NOT NULL PRIMARY KEY,
     Nom varchar(255) NOT NULL,
     Prenom varchar(255) NOT NULL,
-    Type_P boolean NOT NULL,
+    Type_P boolean NOT NULL
 );
 /*
 CREATE TABLE Eleve(
@@ -116,5 +115,5 @@ CREATE TABLE Evaluation(
     Note int(8) NOT NULL,
     Appreciation varchar(255) NOT NULL,
     
-    FOREIGN KEY (IdDetailBulletin) REFERENCES DetailBulletin(Id),
+    FOREIGN KEY (IdDetailBulletin) REFERENCES DetailBulletin(Id)
 );
