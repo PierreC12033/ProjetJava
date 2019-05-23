@@ -118,5 +118,3 @@ CREATE TABLE Evaluation(
     
     FOREIGN KEY (IdDetailBulletin) REFERENCES DetailBulletin(Id),
 );
-
-Insert into Vetements (Id, IdVendeur, Nom, Prix, Description, Couleur, Marque, Taille, QuantiteVendue, Quantite, Image, Video) values (40000015, 20000012 , "Pull homme", 98, "Pull coton fabrique en chine comme d habitude", "bleu", "zaro", "s", 26, 524, "pullbleu.jpg","");
