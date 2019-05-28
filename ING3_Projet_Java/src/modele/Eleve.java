@@ -10,6 +10,7 @@ package modele;
  * @author tomjo
  */
 public class Eleve extends Personne {
+    
     public Eleve()
     {
         super();
@@ -19,4 +20,4 @@ public class Eleve extends Personne {
     {
         super(num, firstname, name, false);
     }
-          }
+}

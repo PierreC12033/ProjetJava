@@ -13,52 +13,53 @@ public class Personne {
     protected int id;
     protected String nom;
     protected String prenom;
-    protected boolean type;
-    public Personne()
-    {
+    protected boolean type; //ELEVE == False && ENSEIGNANT == True
+    
+    public Personne()  {
         id=0;
         nom="";
         prenom="";
     }
-    public Personne(int num, String surname, String firstname, boolean type_personne)
-    {
+    
+    public Personne(int num, String surname, String firstname, boolean type_personne)  {
         id=num;
         nom=surname;
         prenom=firstname;
         type=type_personne;
-        
     }
-    public int getId()
-    {
+
+    public int getId() {
         return id;
     }
-    public String getNom()
-    {
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNom() {
         return nom;
     }
-    public String getPrenom()
-    {
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
         return prenom;
     }
-    public void setId(int new_id)
-    {
-        id=new_id;
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
-    public void setNom(String new_nom)
-    {
-        nom=new_nom;
-    }
-    public void setPrenom(String new_prenom)
-    {
-        prenom = new_prenom;
-    }
-    public boolean getType()
-    {
+
+    public boolean isType() {
         return type;
     }
-    public void setType(boolean new_type)
-    {
-        type=new_type;
+
+    public void setType(boolean type) {
+        this.type = type;
     }
+    
+    
     
 }

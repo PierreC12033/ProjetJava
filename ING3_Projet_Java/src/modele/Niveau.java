@@ -12,6 +12,7 @@ package modele;
 public class Niveau {
     private int id;
     private String nom;
+    
     public Niveau()
     {
         id=0;
