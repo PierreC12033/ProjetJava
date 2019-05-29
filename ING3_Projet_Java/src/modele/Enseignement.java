@@ -25,6 +25,10 @@ public class Enseignement {
         this.idPersonne = idPersonne;
     }
     
+    public String ajouterBDD(){
+        return "INSERT INTO Enseignement VALUES("+this.id+","+this.idClasse+","+this.idDiscipline+","+this.idPersonne+")";
+    }
+    
     public int getId() {
         return id;
     }

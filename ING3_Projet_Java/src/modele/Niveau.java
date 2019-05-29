@@ -23,6 +23,11 @@ public class Niveau {
         id=num;
         nom=name;
     }
+    
+    public String ajouterBDD(){
+        return "INSERT INTO Niveau VALUES("+this.id+",'"+this.nom+"')";
+    }
+    
     public int getId()
     {
         return id;

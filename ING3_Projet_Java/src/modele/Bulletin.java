@@ -25,6 +25,10 @@ public class Bulletin {
         this.Appreciation = Appreciation;
     }
     
+    public String ajouterBDD(){
+        return "INSERT INTO Bulletin VALUES("+this.id+",'"+this.idTrimestre+"',"+this.idInscription+",'"+this.Appreciation+"')";
+    }
+    
     public int getId() {
         return id;
     }

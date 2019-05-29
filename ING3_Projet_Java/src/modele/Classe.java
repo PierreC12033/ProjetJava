@@ -27,6 +27,10 @@ public class Classe {
         this.idAnneeScolaire = idAnneeScolaire;
     }
     
+    public String ajouterBDD(){
+        return "INSERT INTO Classe VALUES("+this.id+",'"+this.Nom+"',"+this.idEcole+","+this.idNiveau+","+this.idAnneeScolaire+")";
+    }
+    
     public int getId() {
         return id;
     }

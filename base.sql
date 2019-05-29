@@ -80,7 +80,7 @@ CREATE TABLE Enseignement(
     FOREIGN KEY (IdPersonne) REFERENCES Personne(Id)
 );
 
-CREATE TABLE Insciption(
+CREATE TABLE Inscription(
     Id int(8) NOT NULL PRIMARY KEY,
     IdClasse int(8) NOT NULL,
     IdPersonne int(8) NOT NULL,
@@ -96,7 +96,7 @@ CREATE TABLE Bulletin(
     Appreciation varchar(255) NOT NULL,
     
     FOREIGN KEY (IdTrimestre) REFERENCES Trimestre(Id),
-    FOREIGN KEY (IdInscription) REFERENCES Insciption(Id)
+    FOREIGN KEY (IdInscription) REFERENCES Inscription(Id)
 );
 
 CREATE TABLE DetailBulletin(

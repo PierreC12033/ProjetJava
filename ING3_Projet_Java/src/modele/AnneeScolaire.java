@@ -23,6 +23,10 @@ public class AnneeScolaire {
         this.AnneeFin = AnneeFin;
     }
     
+    public String ajouterBDD(){
+        return "INSERT INTO AnneeScolaire VALUES("+this.id+",'"+this.AnneeDebut+"',"+this.AnneeFin+")";
+    }
+    
     public int getId() {
         return id;
     }

@@ -23,6 +23,11 @@ public class Ecole {
         id=num;
         nom=name;        
     }
+    
+    public String ajouterBDD(){
+        return "INSERT INTO Ecole VALUES("+this.id+",'"+this.nom+"')";
+    }
+    
     public int getId()
     {
         return id;

@@ -27,6 +27,10 @@ public class Personne {
         prenom=firstname;
         type=type_personne;
     }
+    
+    public String ajouterBDD(){
+        return "INSERT INTO Personne VALUES("+this.id+",'"+this.nom+"','"+this.prenom+"',"+this.type+")";
+    }
 
     public int getId() {
         return id;

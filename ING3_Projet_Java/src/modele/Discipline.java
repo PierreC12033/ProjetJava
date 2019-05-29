@@ -20,6 +20,10 @@ public class Discipline {
         this.id = id;
         this.Nom = Nom;
     }
+    
+    public String ajouterBDD(){
+        return "INSERT INTO Discipline VALUES("+this.id+",'"+this.Nom+"')";
+    }
 
     public int getId() {
         return id;

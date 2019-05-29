@@ -32,6 +32,15 @@ public class Trimestre {
         this.idAnneeScolaire = idAnneeScolaire;
     }
     
+    public String ajouterBDD(){
+        Date deb= getDebut();
+        String datedeb= deb.getAnnee()+"/"+deb.getMois()+"/"+deb.getJour();
+        Date fin= getFin();
+        String datefin= fin.getAnnee()+"/"+fin.getMois()+"/"+fin.getJour();
+        
+        return "INSERT INTO Trimestre VALUES("+this.id+","+this.Numero+",'"+datefin+"','"+datefin+"',"+this.idAnneeScolaire+")";
+    }
+    
     public int getId() {
         return id;
     }

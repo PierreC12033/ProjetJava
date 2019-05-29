@@ -23,7 +23,14 @@ public class Inscription {
         this.idPersonne = idPersonne;
     }
     
+    public String ajouterBDD(){
+        return "INSERT INTO Inscription VALUES("+this.id+","+this.idClasse+","+this.idPersonne+")";
+    }
     
+    @Override
+    public String toString(){
+        return "id : "+id+" | idClasse : "+idClasse+" | idPersonne : "+idPersonne;
+    }
     
     public int getId() {
         return id;

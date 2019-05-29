@@ -25,6 +25,10 @@ public class Evaluation {
         this.Appreciation = Appreciation;
     }
     
+    public String ajouterBDD(){
+        return "INSERT INTO Evaluation VALUES("+this.id+","+this.idDetailBulletin+","+this.Note+",'"+this.Appreciation+"')";
+    }
+    
     public int getId() {
         return id;
     }

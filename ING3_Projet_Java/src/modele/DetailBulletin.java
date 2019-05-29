@@ -25,6 +25,10 @@ public class DetailBulletin {
         this.Appreciation = Appreciation;
     }
     
+    public String ajouterBDD(){
+        return "INSERT INTO DetailBulletin VALUES("+this.id+","+this.idBulletin+","+this.idEnseignement+",'"+this.Appreciation+"')";
+    }
+    
     public int getId() {
         return id;
     }
