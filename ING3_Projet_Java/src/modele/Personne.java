@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author tomjo
@@ -27,9 +30,29 @@ public class Personne {
         prenom=firstname;
         type=type_personne;
     }
+
+    @Override
+    public String toString() {
+        if(type){
+            return "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", type=Professeur";
+        }else{
+            return "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", type=Eleve";
+        }
+    }
     
     public String ajouterBDD(){
         return "INSERT INTO Personne VALUES("+this.id+",'"+this.nom+"','"+this.prenom+"',"+this.type+")";
+    }
+    
+    public Personne recupererInfo(ResultSet r){ 
+        Personne a = null;
+        try{
+            a=new Personne(r.getInt(1), r.getString(2), r.getString(3), r.getBoolean(4));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
 
     public int getId() {

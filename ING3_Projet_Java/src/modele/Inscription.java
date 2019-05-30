@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -23,13 +26,24 @@ public class Inscription {
         this.idPersonne = idPersonne;
     }
     
+    @Override
+    public String toString(){
+        return "id : "+id+" | idClasse : "+idClasse+" | idPersonne : "+idPersonne;
+    }
+    
     public String ajouterBDD(){
         return "INSERT INTO Inscription VALUES("+this.id+","+this.idClasse+","+this.idPersonne+")";
     }
     
-    @Override
-    public String toString(){
-        return "id : "+id+" | idClasse : "+idClasse+" | idPersonne : "+idPersonne;
+    public Inscription recupererInfo(ResultSet r){ 
+        Inscription a = null;
+        try{
+            a=new Inscription(r.getInt(1), r.getInt(2), r.getInt(3));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {

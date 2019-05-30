@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -25,6 +28,22 @@ public class AnneeScolaire {
     
     public String ajouterBDD(){
         return "INSERT INTO AnneeScolaire VALUES("+this.id+",'"+this.AnneeDebut+"',"+this.AnneeFin+")";
+    }
+    
+    @Override
+    public String toString(){
+        return "Id : "+this.id+" | Annee : "+this.AnneeDebut+" - "+this.AnneeFin;
+    }
+    
+    public AnneeScolaire recupererInfo(ResultSet r){ 
+        AnneeScolaire a = null;
+        try{
+            a=new AnneeScolaire(r.getInt(1), r.getInt(2), r.getInt(3));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {

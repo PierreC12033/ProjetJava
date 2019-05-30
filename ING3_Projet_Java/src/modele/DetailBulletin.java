@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -24,9 +27,25 @@ public class DetailBulletin {
         this.idEnseignement = idEnseignement;
         this.Appreciation = Appreciation;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", idBulletin=" + idBulletin + ", idEnseignement=" + idEnseignement + ", Appreciation=" + Appreciation;
+    }
     
     public String ajouterBDD(){
         return "INSERT INTO DetailBulletin VALUES("+this.id+","+this.idBulletin+","+this.idEnseignement+",'"+this.Appreciation+"')";
+    }
+    
+    public DetailBulletin recupererInfo(ResultSet r){ 
+        DetailBulletin a = null;
+        try{
+            a=new DetailBulletin(r.getInt(1), r.getInt(2), r.getInt(3), r.getString(4));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {

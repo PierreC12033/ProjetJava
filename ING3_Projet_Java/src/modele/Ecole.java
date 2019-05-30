@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author tomjo
@@ -23,9 +26,25 @@ public class Ecole {
         id=num;
         nom=name;        
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", nom=" + nom;
+    }
     
     public String ajouterBDD(){
         return "INSERT INTO Ecole VALUES("+this.id+",'"+this.nom+"')";
+    }
+    
+    public Ecole recupererInfo(ResultSet r){ 
+        Ecole a = null;
+        try{
+            a=new Ecole(r.getInt(1), r.getString(2));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId()

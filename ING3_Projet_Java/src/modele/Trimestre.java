@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -31,6 +34,11 @@ public class Trimestre {
         this.Fin = Fin;
         this.idAnneeScolaire = idAnneeScolaire;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", Numero=" + Numero + ", Debut=" + Debut + ", Fin=" + Fin + ", idAnneeScolaire=" + idAnneeScolaire;
+    }
     
     public String ajouterBDD(){
         Date deb= getDebut();
@@ -39,6 +47,23 @@ public class Trimestre {
         String datefin= fin.getAnnee()+"/"+fin.getMois()+"/"+fin.getJour();
         
         return "INSERT INTO Trimestre VALUES("+this.id+","+this.Numero+",'"+datefin+"','"+datefin+"',"+this.idAnneeScolaire+")";
+    }
+    
+    public Trimestre recupererInfo(ResultSet r){ 
+        Trimestre a = null;
+        
+        try{
+            String myDateStr1 = r.getString("Debut"); 
+            Date myDateDebut = new Date(myDateStr1);
+            String myDateStr2 = r.getString("Fin"); 
+            Date myDateFin = new Date(myDateStr2);
+            
+            a=new Trimestre(r.getInt(1), r.getInt(2), myDateDebut, myDateFin ,r.getInt(5));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {

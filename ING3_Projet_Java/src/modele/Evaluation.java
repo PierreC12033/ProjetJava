@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -24,9 +27,25 @@ public class Evaluation {
         this.Note = Note;
         this.Appreciation = Appreciation;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", idDetailBulletin=" + idDetailBulletin + ", Note=" + Note + ", Appreciation=" + Appreciation;
+    }
     
     public String ajouterBDD(){
         return "INSERT INTO Evaluation VALUES("+this.id+","+this.idDetailBulletin+","+this.Note+",'"+this.Appreciation+"')";
+    }
+    
+    public Evaluation recupererInfo(ResultSet r){ 
+        Evaluation a = null;
+        try{
+            a=new Evaluation(r.getInt(1), r.getInt(2), r.getInt(3), r.getString(4));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {

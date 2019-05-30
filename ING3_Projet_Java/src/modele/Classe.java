@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -26,9 +29,25 @@ public class Classe {
         this.idNiveau = idNiveau;
         this.idAnneeScolaire = idAnneeScolaire;
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", Nom=" + Nom + ", idEcole=" + idEcole + ", idNiveau=" + idNiveau + ", idAnneeScolaire=" + idAnneeScolaire;
+    }
     
     public String ajouterBDD(){
         return "INSERT INTO Classe VALUES("+this.id+",'"+this.Nom+"',"+this.idEcole+","+this.idNiveau+","+this.idAnneeScolaire+")";
+    }
+    
+    public Classe recupererInfo(ResultSet r){ 
+        Classe a = null;
+        try{
+            a=new Classe(r.getInt(1), r.getString(2), r.getInt(3), r.getInt(4), r.getInt(5));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {
