@@ -1,3 +1,5 @@
+CREATE DATABASE ecole;
+USE ecole;
 CREATE TABLE Ecole(
     Id int(8) NOT NULL PRIMARY KEY,
     Nom varchar(255) NOT NULL
