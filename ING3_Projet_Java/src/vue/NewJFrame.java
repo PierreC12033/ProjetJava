@@ -5,6 +5,8 @@
  */
 package vue;
 
+import javafx.scene.paint.Color;
+
 /**
  *
  * @author tomjo
@@ -16,6 +18,32 @@ public class NewJFrame extends javax.swing.JFrame {
      */
     public NewJFrame() {
         initComponents();
+        Rechercher.setForeground(new java.awt.Color(0, 0, 0));
+        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
+        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
+        Modifier.setForeground(new java.awt.Color(255, 255, 255));
+        Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        recherchePanel.setVisible(true);
+        ajoutPanel.setVisible(false);
+        supprimerPanel.setVisible(false);
+        modifierPanel.setVisible(false);
+        deconnexionPanel.setVisible(false);
+        eleve.setForeground(new java.awt.Color(0, 0, 0));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de l'élève recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");
+
     }
 
     /**
@@ -38,21 +66,41 @@ public class NewJFrame extends javax.swing.JFrame {
         Rechercher = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         annee = new javax.swing.JButton();
-        Eleve = new javax.swing.JButton();
-        Enseignant = new javax.swing.JButton();
-        Inscription = new javax.swing.JButton();
-        Classe = new javax.swing.JButton();
-        Niveau = new javax.swing.JButton();
+        eleve = new javax.swing.JButton();
+        enseignant = new javax.swing.JButton();
+        inscription = new javax.swing.JButton();
+        classe = new javax.swing.JButton();
+        niveau = new javax.swing.JButton();
         bulletin = new javax.swing.JButton();
         enseignement = new javax.swing.JButton();
         discipline = new javax.swing.JButton();
         bulletindetail = new javax.swing.JButton();
         evaluation = new javax.swing.JButton();
         trimestre = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel4 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        recherchePanel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        bddListe = new javax.swing.JList<>();
+        resultatLabel = new javax.swing.JLabel();
+        rechercheLabel = new javax.swing.JLabel();
+        rechercheField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        ajoutPanel = new javax.swing.JPanel();
+        ajouterButton = new javax.swing.JButton();
+        erreurLabel = new javax.swing.JLabel();
+        ajout5Label = new javax.swing.JLabel();
+        ajout1Label = new javax.swing.JLabel();
+        ajout2Label = new javax.swing.JLabel();
+        ajout3Label = new javax.swing.JLabel();
+        ajout4Label = new javax.swing.JLabel();
+        ajout3Field = new javax.swing.JTextField();
+        ajout1Field = new javax.swing.JTextField();
+        ajout2Field = new javax.swing.JTextField();
+        ajout5Field = new javax.swing.JTextField();
+        ajout4Field = new javax.swing.JTextField();
+        supprimerPanel = new javax.swing.JPanel();
+        modifierPanel = new javax.swing.JPanel();
+        deconnexionPanel = new javax.swing.JPanel();
 
         jMenu9.setText("Eleve");
         jMenuBar2.add(jMenu9);
@@ -67,23 +115,48 @@ public class NewJFrame extends javax.swing.JFrame {
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setText("Ajouter");
         Ajouter.setContentAreaFilled(false);
+        Ajouter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AjouterActionPerformed(evt);
+            }
+        });
 
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Supprimer.setText("Supprimer");
         Supprimer.setContentAreaFilled(false);
+        Supprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SupprimerActionPerformed(evt);
+            }
+        });
 
         Modifier.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setText("Modifier");
         Modifier.setContentAreaFilled(false);
+        Modifier.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifierActionPerformed(evt);
+            }
+        });
 
         Deconnexion.setBackground(new java.awt.Color(102, 102, 255));
         Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
         Deconnexion.setText("Déconnexion");
         Deconnexion.setContentAreaFilled(false);
+        Deconnexion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeconnexionActionPerformed(evt);
+            }
+        });
 
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Rechercher.setText("Rechercher");
         Rechercher.setContentAreaFilled(false);
+        Rechercher.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RechercherActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -103,7 +176,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(67, 67, 67)
                     .addComponent(Rechercher)
-                    .addContainerGap(1720, Short.MAX_VALUE)))
+                    .addContainerGap(1797, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,55 +195,115 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
-        jPanel3.setBackground(new java.awt.Color(51, 51, 255));
+        jPanel3.setBackground(new java.awt.Color(51, 181, 255));
 
         annee.setForeground(new java.awt.Color(255, 255, 255));
         annee.setText("Année scolaire");
         annee.setContentAreaFilled(false);
+        annee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                anneeActionPerformed(evt);
+            }
+        });
 
-        Eleve.setForeground(new java.awt.Color(255, 255, 255));
-        Eleve.setText("Eleve");
-        Eleve.setContentAreaFilled(false);
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        eleve.setText("Eleve");
+        eleve.setContentAreaFilled(false);
+        eleve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eleveActionPerformed(evt);
+            }
+        });
 
-        Enseignant.setForeground(new java.awt.Color(255, 255, 255));
-        Enseignant.setText("Enseignant");
-        Enseignant.setContentAreaFilled(false);
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setText("Enseignant");
+        enseignant.setContentAreaFilled(false);
+        enseignant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enseignantActionPerformed(evt);
+            }
+        });
 
-        Inscription.setForeground(new java.awt.Color(255, 255, 255));
-        Inscription.setText("Inscription");
-        Inscription.setContentAreaFilled(false);
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setText("Inscription");
+        inscription.setContentAreaFilled(false);
+        inscription.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inscriptionActionPerformed(evt);
+            }
+        });
 
-        Classe.setForeground(new java.awt.Color(255, 255, 255));
-        Classe.setText("Classe");
-        Classe.setContentAreaFilled(false);
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setText("Classe");
+        classe.setContentAreaFilled(false);
+        classe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                classeActionPerformed(evt);
+            }
+        });
 
-        Niveau.setForeground(new java.awt.Color(255, 255, 255));
-        Niveau.setText("Niveau");
-        Niveau.setContentAreaFilled(false);
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setText("Niveau");
+        niveau.setContentAreaFilled(false);
+        niveau.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                niveauActionPerformed(evt);
+            }
+        });
 
         bulletin.setForeground(new java.awt.Color(255, 255, 255));
         bulletin.setText("Bulletin");
         bulletin.setContentAreaFilled(false);
+        bulletin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bulletinActionPerformed(evt);
+            }
+        });
 
         enseignement.setForeground(new java.awt.Color(255, 255, 255));
         enseignement.setText("Enseignement");
         enseignement.setContentAreaFilled(false);
+        enseignement.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                enseignementActionPerformed(evt);
+            }
+        });
 
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         discipline.setText("Discipline");
         discipline.setContentAreaFilled(false);
+        discipline.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                disciplineActionPerformed(evt);
+            }
+        });
 
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setText("Bulletin détaillé");
         bulletindetail.setContentAreaFilled(false);
+        bulletindetail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bulletindetailActionPerformed(evt);
+            }
+        });
 
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setText("Evaluation");
         evaluation.setContentAreaFilled(false);
+        evaluation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                evaluationActionPerformed(evt);
+            }
+        });
 
         trimestre.setForeground(new java.awt.Color(255, 255, 255));
         trimestre.setText("Trimestre");
         trimestre.setContentAreaFilled(false);
+        trimestre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                trimestreActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -180,15 +313,15 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(68, 68, 68)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(Eleve)
+                        .addComponent(eleve)
                         .addGap(55, 55, 55)
-                        .addComponent(Enseignant)
+                        .addComponent(enseignant)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Inscription)
+                        .addComponent(inscription)
                         .addGap(42, 42, 42)
-                        .addComponent(Classe)
+                        .addComponent(classe)
                         .addGap(44, 44, 44)
-                        .addComponent(Niveau)
+                        .addComponent(niveau)
                         .addGap(39, 39, 39)
                         .addComponent(annee)
                         .addGap(42, 42, 42)
@@ -203,7 +336,7 @@ public class NewJFrame extends javax.swing.JFrame {
                         .addComponent(bulletindetail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(evaluation)))
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,12 +344,12 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Enseignant)
-                        .addComponent(Eleve))
+                        .addComponent(enseignant)
+                        .addComponent(eleve))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Inscription)
-                        .addComponent(Classe)
-                        .addComponent(Niveau)
+                        .addComponent(inscription)
+                        .addComponent(classe)
+                        .addComponent(niveau)
                         .addComponent(annee)
                         .addComponent(trimestre)
                         .addComponent(bulletin)
@@ -229,56 +362,280 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(26, 45, Short.MAX_VALUE))
         );
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        bddListe.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList2.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentMoved(java.awt.event.ComponentEvent evt) {
-                jList2ComponentMoved(evt);
+        jScrollPane3.setViewportView(bddListe);
+
+        resultatLabel.setText("Résultats :");
+
+        rechercheLabel.setText("Identifiant :");
+
+        jButton1.setText("Rechercher");
+
+        javax.swing.GroupLayout recherchePanelLayout = new javax.swing.GroupLayout(recherchePanel);
+        recherchePanel.setLayout(recherchePanelLayout);
+        recherchePanelLayout.setHorizontalGroup(
+            recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, recherchePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(resultatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 1850, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
+            .addGroup(recherchePanelLayout.createSequentialGroup()
+                .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(recherchePanelLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(recherchePanelLayout.createSequentialGroup()
+                                .addComponent(rechercheLabel)
+                                .addGap(89, 89, 89)
+                                .addComponent(rechercheField, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1850, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(recherchePanelLayout.createSequentialGroup()
+                        .addGap(794, 794, 794)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        recherchePanelLayout.setVerticalGroup(
+            recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recherchePanelLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rechercheLabel)
+                    .addComponent(rechercheField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(resultatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE))
+        );
+
+        ajouterButton.setText("Ajouter");
+
+        erreurLabel.setText("ERREUR");
+
+        ajout5Label.setText("ajout5 :");
+
+        ajout1Label.setText("ajout1 :");
+
+        ajout2Label.setText("ajout2 :");
+
+        ajout3Label.setText("ajout3 :");
+
+        ajout4Label.setText("ajout4 :");
+
+        ajout4Field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajout4FieldActionPerformed(evt);
             }
         });
-        jScrollPane2.setViewportView(jList2);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1556, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        javax.swing.GroupLayout ajoutPanelLayout = new javax.swing.GroupLayout(ajoutPanel);
+        ajoutPanel.setLayout(ajoutPanelLayout);
+        ajoutPanelLayout.setHorizontalGroup(
+            ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                        .addGap(756, 756, 756)
+                        .addComponent(ajouterButton))
+                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                        .addGap(191, 191, 191)
+                        .addComponent(erreurLabel))
+                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ajout1Label)
+                            .addComponent(ajout5Label))
+                        .addGap(87, 87, 87)
+                        .addComponent(ajout5Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1609, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(ajout3Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(83, 83, 83)
+                    .addComponent(ajout2Label)
+                    .addContainerGap(1771, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(78, 78, 78)
+                    .addComponent(ajout3Label)
+                    .addContainerGap(1776, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(77, 77, 77)
+                    .addComponent(ajout4Label)
+                    .addContainerGap(1777, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPanelLayout.createSequentialGroup()
+                    .addContainerGap(283, Short.MAX_VALUE)
+                    .addComponent(ajout1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(72, 72, 72)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPanelLayout.createSequentialGroup()
+                    .addContainerGap(290, Short.MAX_VALUE)
+                    .addComponent(ajout2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(65, 65, 65)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPanelLayout.createSequentialGroup()
+                    .addContainerGap(288, Short.MAX_VALUE)
+                    .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1609, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(67, 67, 67)))
         );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(79, 79, 79)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
+        ajoutPanelLayout.setVerticalGroup(
+            ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPanelLayout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(ajout1Label)
+                .addGap(143, 143, 143)
+                .addComponent(ajout3Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout5Label)
+                    .addComponent(ajout5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(137, 137, 137)
+                .addComponent(ajouterButton)
+                .addGap(51, 51, 51)
+                .addComponent(erreurLabel)
+                .addGap(23, 23, 23))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(134, 134, 134)
+                    .addComponent(ajout2Label)
+                    .addContainerGap(603, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(230, 230, 230)
+                    .addComponent(ajout3Label)
+                    .addContainerGap(507, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(327, 327, 327)
+                    .addComponent(ajout4Label)
+                    .addContainerGap(410, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(57, 57, 57)
+                    .addComponent(ajout1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(674, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(150, 150, 150)
+                    .addComponent(ajout2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(581, Short.MAX_VALUE)))
+            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                    .addGap(320, 320, 320)
+                    .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(411, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        javax.swing.GroupLayout supprimerPanelLayout = new javax.swing.GroupLayout(supprimerPanel);
+        supprimerPanel.setLayout(supprimerPanelLayout);
+        supprimerPanelLayout.setHorizontalGroup(
+            supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1964, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        supprimerPanelLayout.setVerticalGroup(
+            supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 776, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout modifierPanelLayout = new javax.swing.GroupLayout(modifierPanel);
+        modifierPanel.setLayout(modifierPanelLayout);
+        modifierPanelLayout.setHorizontalGroup(
+            modifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1964, Short.MAX_VALUE)
+        );
+        modifierPanelLayout.setVerticalGroup(
+            modifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 776, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout deconnexionPanelLayout = new javax.swing.GroupLayout(deconnexionPanel);
+        deconnexionPanel.setLayout(deconnexionPanelLayout);
+        deconnexionPanelLayout.setHorizontalGroup(
+            deconnexionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1955, Short.MAX_VALUE)
+        );
+        deconnexionPanelLayout.setVerticalGroup(
+            deconnexionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 776, Short.MAX_VALUE)
+        );
+
+        jLayeredPane1.setLayer(recherchePanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(ajoutPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(supprimerPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(modifierPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(deconnexionPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1995, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ajoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(supprimerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(modifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addGap(0, 40, Short.MAX_VALUE)
+                    .addComponent(deconnexionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 809, Short.MAX_VALUE)
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ajoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(supprimerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(modifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(deconnexionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,16 +644,303 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addGap(1, 1, 1)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jList2ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jList2ComponentMoved
+    private void ajout4FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout4FieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jList2ComponentMoved
+    }//GEN-LAST:event_ajout4FieldActionPerformed
+
+    private void RechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RechercherActionPerformed
+        Rechercher.setForeground(new java.awt.Color(0, 0, 0));
+        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
+        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
+        Modifier.setForeground(new java.awt.Color(255, 255, 255));
+        Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        recherchePanel.setVisible(true);
+        ajoutPanel.setVisible(false);
+        supprimerPanel.setVisible(false);
+        modifierPanel.setVisible(false);
+        deconnexionPanel.setVisible(false);
+        resultatLabel.setText("");
+        erreurLabel.setText("");
+// TODO add your handling code here:
+    }//GEN-LAST:event_RechercherActionPerformed
+
+    private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
+        Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+        Ajouter.setForeground(new java.awt.Color(0, 0, 0));
+        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
+        Modifier.setForeground(new java.awt.Color(255, 255, 255));
+        Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        recherchePanel.setVisible(false);
+        ajoutPanel.setVisible(true);
+        supprimerPanel.setVisible(false);
+        modifierPanel.setVisible(false);
+        deconnexionPanel.setVisible(false); // TODO add your handling code here:
+    }//GEN-LAST:event_AjouterActionPerformed
+
+    private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
+        Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
+        Supprimer.setForeground(new java.awt.Color(0, 0, 0));
+        Modifier.setForeground(new java.awt.Color(255, 255, 255));
+        Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        recherchePanel.setVisible(false);
+        ajoutPanel.setVisible(false);
+        supprimerPanel.setVisible(true);
+        modifierPanel.setVisible(false);
+        deconnexionPanel.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_SupprimerActionPerformed
+
+    private void ModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierActionPerformed
+        Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
+        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
+        Modifier.setForeground(new java.awt.Color(0, 0, 0));
+        Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        recherchePanel.setVisible(false);
+        ajoutPanel.setVisible(false);
+        supprimerPanel.setVisible(false);
+        modifierPanel.setVisible(true);
+        deconnexionPanel.setVisible(false);// TODO add your handling code here:
+    }//GEN-LAST:event_ModifierActionPerformed
+
+    private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
+        Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
+        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
+        Modifier.setForeground(new java.awt.Color(255, 255, 255));
+        Deconnexion.setForeground(new java.awt.Color(0, 0, 0));
+        recherchePanel.setVisible(false);
+        ajoutPanel.setVisible(false);
+        supprimerPanel.setVisible(false);
+        modifierPanel.setVisible(false);
+        deconnexionPanel.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DeconnexionActionPerformed
+
+    private void eleveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleveActionPerformed
+        eleve.setForeground(new java.awt.Color(0, 0, 0));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de l'élève recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_eleveActionPerformed
+
+    private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(0, 0, 0));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de l'enseignant recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");        // TODO add your handling code here:
+    }//GEN-LAST:event_enseignantActionPerformed
+
+    private void inscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscriptionActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(0, 0, 0));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de l'inscription recherchée : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_inscriptionActionPerformed
+
+    private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(0, 0, 0));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de la classe recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_classeActionPerformed
+
+    private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(0, 0, 0));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé du niveau recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");
+// TODO add your handling code here:
+    }//GEN-LAST:event_niveauActionPerformed
+
+    private void anneeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anneeActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(0, 0, 0));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de l'année recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_anneeActionPerformed
+
+    private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trimestreActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(0, 0, 0));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé du trimestre recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_trimestreActionPerformed
+
+    private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(0, 0, 0));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé du bulletin recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_bulletinActionPerformed
+
+    private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(0, 0, 0));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de l'enseignement recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_enseignementActionPerformed
+
+    private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(0, 0, 0));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé de la discipline recherchée : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_disciplineActionPerformed
+
+    private void bulletindetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletindetailActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(0, 0, 0));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        rechercheLabel.setText("Clé du bulletin détaillé recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");// TODO add your handling code here:
+    }//GEN-LAST:event_bulletindetailActionPerformed
+
+    private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
+        eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(0, 0, 0));
+        rechercheLabel.setText("Clé de l'évaluation recherché : ");
+        resultatLabel.setText("");
+        erreurLabel.setText("");
+// TODO add your handling code here:
+    }//GEN-LAST:event_evaluationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -335,30 +979,50 @@ public class NewJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajouter;
-    private javax.swing.JButton Classe;
     private javax.swing.JButton Deconnexion;
-    private javax.swing.JButton Eleve;
-    private javax.swing.JButton Enseignant;
-    private javax.swing.JButton Inscription;
     private javax.swing.JButton Modifier;
-    private javax.swing.JButton Niveau;
     private javax.swing.JButton Rechercher;
     private javax.swing.JButton Supprimer;
+    private javax.swing.JTextField ajout1Field;
+    private javax.swing.JLabel ajout1Label;
+    private javax.swing.JTextField ajout2Field;
+    private javax.swing.JLabel ajout2Label;
+    private javax.swing.JTextField ajout3Field;
+    private javax.swing.JLabel ajout3Label;
+    private javax.swing.JTextField ajout4Field;
+    private javax.swing.JLabel ajout4Label;
+    private javax.swing.JTextField ajout5Field;
+    private javax.swing.JLabel ajout5Label;
+    private javax.swing.JPanel ajoutPanel;
+    private javax.swing.JButton ajouterButton;
     private javax.swing.JButton annee;
+    private javax.swing.JList<String> bddListe;
     private javax.swing.JButton bulletin;
     private javax.swing.JButton bulletindetail;
+    private javax.swing.JButton classe;
+    private javax.swing.JPanel deconnexionPanel;
     private javax.swing.JButton discipline;
+    private javax.swing.JButton eleve;
+    private javax.swing.JButton enseignant;
     private javax.swing.JButton enseignement;
+    private javax.swing.JLabel erreurLabel;
     private javax.swing.JButton evaluation;
-    private javax.swing.JList<String> jList2;
+    private javax.swing.JButton inscription;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JPanel modifierPanel;
+    private javax.swing.JButton niveau;
+    private javax.swing.JTextField rechercheField;
+    private javax.swing.JLabel rechercheLabel;
+    private javax.swing.JPanel recherchePanel;
+    private javax.swing.JLabel resultatLabel;
+    private javax.swing.JPanel supprimerPanel;
     private javax.swing.JButton trimestre;
     // End of variables declaration//GEN-END:variables
 }
