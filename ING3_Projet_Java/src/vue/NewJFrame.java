@@ -27,123 +27,276 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu9 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jPanel2 = new javax.swing.JPanel();
+        Ajouter = new javax.swing.JButton();
+        Supprimer = new javax.swing.JButton();
+        Modifier = new javax.swing.JButton();
+        Deconnexion = new javax.swing.JButton();
+        Rechercher = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        annee = new javax.swing.JButton();
+        Eleve = new javax.swing.JButton();
+        Enseignant = new javax.swing.JButton();
+        Inscription = new javax.swing.JButton();
+        Classe = new javax.swing.JButton();
+        Niveau = new javax.swing.JButton();
+        bulletin = new javax.swing.JButton();
+        enseignement = new javax.swing.JButton();
+        discipline = new javax.swing.JButton();
+        bulletindetail = new javax.swing.JButton();
+        evaluation = new javax.swing.JButton();
+        trimestre = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList2 = new javax.swing.JList<>();
 
-        jButton1.setText("jButton1");
+        jMenu9.setText("Eleve");
+        jMenuBar2.add(jMenu9);
 
-        jButton3.setText("jButton2");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-
-        jMenu3.setText("jMenu3");
-
-        jMenuItem1.setText("jMenuItem1");
-
-        jMenu6.setText("jMenu6");
-
-        jMenuItem5.setText("jMenuItem5");
+        jMenu10.setText("Professeur");
+        jMenuBar2.add(jMenu10);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton4.setText("Quitter");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
-        jButton5.setText("Recherche");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
+        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
+        Ajouter.setText("Ajouter");
+        Ajouter.setContentAreaFilled(false);
 
-        jButton6.setText("Mise à jour");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
+        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
+        Supprimer.setText("Supprimer");
+        Supprimer.setContentAreaFilled(false);
 
-        jButton7.setText("Reporting");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+        Modifier.setForeground(new java.awt.Color(255, 255, 255));
+        Modifier.setText("Modifier");
+        Modifier.setContentAreaFilled(false);
+
+        Deconnexion.setBackground(new java.awt.Color(102, 102, 255));
+        Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        Deconnexion.setText("Déconnexion");
+        Deconnexion.setContentAreaFilled(false);
+
+        Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+        Rechercher.setText("Rechercher");
+        Rechercher.setContentAreaFilled(false);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(362, 362, 362)
+                .addComponent(Ajouter)
+                .addGap(95, 95, 95)
+                .addComponent(Supprimer)
+                .addGap(97, 97, 97)
+                .addComponent(Modifier)
+                .addGap(64, 64, 64)
+                .addComponent(Deconnexion)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(67, 67, 67)
+                    .addComponent(Rechercher)
+                    .addContainerGap(1720, Short.MAX_VALUE)))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Ajouter)
+                    .addComponent(Supprimer)
+                    .addComponent(Modifier)
+                    .addComponent(Deconnexion))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel2Layout.createSequentialGroup()
+                    .addGap(23, 23, 23)
+                    .addComponent(Rechercher)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        jPanel3.setBackground(new java.awt.Color(51, 51, 255));
+
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setText("Année scolaire");
+        annee.setContentAreaFilled(false);
+
+        Eleve.setForeground(new java.awt.Color(255, 255, 255));
+        Eleve.setText("Eleve");
+        Eleve.setContentAreaFilled(false);
+
+        Enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        Enseignant.setText("Enseignant");
+        Enseignant.setContentAreaFilled(false);
+
+        Inscription.setForeground(new java.awt.Color(255, 255, 255));
+        Inscription.setText("Inscription");
+        Inscription.setContentAreaFilled(false);
+
+        Classe.setForeground(new java.awt.Color(255, 255, 255));
+        Classe.setText("Classe");
+        Classe.setContentAreaFilled(false);
+
+        Niveau.setForeground(new java.awt.Color(255, 255, 255));
+        Niveau.setText("Niveau");
+        Niveau.setContentAreaFilled(false);
+
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setText("Bulletin");
+        bulletin.setContentAreaFilled(false);
+
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setText("Enseignement");
+        enseignement.setContentAreaFilled(false);
+
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setText("Discipline");
+        discipline.setContentAreaFilled(false);
+
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setText("Bulletin détaillé");
+        bulletindetail.setContentAreaFilled(false);
+
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setText("Evaluation");
+        evaluation.setContentAreaFilled(false);
+
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setText("Trimestre");
+        trimestre.setContentAreaFilled(false);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(Eleve)
+                        .addGap(55, 55, 55)
+                        .addComponent(Enseignant)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Inscription)
+                        .addGap(42, 42, 42)
+                        .addComponent(Classe)
+                        .addGap(44, 44, 44)
+                        .addComponent(Niveau)
+                        .addGap(39, 39, 39)
+                        .addComponent(annee)
+                        .addGap(42, 42, 42)
+                        .addComponent(trimestre)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bulletin)
+                        .addGap(44, 44, 44)
+                        .addComponent(enseignement))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(discipline)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(bulletindetail)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(evaluation)))
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Enseignant)
+                        .addComponent(Eleve))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Inscription)
+                        .addComponent(Classe)
+                        .addComponent(Niveau)
+                        .addComponent(annee)
+                        .addComponent(trimestre)
+                        .addComponent(bulletin)
+                        .addComponent(enseignement)))
+                .addGap(47, 47, 47)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(discipline)
+                    .addComponent(bulletindetail)
+                    .addComponent(evaluation))
+                .addGap(26, 45, Short.MAX_VALUE))
+        );
+
+        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jList2.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                jList2ComponentMoved(evt);
             }
         });
+        jScrollPane2.setViewportView(jList2);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(99, 99, 99)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 1556, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 596, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 1192, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void jList2ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jList2ComponentMoved
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_jList2ComponentMoved
 
     /**
      * @param args the command line arguments
@@ -181,16 +334,31 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JButton Ajouter;
+    private javax.swing.JButton Classe;
+    private javax.swing.JButton Deconnexion;
+    private javax.swing.JButton Eleve;
+    private javax.swing.JButton Enseignant;
+    private javax.swing.JButton Inscription;
+    private javax.swing.JButton Modifier;
+    private javax.swing.JButton Niveau;
+    private javax.swing.JButton Rechercher;
+    private javax.swing.JButton Supprimer;
+    private javax.swing.JButton annee;
+    private javax.swing.JButton bulletin;
+    private javax.swing.JButton bulletindetail;
+    private javax.swing.JButton discipline;
+    private javax.swing.JButton enseignement;
+    private javax.swing.JButton evaluation;
+    private javax.swing.JList<String> jList2;
+    private javax.swing.JMenu jMenu10;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JButton trimestre;
     // End of variables declaration//GEN-END:variables
 }
