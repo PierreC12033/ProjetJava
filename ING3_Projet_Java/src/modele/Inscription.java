@@ -35,6 +35,11 @@ public class Inscription {
         return "INSERT INTO Inscription VALUES("+this.id+","+this.idClasse+","+this.idPersonne+")";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Inscription SET IdClasse = "+this.idClasse+", IdPersonne = "+this.idPersonne+
+                " WHERE Id = "+this.id;
+    }
+    
     public Inscription recupererInfo(ResultSet r){ 
         Inscription a = null;
         try{

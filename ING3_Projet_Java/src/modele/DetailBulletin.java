@@ -37,6 +37,11 @@ public class DetailBulletin {
         return "INSERT INTO DetailBulletin VALUES("+this.id+","+this.idBulletin+","+this.idEnseignement+",'"+this.Appreciation+"')";
     }
     
+    public String modifierBDD(){
+        return "UPDATE DetailBulletin SET Appreciation = \""+this.Appreciation+"\", IdBulletin = "+this.idBulletin+
+                ", IdEnseignement = "+this.idEnseignement+" WHERE Id = "+this.id;
+    }
+    
     public DetailBulletin recupererInfo(ResultSet r){ 
         DetailBulletin a = null;
         try{

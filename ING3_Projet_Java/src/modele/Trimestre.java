@@ -46,7 +46,17 @@ public class Trimestre {
         Date fin= getFin();
         String datefin= fin.getAnnee()+"/"+fin.getMois()+"/"+fin.getJour();
         
-        return "INSERT INTO Trimestre VALUES("+this.id+","+this.Numero+",'"+datefin+"','"+datefin+"',"+this.idAnneeScolaire+")";
+        return "INSERT INTO Trimestre VALUES("+this.id+","+this.Numero+",'"+datedeb+"','"+datefin+"',"+this.idAnneeScolaire+")";
+    }
+    
+    public String modifierBDD(){
+        Date deb= getDebut();
+        String datedeb= deb.getAnnee()+"-"+deb.getMois()+"-"+deb.getJour();
+        Date fin= getFin();
+        String datefin= fin.getAnnee()+"-"+fin.getMois()+"-"+fin.getJour();
+        
+        return "UPDATE Trimestre SET Numero = "+this.Numero+", Debut = '"+datedeb+"', Fin = '"+datefin
+                + "', IdAnneeScolaire = "+this.idAnneeScolaire+" WHERE Id = "+this.id;
     }
     
     public Trimestre recupererInfo(ResultSet r){ 

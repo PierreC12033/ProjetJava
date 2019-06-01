@@ -30,6 +30,11 @@ public class AnneeScolaire {
         return "INSERT INTO AnneeScolaire VALUES("+this.id+",'"+this.AnneeDebut+"',"+this.AnneeFin+")";
     }
     
+    public String modifierBDD(){
+        return "UPDATE AnneeScolaire SET AnneeDebut = "+this.AnneeDebut+", AnneeFin = "+this.AnneeFin+" WHERE Id = "
+                +this.id;
+    }
+    
     @Override
     public String toString(){
         return "Id : "+this.id+" | Annee : "+this.AnneeDebut+" - "+this.AnneeFin;

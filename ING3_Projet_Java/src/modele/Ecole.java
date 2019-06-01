@@ -36,6 +36,10 @@ public class Ecole {
         return "INSERT INTO Ecole VALUES("+this.id+",'"+this.nom+"')";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Ecole SET Nom = \""+this.nom+"\" WHERE Id = "+this.id;
+    }
+    
     public Ecole recupererInfo(ResultSet r){ 
         Ecole a = null;
         try{

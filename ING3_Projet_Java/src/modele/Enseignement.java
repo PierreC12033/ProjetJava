@@ -37,6 +37,11 @@ public class Enseignement {
         return "INSERT INTO Enseignement VALUES("+this.id+","+this.idClasse+","+this.idDiscipline+","+this.idPersonne+")";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Enseignement SET IdClasse = "+this.idClasse+", IdDiscipline = "+this.idDiscipline+
+                ", IdPersonne = "+this.idPersonne+" WHERE Id = "+this.id;
+    }
+    
     public Enseignement recupererInfo(ResultSet r){ 
         Enseignement a = null;
         try{

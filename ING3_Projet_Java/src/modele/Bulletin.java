@@ -38,6 +38,11 @@ public class Bulletin {
         return "INSERT INTO Bulletin VALUES("+this.id+",'"+this.idTrimestre+"',"+this.idInscription+",'"+this.Appreciation+"')";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Bulletin SET IdTrimestre = "+this.idTrimestre+", IdInscription = "+
+                this.idInscription+", Appreciation = \""+this.Appreciation+"\" WHERE Id = "+this.id;
+    }
+    
     public Bulletin recupererInfo(ResultSet r){ 
         Bulletin a = null;
         try{

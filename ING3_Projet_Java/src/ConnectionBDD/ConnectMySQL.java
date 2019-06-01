@@ -6,11 +6,7 @@
 package ConnectionBDD;
 
 import java.sql.*;
-import static java.sql.Date.valueOf;
-import java.text.SimpleDateFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
-
 import modele.*;
 
 /**
@@ -31,26 +27,29 @@ public class ConnectMySQL {
 
         cnx = connecterDB();
 
-        AnneeScolaire a = new AnneeScolaire(701, 1990, 2010);
-        Bulletin b = new Bulletin(800, 1900, 1500, "Ok ijij");
-        Classe c = new Classe(900, "5B", 1200, 1600, 700);
-        DetailBulletin d = new DetailBulletin(1000, 800, 1300, "gggg");
-        Discipline dis = new Discipline(1100, "Maths");
-        Ecole ec = new Ecole(1200, "ECE");
+        AnneeScolaire a = new AnneeScolaire(700, 10, 20);
+        Bulletin b = new Bulletin(800, 1900, 1500, "ca modifié");
+        Classe c = new Classe(900, "99", 1200, 1600, 700);
+        DetailBulletin d = new DetailBulletin(1000, 800, 1300, "ololllll");
+        Discipline dis = new Discipline(1100, "Sport");
+        Ecole ec = new Ecole(1200, "Paris");
         Enseignement ens = new Enseignement(1300, 900, 1100, 1800);
-        Evaluation ev = new Evaluation(1400, 1000, 16, "woaah");
+        Evaluation ev = new Evaluation(1400, 1000, 16, "dddddddd");
         Inscription i = new Inscription(1500, 900, 1700);
         Niveau n = new Niveau(1600, "5eme");
-        Eleve e = new Eleve(1700, "Jack", "NJQ");
-        Enseignant ensg = new Enseignant(1800, "Hina", "Minolo");
-        modele.Date debut = new modele.Date(22, 02, 1990);
-        modele.Date fin = new modele.Date(30, 12, 2001);
-        Trimestre t = new Trimestre(1900, 1, debut, fin, 700);
+        Eleve e = new Eleve(1700, "CCC", "CCCC");
+        Enseignant ensg = new Enseignant(1800, "GGGGG", "GGGG");
+        
+        modele.Date debut = new modele.Date(01, 12, 1990);
+        modele.Date fin = new modele.Date(04, 01, 2200);
+        Trimestre t = new Trimestre(1900, 4, debut, fin, 700);
         
         System.out.println("Tous les elements on été créé ");
         
+        modifierParId(t.getId(), t);
+          /*
         AjouterP(a);
-        /*AjouterP(dis);
+        AjouterP(dis);
         AjouterP(ec);
         AjouterP(n);
         AjouterP(e);
@@ -64,9 +63,9 @@ public class ConnectMySQL {
         AjouterP(d); //Bulletin Enseignement
         AjouterP(ev); //DetailBulletin
         
-        SupprimerParID(1400, "Evaluation");
-        */
-        
+        //SupprimerParID(1400, "Evaluation");
+       
+      
         Object lllll = d;
         
         ArrayList<Object> k=new ArrayList<Object>();
@@ -74,7 +73,10 @@ public class ConnectMySQL {
         
         for (Object sublist : k) {
         System.out.println(sublist.toString());
-        }
+        } 
+        */
+        
+        
          
     }
 
@@ -85,11 +87,10 @@ public class ConnectMySQL {
             String url = "jdbc:mysql://localhost:8889/Ecole";
             String user = "root";
             String password = "root";
-            Connection cnx = DriverManager.getConnection(url, user, password);
+            cnx = DriverManager.getConnection(url, user, password);
             System.out.println("Connexion bien établié");
             return cnx;
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException | SQLException e) {
             return null;
         }
     }
@@ -147,8 +148,16 @@ public class ConnectMySQL {
                 query = ((Trimestre) o).ajouterBDD();
             }
 
+            String mdd = String.valueOf(o.getClass());
+        
+            String NomBDD= mdd.substring(13);
+
+            if(o instanceof Enseignant || o instanceof Eleve) {
+                NomBDD = "Personne";
+            }
+            
             st.executeUpdate(query);
-            System.out.println("Produit ajouté " + o.getClass());
+            System.out.println("Produit ajouté " + NomBDD);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -180,7 +189,7 @@ public class ConnectMySQL {
         
         String req = "SELECT * FROM " + NomBDD + " WHERE Id =?";
         System.out.println(req);
-        ArrayList<Object> temp = new ArrayList<Object>();
+        ArrayList<Object> temp = new ArrayList<>();
 
         //System.out.println(req);
         try {
@@ -256,5 +265,66 @@ public class ConnectMySQL {
         }
 
         return temp;
+    }
+    
+    public static void modifierParId(int id, Object o){
+         try {
+            st = cnx.createStatement();
+            String query = "";
+
+            if (o instanceof AnneeScolaire) {
+                query = ((AnneeScolaire) o).modifierBDD();
+            }
+
+            if (o instanceof Bulletin) {
+                query = ((Bulletin) o).modifierBDD();
+            }
+
+            if (o instanceof Classe) {
+                query = ((Classe) o).modifierBDD();
+            }
+
+            if (o instanceof DetailBulletin) {
+                query = ((DetailBulletin) o).modifierBDD();
+            }
+
+            if (o instanceof Discipline) {
+                query = ((Discipline) o).modifierBDD();
+            }
+
+            if (o instanceof Ecole) {
+                query = ((Ecole) o).modifierBDD();
+            }
+
+            if (o instanceof Personne) {
+                query = ((Personne) o).modifierBDD();
+            }
+
+            if (o instanceof Enseignement) {
+                query = ((Enseignement) o).modifierBDD();
+            }
+
+            if (o instanceof Evaluation) {
+                query = ((Evaluation) o).modifierBDD();
+            }
+
+            if (o instanceof Inscription) {
+                query = ((Inscription) o).modifierBDD();
+            }
+
+            if (o instanceof Niveau) {
+                query = ((Niveau) o).modifierBDD();
+            }
+
+            if (o instanceof Trimestre) {
+                query = ((Trimestre) o).modifierBDD();
+            }
+
+            st.executeUpdate(query);
+            System.out.println("Produit modifié " + o.getClass());
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

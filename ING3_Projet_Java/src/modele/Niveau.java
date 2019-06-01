@@ -36,6 +36,10 @@ public class Niveau {
         return "INSERT INTO Niveau VALUES("+this.id+",'"+this.nom+"')";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Niveau SET Nom = \""+this.nom+"\" WHERE Id = "+this.id;
+    }
+    
     public Niveau recupererInfo(ResultSet r){ 
         Niveau a = null;
         try{

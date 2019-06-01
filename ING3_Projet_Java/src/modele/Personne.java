@@ -44,6 +44,11 @@ public class Personne {
         return "INSERT INTO Personne VALUES("+this.id+",'"+this.nom+"','"+this.prenom+"',"+this.type+")";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Personne SET Nom = \""+this.nom+"\", Prenom = \""+this.prenom+"\", "
+                + "Type_P = "+this.type+" WHERE Id = "+this.id;
+    }
+    
     public Personne recupererInfo(ResultSet r){ 
         Personne a = null;
         try{

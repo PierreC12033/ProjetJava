@@ -37,6 +37,11 @@ public class Evaluation {
         return "INSERT INTO Evaluation VALUES("+this.id+","+this.idDetailBulletin+","+this.Note+",'"+this.Appreciation+"')";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Evaluation SET Appreciation = \""+this.Appreciation+"\", IdDetailBulletin = "
+                +this.idDetailBulletin+", Note = "+this.Note+" WHERE Id = "+this.id;
+    }
+    
     public Evaluation recupererInfo(ResultSet r){ 
         Evaluation a = null;
         try{

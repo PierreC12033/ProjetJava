@@ -33,6 +33,10 @@ public class Discipline {
         return "INSERT INTO Discipline VALUES("+this.id+",'"+this.Nom+"')";
     }
     
+    public String modifierBDD(){
+        return "UPDATE Discipline SET Nom = \""+this.Nom+"\" WHERE Id = "+this.id;
+    }
+    
     public Discipline recupererInfo(ResultSet r){ 
         Discipline a = null;
         try{
