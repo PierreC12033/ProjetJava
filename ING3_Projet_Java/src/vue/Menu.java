@@ -11,12 +11,12 @@ import javafx.scene.paint.Color;
  *
  * @author tomjo
  */
-public class NewJFrame extends javax.swing.JFrame {
+public class Menu extends javax.swing.JFrame {
 
     /**
      * Creates new form NewJFrame
      */
-    public NewJFrame() {
+    public Menu() {
         initComponents();
         Rechercher.setForeground(new java.awt.Color(0, 0, 0));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -99,7 +99,34 @@ public class NewJFrame extends javax.swing.JFrame {
         ajout5Field = new javax.swing.JTextField();
         ajout4Field = new javax.swing.JTextField();
         supprimerPanel = new javax.swing.JPanel();
+        supprimerButton = new javax.swing.JButton();
+        supprimerLabel = new javax.swing.JLabel();
+        supprimerField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        supprimerList = new javax.swing.JList<>();
+        supprimerResultLabel = new javax.swing.JLabel();
         modifierPanel = new javax.swing.JPanel();
+        jLayeredPane2 = new javax.swing.JLayeredPane();
+        rechercheModifierPanel = new javax.swing.JPanel();
+        rechercheModifierLabel = new javax.swing.JLabel();
+        rechercheModifierField = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        rechercheModifierList = new javax.swing.JList<>();
+        rechercheModifierButton = new javax.swing.JButton();
+        rechercheResultatModifierLabel = new javax.swing.JLabel();
+        modifierModifierPanel = new javax.swing.JPanel();
+        modifier1Button = new javax.swing.JLabel();
+        modifier2Button = new javax.swing.JLabel();
+        modifier3Button = new javax.swing.JLabel();
+        modifier4Button = new javax.swing.JLabel();
+        modifier5Button = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        valeur5Field = new javax.swing.JTextField();
+        valeur1Field = new javax.swing.JTextField();
+        valeur2Field = new javax.swing.JTextField();
+        valeur3Field = new javax.swing.JTextField();
+        valeur4Field = new javax.swing.JTextField();
+        modifierValiderButton = new javax.swing.JButton();
         deconnexionPanel = new javax.swing.JPanel();
 
         jMenu9.setText("Eleve");
@@ -536,26 +563,240 @@ public class NewJFrame extends javax.swing.JFrame {
                     .addContainerGap(411, Short.MAX_VALUE)))
         );
 
+        supprimerButton.setText("Supprimer");
+
+        supprimerLabel.setText("Identifiant :");
+
+        supprimerList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(supprimerList);
+
+        supprimerResultLabel.setText("ERREUR");
+
         javax.swing.GroupLayout supprimerPanelLayout = new javax.swing.GroupLayout(supprimerPanel);
         supprimerPanel.setLayout(supprimerPanelLayout);
         supprimerPanelLayout.setHorizontalGroup(
             supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1964, Short.MAX_VALUE)
+            .addGroup(supprimerPanelLayout.createSequentialGroup()
+                .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(supprimerPanelLayout.createSequentialGroup()
+                        .addGap(85, 85, 85)
+                        .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(supprimerResultLabel)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1533, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(supprimerPanelLayout.createSequentialGroup()
+                                .addComponent(supprimerLabel)
+                                .addGap(141, 141, 141)
+                                .addComponent(supprimerField, javax.swing.GroupLayout.PREFERRED_SIZE, 1225, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(supprimerPanelLayout.createSequentialGroup()
+                        .addGap(759, 759, 759)
+                        .addComponent(supprimerButton)))
+                .addContainerGap(346, Short.MAX_VALUE))
         );
         supprimerPanelLayout.setVerticalGroup(
             supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supprimerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(supprimerLabel)
+                    .addComponent(supprimerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(61, 61, 61)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(84, 84, 84)
+                .addComponent(supprimerButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addComponent(supprimerResultLabel)
+                .addGap(13, 13, 13))
+        );
+
+        rechercheModifierLabel.setText("Identifiant :");
+
+        rechercheModifierList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(rechercheModifierList);
+
+        rechercheModifierButton.setText("Modifier");
+
+        rechercheResultatModifierLabel.setText("ERREUR");
+
+        javax.swing.GroupLayout rechercheModifierPanelLayout = new javax.swing.GroupLayout(rechercheModifierPanel);
+        rechercheModifierPanel.setLayout(rechercheModifierPanelLayout);
+        rechercheModifierPanelLayout.setHorizontalGroup(
+            rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
+                .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
+                        .addGap(703, 703, 703)
+                        .addComponent(rechercheModifierButton))
+                    .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
+                        .addGap(94, 94, 94)
+                        .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rechercheResultatModifierLabel)
+                            .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane2)
+                                .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(rechercheModifierLabel)
+                                    .addGap(96, 96, 96)
+                                    .addComponent(rechercheModifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 1133, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(536, Short.MAX_VALUE))
+        );
+        rechercheModifierPanelLayout.setVerticalGroup(
+            rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rechercheModifierLabel)
+                    .addComponent(rechercheModifierField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(65, 65, 65)
+                .addComponent(rechercheModifierButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
+                .addComponent(rechercheResultatModifierLabel)
+                .addGap(94, 94, 94))
+        );
+
+        modifier1Button.setText("modifier 1:");
+
+        modifier2Button.setText("modifier 2 :");
+
+        modifier3Button.setText("modifier 3 :");
+
+        modifier4Button.setText("modifier 4:");
+
+        modifier5Button.setText("modifier 5 :");
+
+        jLabel6.setText("ERREUR");
+
+        valeur5Field.setText("valeur5");
+
+        valeur1Field.setText("valeur1");
+
+        valeur2Field.setText("valeur2");
+
+        valeur3Field.setText("valeur3");
+
+        valeur4Field.setText("valeur4");
+
+        modifierValiderButton.setText("Valider la modification");
+
+        javax.swing.GroupLayout modifierModifierPanelLayout = new javax.swing.GroupLayout(modifierModifierPanel);
+        modifierModifierPanel.setLayout(modifierModifierPanelLayout);
+        modifierModifierPanelLayout.setHorizontalGroup(
+            modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(modifier4Button)
+                            .addComponent(modifier2Button)
+                            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier1Button)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(valeur1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier3Button)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(valeur3Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier5Button)
+                                    .addGap(85, 85, 85)
+                                    .addComponent(valeur5Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel6))
+                    .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                        .addGap(716, 716, 716)
+                        .addComponent(modifierValiderButton)))
+                .addContainerGap(100, Short.MAX_VALUE))
+            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modifierModifierPanelLayout.createSequentialGroup()
+                    .addContainerGap(316, Short.MAX_VALUE)
+                    .addComponent(valeur2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(101, 101, 101)))
+            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modifierModifierPanelLayout.createSequentialGroup()
+                    .addContainerGap(317, Short.MAX_VALUE)
+                    .addComponent(valeur4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1547, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(100, 100, 100)))
+        );
+        modifierModifierPanelLayout.setVerticalGroup(
+            modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(modifier1Button)
+                    .addComponent(valeur1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(68, 68, 68)
+                .addComponent(modifier2Button)
+                .addGap(96, 96, 96)
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(modifier3Button)
+                    .addComponent(valeur3Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addComponent(modifier4Button)
+                .addGap(61, 61, 61)
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modifier5Button)
+                    .addComponent(valeur5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(62, 62, 62)
+                .addComponent(modifierValiderButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(15, 15, 15))
+            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                    .addGap(153, 153, 153)
+                    .addComponent(valeur2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(578, Short.MAX_VALUE)))
+            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modifierModifierPanelLayout.createSequentialGroup()
+                    .addContainerGap(402, Short.MAX_VALUE)
+                    .addComponent(valeur4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(329, 329, 329)))
+        );
+
+        jLayeredPane2.setLayer(rechercheModifierPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(modifierModifierPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
+        jLayeredPane2.setLayout(jLayeredPane2Layout);
+        jLayeredPane2Layout.setHorizontalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rechercheModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(modifierModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        jLayeredPane2Layout.setVerticalGroup(
+            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(rechercheModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(modifierModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         javax.swing.GroupLayout modifierPanelLayout = new javax.swing.GroupLayout(modifierPanel);
         modifierPanel.setLayout(modifierPanelLayout);
         modifierPanelLayout.setHorizontalGroup(
             modifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1964, Short.MAX_VALUE)
+            .addComponent(jLayeredPane2)
         );
         modifierPanelLayout.setVerticalGroup(
             modifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
+            .addComponent(jLayeredPane2)
         );
 
         javax.swing.GroupLayout deconnexionPanelLayout = new javax.swing.GroupLayout(deconnexionPanel);
@@ -579,7 +820,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1995, Short.MAX_VALUE)
+            .addGap(0, 2057, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -603,7 +844,7 @@ public class NewJFrame extends javax.swing.JFrame {
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 809, Short.MAX_VALUE)
+            .addGap(0, 875, Short.MAX_VALUE)
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -707,6 +948,8 @@ public class NewJFrame extends javax.swing.JFrame {
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
         modifierPanel.setVisible(true);
+        modifierModifierPanel.setVisible(false);
+        rechercheModifierPanel.setVisible(true);
         deconnexionPanel.setVisible(false);// TODO add your handling code here:
     }//GEN-LAST:event_ModifierActionPerformed
 
@@ -959,20 +1202,21 @@ public class NewJFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(NewJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new NewJFrame().setVisible(true);
+                new Menu().setVisible(true);
             }
         });
     }
@@ -1009,20 +1253,47 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JButton evaluation;
     private javax.swing.JButton inscription;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel modifier1Button;
+    private javax.swing.JLabel modifier2Button;
+    private javax.swing.JLabel modifier3Button;
+    private javax.swing.JLabel modifier4Button;
+    private javax.swing.JLabel modifier5Button;
+    private javax.swing.JPanel modifierModifierPanel;
     private javax.swing.JPanel modifierPanel;
+    private javax.swing.JButton modifierValiderButton;
     private javax.swing.JButton niveau;
     private javax.swing.JTextField rechercheField;
     private javax.swing.JLabel rechercheLabel;
+    private javax.swing.JButton rechercheModifierButton;
+    private javax.swing.JTextField rechercheModifierField;
+    private javax.swing.JLabel rechercheModifierLabel;
+    private javax.swing.JList<String> rechercheModifierList;
+    private javax.swing.JPanel rechercheModifierPanel;
     private javax.swing.JPanel recherchePanel;
+    private javax.swing.JLabel rechercheResultatModifierLabel;
     private javax.swing.JLabel resultatLabel;
+    private javax.swing.JButton supprimerButton;
+    private javax.swing.JTextField supprimerField;
+    private javax.swing.JLabel supprimerLabel;
+    private javax.swing.JList<String> supprimerList;
     private javax.swing.JPanel supprimerPanel;
+    private javax.swing.JLabel supprimerResultLabel;
     private javax.swing.JButton trimestre;
+    private javax.swing.JTextField valeur1Field;
+    private javax.swing.JTextField valeur2Field;
+    private javax.swing.JTextField valeur3Field;
+    private javax.swing.JTextField valeur4Field;
+    private javax.swing.JTextField valeur5Field;
     // End of variables declaration//GEN-END:variables
 }
