@@ -33,7 +33,10 @@ public class Bulletin {
         return "Id : "+this.id+" | idTrimestre : "+this.idTrimestre+" | idInscription : "+this.idInscription
                 + " | Appreciation : "+this.Appreciation;
     }
-    
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
     public String ajouterBDD(){
         return "INSERT INTO Bulletin VALUES("+this.id+",'"+this.idTrimestre+"',"+this.idInscription+",'"+this.Appreciation+"')";
     }

@@ -30,7 +30,10 @@ public class Inscription {
     public String toString(){
         return "id : "+id+" | idClasse : "+idClasse+" | idPersonne : "+idPersonne;
     }
-    
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
     public String ajouterBDD(){
         return "INSERT INTO Inscription VALUES("+this.id+","+this.idClasse+","+this.idPersonne+")";
     }

@@ -39,7 +39,10 @@ public class Trimestre {
     public String toString() {
         return "id=" + id + ", Numero=" + Numero + ", Debut=" + Debut + ", Fin=" + Fin + ", idAnneeScolaire=" + idAnneeScolaire;
     }
-    
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
     public String ajouterBDD(){
         Date deb= getDebut();
         String datedeb= deb.getAnnee()+"/"+deb.getMois()+"/"+deb.getJour();

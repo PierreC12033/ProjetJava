@@ -27,7 +27,7 @@ public class ConnectMySQL {
 
         cnx = connecterDB();
 
-        AnneeScolaire a = new AnneeScolaire(700, 10, 20);
+        AnneeScolaire a = new AnneeScolaire(701, 99, 20);
         Bulletin b = new Bulletin(800, 1900, 1500, "ca modifié");
         Classe c = new Classe(900, "99", 1200, 1600, 700);
         DetailBulletin d = new DetailBulletin(1000, 800, 1300, "ololllll");
@@ -44,11 +44,9 @@ public class ConnectMySQL {
         modele.Date fin = new modele.Date(04, 01, 2200);
         Trimestre t = new Trimestre(1900, 4, debut, fin, 700);
         
-        System.out.println("Tous les elements on été créé ");
-        
-        modifierParId(t.getId(), t);
-          /*
-        AjouterP(a);
+        //modifierParId(t.getId(), t);
+          
+        /*AjouterP(a);
         AjouterP(dis);
         AjouterP(ec);
         AjouterP(n);
@@ -65,21 +63,26 @@ public class ConnectMySQL {
         
         //SupprimerParID(1400, "Evaluation");
        
-      
+      */
         Object lllll = d;
         
         ArrayList<Object> k=new ArrayList<Object>();
-        k=rechercherParId(t.getId(), t);
+        k=rechercherParId(a.getId(), a);
         
         for (Object sublist : k) {
         System.out.println(sublist.toString());
         } 
-        */
+        
         
         
          
     }
-
+    
+    /**
+    * Connection à la base de données avec données predefinis
+    * @return Connection
+    * @see Connection type definis dans les package SQL
+    */
     public static Connection connecterDB() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -91,15 +94,23 @@ public class ConnectMySQL {
             System.out.println("Connexion bien établié");
             return cnx;
         } catch (ClassNotFoundException | SQLException e) {
+            System.out.println(e);
             return null;
         }
     }
 
+    /**
+     * Permet d'ajouter un object dans une table
+     * @param o correspond à l'objet a ajouté
+     * @see Object comme il est parent de toute nos classe il permet de moduler notre code
+     */
     public static void AjouterP(Object o) {
         try {
             st = cnx.createStatement();
             String query = "";
 
+            //Cherche du type de l'objet recu en paramètre 
+            
             if (o instanceof AnneeScolaire) {
                 query = ((AnneeScolaire) o).ajouterBDD();
             }
@@ -164,6 +175,11 @@ public class ConnectMySQL {
         }
     }
 
+    /**
+     * 
+     * @param id, l'id de l'objet à supprimer dans notre BDD
+     * @param NomBDD, permet de selectionner la table dans laquelle se trouve l'object
+     */
     public static void SupprimerParID(int id, String NomBDD) {
         try {
             String query = "DELETE FROM " + NomBDD + " WHERE Id = " + id;
@@ -176,6 +192,13 @@ public class ConnectMySQL {
         }
     }
 
+    /**
+     * 
+     * @param id, l'id de l'objet à rechercher dans notre BDD
+     * @param o, l'object que l'on recherche dans notre BDD
+     * @return Une liste d'object
+     * @see Object comme il est parent de toute nos classe il permet de moduler notre code
+     */
     public static ArrayList<Object> rechercherParId(int id, Object o) {
         
         String mdd = String.valueOf(o.getClass());
@@ -188,10 +211,8 @@ public class ConnectMySQL {
         }
         
         String req = "SELECT * FROM " + NomBDD + " WHERE Id =?";
-        System.out.println(req);
         ArrayList<Object> temp = new ArrayList<>();
-
-        //System.out.println(req);
+        
         try {
             st = cnx.createStatement();
             PreparedStatement pst = cnx.prepareStatement(req);
@@ -201,7 +222,6 @@ public class ConnectMySQL {
             if (!resultat.next()) {
                 System.out.println("Cette Id n'est pas dans la table");
             } else {
-                System.out.println("Voici les résultat :");
                 do {
                     
                     if (o instanceof AnneeScolaire) {

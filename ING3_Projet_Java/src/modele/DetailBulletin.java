@@ -32,7 +32,10 @@ public class DetailBulletin {
     public String toString() {
         return "id=" + id + ", idBulletin=" + idBulletin + ", idEnseignement=" + idEnseignement + ", Appreciation=" + Appreciation;
     }
-    
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
     public String ajouterBDD(){
         return "INSERT INTO DetailBulletin VALUES("+this.id+","+this.idBulletin+","+this.idEnseignement+",'"+this.Appreciation+"')";
     }

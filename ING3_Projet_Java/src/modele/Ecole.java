@@ -31,7 +31,10 @@ public class Ecole {
     public String toString() {
         return "id=" + id + ", nom=" + nom;
     }
-    
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
     public String ajouterBDD(){
         return "INSERT INTO Ecole VALUES("+this.id+",'"+this.nom+"')";
     }

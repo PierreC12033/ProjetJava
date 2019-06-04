@@ -34,7 +34,10 @@ public class Classe {
     public String toString() {
         return "id=" + id + ", Nom=" + Nom + ", idEcole=" + idEcole + ", idNiveau=" + idNiveau + ", idAnneeScolaire=" + idAnneeScolaire;
     }
-    
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
     public String ajouterBDD(){
         return "INSERT INTO Classe VALUES("+this.id+",'"+this.Nom+"',"+this.idEcole+","+this.idNiveau+","+this.idAnneeScolaire+")";
     }
