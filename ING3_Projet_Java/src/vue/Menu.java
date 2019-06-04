@@ -16,7 +16,11 @@ public class Menu extends javax.swing.JFrame {
     /**
      * Creates new form NewJFrame
      */
+    String mode1, mode2;
+
     public Menu() {
+        mode1 = "Rechercher";
+        mode2 = "Eleve";
         initComponents();
         Rechercher.setForeground(new java.awt.Color(0, 0, 0));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -26,8 +30,8 @@ public class Menu extends javax.swing.JFrame {
         recherchePanel.setVisible(true);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
-        modifierPanel.setVisible(false);
-        deconnexionPanel.setVisible(false);
+        modifierModifierPanel.setVisible(false);
+        rechercheButton.setText("Rechercher");
         eleve.setForeground(new java.awt.Color(0, 0, 0));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
         inscription.setForeground(new java.awt.Color(255, 255, 255));
@@ -58,6 +62,47 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu9 = new javax.swing.JMenu();
         jMenu10 = new javax.swing.JMenu();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        ajoutPanel = new javax.swing.JPanel();
+        ajouterButton = new javax.swing.JButton();
+        erreurLabel = new javax.swing.JLabel();
+        ajout5Label = new javax.swing.JLabel();
+        ajout1Label = new javax.swing.JLabel();
+        ajout2Label = new javax.swing.JLabel();
+        ajout3Label = new javax.swing.JLabel();
+        ajout4Label = new javax.swing.JLabel();
+        ajout3Field = new javax.swing.JTextField();
+        ajout1Field = new javax.swing.JTextField();
+        ajout2Field = new javax.swing.JTextField();
+        ajout5Field = new javax.swing.JTextField();
+        ajout4Field = new javax.swing.JTextField();
+        recherchePanel = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        bddListe = new javax.swing.JList<>();
+        resultatLabel = new javax.swing.JLabel();
+        rechercheLabel = new javax.swing.JLabel();
+        rechercheField = new javax.swing.JTextField();
+        rechercheButton = new javax.swing.JButton();
+        supprimerPanel = new javax.swing.JPanel();
+        supprimerButton = new javax.swing.JButton();
+        supprimerLabel = new javax.swing.JLabel();
+        supprimerField = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        supprimerList = new javax.swing.JList<>();
+        supprimerResultLabel = new javax.swing.JLabel();
+        modifierModifierPanel = new javax.swing.JPanel();
+        modifier1Button = new javax.swing.JLabel();
+        modifier2Button = new javax.swing.JLabel();
+        modifier3Button = new javax.swing.JLabel();
+        modifier4Button = new javax.swing.JLabel();
+        modifier5Button = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        valeur5Field = new javax.swing.JTextField();
+        valeur1Field = new javax.swing.JTextField();
+        valeur2Field = new javax.swing.JTextField();
+        valeur3Field = new javax.swing.JTextField();
+        valeur4Field = new javax.swing.JTextField();
+        modifierValiderButton = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         Ajouter = new javax.swing.JButton();
         Supprimer = new javax.swing.JButton();
@@ -77,57 +122,6 @@ public class Menu extends javax.swing.JFrame {
         bulletindetail = new javax.swing.JButton();
         evaluation = new javax.swing.JButton();
         trimestre = new javax.swing.JButton();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
-        recherchePanel = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        bddListe = new javax.swing.JList<>();
-        resultatLabel = new javax.swing.JLabel();
-        rechercheLabel = new javax.swing.JLabel();
-        rechercheField = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        ajoutPanel = new javax.swing.JPanel();
-        ajouterButton = new javax.swing.JButton();
-        erreurLabel = new javax.swing.JLabel();
-        ajout5Label = new javax.swing.JLabel();
-        ajout1Label = new javax.swing.JLabel();
-        ajout2Label = new javax.swing.JLabel();
-        ajout3Label = new javax.swing.JLabel();
-        ajout4Label = new javax.swing.JLabel();
-        ajout3Field = new javax.swing.JTextField();
-        ajout1Field = new javax.swing.JTextField();
-        ajout2Field = new javax.swing.JTextField();
-        ajout5Field = new javax.swing.JTextField();
-        ajout4Field = new javax.swing.JTextField();
-        supprimerPanel = new javax.swing.JPanel();
-        supprimerButton = new javax.swing.JButton();
-        supprimerLabel = new javax.swing.JLabel();
-        supprimerField = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        supprimerList = new javax.swing.JList<>();
-        supprimerResultLabel = new javax.swing.JLabel();
-        modifierPanel = new javax.swing.JPanel();
-        jLayeredPane2 = new javax.swing.JLayeredPane();
-        rechercheModifierPanel = new javax.swing.JPanel();
-        rechercheModifierLabel = new javax.swing.JLabel();
-        rechercheModifierField = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        rechercheModifierList = new javax.swing.JList<>();
-        rechercheModifierButton = new javax.swing.JButton();
-        rechercheResultatModifierLabel = new javax.swing.JLabel();
-        modifierModifierPanel = new javax.swing.JPanel();
-        modifier1Button = new javax.swing.JLabel();
-        modifier2Button = new javax.swing.JLabel();
-        modifier3Button = new javax.swing.JLabel();
-        modifier4Button = new javax.swing.JLabel();
-        modifier5Button = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        valeur5Field = new javax.swing.JTextField();
-        valeur1Field = new javax.swing.JTextField();
-        valeur2Field = new javax.swing.JTextField();
-        valeur3Field = new javax.swing.JTextField();
-        valeur4Field = new javax.swing.JTextField();
-        modifierValiderButton = new javax.swing.JButton();
-        deconnexionPanel = new javax.swing.JPanel();
 
         jMenu9.setText("Eleve");
         jMenuBar2.add(jMenu9);
@@ -136,6 +130,355 @@ public class Menu extends javax.swing.JFrame {
         jMenuBar2.add(jMenu10);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        ajouterButton.setText("Ajouter");
+
+        erreurLabel.setText("ERREUR");
+
+        ajout5Label.setText("ajout5 :");
+
+        ajout1Label.setText("ajout1 :");
+
+        ajout2Label.setText("ajout2 :");
+
+        ajout3Label.setText("ajout3 :");
+
+        ajout4Label.setText("ajout4 :");
+
+        ajout1Field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajout1FieldActionPerformed(evt);
+            }
+        });
+
+        ajout4Field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajout4FieldActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout ajoutPanelLayout = new javax.swing.GroupLayout(ajoutPanel);
+        ajoutPanel.setLayout(ajoutPanelLayout);
+        ajoutPanelLayout.setHorizontalGroup(
+            ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(erreurLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                .addComponent(ajout1Label)
+                                .addGap(18, 18, 18)
+                                .addComponent(ajout1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                        .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                        .addComponent(ajout2Label)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ajout2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                        .addComponent(ajout3Label)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ajout3Field))))
+                            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                        .addComponent(ajout4Label)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                        .addComponent(ajout5Label)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(ajout5Field)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                .addGap(314, 314, 314)
+                .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        ajoutPanelLayout.setVerticalGroup(
+            ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPanelLayout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout1Label)
+                    .addComponent(ajout1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout2Label)
+                    .addComponent(ajout2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout3Label)
+                    .addComponent(ajout3Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout4Label)
+                    .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout5Label)
+                    .addComponent(ajout5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(erreurLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        bddListe.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(bddListe);
+
+        resultatLabel.setText("Résultats :");
+
+        rechercheLabel.setText("Identifiant :");
+
+        rechercheField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rechercheFieldActionPerformed(evt);
+            }
+        });
+
+        rechercheButton.setText("Rechercher");
+
+        javax.swing.GroupLayout recherchePanelLayout = new javax.swing.GroupLayout(recherchePanel);
+        recherchePanel.setLayout(recherchePanelLayout);
+        recherchePanelLayout.setHorizontalGroup(
+            recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recherchePanelLayout.createSequentialGroup()
+                .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(recherchePanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(recherchePanelLayout.createSequentialGroup()
+                                .addComponent(rechercheLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rechercheField, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3)
+                            .addComponent(resultatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 882, Short.MAX_VALUE)))
+                    .addGroup(recherchePanelLayout.createSequentialGroup()
+                        .addGap(323, 323, 323)
+                        .addComponent(rechercheButton, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        recherchePanelLayout.setVerticalGroup(
+            recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(recherchePanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(rechercheLabel)
+                    .addComponent(rechercheField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rechercheButton, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17)
+                .addComponent(resultatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        supprimerButton.setText("Supprimer");
+
+        supprimerLabel.setText("Identifiant :");
+
+        supprimerList.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(supprimerList);
+
+        supprimerResultLabel.setText("ERREUR");
+
+        javax.swing.GroupLayout supprimerPanelLayout = new javax.swing.GroupLayout(supprimerPanel);
+        supprimerPanel.setLayout(supprimerPanelLayout);
+        supprimerPanelLayout.setHorizontalGroup(
+            supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(supprimerPanelLayout.createSequentialGroup()
+                .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(supprimerPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(supprimerResultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(supprimerPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(supprimerPanelLayout.createSequentialGroup()
+                                .addComponent(supprimerLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(supprimerField, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supprimerPanelLayout.createSequentialGroup()
+                .addGap(0, 245, Short.MAX_VALUE)
+                .addComponent(supprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(196, 196, 196))
+        );
+        supprimerPanelLayout.setVerticalGroup(
+            supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supprimerPanelLayout.createSequentialGroup()
+                .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(supprimerPanelLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(supprimerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supprimerPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(supprimerLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(supprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(supprimerResultLabel)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+
+        modifier1Button.setText("modifier 1:");
+
+        modifier2Button.setText("modifier 2 :");
+
+        modifier3Button.setText("modifier 3 :");
+
+        modifier4Button.setText("modifier 4:");
+
+        modifier5Button.setText("modifier 5 :");
+
+        jLabel6.setText("ERREUR");
+
+        valeur5Field.setText("valeur5");
+
+        valeur1Field.setText("valeur1");
+
+        valeur2Field.setText("valeur2");
+
+        valeur3Field.setText("valeur3");
+
+        valeur4Field.setText("valeur4");
+
+        modifierValiderButton.setText("Valider la modification");
+        modifierValiderButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modifierValiderButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout modifierModifierPanelLayout = new javax.swing.GroupLayout(modifierModifierPanel);
+        modifierModifierPanel.setLayout(modifierModifierPanelLayout);
+        modifierModifierPanelLayout.setHorizontalGroup(
+            modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 755, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                            .addGap(22, 22, 22)
+                            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier5Button)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(valeur5Field))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier4Button)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(valeur4Field))
+                                .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier3Button)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(valeur3Field))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier2Button)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(valeur2Field))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, modifierModifierPanelLayout.createSequentialGroup()
+                                    .addComponent(modifier1Button)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(valeur1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                            .addGap(242, 242, 242)
+                            .addComponent(modifierValiderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        modifierModifierPanelLayout.setVerticalGroup(
+            modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(modifierModifierPanelLayout.createSequentialGroup()
+                        .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(modifier1Button)
+                            .addComponent(valeur1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(modifier2Button)
+                            .addComponent(valeur2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(modifier3Button))
+                    .addComponent(valeur3Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modifier4Button)
+                    .addComponent(valeur4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(modifier5Button)
+                    .addComponent(valeur5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modifierValiderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47)
+                .addComponent(jLabel6)
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        jLayeredPane1.setLayer(ajoutPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(recherchePanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(supprimerPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(modifierModifierPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
+        jLayeredPane1.setLayout(jLayeredPane1Layout);
+        jLayeredPane1Layout.setHorizontalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(supprimerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(modifierModifierPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ajoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(100, Short.MAX_VALUE)))
+        );
+        jLayeredPane1Layout.setVerticalGroup(
+            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(supprimerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modifierModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(ajoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(1436, Short.MAX_VALUE)))
+        );
 
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
 
@@ -380,456 +723,16 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        bddListe.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane3.setViewportView(bddListe);
-
-        resultatLabel.setText("Résultats :");
-
-        rechercheLabel.setText("Identifiant :");
-
-        jButton1.setText("Rechercher");
-
-        javax.swing.GroupLayout recherchePanelLayout = new javax.swing.GroupLayout(recherchePanel);
-        recherchePanel.setLayout(recherchePanelLayout);
-        recherchePanelLayout.setHorizontalGroup(
-            recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(recherchePanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(resultatLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 1192, Short.MAX_VALUE))
-                    .addGroup(recherchePanelLayout.createSequentialGroup()
-                        .addComponent(rechercheLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rechercheField, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(recherchePanelLayout.createSequentialGroup()
-                        .addGap(359, 359, 359)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(45, 45, Short.MAX_VALUE))
-        );
-        recherchePanelLayout.setVerticalGroup(
-            recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(recherchePanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rechercheLabel)
-                    .addComponent(rechercheField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(90, 90, 90)
-                .addComponent(resultatLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(19, 19, 19))
-        );
-
-        ajouterButton.setText("Ajouter");
-
-        erreurLabel.setText("ERREUR");
-
-        ajout5Label.setText("ajout5 :");
-
-        ajout1Label.setText("ajout1 :");
-
-        ajout2Label.setText("ajout2 :");
-
-        ajout3Label.setText("ajout3 :");
-
-        ajout4Label.setText("ajout4 :");
-
-        ajout1Field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajout1FieldActionPerformed(evt);
-            }
-        });
-
-        ajout4Field.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ajout4FieldActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout ajoutPanelLayout = new javax.swing.GroupLayout(ajoutPanel);
-        ajoutPanel.setLayout(ajoutPanelLayout);
-        ajoutPanelLayout.setHorizontalGroup(
-            ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(ajoutPanelLayout.createSequentialGroup()
-                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(erreurLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout1Label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ajout1Field))
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout2Label)
-                                        .addGap(42, 42, 42)
-                                        .addComponent(ajout2Field))
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout3Label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ajout3Field))
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout5Label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ajout5Field, javax.swing.GroupLayout.PREFERRED_SIZE, 1037, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout4Label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(ajout4Field)))
-                                .addGap(0, 12, Short.MAX_VALUE))))
-                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                        .addGap(290, 290, 290)
-                        .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        ajoutPanelLayout.setVerticalGroup(
-            ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ajoutPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajout1Label)
-                    .addComponent(ajout1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajout2Label)
-                    .addComponent(ajout2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajout3Label)
-                    .addComponent(ajout3Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ajout4Label)
-                    .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ajout5Label)
-                    .addComponent(ajout5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addComponent(erreurLabel)
-                .addContainerGap(71, Short.MAX_VALUE))
-        );
-
-        supprimerButton.setText("Supprimer");
-
-        supprimerLabel.setText("Identifiant :");
-
-        supprimerList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(supprimerList);
-
-        supprimerResultLabel.setText("ERREUR");
-
-        javax.swing.GroupLayout supprimerPanelLayout = new javax.swing.GroupLayout(supprimerPanel);
-        supprimerPanel.setLayout(supprimerPanelLayout);
-        supprimerPanelLayout.setHorizontalGroup(
-            supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(supprimerPanelLayout.createSequentialGroup()
-                .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(supprimerPanelLayout.createSequentialGroup()
-                        .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(supprimerPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(supprimerLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(supprimerField))
-                            .addGroup(supprimerPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1194, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(supprimerResultLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(supprimerPanelLayout.createSequentialGroup()
-                .addGap(405, 405, 405)
-                .addComponent(supprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 369, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        supprimerPanelLayout.setVerticalGroup(
-            supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supprimerPanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(supprimerLabel)
-                    .addComponent(supprimerField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(supprimerButton, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(supprimerResultLabel)
-                .addGap(23, 23, 23))
-        );
-
-        rechercheModifierLabel.setText("Identifiant :");
-
-        rechercheModifierList.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(rechercheModifierList);
-
-        rechercheModifierButton.setText("Modifier");
-
-        rechercheResultatModifierLabel.setText("ERREUR");
-
-        javax.swing.GroupLayout rechercheModifierPanelLayout = new javax.swing.GroupLayout(rechercheModifierPanel);
-        rechercheModifierPanel.setLayout(rechercheModifierPanelLayout);
-        rechercheModifierPanelLayout.setHorizontalGroup(
-            rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
-                .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
-                        .addGap(703, 703, 703)
-                        .addComponent(rechercheModifierButton))
-                    .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
-                        .addGap(94, 94, 94)
-                        .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(rechercheResultatModifierLabel)
-                            .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane2)
-                                .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
-                                    .addComponent(rechercheModifierLabel)
-                                    .addGap(96, 96, 96)
-                                    .addComponent(rechercheModifierField, javax.swing.GroupLayout.PREFERRED_SIZE, 1133, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(184, Short.MAX_VALUE))
-        );
-        rechercheModifierPanelLayout.setVerticalGroup(
-            rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(rechercheModifierPanelLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(rechercheModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rechercheModifierLabel)
-                    .addComponent(rechercheModifierField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(65, 65, 65)
-                .addComponent(rechercheModifierButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 145, Short.MAX_VALUE)
-                .addComponent(rechercheResultatModifierLabel)
-                .addGap(94, 94, 94))
-        );
-
-        modifier1Button.setText("modifier 1:");
-
-        modifier2Button.setText("modifier 2 :");
-
-        modifier3Button.setText("modifier 3 :");
-
-        modifier4Button.setText("modifier 4:");
-
-        modifier5Button.setText("modifier 5 :");
-
-        jLabel6.setText("ERREUR");
-
-        valeur5Field.setText("valeur5");
-
-        valeur1Field.setText("valeur1");
-
-        valeur2Field.setText("valeur2");
-
-        valeur3Field.setText("valeur3");
-
-        valeur4Field.setText("valeur4");
-
-        modifierValiderButton.setText("Valider la modification");
-
-        javax.swing.GroupLayout modifierModifierPanelLayout = new javax.swing.GroupLayout(modifierModifierPanel);
-        modifierModifierPanel.setLayout(modifierModifierPanelLayout);
-        modifierModifierPanelLayout.setHorizontalGroup(
-            modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(modifierModifierPanelLayout.createSequentialGroup()
-                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(modifierModifierPanelLayout.createSequentialGroup()
-                            .addComponent(modifier1Button)
-                            .addGap(41, 41, 41)
-                            .addComponent(valeur1Field, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE))
-                        .addGroup(modifierModifierPanelLayout.createSequentialGroup()
-                            .addComponent(modifier2Button)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(valeur2Field))
-                        .addGroup(modifierModifierPanelLayout.createSequentialGroup()
-                            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(modifier3Button)
-                                .addComponent(modifier4Button)
-                                .addComponent(modifier5Button, javax.swing.GroupLayout.Alignment.TRAILING))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(valeur4Field, javax.swing.GroupLayout.DEFAULT_SIZE, 855, Short.MAX_VALUE)
-                                .addComponent(valeur3Field)
-                                .addComponent(valeur5Field))))
-                    .addGroup(modifierModifierPanelLayout.createSequentialGroup()
-                        .addGap(293, 293, 293)
-                        .addComponent(modifierValiderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6))
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
-        modifierModifierPanelLayout.setVerticalGroup(
-            modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(modifierModifierPanelLayout.createSequentialGroup()
-                .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(modifierModifierPanelLayout.createSequentialGroup()
-                        .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(modifier1Button)
-                            .addComponent(valeur1Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(modifier2Button)
-                            .addComponent(valeur2Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(modifier3Button)
-                            .addComponent(valeur3Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(modifier4Button)
-                            .addComponent(valeur4Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(86, 86, 86))
-                    .addGroup(modifierModifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(modifier5Button)
-                        .addComponent(valeur5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(41, 41, 41)
-                .addComponent(modifierValiderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel6)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLayeredPane2.setLayer(rechercheModifierPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane2.setLayer(modifierModifierPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
-        jLayeredPane2.setLayout(jLayeredPane2Layout);
-        jLayeredPane2Layout.setHorizontalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addComponent(rechercheModifierPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 385, Short.MAX_VALUE))
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(modifierModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-        jLayeredPane2Layout.setVerticalGroup(
-            jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(rechercheModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(modifierModifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
-        );
-
-        javax.swing.GroupLayout modifierPanelLayout = new javax.swing.GroupLayout(modifierPanel);
-        modifierPanel.setLayout(modifierPanelLayout);
-        modifierPanelLayout.setHorizontalGroup(
-            modifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane2)
-        );
-        modifierPanelLayout.setVerticalGroup(
-            modifierPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLayeredPane2)
-        );
-
-        javax.swing.GroupLayout deconnexionPanelLayout = new javax.swing.GroupLayout(deconnexionPanel);
-        deconnexionPanel.setLayout(deconnexionPanelLayout);
-        deconnexionPanelLayout.setHorizontalGroup(
-            deconnexionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1955, Short.MAX_VALUE)
-        );
-        deconnexionPanelLayout.setVerticalGroup(
-            deconnexionPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 776, Short.MAX_VALUE)
-        );
-
-        jLayeredPane1.setLayer(recherchePanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(ajoutPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(supprimerPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(modifierPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(deconnexionPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 2057, Short.MAX_VALUE)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap(126, Short.MAX_VALUE)
-                    .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(166, 166, 166)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(ajoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(supprimerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(modifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 40, Short.MAX_VALUE)
-                    .addComponent(deconnexionPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 875, Short.MAX_VALUE)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addGap(0, 99, Short.MAX_VALUE)
-                    .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(ajoutPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(supprimerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(modifierPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(deconnexionPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(14, 14, 14)
+                .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -837,7 +740,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -858,10 +761,50 @@ public class Menu extends javax.swing.JFrame {
         recherchePanel.setVisible(true);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
-        modifierPanel.setVisible(false);
-        deconnexionPanel.setVisible(false);
+        modifierModifierPanel.setVisible(false);
         resultatLabel.setText("");
         erreurLabel.setText("");
+        rechercheButton.setText("Rechercher");
+        mode1 = "Rechercher";
+        switch (mode2) {
+            case "Eleve":
+                rechercheLabel.setText("Clé de l'élève recherché : ");
+                break;
+            case "Enseignant":
+                rechercheLabel.setText("Clé de l'enseignant recherché: ");
+                break;
+            case "Inscription":
+                rechercheLabel.setText("Clé de l'inscription recherché : ");
+                break;
+            case "Classe":
+                rechercheLabel.setText("Clé de la classe recherché : ");
+                break;
+            case "Niveau":
+                rechercheLabel.setText("Clé du niveau recherché : ");
+                break;
+            case "Annee":
+                rechercheLabel.setText("Clé de l'année recherché : ");
+                break;
+            case "Trimestre":
+                rechercheLabel.setText("Clé du trimestre recherché : ");
+                break;
+            case "Bulletin":
+                rechercheLabel.setText("Clé du bulletin recherché : ");
+                break;
+            case "Enseignement":
+                rechercheLabel.setText("Clé de l'enseignement recherché : ");
+                break;
+            case "Discipline":
+                rechercheLabel.setText("Clé de la discipline recherché : ");
+                break;
+            case "BulletinDetails":
+                rechercheLabel.setText("Clé de du bulletin détaillé recherché : ");
+                break;
+            case "Evaluation":
+                rechercheLabel.setText("Clé de l'évaluation recherché : ");
+                break;
+            default :
+        }
 // TODO add your handling code here:
     }//GEN-LAST:event_RechercherActionPerformed
 
@@ -874,8 +817,10 @@ public class Menu extends javax.swing.JFrame {
         recherchePanel.setVisible(false);
         ajoutPanel.setVisible(true);
         supprimerPanel.setVisible(false);
-        modifierPanel.setVisible(false);
-        deconnexionPanel.setVisible(false); // TODO add your handling code here:
+        modifierModifierPanel.setVisible(false);
+        rechercheButton.setText("Rechercher");
+        mode1 = "Ajouter";
+
     }//GEN-LAST:event_AjouterActionPerformed
 
     private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
@@ -887,8 +832,48 @@ public class Menu extends javax.swing.JFrame {
         recherchePanel.setVisible(false);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(true);
-        modifierPanel.setVisible(false);
-        deconnexionPanel.setVisible(false);// TODO add your handling code here:
+        modifierModifierPanel.setVisible(false);
+        rechercheButton.setText("Rechercher");
+        mode1 = "Supprimer";
+        switch (mode2) {
+            case "Eleve":
+                supprimerLabel.setText("Clé de l'élève à supprimer : ");
+                break;
+            case "Enseignant":
+                supprimerLabel.setText("Clé de l'enseignant à supprimer : ");
+                break;
+            case "Inscription":
+                supprimerLabel.setText("Clé de l'inscription à supprimer : ");
+                break;
+            case "Classe":
+                supprimerLabel.setText("Clé de la classe à supprimer : ");
+                break;
+            case "Niveau":
+                supprimerLabel.setText("Clé du niveau à supprimer : ");
+                break;
+            case "Annee":
+                supprimerLabel.setText("Clé de l'année à supprimer : ");
+                break;
+            case "Trimestre":
+                supprimerLabel.setText("Clé du trimestre à supprimer : ");
+                break;
+            case "Bulletin":
+                supprimerLabel.setText("Clé du bulletin à supprimer : ");
+                break;
+            case "Enseignement":
+                supprimerLabel.setText("Clé de l'enseignement à supprimer : ");
+                break;
+            case "Discipline":
+                supprimerLabel.setText("Clé de la discipline à supprimer : ");
+                break;
+            case "BulletinDetails":
+                supprimerLabel.setText("Clé de du bulletin détaillé à supprimer : ");
+                break;
+            case "Evaluation":
+                supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
+                break;
+            default :
+        }
     }//GEN-LAST:event_SupprimerActionPerformed
 
     private void ModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierActionPerformed
@@ -897,13 +882,51 @@ public class Menu extends javax.swing.JFrame {
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setForeground(new java.awt.Color(0, 0, 0));
         Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
-        recherchePanel.setVisible(false);
+        recherchePanel.setVisible(true);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
-        modifierPanel.setVisible(true);
+        rechercheButton.setText("Modifier");
         modifierModifierPanel.setVisible(false);
-        rechercheModifierPanel.setVisible(true);
-        deconnexionPanel.setVisible(false);// TODO add your handling code here:
+        mode1 = "Modifier";
+        switch (mode2) {
+            case "Eleve":
+                rechercheLabel.setText("Clé de l'élève à modifier : ");
+                break;
+            case "Enseignant":
+                rechercheLabel.setText("Clé de l'enseignant à modifier : ");
+                break;
+            case "Inscription":
+                rechercheLabel.setText("Clé de l'inscription à modifier : ");
+                break;
+            case "Classe":
+                rechercheLabel.setText("Clé de la classe à modifier : ");
+                break;
+            case "Niveau":
+                rechercheLabel.setText("Clé du niveau à modifier : ");
+                break;
+            case "Annee":
+                rechercheLabel.setText("Clé de l'année à modifier : ");
+                break;
+            case "Trimestre":
+                rechercheLabel.setText("Clé du trimestre à modifier : ");
+                break;
+            case "Bulletin":
+                rechercheLabel.setText("Clé du bulletin à modifier : ");
+                break;
+            case "Enseignement":
+                rechercheLabel.setText("Clé de l'enseignement à modifier : ");
+                break;
+            case "Discipline":
+                rechercheLabel.setText("Clé de la discipline à modifier : ");
+                break;
+            case "BulletinDetails":
+                rechercheLabel.setText("Clé de du bulletin détaillé à modifier : ");
+                break;
+            case "Evaluation":
+                rechercheLabel.setText("Clé de l'évaluation à modifier : ");
+                break;
+            default :
+        }
     }//GEN-LAST:event_ModifierActionPerformed
 
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
@@ -915,8 +938,10 @@ public class Menu extends javax.swing.JFrame {
         recherchePanel.setVisible(false);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
-        modifierPanel.setVisible(false);
-        deconnexionPanel.setVisible(true);
+        modifierModifierPanel.setVisible(false);
+        modifierValiderButton.setVisible(false);
+        rechercheButton.setText("Rechercher");
+        mode1 = "Déconnexion";
         // TODO add your handling code here:
     }//GEN-LAST:event_DeconnexionActionPerformed
 
@@ -933,9 +958,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé de l'élève recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de l'élève recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de l'élève à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }// TODO add your handling code here:
+        mode2 = "Eleve";
     }//GEN-LAST:event_eleveActionPerformed
 
     private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
@@ -951,9 +983,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé de l'enseignant recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");        // TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de l'enseignant recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de l'enseignant à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Enseignant";// TODO add your handling code here:
     }//GEN-LAST:event_enseignantActionPerformed
 
     private void inscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscriptionActionPerformed
@@ -969,9 +1008,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé de l'inscription recherchée : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de l'inscription recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de l'inscription à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Inscription";// TODO add your handling code here:
     }//GEN-LAST:event_inscriptionActionPerformed
 
     private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
@@ -987,9 +1033,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé de la classe recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de la classe recherchée : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de la classe à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Classe";// TODO add your handling code here:
     }//GEN-LAST:event_classeActionPerformed
 
     private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
@@ -1005,9 +1058,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé du niveau recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé du niveau recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé du niveau à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Niveau";
 // TODO add your handling code here:
     }//GEN-LAST:event_niveauActionPerformed
 
@@ -1024,9 +1084,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé de l'année recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de l'année recherchée : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de l'année à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Annee";// TODO add your handling code here:
     }//GEN-LAST:event_anneeActionPerformed
 
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trimestreActionPerformed
@@ -1042,9 +1109,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé du trimestre recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé du trimestre recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé du trimestre à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Trimestre";// TODO add your handling code here:
     }//GEN-LAST:event_trimestreActionPerformed
 
     private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
@@ -1060,9 +1134,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé du bulletin recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé du bulletin recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé du bulletin à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Bulletin";// TODO add your handling code here:
     }//GEN-LAST:event_bulletinActionPerformed
 
     private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
@@ -1078,9 +1159,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé de l'enseignement recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de l'enseignement recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de l'enseignement à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Enseignement";// TODO add your handling code here:
     }//GEN-LAST:event_enseignementActionPerformed
 
     private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
@@ -1096,9 +1184,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(0, 0, 0));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé de la discipline recherchée : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de la discipline recherchée : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de la discipline à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Discipline";// TODO add your handling code here:
     }//GEN-LAST:event_disciplineActionPerformed
 
     private void bulletindetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletindetailActionPerformed
@@ -1114,9 +1209,16 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(0, 0, 0));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        rechercheLabel.setText("Clé du bulletin détaillé recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");// TODO add your handling code here:
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé du bulletin détaillé recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé du bulletin détaillé à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "BulletinDetails";// TODO add your handling code here:
     }//GEN-LAST:event_bulletindetailActionPerformed
 
     private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
@@ -1132,15 +1234,30 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(0, 0, 0));
-        rechercheLabel.setText("Clé de l'évaluation recherché : ");
-        resultatLabel.setText("");
-        erreurLabel.setText("");
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de l'évaluation recherché : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de l'évaluation à modifier : ");
+            resultatLabel.setText("");
+            erreurLabel.setText("");
+        }
+        mode2 = "Evaluation";
 // TODO add your handling code here:
     }//GEN-LAST:event_evaluationActionPerformed
 
     private void ajout1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout1FieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ajout1FieldActionPerformed
+
+    private void rechercheFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechercheFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rechercheFieldActionPerformed
+
+    private void modifierValiderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierValiderButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modifierValiderButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1201,7 +1318,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton bulletin;
     private javax.swing.JButton bulletindetail;
     private javax.swing.JButton classe;
-    private javax.swing.JPanel deconnexionPanel;
     private javax.swing.JButton discipline;
     private javax.swing.JButton eleve;
     private javax.swing.JButton enseignant;
@@ -1209,17 +1325,14 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel erreurLabel;
     private javax.swing.JButton evaluation;
     private javax.swing.JButton inscription;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JMenu jMenu10;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel modifier1Button;
     private javax.swing.JLabel modifier2Button;
@@ -1227,18 +1340,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel modifier4Button;
     private javax.swing.JLabel modifier5Button;
     private javax.swing.JPanel modifierModifierPanel;
-    private javax.swing.JPanel modifierPanel;
     private javax.swing.JButton modifierValiderButton;
     private javax.swing.JButton niveau;
+    private javax.swing.JButton rechercheButton;
     private javax.swing.JTextField rechercheField;
     private javax.swing.JLabel rechercheLabel;
-    private javax.swing.JButton rechercheModifierButton;
-    private javax.swing.JTextField rechercheModifierField;
-    private javax.swing.JLabel rechercheModifierLabel;
-    private javax.swing.JList<String> rechercheModifierList;
-    private javax.swing.JPanel rechercheModifierPanel;
     private javax.swing.JPanel recherchePanel;
-    private javax.swing.JLabel rechercheResultatModifierLabel;
     private javax.swing.JLabel resultatLabel;
     private javax.swing.JButton supprimerButton;
     private javax.swing.JTextField supprimerField;
