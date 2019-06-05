@@ -47,6 +47,7 @@ public class Menu extends javax.swing.JFrame {
         rechercheLabel.setText("Clé de l'élève recherché : ");
         resultatLabel.setText("");
         erreurLabel.setText("");
+        supprimerResultLabel.setText("");
 
     }
 
@@ -162,40 +163,33 @@ public class Menu extends javax.swing.JFrame {
         ajoutPanelLayout.setHorizontalGroup(
             ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ajoutPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(erreurLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(ajoutPanelLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(erreurLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(ajoutPanelLayout.createSequentialGroup()
                                 .addComponent(ajout1Label)
                                 .addGap(18, 18, 18)
-                                .addComponent(ajout1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                        .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout2Label)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ajout2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout3Label)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ajout3Field))))
-                            .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout4Label)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                        .addComponent(ajout5Label)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(ajout5Field)))))
+                                .addComponent(ajout1Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                    .addComponent(ajout2Label)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ajout2Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                    .addComponent(ajout3Label)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ajout3Field)))
+                            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                    .addComponent(ajout4Label)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                    .addComponent(ajout5Label)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(ajout5Field))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(ajoutPanelLayout.createSequentialGroup()
@@ -306,18 +300,14 @@ public class Menu extends javax.swing.JFrame {
         supprimerPanelLayout.setHorizontalGroup(
             supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(supprimerPanelLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(supprimerResultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(supprimerPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(supprimerResultLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(supprimerPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(supprimerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(supprimerPanelLayout.createSequentialGroup()
-                                .addComponent(supprimerLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(supprimerField, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)))))
+                        .addComponent(supprimerLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(supprimerField, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, supprimerPanelLayout.createSequentialGroup()
                 .addGap(0, 245, Short.MAX_VALUE)
@@ -764,6 +754,7 @@ public class Menu extends javax.swing.JFrame {
         modifierModifierPanel.setVisible(false);
         resultatLabel.setText("");
         erreurLabel.setText("");
+        supprimerResultLabel.setText("");
         rechercheButton.setText("Rechercher");
         mode1 = "Rechercher";
         switch (mode2) {
@@ -820,6 +811,7 @@ public class Menu extends javax.swing.JFrame {
         modifierModifierPanel.setVisible(false);
         rechercheButton.setText("Rechercher");
         mode1 = "Ajouter";
+        supprimerResultLabel.setText("");
 
     }//GEN-LAST:event_AjouterActionPerformed
 
@@ -834,6 +826,7 @@ public class Menu extends javax.swing.JFrame {
         supprimerPanel.setVisible(true);
         modifierModifierPanel.setVisible(false);
         rechercheButton.setText("Rechercher");
+        supprimerResultLabel.setText("");
         mode1 = "Supprimer";
         switch (mode2) {
             case "Eleve":
@@ -886,6 +879,7 @@ public class Menu extends javax.swing.JFrame {
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
         rechercheButton.setText("Modifier");
+        supprimerResultLabel.setText("");
         modifierModifierPanel.setVisible(false);
         mode1 = "Modifier";
         switch (mode2) {
@@ -930,7 +924,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifierActionPerformed
 
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-        Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+       /* Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setForeground(new java.awt.Color(255, 255, 255));
@@ -942,6 +936,10 @@ public class Menu extends javax.swing.JFrame {
         modifierValiderButton.setVisible(false);
         rechercheButton.setText("Rechercher");
         mode1 = "Déconnexion";
+        supprimerResultLabel.setText("");
+        */
+        setVisible(false);
+        dispose();
         // TODO add your handling code here:
     }//GEN-LAST:event_DeconnexionActionPerformed
 
@@ -968,6 +966,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }// TODO add your handling code here:
         mode2 = "Eleve";
+        supprimerLabel.setText("Clé de l'élève à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_eleveActionPerformed
 
     private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
@@ -993,6 +993,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Enseignant";// TODO add your handling code here:
+        supprimerLabel.setText("Clé de l'enseignant à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_enseignantActionPerformed
 
     private void inscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscriptionActionPerformed
@@ -1018,6 +1020,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Inscription";// TODO add your handling code here:
+        supprimerLabel.setText("Clé de l'inscription à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_inscriptionActionPerformed
 
     private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
@@ -1043,6 +1047,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Classe";// TODO add your handling code here:
+        supprimerLabel.setText("Clé de la classe à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_classeActionPerformed
 
     private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
@@ -1069,6 +1075,8 @@ public class Menu extends javax.swing.JFrame {
         }
         mode2 = "Niveau";
 // TODO add your handling code here:
+supprimerLabel.setText("Clé du niveau à supprimer : ");
+supprimerResultLabel.setText("");
     }//GEN-LAST:event_niveauActionPerformed
 
     private void anneeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anneeActionPerformed
@@ -1094,6 +1102,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Annee";// TODO add your handling code here:
+        supprimerLabel.setText("Clé de l'année à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_anneeActionPerformed
 
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trimestreActionPerformed
@@ -1119,6 +1129,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Trimestre";// TODO add your handling code here:
+        supprimerLabel.setText("Clé du trimestre à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_trimestreActionPerformed
 
     private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
@@ -1144,6 +1156,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Bulletin";// TODO add your handling code here:
+        supprimerLabel.setText("Clé du bulletin à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_bulletinActionPerformed
 
     private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
@@ -1169,6 +1183,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Enseignement";// TODO add your handling code here:
+        supprimerLabel.setText("Clé de l'enseignement à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_enseignementActionPerformed
 
     private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
@@ -1194,6 +1210,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "Discipline";// TODO add your handling code here:
+        supprimerLabel.setText("Clé de la discipline à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_disciplineActionPerformed
 
     private void bulletindetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletindetailActionPerformed
@@ -1219,6 +1237,8 @@ public class Menu extends javax.swing.JFrame {
             erreurLabel.setText("");
         }
         mode2 = "BulletinDetails";// TODO add your handling code here:
+        supprimerLabel.setText("Clé du bulletin détaillé à supprimer : ");
+        supprimerResultLabel.setText("");
     }//GEN-LAST:event_bulletindetailActionPerformed
 
     private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
@@ -1245,6 +1265,8 @@ public class Menu extends javax.swing.JFrame {
         }
         mode2 = "Evaluation";
 // TODO add your handling code here:
+supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
+supprimerResultLabel.setText("");
     }//GEN-LAST:event_evaluationActionPerformed
 
     private void ajout1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout1FieldActionPerformed
