@@ -27,6 +27,7 @@ public class Menu extends javax.swing.JFrame {
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setForeground(new java.awt.Color(255, 255, 255));
         Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        Statistiques.setForeground(new java.awt.Color(255, 255, 255));
         recherchePanel.setVisible(true);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
@@ -71,9 +72,8 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
+        statsPanel = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         ajoutPanel = new javax.swing.JPanel();
         ajouterButton = new javax.swing.JButton();
@@ -121,6 +121,7 @@ public class Menu extends javax.swing.JFrame {
         Modifier = new javax.swing.JButton();
         Deconnexion = new javax.swing.JButton();
         Rechercher = new javax.swing.JButton();
+        Statistiques = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         annee = new javax.swing.JButton();
         eleve = new javax.swing.JButton();
@@ -134,12 +135,26 @@ public class Menu extends javax.swing.JFrame {
         bulletindetail = new javax.swing.JButton();
         evaluation = new javax.swing.JButton();
         trimestre = new javax.swing.JButton();
+        ecole = new javax.swing.JButton();
 
-        jMenu9.setText("Eleve");
-        jMenuBar2.add(jMenu9);
+        jLabel1.setText("Work in progress!");
 
-        jMenu10.setText("Professeur");
-        jMenuBar2.add(jMenu10);
+        javax.swing.GroupLayout statsPanelLayout = new javax.swing.GroupLayout(statsPanel);
+        statsPanel.setLayout(statsPanelLayout);
+        statsPanelLayout.setHorizontalGroup(
+            statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statsPanelLayout.createSequentialGroup()
+                .addGap(308, 308, 308)
+                .addComponent(jLabel1)
+                .addContainerGap(448, Short.MAX_VALUE))
+        );
+        statsPanelLayout.setVerticalGroup(
+            statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(statsPanelLayout.createSequentialGroup()
+                .addGap(166, 166, 166)
+                .addComponent(jLabel1)
+                .addContainerGap(492, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -529,6 +544,16 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        Statistiques.setBackground(new java.awt.Color(102, 102, 255));
+        Statistiques.setForeground(new java.awt.Color(255, 255, 255));
+        Statistiques.setText("Statistiques");
+        Statistiques.setContentAreaFilled(false);
+        Statistiques.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                StatistiquesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -543,6 +568,8 @@ public class Menu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Modifier)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Statistiques)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Deconnexion)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -555,7 +582,8 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(Supprimer)
                     .addComponent(Modifier)
                     .addComponent(Rechercher)
-                    .addComponent(Deconnexion))
+                    .addComponent(Deconnexion)
+                    .addComponent(Statistiques))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -571,7 +599,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         eleve.setForeground(new java.awt.Color(255, 255, 255));
-        eleve.setText("Eleve");
+        eleve.setText("Élève");
         eleve.setContentAreaFilled(false);
         eleve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -652,7 +680,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
-        evaluation.setText("Evaluation");
+        evaluation.setText("Évaluation");
         evaluation.setContentAreaFilled(false);
         evaluation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -666,6 +694,15 @@ public class Menu extends javax.swing.JFrame {
         trimestre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 trimestreActionPerformed(evt);
+            }
+        });
+
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setText("École");
+        ecole.setContentAreaFilled(false);
+        ecole.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ecoleActionPerformed(evt);
             }
         });
 
@@ -685,21 +722,23 @@ public class Menu extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(classe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(niveau)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(annee)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(trimestre)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(bulletin)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(enseignement))
+                        .addComponent(niveau))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(discipline)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(bulletindetail)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(evaluation)))
+                        .addComponent(evaluation)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(ecole)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(annee)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(trimestre)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bulletin)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(enseignement)
                 .addContainerGap(203, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -720,7 +759,8 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(discipline)
                     .addComponent(bulletindetail)
-                    .addComponent(evaluation))
+                    .addComponent(evaluation)
+                    .addComponent(ecole))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -728,12 +768,11 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -759,10 +798,13 @@ public class Menu extends javax.swing.JFrame {
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setForeground(new java.awt.Color(255, 255, 255));
         Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        Statistiques.setForeground(new java.awt.Color(255, 255, 255));
         recherchePanel.setVisible(true);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
         modifierModifierPanel.setVisible(false);
+        jLayeredPane1.remove(statsPanel);
+        statsPanel.setVisible(false);
         resultatLabel.setText("");
         erreurLabel.setText("");
         supprimerResultLabel.setText("");
@@ -776,16 +818,16 @@ public class Menu extends javax.swing.JFrame {
                 rechercheLabel.setText("Clé de l'enseignant recherché: ");
                 break;
             case "Inscription":
-                rechercheLabel.setText("Clé de l'inscription recherché : ");
+                rechercheLabel.setText("Clé de l'inscription recherchée : ");
                 break;
             case "Classe":
-                rechercheLabel.setText("Clé de la classe recherché : ");
+                rechercheLabel.setText("Clé de la classe recherchée : ");
                 break;
             case "Niveau":
                 rechercheLabel.setText("Clé du niveau recherché : ");
                 break;
             case "Annee":
-                rechercheLabel.setText("Clé de l'année recherché : ");
+                rechercheLabel.setText("Clé de l'année recherchée : ");
                 break;
             case "Trimestre":
                 rechercheLabel.setText("Clé du trimestre recherché : ");
@@ -797,14 +839,16 @@ public class Menu extends javax.swing.JFrame {
                 rechercheLabel.setText("Clé de l'enseignement recherché : ");
                 break;
             case "Discipline":
-                rechercheLabel.setText("Clé de la discipline recherché : ");
+                rechercheLabel.setText("Clé de la discipline recherchée : ");
                 break;
             case "BulletinDetails":
                 rechercheLabel.setText("Clé de du bulletin détaillé recherché : ");
                 break;
             case "Evaluation":
-                rechercheLabel.setText("Clé de l'évaluation recherché : ");
+                rechercheLabel.setText("Clé de l'évaluation recherchée : ");
                 break;
+            case "Ecole":
+                 rechercheLabel.setText("Clé de l'écolé recherchée : ");
             default:
         }
 // TODO add your handling code here:
@@ -816,10 +860,13 @@ public class Menu extends javax.swing.JFrame {
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setForeground(new java.awt.Color(255, 255, 255));
         Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        Statistiques.setForeground(new java.awt.Color(255, 255, 255));
         recherchePanel.setVisible(false);
         ajoutPanel.setVisible(true);
         supprimerPanel.setVisible(false);
         modifierModifierPanel.setVisible(false);
+        jLayeredPane1.remove(statsPanel);
+        statsPanel.setVisible(false);
         rechercheButton.setText("Rechercher");
         mode1 = "Ajouter";
         supprimerResultLabel.setText("");
@@ -854,6 +901,18 @@ public class Menu extends javax.swing.JFrame {
                 ajout2Label.setText("Nom : ");
                 break;
             case "Inscription":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("idClasse : ");
+                ajout2Label.setText("idPersonne : ");
                 break;
             case "Classe":
                 ajout1Label.setVisible(true);
@@ -863,7 +922,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout3Label.setVisible(true);
                 ajout3Field.setVisible(true);
                 ajout4Label.setVisible(true);
-                ajout4Field.setVisible(false);
+                ajout4Field.setVisible(true);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
                 ajout1Label.setText("Nom : ");
@@ -872,6 +931,17 @@ public class Menu extends javax.swing.JFrame {
                 ajout4Label.setText("idAnneeScolaire : ");
                 break;
             case "Niveau":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Nom : ");
                 break;
             case "Annee":
                 ajout1Label.setVisible(true);
@@ -884,7 +954,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout1Label.setText("Debut : ");
+                ajout1Label.setText("Début : ");
                 ajout2Label.setText("Fin : ");
                 break;
             case "Trimestre":
@@ -962,6 +1032,19 @@ public class Menu extends javax.swing.JFrame {
                 ajout3Label.setText("Appréciation : ");
                 break;
             case "Evaluation":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(true);
+                ajout3Field.setVisible(true);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("idDetailsBulletin : ");
+                ajout2Label.setText("Note : ");
+                ajout3Label.setText("Appréciation : ");
                 break;
             default:
         }
@@ -974,10 +1057,13 @@ public class Menu extends javax.swing.JFrame {
         Supprimer.setForeground(new java.awt.Color(0, 0, 0));
         Modifier.setForeground(new java.awt.Color(255, 255, 255));
         Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        Statistiques.setForeground(new java.awt.Color(255, 255, 255));
         recherchePanel.setVisible(false);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(true);
         modifierModifierPanel.setVisible(false);
+        jLayeredPane1.remove(statsPanel);
+        statsPanel.setVisible(false);
         rechercheButton.setText("Rechercher");
         supprimerResultLabel.setText("");
         mode1 = "Supprimer";
@@ -1019,6 +1105,9 @@ public class Menu extends javax.swing.JFrame {
             case "Evaluation":
                 supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
                 break;
+            case "Ecole":
+                supprimerLabel.setText("Clé de l'école à supprimer : ");
+                break;
             default:
         }
     }//GEN-LAST:event_SupprimerActionPerformed
@@ -1029,9 +1118,13 @@ public class Menu extends javax.swing.JFrame {
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setForeground(new java.awt.Color(0, 0, 0));
         Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        Statistiques.setForeground(new java.awt.Color(255, 255, 255));
+        
         recherchePanel.setVisible(true);
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
+        jLayeredPane1.remove(statsPanel);
+        statsPanel.setVisible(false);
         rechercheButton.setText("Modifier");
         supprimerResultLabel.setText("");
         modifierModifierPanel.setVisible(false);
@@ -1074,6 +1167,9 @@ public class Menu extends javax.swing.JFrame {
             case "Evaluation":
                 rechercheLabel.setText("Clé de l'évaluation à modifier : ");
                 break;
+            case "Ecole":
+                rechercheLabel.setText("Clé de l'école à modifier : ");
+                break;
             default:
         }
     }//GEN-LAST:event_ModifierActionPerformed
@@ -1093,6 +1189,8 @@ public class Menu extends javax.swing.JFrame {
         mode1 = "Déconnexion";
         supprimerResultLabel.setText("");
          */
+         jLayeredPane1.remove(statsPanel);
+        statsPanel.setVisible(false);
         setVisible(false);
         dispose();
         // TODO add your handling code here:
@@ -1111,6 +1209,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'élève recherché : ");
             resultatLabel.setText("");
@@ -1123,10 +1222,15 @@ public class Menu extends javax.swing.JFrame {
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
         ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
         ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
         ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
     }//GEN-LAST:event_eleveActionPerformed
@@ -1144,6 +1248,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'enseignant recherché : ");
             resultatLabel.setText("");
@@ -1156,10 +1261,15 @@ public class Menu extends javax.swing.JFrame {
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
         ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
         ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
         ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
     }//GEN-LAST:event_enseignantActionPerformed
@@ -1177,8 +1287,9 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
-            rechercheLabel.setText("Clé de l'inscription recherché : ");
+            rechercheLabel.setText("Clé de l'inscription recherchée : ");
             resultatLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'inscription à modifier : ");
@@ -1188,6 +1299,18 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de l'inscription à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("idClasse : ");
+        ajout2Label.setText("idPersonne : ");
     }//GEN-LAST:event_inscriptionActionPerformed
 
     private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
@@ -1203,6 +1326,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de la classe recherchée : ");
             resultatLabel.setText("");
@@ -1214,6 +1338,20 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de la classe à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(true);
+        ajout3Field.setVisible(true);
+        ajout4Label.setVisible(true);
+        ajout4Field.setVisible(true);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("Nom : ");
+        ajout2Label.setText("idEcole : ");
+        ajout3Label.setText("idNiveau : ");
+        ajout4Label.setText("idAnneeScolaire : ");
     }//GEN-LAST:event_classeActionPerformed
 
     private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
@@ -1229,6 +1367,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du niveau recherché : ");
             resultatLabel.setText("");
@@ -1241,6 +1380,17 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé du niveau à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("Nom : ");
     }//GEN-LAST:event_niveauActionPerformed
 
     private void anneeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anneeActionPerformed
@@ -1256,6 +1406,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'année recherchée : ");
             resultatLabel.setText("");
@@ -1267,6 +1418,18 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de l'année à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("Début : ");
+        ajout2Label.setText("Fin : ");
     }//GEN-LAST:event_anneeActionPerformed
 
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trimestreActionPerformed
@@ -1282,6 +1445,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du trimestre recherché : ");
             resultatLabel.setText("");
@@ -1293,6 +1457,20 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé du trimestre à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(true);
+        ajout3Field.setVisible(true);
+        ajout4Label.setVisible(true);
+        ajout4Field.setVisible(true);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("Numéro : ");
+        ajout2Label.setText("Date de début : ");
+        ajout3Label.setText("Date de fin : ");
+        ajout4Label.setText("idAnneeScolaire : ");
     }//GEN-LAST:event_trimestreActionPerformed
 
     private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
@@ -1308,6 +1486,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du bulletin recherché : ");
             resultatLabel.setText("");
@@ -1319,6 +1498,19 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé du bulletin à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(true);
+        ajout3Field.setVisible(true);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("idTrimestre : ");
+        ajout2Label.setText("idInscription : ");
+        ajout3Label.setText("Appréciation : ");
     }//GEN-LAST:event_bulletinActionPerformed
 
     private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
@@ -1334,6 +1526,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'enseignement recherché : ");
             resultatLabel.setText("");
@@ -1345,6 +1538,19 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de l'enseignement à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(true);
+        ajout3Field.setVisible(true);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("idClasse : ");
+        ajout2Label.setText("idDiscipline : ");
+        ajout3Label.setText("idPersonne : ");
     }//GEN-LAST:event_enseignementActionPerformed
 
     private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
@@ -1360,6 +1566,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(0, 0, 0));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de la discipline recherchée : ");
             resultatLabel.setText("");
@@ -1371,6 +1578,17 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de la discipline à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("Nom : ");
     }//GEN-LAST:event_disciplineActionPerformed
 
     private void bulletindetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletindetailActionPerformed
@@ -1386,6 +1604,7 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(0, 0, 0));
         evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du bulletin détaillé recherché : ");
             resultatLabel.setText("");
@@ -1397,6 +1616,19 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé du bulletin détaillé à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(true);
+        ajout3Field.setVisible(true);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("idBulletin : ");
+        ajout2Label.setText("idEnseignement : ");
+        ajout3Label.setText("Appréciation : ");
     }//GEN-LAST:event_bulletindetailActionPerformed
 
     private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
@@ -1412,8 +1644,9 @@ public class Menu extends javax.swing.JFrame {
         discipline.setForeground(new java.awt.Color(255, 255, 255));
         bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
         evaluation.setForeground(new java.awt.Color(0, 0, 0));
+        ecole.setForeground(new java.awt.Color(255, 255, 255));
         if (mode1 == "Rechercher") {
-            rechercheLabel.setText("Clé de l'évaluation recherché : ");
+            rechercheLabel.setText("Clé de l'évaluation recherchée : ");
             resultatLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'évaluation à modifier : ");
@@ -1424,6 +1657,19 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(true);
+        ajout3Field.setVisible(true);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("idDetailsBulletin : ");
+        ajout2Label.setText("Note : ");
+        ajout3Label.setText("Appréciation : ");
     }//GEN-LAST:event_evaluationActionPerformed
 
     private void ajout1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout1FieldActionPerformed
@@ -1437,6 +1683,64 @@ public class Menu extends javax.swing.JFrame {
     private void modifierValiderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierValiderButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modifierValiderButtonActionPerformed
+
+    private void StatistiquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatistiquesActionPerformed
+       Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
+        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
+        Modifier.setForeground(new java.awt.Color(255, 255, 255));
+        Deconnexion.setForeground(new java.awt.Color(255, 255, 255));
+        Statistiques.setForeground(new java.awt.Color(0, 0, 0));
+        recherchePanel.setVisible(false);
+        ajoutPanel.setVisible(false);
+        supprimerPanel.setVisible(false);
+        modifierModifierPanel.setVisible(false);
+        resultatLabel.setText("");
+        erreurLabel.setText("");
+        supprimerResultLabel.setText("");
+        rechercheButton.setText("Rechercher");
+        mode1 = "Statistiques";
+        jLayeredPane1.add(statsPanel);
+        statsPanel.setVisible(true);
+    }//GEN-LAST:event_StatistiquesActionPerformed
+
+    private void ecoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ecoleActionPerformed
+       eleve.setForeground(new java.awt.Color(255, 255, 255));
+        enseignant.setForeground(new java.awt.Color(255, 255, 255));
+        inscription.setForeground(new java.awt.Color(255, 255, 255));
+        classe.setForeground(new java.awt.Color(255, 255, 255));
+        niveau.setForeground(new java.awt.Color(255, 255, 255));
+        annee.setForeground(new java.awt.Color(255, 255, 255));
+        trimestre.setForeground(new java.awt.Color(255, 255, 255));
+        bulletin.setForeground(new java.awt.Color(255, 255, 255));
+        enseignement.setForeground(new java.awt.Color(255, 255, 255));
+        discipline.setForeground(new java.awt.Color(255, 255, 255));
+        bulletindetail.setForeground(new java.awt.Color(255, 255, 255));
+        evaluation.setForeground(new java.awt.Color(255, 255, 255));
+        ecole.setForeground(new java.awt.Color(0, 0, 0));
+        mode2="Ecole";
+        if (mode1 == "Rechercher") {
+            rechercheLabel.setText("Clé de l'écolé recherchée : ");
+            resultatLabel.setText("");
+        } else if (mode1 == "Modifier") {
+            rechercheLabel.setText("Clé de l'école à modifier : ");
+            resultatLabel.setText("");
+        }
+        supprimerLabel.setText("Clé de l'école à supprimer : ");
+        supprimerResultLabel.setText("");
+        erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout1Label.setText("Nom : ");
+    }//GEN-LAST:event_ecoleActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1479,6 +1783,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton Deconnexion;
     private javax.swing.JButton Modifier;
     private javax.swing.JButton Rechercher;
+    private javax.swing.JButton Statistiques;
     private javax.swing.JButton Supprimer;
     private javax.swing.JTextField ajout1Field;
     private javax.swing.JLabel ajout1Label;
@@ -1498,17 +1803,16 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton bulletindetail;
     private javax.swing.JButton classe;
     private javax.swing.JButton discipline;
+    private javax.swing.JButton ecole;
     private javax.swing.JButton eleve;
     private javax.swing.JButton enseignant;
     private javax.swing.JButton enseignement;
     private javax.swing.JLabel erreurLabel;
     private javax.swing.JButton evaluation;
     private javax.swing.JButton inscription;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLayeredPane jLayeredPane1;
-    private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -1526,6 +1830,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel rechercheLabel;
     private javax.swing.JPanel recherchePanel;
     private javax.swing.JLabel resultatLabel;
+    private javax.swing.JPanel statsPanel;
     private javax.swing.JButton supprimerButton;
     private javax.swing.JTextField supprimerField;
     private javax.swing.JLabel supprimerLabel;
