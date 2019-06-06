@@ -64,14 +64,14 @@ public class ConnectMySQL {
         
         
         */
-        ArrayList<Object> k=new ArrayList<Object>();
+        ArrayList<Object> k=new ArrayList<>();
         k=rechercher("Id", "201", "AnneeScolaire");
         /*
         for (Object sublist : k) {
             System.out.println(sublist.toString());
         } 
          */
-        if(k.size() == 0){
+        if(k.isEmpty()){
             System.out.println("Aucun resultat");
         }else{
             Supprimer(k.get(0));
@@ -203,7 +203,7 @@ public class ConnectMySQL {
                 f=rechercher("Id"+NomT, idobj, "Classe");
                 f.addAll(rechercher("Id"+NomT, idobj, "Trimestre"));
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -223,7 +223,7 @@ public class ConnectMySQL {
             
                 f=rechercher("Id"+NomT, idobj, "DetailBulletin");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -244,7 +244,7 @@ public class ConnectMySQL {
                 f=rechercher("Id"+NomT, idobj, "Inscription");
                 f.addAll(rechercher("Id"+NomT, idobj, "Enseignement"));
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -263,7 +263,7 @@ public class ConnectMySQL {
                 
                 f=rechercher("Id"+NomT, idobj, "Evaluation");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -282,7 +282,7 @@ public class ConnectMySQL {
                 
                 f=rechercher("Id"+NomT, idobj, "Enseignement");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -300,7 +300,7 @@ public class ConnectMySQL {
                 
                 f=rechercher("Id"+NomT, idobj, "Classe");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -324,7 +324,7 @@ public class ConnectMySQL {
                     f=rechercher("Id"+NomT, idobj, "Inscription");
                 }
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -343,7 +343,7 @@ public class ConnectMySQL {
                 
                 f=rechercher("Id"+NomT, idobj, "DetailBulletin");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -371,7 +371,7 @@ public class ConnectMySQL {
                 
                 f=rechercher("Id"+NomT, idobj, "Bulletin");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -390,7 +390,7 @@ public class ConnectMySQL {
                 
                 f=rechercher("Id"+NomT, idobj, "Classe");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
@@ -409,7 +409,7 @@ public class ConnectMySQL {
                 
                 f=rechercher("Id"+NomT, idobj, "Bulletin");
                 
-                if(f.size()==0){
+                if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
                     for(int i=0; i < f.size(); i++){
