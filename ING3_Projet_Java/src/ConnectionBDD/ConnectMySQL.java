@@ -287,6 +287,86 @@ public class ConnectMySQL {
         return temp;
     }
     
+    public static ArrayList<Object> rechercher(String attribut, String valAtt, String NomBDD) {
+        
+        Object temmObj =null;
+        Object o =new Object();
+        
+        String req = "SELECT * FROM " + NomBDD + " WHERE "+attribut+" = '"+valAtt+"'";
+        ArrayList<Object> temp = new ArrayList<>();
+        
+        try {
+            st = cnx.createStatement();
+            ResultSet resultat = st.executeQuery(req);
+
+            if (!resultat.next()) {
+                System.out.println("L'attribut "+attribut+" n'est pas dans la table "+NomBDD);
+            } else {
+                do {
+                    
+                    if (NomBDD == "AnneeScolaire") {
+                        temmObj = ((AnneeScolaire) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Bulletin") {
+                        temmObj = ((Bulletin) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Classe") {
+                        temmObj = ((Classe) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "DetailBulletin") {
+                        temmObj = ((DetailBulletin) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Discipline") {
+                        temmObj = ((Discipline) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Ecole") {
+                        temmObj = ((Ecole) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Personne") {
+                        temmObj = ((Personne) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Enseignement") {
+                        temmObj = ((Enseignement) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Evaluation") {
+                        temmObj = ((Evaluation) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Inscription") {
+                        temmObj = ((Inscription) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Niveau") {
+                        temmObj = ((Niveau) o).recupererInfo(resultat);
+                    }
+
+                    if (NomBDD == "Trimestre") {
+                        temmObj = ((Trimestre) o).recupererInfo(resultat);
+                    }
+                    
+                    if(temmObj != null){
+                        temp.add(temmObj);
+                    }
+                    
+                    temmObj =null; 
+                } while (resultat.next());
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return temp;
+    }
+    
+    
     public static void modifierParId(int id, Object o){
          try {
             st = cnx.createStatement();
@@ -347,4 +427,7 @@ public class ConnectMySQL {
             System.out.println(e.getMessage());
         }
     }
+    
+    
+    
 }
