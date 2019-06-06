@@ -217,11 +217,11 @@ INSERT INTO `evaluation` (`Id`, `IdDetailBulletin`, `Note`, `Appreciation`) VALU
 -- --------------------------------------------------------
 
 --
--- Structure de la table `insciption`
+-- Structure de la table `inscription`
 --
 
-DROP TABLE IF EXISTS `insciption`;
-CREATE TABLE IF NOT EXISTS `insciption` (
+DROP TABLE IF EXISTS `inscription`;
+CREATE TABLE IF NOT EXISTS `inscription` (
   `Id` int(8) NOT NULL AUTO_INCREMENT,
   `IdClasse` int(8) NOT NULL,
   `IdPersonne` int(8) NOT NULL,
@@ -231,10 +231,10 @@ CREATE TABLE IF NOT EXISTS `insciption` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `insciption`
+-- Déchargement des données de la table `inscription`
 --
 
-INSERT INTO `insciption` (`Id`, `IdClasse`, `IdPersonne`) VALUES
+INSERT INTO `inscription` (`Id`, `IdClasse`, `IdPersonne`) VALUES
 (1, 1, 1),
 (2, 1, 2),
 (3, 1, 3),

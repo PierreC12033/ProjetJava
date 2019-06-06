@@ -60,22 +60,22 @@ public class ConnectMySQL {
         AjouterP(b); //Trimestre et Inscription
         AjouterP(d); //Bulletin Enseignement
         AjouterP(ev); //DetailBulletin
-        
-        //SupprimerParID(1400, "Evaluation");
        
-      */
-        Object lllll = d;
         
+        
+        */
         ArrayList<Object> k=new ArrayList<Object>();
-        k=rechercher("AnneeDebut", "2017", "AnneeScolaire");
-        
+        k=rechercher("Id", "201", "AnneeScolaire");
+        /*
         for (Object sublist : k) {
-        System.out.println(sublist.toString());
+            System.out.println(sublist.toString());
         } 
-        
-        
-        
-         
+         */
+        if(k.size() == 0){
+            System.out.println("Aucun resultat");
+        }else{
+            Supprimer(k.get(0));
+        }  
     }
     
     /**
@@ -177,18 +177,260 @@ public class ConnectMySQL {
 
     /**
      * 
-     * @param id, l'id de l'objet à supprimer dans notre BDD
-     * @param NomBDD, permet de selectionner la table dans laquelle se trouve l'object
+     * @param o, Object envoie à supprimer
      */
-    public static void SupprimerParID(int id, String NomBDD) {
-        try {
-            String query = "DELETE FROM " + NomBDD + " WHERE Id = " + id;
-            st = cnx.createStatement();
-            st.executeUpdate(query);
-            System.out.println("Produit supprimé");
+    public static void Supprimer(Object o) {
+        
+        String mdd = String.valueOf(o.getClass());
+        
+        String idobj=null;
+        
+        String NomBDD= mdd.substring(13);
+        ArrayList<Object> f=null;
+        
+        String NomT="";
+        
+        if(o instanceof Enseignant || o instanceof Eleve) {
+            NomBDD = "Personne";
+        }
+            
+            if (o instanceof AnneeScolaire) {
+                f = new ArrayList<>();
+                
+                idobj= String.valueOf(((AnneeScolaire) o).getId());
+                NomT = "AnneeScolaire";
+                
+                f=rechercher("Id"+NomT, idobj, "Classe");
+                f.addAll(rechercher("Id"+NomT, idobj, "Trimestre"));
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+            
+            if (o instanceof Bulletin) {
+            
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Bulletin) o).getId());
+                NomT = "Bulletin";
+            
+                f=rechercher("Id"+NomT, idobj, "DetailBulletin");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+            
+            if (o instanceof Classe) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Classe) o).getId());
+                NomT = "Classe";
+                
+                
+                f=rechercher("Id"+NomT, idobj, "Inscription");
+                f.addAll(rechercher("Id"+NomT, idobj, "Enseignement"));
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
 
+            if (o instanceof DetailBulletin) {
+                f = new ArrayList<>();
+                
+                idobj= String.valueOf(((DetailBulletin) o).getId());
+                NomT = "DetailBulletin";
+                
+                f=rechercher("Id"+NomT, idobj, "Evaluation");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Discipline) {
+                f = new ArrayList<>();
+                
+                idobj= String.valueOf(((Discipline) o).getId());
+                NomT = "Discipline";
+                
+                f=rechercher("Id"+NomT, idobj, "Enseignement");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Ecole) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Ecole) o).getId());
+                NomT = "Ecole";
+                
+                f=rechercher("Id"+NomT, idobj, "Classe");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Personne) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Personne) o).getId());
+                NomT = "Personne";
+                
+                if(((Personne) o).isType()){
+                    System.out.println("PROF");
+                    f=rechercher("Id"+NomT, idobj, "Enseignement");
+                }else {
+                    System.out.println("ELEVE");
+                    f=rechercher("Id"+NomT, idobj, "Inscription");
+                }
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Enseignement) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Enseignement) o).getId());
+                NomT = "Enseignement";
+                
+                f=rechercher("Id"+NomT, idobj, "DetailBulletin");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Evaluation) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Evaluation) o).getId());
+                NomT = "Evaluation";
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Inscription) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Inscription) o).getId());
+                NomT = "Inscription";
+                
+                f=rechercher("Id"+NomT, idobj, "Bulletin");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Niveau) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Niveau) o).getId());
+                NomT = "Niveau";
+                
+                f=rechercher("Id"+NomT, idobj, "Classe");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+
+            if (o instanceof Trimestre) {
+                f = new ArrayList<>();
+            
+                idobj= String.valueOf(((Trimestre) o).getId());
+                NomT = "Trimestre";
+                
+                f=rechercher("Id"+NomT, idobj, "Bulletin");
+                
+                if(f.size()==0){
+                    System.out.println("Aucun element");
+                }else{
+                    for(int i=0; i < f.size(); i++){
+                        Supprimer(f.get(i));
+                    }
+                }
+                
+                SupprimerAtt("Id", idobj, NomT);
+            }
+    }
+    
+    public static void SupprimerAtt(String att, String val, String NomBDD){
+        
+        String req = "DELETE FROM " + NomBDD + " WHERE "+att+" ='"+val+"'";
+        
+        try {
+            st = cnx.createStatement();
+            st.executeUpdate(req);
+            System.out.println("Element "+att+"="+val+" de la table "+NomBDD+" bien supprime");
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println("SQL M: "+e.getMessage());
         }
     }
 
@@ -293,7 +535,6 @@ public class ConnectMySQL {
         Object o = null;
         
         String req = "SELECT * FROM " + NomBDD + " WHERE "+attribut+" = '"+valAtt+"'";
-        System.out.println(req);
         ArrayList<Object> temp = new ArrayList<>();
         
         try {
@@ -301,7 +542,7 @@ public class ConnectMySQL {
             ResultSet resultat = st.executeQuery(req);
 
             if (!resultat.next()) {
-                System.out.println("L'attribut "+attribut+" n'est pas dans la table "+NomBDD);
+                System.out.println("Aucun element n'a cette valeur pour l'attribut "+attribut+" dans la table "+NomBDD);
             } else {
                 do {
                     
