@@ -48,7 +48,18 @@ public class Menu extends javax.swing.JFrame {
         resultatLabel.setText("");
         erreurLabel.setText("");
         supprimerResultLabel.setText("");
-
+        ajout1Label.setVisible(true);
+        ajout1Field.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout2Field.setVisible(true);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout5Field.setVisible(false);
+        ajout1Label.setText("Prenom : ");
+        ajout2Label.setText("Nom : ");
     }
 
     /**
@@ -794,7 +805,7 @@ public class Menu extends javax.swing.JFrame {
             case "Evaluation":
                 rechercheLabel.setText("Clé de l'évaluation recherché : ");
                 break;
-            default :
+            default:
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_RechercherActionPerformed
@@ -812,6 +823,148 @@ public class Menu extends javax.swing.JFrame {
         rechercheButton.setText("Rechercher");
         mode1 = "Ajouter";
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
+        switch (mode2) {
+            case "Eleve":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Prénom : ");
+                ajout2Label.setText("Nom : ");
+                break;
+            case "Enseignant":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Prénom : ");
+                ajout2Label.setText("Nom : ");
+                break;
+            case "Inscription":
+                break;
+            case "Classe":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(true);
+                ajout3Field.setVisible(true);
+                ajout4Label.setVisible(true);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                ajout2Label.setText("idEcole : ");
+                ajout3Label.setText("idNiveau : ");
+                ajout4Label.setText("idAnneeScolaire : ");
+                break;
+            case "Niveau":
+                break;
+            case "Annee":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Debut : ");
+                ajout2Label.setText("Fin : ");
+                break;
+            case "Trimestre":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(true);
+                ajout3Field.setVisible(true);
+                ajout4Label.setVisible(true);
+                ajout4Field.setVisible(true);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Numéro : ");
+                ajout2Label.setText("Date de début : ");
+                ajout3Label.setText("Date de fin : ");
+                ajout4Label.setText("idAnneeScolaire : ");
+                break;
+            case "Bulletin":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(true);
+                ajout3Field.setVisible(true);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("idTrimestre : ");
+                ajout2Label.setText("idInscription : ");
+                ajout3Label.setText("Appréciation : ");
+                break;
+            case "Enseignement":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(true);
+                ajout3Field.setVisible(true);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("idClasse : ");
+                ajout2Label.setText("idDiscipline : ");
+                ajout3Label.setText("idPersonne : ");
+                break;
+            case "Discipline":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                break;
+            case "BulletinDetails":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout3Label.setVisible(true);
+                ajout3Field.setVisible(true);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("idBulletin : ");
+                ajout2Label.setText("idEnseignement : ");
+                ajout3Label.setText("Appréciation : ");
+                break;
+            case "Evaluation":
+                break;
+            default:
+        }
 
     }//GEN-LAST:event_AjouterActionPerformed
 
@@ -828,6 +981,7 @@ public class Menu extends javax.swing.JFrame {
         rechercheButton.setText("Rechercher");
         supprimerResultLabel.setText("");
         mode1 = "Supprimer";
+        erreurLabel.setText("");
         switch (mode2) {
             case "Eleve":
                 supprimerLabel.setText("Clé de l'élève à supprimer : ");
@@ -865,7 +1019,7 @@ public class Menu extends javax.swing.JFrame {
             case "Evaluation":
                 supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
                 break;
-            default :
+            default:
         }
     }//GEN-LAST:event_SupprimerActionPerformed
 
@@ -881,6 +1035,7 @@ public class Menu extends javax.swing.JFrame {
         rechercheButton.setText("Modifier");
         supprimerResultLabel.setText("");
         modifierModifierPanel.setVisible(false);
+        erreurLabel.setText("");
         mode1 = "Modifier";
         switch (mode2) {
             case "Eleve":
@@ -919,12 +1074,12 @@ public class Menu extends javax.swing.JFrame {
             case "Evaluation":
                 rechercheLabel.setText("Clé de l'évaluation à modifier : ");
                 break;
-            default :
+            default:
         }
     }//GEN-LAST:event_ModifierActionPerformed
 
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-       /* Rechercher.setForeground(new java.awt.Color(255, 255, 255));
+        /* Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
         Supprimer.setForeground(new java.awt.Color(255, 255, 255));
         Modifier.setForeground(new java.awt.Color(255, 255, 255));
@@ -937,7 +1092,7 @@ public class Menu extends javax.swing.JFrame {
         rechercheButton.setText("Rechercher");
         mode1 = "Déconnexion";
         supprimerResultLabel.setText("");
-        */
+         */
         setVisible(false);
         dispose();
         // TODO add your handling code here:
@@ -959,15 +1114,21 @@ public class Menu extends javax.swing.JFrame {
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'élève recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'élève à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }// TODO add your handling code here:
         mode2 = "Eleve";
         supprimerLabel.setText("Clé de l'élève à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout3Label.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout1Label.setText("Prénom : ");
+        ajout2Label.setText("Nom : ");
     }//GEN-LAST:event_eleveActionPerformed
 
     private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
@@ -986,15 +1147,21 @@ public class Menu extends javax.swing.JFrame {
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'enseignant recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'enseignant à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Enseignant";// TODO add your handling code here:
         supprimerLabel.setText("Clé de l'enseignant à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
+        ajout1Label.setVisible(true);
+        ajout2Label.setVisible(true);
+        ajout3Label.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout5Label.setVisible(false);
+        ajout1Label.setText("Prénom : ");
+        ajout2Label.setText("Nom : ");
     }//GEN-LAST:event_enseignantActionPerformed
 
     private void inscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscriptionActionPerformed
@@ -1013,15 +1180,14 @@ public class Menu extends javax.swing.JFrame {
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'inscription recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'inscription à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Inscription";// TODO add your handling code here:
         supprimerLabel.setText("Clé de l'inscription à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_inscriptionActionPerformed
 
     private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
@@ -1040,15 +1206,14 @@ public class Menu extends javax.swing.JFrame {
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de la classe recherchée : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de la classe à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Classe";// TODO add your handling code here:
         supprimerLabel.setText("Clé de la classe à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_classeActionPerformed
 
     private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
@@ -1067,16 +1232,15 @@ public class Menu extends javax.swing.JFrame {
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du niveau recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé du niveau à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Niveau";
 // TODO add your handling code here:
-supprimerLabel.setText("Clé du niveau à supprimer : ");
-supprimerResultLabel.setText("");
+        supprimerLabel.setText("Clé du niveau à supprimer : ");
+        supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_niveauActionPerformed
 
     private void anneeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anneeActionPerformed
@@ -1095,15 +1259,14 @@ supprimerResultLabel.setText("");
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'année recherchée : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'année à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Annee";// TODO add your handling code here:
         supprimerLabel.setText("Clé de l'année à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_anneeActionPerformed
 
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trimestreActionPerformed
@@ -1122,15 +1285,14 @@ supprimerResultLabel.setText("");
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du trimestre recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé du trimestre à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Trimestre";// TODO add your handling code here:
         supprimerLabel.setText("Clé du trimestre à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_trimestreActionPerformed
 
     private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
@@ -1149,15 +1311,14 @@ supprimerResultLabel.setText("");
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du bulletin recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé du bulletin à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Bulletin";// TODO add your handling code here:
         supprimerLabel.setText("Clé du bulletin à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_bulletinActionPerformed
 
     private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
@@ -1176,15 +1337,14 @@ supprimerResultLabel.setText("");
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'enseignement recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'enseignement à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Enseignement";// TODO add your handling code here:
         supprimerLabel.setText("Clé de l'enseignement à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_enseignementActionPerformed
 
     private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
@@ -1203,15 +1363,14 @@ supprimerResultLabel.setText("");
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de la discipline recherchée : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de la discipline à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Discipline";// TODO add your handling code here:
         supprimerLabel.setText("Clé de la discipline à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_disciplineActionPerformed
 
     private void bulletindetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletindetailActionPerformed
@@ -1230,15 +1389,14 @@ supprimerResultLabel.setText("");
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé du bulletin détaillé recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé du bulletin détaillé à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "BulletinDetails";// TODO add your handling code here:
         supprimerLabel.setText("Clé du bulletin détaillé à supprimer : ");
         supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_bulletindetailActionPerformed
 
     private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
@@ -1257,16 +1415,15 @@ supprimerResultLabel.setText("");
         if (mode1 == "Rechercher") {
             rechercheLabel.setText("Clé de l'évaluation recherché : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         } else if (mode1 == "Modifier") {
             rechercheLabel.setText("Clé de l'évaluation à modifier : ");
             resultatLabel.setText("");
-            erreurLabel.setText("");
         }
         mode2 = "Evaluation";
 // TODO add your handling code here:
-supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
-supprimerResultLabel.setText("");
+        supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
+        supprimerResultLabel.setText("");
+        erreurLabel.setText("");
     }//GEN-LAST:event_evaluationActionPerformed
 
     private void ajout1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout1FieldActionPerformed
