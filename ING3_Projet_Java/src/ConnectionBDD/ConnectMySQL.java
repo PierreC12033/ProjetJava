@@ -67,7 +67,7 @@ public class ConnectMySQL {
         Object lllll = d;
         
         ArrayList<Object> k=new ArrayList<Object>();
-        k=rechercherParId(a.getId(), a);
+        k=rechercher("AnneeDebut", "2017", "AnneeScolaire");
         
         for (Object sublist : k) {
         System.out.println(sublist.toString());
@@ -290,9 +290,10 @@ public class ConnectMySQL {
     public static ArrayList<Object> rechercher(String attribut, String valAtt, String NomBDD) {
         
         Object temmObj =null;
-        Object o =new Object();
+        Object o = null;
         
         String req = "SELECT * FROM " + NomBDD + " WHERE "+attribut+" = '"+valAtt+"'";
+        System.out.println(req);
         ArrayList<Object> temp = new ArrayList<>();
         
         try {
@@ -304,51 +305,63 @@ public class ConnectMySQL {
             } else {
                 do {
                     
-                    if (NomBDD == "AnneeScolaire") {
+                    if ("AnneeScolaire".equals(NomBDD) ) {
+                        o = new AnneeScolaire();
                         temmObj = ((AnneeScolaire) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Bulletin") {
+                    if ("Bulletin".equals(NomBDD)) {
+                        o = new Bulletin();
                         temmObj = ((Bulletin) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Classe") {
+                    if ("Classe".equals(NomBDD)) {
+                        o = new Classe();
                         temmObj = ((Classe) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "DetailBulletin") {
+                    if ("DetailBulletin".equals(NomBDD)) {
+                        o = new DetailBulletin();
                         temmObj = ((DetailBulletin) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Discipline") {
+                    if ("Discipline".equals(NomBDD)) {
+                        o = new Discipline();
                         temmObj = ((Discipline) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Ecole") {
+                    if ("Ecole".equals(NomBDD)) {
+                        o = new Ecole();
                         temmObj = ((Ecole) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Personne") {
+                    if ("Personne".equals(NomBDD)) {
+                        o = new Personne();
                         temmObj = ((Personne) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Enseignement") {
+                    if ("Enseignement".equals(NomBDD)) {
+                        o = new Enseignement();
                         temmObj = ((Enseignement) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Evaluation") {
+                    if ("Evaluation".equals(NomBDD)) {
+                        o = new Evaluation();
                         temmObj = ((Evaluation) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Inscription") {
+                    if ("Inscription".equals(NomBDD)) {
+                        o = new Inscription();
                         temmObj = ((Inscription) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Niveau") {
+                    if ("Niveau".equals(NomBDD)) {
+                        o = new Niveau();
                         temmObj = ((Niveau) o).recupererInfo(resultat);
                     }
 
-                    if (NomBDD == "Trimestre") {
+                    if ("Trimestre".equals(NomBDD)) {
+                        o = new Trimestre();
                         temmObj = ((Trimestre) o).recupererInfo(resultat);
                     }
                     
@@ -365,7 +378,6 @@ public class ConnectMySQL {
 
         return temp;
     }
-    
     
     public static void modifierParId(int id, Object o){
          try {
@@ -427,7 +439,5 @@ public class ConnectMySQL {
             System.out.println(e.getMessage());
         }
     }
-    
-    
     
 }
