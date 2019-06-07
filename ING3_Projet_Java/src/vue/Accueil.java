@@ -5,20 +5,164 @@
  */
 package vue;
 
+import ConnectionBDD.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author tomjo
  */
 public class Accueil extends javax.swing.JFrame {
 
-    Menu menu = new Menu();
+    Menu menu;
+    ConnectMySQL bdd = new ConnectMySQL();
+
     /**
      * Creates new form Accueil
      */
     public Accueil() {
         initComponents();
-        erreurLabel.setVisible(false);
-        menu.setVisible(false);
+        erreurLabel.setText("");
+    }
+
+    public Menu getMenu() {
+        return menu;
+    }
+
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
+    public ConnectMySQL getBdd() {
+        return bdd;
+    }
+
+    public void setBdd(ConnectMySQL bdd) {
+        this.bdd = bdd;
+    }
+
+    public JTextField getAdresseField() {
+        return adresseField;
+    }
+
+    public void setAdresseField(JTextField adresseField) {
+        this.adresseField = adresseField;
+    }
+
+    public JLabel getErreurLabel() {
+        return erreurLabel;
+    }
+
+    public void setErreurLabel(JLabel erreurLabel) {
+        this.erreurLabel = erreurLabel;
+    }
+
+    public JButton getjButton1() {
+        return jButton1;
+    }
+
+    public void setjButton1(JButton jButton1) {
+        this.jButton1 = jButton1;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    public void setjLabel2(JLabel jLabel2) {
+        this.jLabel2 = jLabel2;
+    }
+
+    public JLabel getjLabel3() {
+        return adressLabel;
+    }
+
+    public void setjLabel3(JLabel jLabel3) {
+        this.adressLabel = jLabel3;
+    }
+
+    public JLabel getjLabel4() {
+        return nameLabel;
+    }
+
+    public void setjLabel4(JLabel jLabel4) {
+        this.nameLabel = jLabel4;
+    }
+
+    public JLabel getjLabel5() {
+        return loginLabel;
+    }
+
+    public void setjLabel5(JLabel jLabel5) {
+        this.loginLabel = jLabel5;
+    }
+
+    public JLabel getjLabel6() {
+        return passwordLabel;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.passwordLabel = jLabel6;
+    }
+
+    public JPanel getjPanel1() {
+        return jPanel1;
+    }
+
+    public void setjPanel1(JPanel jPanel1) {
+        this.jPanel1 = jPanel1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public void setjPanel3(JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    public JTextField getLoginField() {
+        return loginField;
+    }
+
+    public void setLoginField(JTextField loginField) {
+        this.loginField = loginField;
+    }
+
+    public JTextField getNomField() {
+        return nomField;
+    }
+
+    public void setNomField(JTextField nomField) {
+        this.nomField = nomField;
+    }
+
+    public JPasswordField getPasswordField() {
+        return passwordField;
+    }
+
+    public void setPasswordField(JPasswordField passwordField) {
+        this.passwordField = passwordField;
     }
 
     /**
@@ -30,11 +174,12 @@ public class Accueil extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        adressLabel = new javax.swing.JLabel();
+        nameLabel = new javax.swing.JLabel();
+        loginLabel = new javax.swing.JLabel();
+        passwordLabel = new javax.swing.JLabel();
         adresseField = new javax.swing.JTextField();
         nomField = new javax.swing.JTextField();
         loginField = new javax.swing.JTextField();
@@ -51,13 +196,13 @@ public class Accueil extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel3.setText("Adresse du serveur BDD :");
+        adressLabel.setText("Adresse du serveur BDD :");
 
-        jLabel4.setText("Nom de la BDD : ");
+        nameLabel.setText("Nom de la BDD : ");
 
-        jLabel5.setText("Login :");
+        loginLabel.setText("Login :");
 
-        jLabel6.setText("Mot de passe :");
+        passwordLabel.setText("Mot de passe :");
 
         nomField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,7 +225,6 @@ public class Accueil extends javax.swing.JFrame {
             }
         });
 
-        erreurLabel.setForeground(new java.awt.Color(255, 102, 102));
         erreurLabel.setText("ERREUR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -97,21 +241,21 @@ public class Accueil extends javax.swing.JFrame {
                         .addGap(61, 61, 61)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(adressLabel)
                                 .addGap(75, 75, 75)
                                 .addComponent(adresseField))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
+                                .addComponent(nameLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(nomField))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel5)
+                                        .addComponent(loginLabel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(loginField, javax.swing.GroupLayout.PREFERRED_SIZE, 468, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
+                                        .addComponent(passwordLabel)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
@@ -128,19 +272,19 @@ public class Accueil extends javax.swing.JFrame {
                 .addComponent(erreurLabel)
                 .addGap(51, 51, 51)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(adressLabel)
                     .addComponent(adresseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
+                    .addComponent(nameLabel)
                     .addComponent(nomField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
+                    .addComponent(loginLabel)
                     .addComponent(loginField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
+                    .addComponent(passwordLabel)
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -182,14 +326,14 @@ public class Accueil extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(528, 528, 528)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(569, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(25, 25, 25)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -223,8 +367,31 @@ public class Accueil extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFieldActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            menu.setVisible(true); 
-            setVisible(false);
+
+        String adress = adresseField.getText();
+        String name = nomField.getText();
+        String login = loginField.getText();
+        char[] password = passwordField.getPassword();
+        String pass = "";
+        for (int i = 0; i < password.length; i++) {
+            pass += password[i];
+        }
+        //Pour Windows
+        String port = "3306";
+        if (adress == "" || name == "" || login == "") {
+            erreurLabel.setText("Un des champs est nul");
+        } else {
+            bdd.connecterDB(adress, port, name, login, pass);
+            boolean trouve = bdd.getAccepted();
+            if (trouve) {
+                menu = new Menu();
+                menu.setBdd(bdd);
+                menu.setVisible(true);
+                setVisible(false);
+            } else {
+                erreurLabel.setText("BDD non trouvé!");
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -263,20 +430,21 @@ public class Accueil extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel adressLabel;
     private javax.swing.JTextField adresseField;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JLabel erreurLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField loginField;
+    private javax.swing.JLabel loginLabel;
+    private javax.swing.JLabel nameLabel;
     private javax.swing.JTextField nomField;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel passwordLabel;
     // End of variables declaration//GEN-END:variables
 }

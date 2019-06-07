@@ -18,14 +18,21 @@ public class ConnectMySQL {
     static Connection cnx;
     static Statement st;
     static ResultSet rst;
-
+    static boolean accepted;
+    /**
+     * Constructeur par défault
+     */
+    public ConnectMySQL() {
+        
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
 
-        cnx = connecterDB();
+        //cnx = connecterDB("localhost","3306");
 
         AnneeScolaire a = new AnneeScolaire(701, 99, 20);
         Bulletin b = new Bulletin(800, 1900, 1500, "ca modifié");
@@ -83,21 +90,80 @@ public class ConnectMySQL {
     * @return Connection
     * @see Connection type definis dans les package SQL
     */
-    public static Connection connecterDB() {
+    public static Connection connecterDB(String server, String port, String bdd_name, String user, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver ok");
-            String url = "jdbc:mysql://localhost:8889/Ecole";
-            String user = "root";
-            String password = "root";
+            String url = "jdbc:mysql://"+server+":"+port+"/"+bdd_name;
             cnx = DriverManager.getConnection(url, user, password);
             System.out.println("Connexion bien établié");
+            setAccepted(true);
             return cnx;
+            
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
+            setAccepted(false);
             return null;
+            
         }
     }
+    /**
+     * Getter de l'Objet Connection
+     * @return cnx objet de classe Connection
+     */
+    public static Connection getCnx() {
+        return cnx;
+    }
+    /**
+     * Défini la valeur de l'attribut Objet Connecion
+     * @param cnx un objet de classe Connection
+     */
+    public static void setCnx(Connection cnx) {
+        ConnectMySQL.cnx = cnx;
+    }
+    /**
+     * Getter de l'objet Statement
+     * @return st l'objet de classe Statement
+     */
+    public static Statement getSt() {
+        return st;
+    }
+    /**
+     * Définie l'objet Statement
+     * @param st objet de classe Statement
+     */
+    public static void setSt(Statement st) {
+        ConnectMySQL.st = st;
+    }
+    /**
+     * Getter de l'objet ResultSet
+     * @return rst l'objet de classe ResultSet
+     */
+    public static ResultSet getRst() {
+        return rst;
+    }
+    /**
+     * Défini l'objet ResultSet
+     * @param rst objet de classe ResultSet
+     */
+    public static void setRst(ResultSet rst) {
+        ConnectMySQL.rst = rst;
+    }
+    /**
+     * Getter du boolean accepted 
+     * @return accepted attribut booléen
+     */
+    public static boolean getAccepted() {
+        return accepted;
+    }
+    /**
+     * Défini le boolean accepted
+     * @param accepted attribut boolean
+     */
+    public static void setAccepted(boolean accepted) {
+        ConnectMySQL.accepted = accepted;
+    }
+    
 
     /**
      * Permet d'ajouter un object dans une table
