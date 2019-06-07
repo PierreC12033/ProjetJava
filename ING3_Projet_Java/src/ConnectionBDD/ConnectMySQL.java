@@ -15,14 +15,54 @@ import modele.*;
  */
 public class ConnectMySQL {
 
-    static Connection cnx;
-    static Statement st;
-    static ResultSet rst;
+    Connection cnx;
+    Statement st;
+    ResultSet rst;
+    
+    private String user;
+    private String password;
+    private String NomTable;
 
+    public ConnectMySQL() {
+        user="";
+        password="";
+        NomTable="";
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public String getNomTable() {
+        return NomTable;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setNomTable(String NomTable) {
+        this.NomTable = NomTable;
+    }
+    
+    public ConnectMySQL(String user, String password, String NomTable) {
+        this.user = user;
+        this.password = password;
+        this.NomTable = NomTable;
+    }
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public void main(String[] args) {
         // TODO code application logic here
 
         cnx = connecterDB();
@@ -83,13 +123,17 @@ public class ConnectMySQL {
     * @return Connection
     * @see Connection type definis dans les package SQL
     */
-    public static Connection connecterDB() {
+    public Connection connecterDB() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver ok");
-            String url = "jdbc:mysql://localhost:8889/Ecole";
-            String user = "root";
-            String password = "root";
+            String url = "jdbc:mysql://localhost:";
+            if(password == ""){
+                url+="3306/";
+            }else{
+                url+="8889/";
+            }
+            url+=NomTable;
             cnx = DriverManager.getConnection(url, user, password);
             System.out.println("Connexion bien établié");
             return cnx;
@@ -104,7 +148,7 @@ public class ConnectMySQL {
      * @param o correspond à l'objet a ajouté
      * @see Object comme il est parent de toute nos classe il permet de moduler notre code
      */
-    public static void AjouterP(Object o) {
+    public void AjouterP(Object o) {
         try {
             st = cnx.createStatement();
             String query = "";
@@ -179,7 +223,7 @@ public class ConnectMySQL {
      * 
      * @param o, Object envoie à supprimer
      */
-    public static void Supprimer(Object o) {
+    public void Supprimer(Object o) {
         
         String mdd = String.valueOf(o.getClass());
         
@@ -421,7 +465,7 @@ public class ConnectMySQL {
             }
     }
     
-    public static void SupprimerAtt(String att, String val, String NomBDD){
+    public void SupprimerAtt(String att, String val, String NomBDD){
         
         String req = "DELETE FROM " + NomBDD + " WHERE "+att+" ='"+val+"'";
         
@@ -441,7 +485,7 @@ public class ConnectMySQL {
      * @return Une liste d'object
      * @see Object comme il est parent de toute nos classe il permet de moduler notre code
      */
-    public static ArrayList<Object> rechercherParId(int id, Object o) {
+    public ArrayList<Object> rechercherParId(int id, Object o) {
         
         String mdd = String.valueOf(o.getClass());
         
@@ -529,12 +573,18 @@ public class ConnectMySQL {
         return temp;
     }
     
-    public static ArrayList<Object> rechercher(String attribut, String valAtt, String NomBDD) {
+    public ArrayList<Object> rechercher(String attribut, String valAtt, String NomBDD) {
         
         Object temmObj =null;
         Object o = null;
         
-        String req = "SELECT * FROM " + NomBDD + " WHERE "+attribut+" = '"+valAtt+"'";
+        String req ="SELECT * FROM " + NomBDD;
+        
+        
+        if(!valAtt.equals(attribut)){
+            req+= " WHERE "+attribut+" = '"+valAtt+"'";
+        }
+        
         ArrayList<Object> temp = new ArrayList<>();
         
         try {
@@ -620,7 +670,7 @@ public class ConnectMySQL {
         return temp;
     }
     
-    public static void modifierParId(int id, Object o){
+    public void modifierParId(int id, Object o){
          try {
             st = cnx.createStatement();
             String query = "";
