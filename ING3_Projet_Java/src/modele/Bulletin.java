@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -23,6 +26,35 @@ public class Bulletin {
         this.idTrimestre = idTrimestre;
         this.idInscription = idInscription;
         this.Appreciation = Appreciation;
+    }
+    
+    @Override
+    public String toString(){
+        return "Id : "+this.id+" | idTrimestre : "+this.idTrimestre+" | idInscription : "+this.idInscription
+                + " | Appreciation : "+this.Appreciation;
+    }
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
+    public String ajouterBDD(){
+        return "INSERT INTO Bulletin VALUES("+this.id+",'"+this.idTrimestre+"',"+this.idInscription+",'"+this.Appreciation+"')";
+    }
+    
+    public String modifierBDD(){
+        return "UPDATE Bulletin SET IdTrimestre = "+this.idTrimestre+", IdInscription = "+
+                this.idInscription+", Appreciation = \""+this.Appreciation+"\" WHERE Id = "+this.id;
+    }
+    
+    public Bulletin recupererInfo(ResultSet r){ 
+        Bulletin a = null;
+        try{
+            a=new Bulletin(r.getInt(1), r.getInt(2), r.getInt(3), r.getString(4));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {

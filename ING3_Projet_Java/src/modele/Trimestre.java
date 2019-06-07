@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author elias
@@ -30,6 +33,50 @@ public class Trimestre {
         this.Debut = Debut;
         this.Fin = Fin;
         this.idAnneeScolaire = idAnneeScolaire;
+    }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", Numero=" + Numero + ", Debut=" + Debut + ", Fin=" + Fin + ", idAnneeScolaire=" + idAnneeScolaire;
+    }
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
+    public String ajouterBDD(){
+        Date deb= getDebut();
+        String datedeb= deb.getAnnee()+"/"+deb.getMois()+"/"+deb.getJour();
+        Date fin= getFin();
+        String datefin= fin.getAnnee()+"/"+fin.getMois()+"/"+fin.getJour();
+        
+        return "INSERT INTO Trimestre VALUES("+this.id+","+this.Numero+",'"+datedeb+"','"+datefin+"',"+this.idAnneeScolaire+")";
+    }
+    
+    public String modifierBDD(){
+        Date deb= getDebut();
+        String datedeb= deb.getAnnee()+"-"+deb.getMois()+"-"+deb.getJour();
+        Date fin= getFin();
+        String datefin= fin.getAnnee()+"-"+fin.getMois()+"-"+fin.getJour();
+        
+        return "UPDATE Trimestre SET Numero = "+this.Numero+", Debut = '"+datedeb+"', Fin = '"+datefin
+                + "', IdAnneeScolaire = "+this.idAnneeScolaire+" WHERE Id = "+this.id;
+    }
+    
+    public Trimestre recupererInfo(ResultSet r){ 
+        Trimestre a = null;
+        
+        try{
+            String myDateStr1 = r.getString("Debut"); 
+            Date myDateDebut = new Date(myDateStr1);
+            String myDateStr2 = r.getString("Fin"); 
+            Date myDateFin = new Date(myDateStr2);
+            
+            a=new Trimestre(r.getInt(1), r.getInt(2), myDateDebut, myDateFin ,r.getInt(5));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
     }
     
     public int getId() {

@@ -5,6 +5,9 @@
  */
 package modele;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author tomjo
@@ -23,6 +26,34 @@ public class Ecole {
         id=num;
         nom=name;        
     }
+
+    @Override
+    public String toString() {
+        return "id=" + id + ", nom=" + nom;
+    }
+    /**
+     * Ajouter un element à notre BDD
+     * @return la requete SQL afin d'ajouter un element dans notre BDD
+     */
+    public String ajouterBDD(){
+        return "INSERT INTO Ecole VALUES("+this.id+",'"+this.nom+"')";
+    }
+    
+    public String modifierBDD(){
+        return "UPDATE Ecole SET Nom = \""+this.nom+"\" WHERE Id = "+this.id;
+    }
+    
+    public Ecole recupererInfo(ResultSet r){ 
+        Ecole a = null;
+        try{
+            a=new Ecole(r.getInt(1), r.getString(2));
+        }catch(SQLException e){
+            System.out.println(e.getMessage());
+        }
+        
+        return a;
+    }
+    
     public int getId()
     {
         return id;
