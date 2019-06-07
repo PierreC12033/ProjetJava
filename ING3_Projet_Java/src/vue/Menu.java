@@ -6,7 +6,7 @@
 package vue;
 
 import javafx.scene.paint.Color;
-
+import ConnectionBDD.*;
 /**
  *
  * @author tomjo
@@ -17,6 +17,7 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     String mode1, mode2;
+    ConnectMySQL bdd;
 
     public Menu() {
         mode1 = "Rechercher";
