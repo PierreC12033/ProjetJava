@@ -62,11 +62,11 @@ public class Reporting {
         if(!classes.isEmpty()){
             for(int i=0; i<classes.size(); i++){
                 resul = s.rechercher("idClasse", Integer.toString(classes.get(i).getId()), "Inscription");
-                if(!resul.isEmpty()){
-                    result_Inscri.add(resul);
-                }
+                result_Inscri.get(i).add(resul);
             }
+            
         }
-        
     }
+    
+    
 }
