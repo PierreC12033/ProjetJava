@@ -6,7 +6,14 @@
 package vue;
 
 import javafx.scene.paint.Color;
-
+import ConnectionBDD.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 /**
  *
  * @author tomjo
@@ -17,6 +24,544 @@ public class Menu extends javax.swing.JFrame {
      * Creates new form NewJFrame
      */
     String mode1, mode2;
+    ConnectMySQL bdd;
+
+    public String getMode1() {
+        return mode1;
+    }
+
+    public void setMode1(String mode1) {
+        this.mode1 = mode1;
+    }
+
+    public String getMode2() {
+        return mode2;
+    }
+
+    public void setMode2(String mode2) {
+        this.mode2 = mode2;
+    }
+
+    public ConnectMySQL getBdd() {
+        return bdd;
+    }
+
+    public void setBdd(ConnectMySQL bdd) {
+        this.bdd = bdd;
+    }
+
+    public JButton getAjouter() {
+        return Ajouter;
+    }
+
+    public void setAjouter(JButton Ajouter) {
+        this.Ajouter = Ajouter;
+    }
+
+    public JButton getDeconnexion() {
+        return Deconnexion;
+    }
+
+    public void setDeconnexion(JButton Deconnexion) {
+        this.Deconnexion = Deconnexion;
+    }
+
+    public JButton getModifier() {
+        return Modifier;
+    }
+
+    public void setModifier(JButton Modifier) {
+        this.Modifier = Modifier;
+    }
+
+    public JButton getRechercher() {
+        return Rechercher;
+    }
+
+    public void setRechercher(JButton Rechercher) {
+        this.Rechercher = Rechercher;
+    }
+
+    public JButton getStatistiques() {
+        return Statistiques;
+    }
+
+    public void setStatistiques(JButton Statistiques) {
+        this.Statistiques = Statistiques;
+    }
+
+    public JButton getSupprimer() {
+        return Supprimer;
+    }
+
+    public void setSupprimer(JButton Supprimer) {
+        this.Supprimer = Supprimer;
+    }
+
+    public JTextField getAjout1Field() {
+        return ajout1Field;
+    }
+
+    public void setAjout1Field(JTextField ajout1Field) {
+        this.ajout1Field = ajout1Field;
+    }
+
+    public JLabel getAjout1Label() {
+        return ajout1Label;
+    }
+
+    public void setAjout1Label(JLabel ajout1Label) {
+        this.ajout1Label = ajout1Label;
+    }
+
+    public JTextField getAjout2Field() {
+        return ajout2Field;
+    }
+
+    public void setAjout2Field(JTextField ajout2Field) {
+        this.ajout2Field = ajout2Field;
+    }
+
+    public JLabel getAjout2Label() {
+        return ajout2Label;
+    }
+
+    public void setAjout2Label(JLabel ajout2Label) {
+        this.ajout2Label = ajout2Label;
+    }
+
+    public JTextField getAjout3Field() {
+        return ajout3Field;
+    }
+
+    public void setAjout3Field(JTextField ajout3Field) {
+        this.ajout3Field = ajout3Field;
+    }
+
+    public JLabel getAjout3Label() {
+        return ajout3Label;
+    }
+
+    public void setAjout3Label(JLabel ajout3Label) {
+        this.ajout3Label = ajout3Label;
+    }
+
+    public JTextField getAjout4Field() {
+        return ajout4Field;
+    }
+
+    public void setAjout4Field(JTextField ajout4Field) {
+        this.ajout4Field = ajout4Field;
+    }
+
+    public JLabel getAjout4Label() {
+        return ajout4Label;
+    }
+
+    public void setAjout4Label(JLabel ajout4Label) {
+        this.ajout4Label = ajout4Label;
+    }
+
+    public JTextField getAjout5Field() {
+        return ajout5Field;
+    }
+
+    public void setAjout5Field(JTextField ajout5Field) {
+        this.ajout5Field = ajout5Field;
+    }
+
+    public JLabel getAjout5Label() {
+        return ajout5Label;
+    }
+
+    public void setAjout5Label(JLabel ajout5Label) {
+        this.ajout5Label = ajout5Label;
+    }
+
+    public JPanel getAjoutPanel() {
+        return ajoutPanel;
+    }
+
+    public void setAjoutPanel(JPanel ajoutPanel) {
+        this.ajoutPanel = ajoutPanel;
+    }
+
+    public JButton getAjouterButton() {
+        return ajouterButton;
+    }
+
+    public void setAjouterButton(JButton ajouterButton) {
+        this.ajouterButton = ajouterButton;
+    }
+
+    public JButton getAnnee() {
+        return annee;
+    }
+
+    public void setAnnee(JButton annee) {
+        this.annee = annee;
+    }
+
+    public JList<String> getBddListe() {
+        return bddListe;
+    }
+
+    public void setBddListe(JList<String> bddListe) {
+        this.bddListe = bddListe;
+    }
+
+    public JButton getBulletin() {
+        return bulletin;
+    }
+
+    public void setBulletin(JButton bulletin) {
+        this.bulletin = bulletin;
+    }
+
+    public JButton getBulletindetail() {
+        return bulletindetail;
+    }
+
+    public void setBulletindetail(JButton bulletindetail) {
+        this.bulletindetail = bulletindetail;
+    }
+
+    public JButton getClasse() {
+        return classe;
+    }
+
+    public void setClasse(JButton classe) {
+        this.classe = classe;
+    }
+
+    public JButton getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(JButton discipline) {
+        this.discipline = discipline;
+    }
+
+    public JButton getEcole() {
+        return ecole;
+    }
+
+    public void setEcole(JButton ecole) {
+        this.ecole = ecole;
+    }
+
+    public JButton getEleve() {
+        return eleve;
+    }
+
+    public void setEleve(JButton eleve) {
+        this.eleve = eleve;
+    }
+
+    public JButton getEnseignant() {
+        return enseignant;
+    }
+
+    public void setEnseignant(JButton enseignant) {
+        this.enseignant = enseignant;
+    }
+
+    public JButton getEnseignement() {
+        return enseignement;
+    }
+
+    public void setEnseignement(JButton enseignement) {
+        this.enseignement = enseignement;
+    }
+
+    public JLabel getErreurLabel() {
+        return erreurLabel;
+    }
+
+    public void setErreurLabel(JLabel erreurLabel) {
+        this.erreurLabel = erreurLabel;
+    }
+
+    public JButton getEvaluation() {
+        return evaluation;
+    }
+
+    public void setEvaluation(JButton evaluation) {
+        this.evaluation = evaluation;
+    }
+
+    public JButton getInscription() {
+        return inscription;
+    }
+
+    public void setInscription(JButton inscription) {
+        this.inscription = inscription;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public void setjLabel1(JLabel jLabel1) {
+        this.jLabel1 = jLabel1;
+    }
+
+    public JLabel getjLabel6() {
+        return jLabel6;
+    }
+
+    public void setjLabel6(JLabel jLabel6) {
+        this.jLabel6 = jLabel6;
+    }
+
+    public JLayeredPane getjLayeredPane1() {
+        return jLayeredPane1;
+    }
+
+    public void setjLayeredPane1(JLayeredPane jLayeredPane1) {
+        this.jLayeredPane1 = jLayeredPane1;
+    }
+
+    public JPanel getjPanel2() {
+        return jPanel2;
+    }
+
+    public void setjPanel2(JPanel jPanel2) {
+        this.jPanel2 = jPanel2;
+    }
+
+    public JPanel getjPanel3() {
+        return jPanel3;
+    }
+
+    public void setjPanel3(JPanel jPanel3) {
+        this.jPanel3 = jPanel3;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public void setjScrollPane1(JScrollPane jScrollPane1) {
+        this.jScrollPane1 = jScrollPane1;
+    }
+
+    public JScrollPane getjScrollPane3() {
+        return jScrollPane3;
+    }
+
+    public void setjScrollPane3(JScrollPane jScrollPane3) {
+        this.jScrollPane3 = jScrollPane3;
+    }
+
+    public JLabel getModifier1Button() {
+        return modifier1Button;
+    }
+
+    public void setModifier1Button(JLabel modifier1Button) {
+        this.modifier1Button = modifier1Button;
+    }
+
+    public JLabel getModifier2Button() {
+        return modifier2Button;
+    }
+
+    public void setModifier2Button(JLabel modifier2Button) {
+        this.modifier2Button = modifier2Button;
+    }
+
+    public JLabel getModifier3Button() {
+        return modifier3Button;
+    }
+
+    public void setModifier3Button(JLabel modifier3Button) {
+        this.modifier3Button = modifier3Button;
+    }
+
+    public JLabel getModifier4Button() {
+        return modifier4Button;
+    }
+
+    public void setModifier4Button(JLabel modifier4Button) {
+        this.modifier4Button = modifier4Button;
+    }
+
+    public JLabel getModifier5Button() {
+        return modifier5Button;
+    }
+
+    public void setModifier5Button(JLabel modifier5Button) {
+        this.modifier5Button = modifier5Button;
+    }
+
+    public JPanel getModifierModifierPanel() {
+        return modifierModifierPanel;
+    }
+
+    public void setModifierModifierPanel(JPanel modifierModifierPanel) {
+        this.modifierModifierPanel = modifierModifierPanel;
+    }
+
+    public JButton getModifierValiderButton() {
+        return modifierValiderButton;
+    }
+
+    public void setModifierValiderButton(JButton modifierValiderButton) {
+        this.modifierValiderButton = modifierValiderButton;
+    }
+
+    public JButton getNiveau() {
+        return niveau;
+    }
+
+    public void setNiveau(JButton niveau) {
+        this.niveau = niveau;
+    }
+
+    public JButton getRechercheButton() {
+        return rechercheButton;
+    }
+
+    public void setRechercheButton(JButton rechercheButton) {
+        this.rechercheButton = rechercheButton;
+    }
+
+    public JTextField getRechercheField() {
+        return rechercheField;
+    }
+
+    public void setRechercheField(JTextField rechercheField) {
+        this.rechercheField = rechercheField;
+    }
+
+    public JLabel getRechercheLabel() {
+        return rechercheLabel;
+    }
+
+    public void setRechercheLabel(JLabel rechercheLabel) {
+        this.rechercheLabel = rechercheLabel;
+    }
+
+    public JPanel getRecherchePanel() {
+        return recherchePanel;
+    }
+
+    public void setRecherchePanel(JPanel recherchePanel) {
+        this.recherchePanel = recherchePanel;
+    }
+
+    public JLabel getResultatLabel() {
+        return resultatLabel;
+    }
+
+    public void setResultatLabel(JLabel resultatLabel) {
+        this.resultatLabel = resultatLabel;
+    }
+
+    public JPanel getStatsPanel() {
+        return statsPanel;
+    }
+
+    public void setStatsPanel(JPanel statsPanel) {
+        this.statsPanel = statsPanel;
+    }
+
+    public JButton getSupprimerButton() {
+        return supprimerButton;
+    }
+
+    public void setSupprimerButton(JButton supprimerButton) {
+        this.supprimerButton = supprimerButton;
+    }
+
+    public JTextField getSupprimerField() {
+        return supprimerField;
+    }
+
+    public void setSupprimerField(JTextField supprimerField) {
+        this.supprimerField = supprimerField;
+    }
+
+    public JLabel getSupprimerLabel() {
+        return supprimerLabel;
+    }
+
+    public void setSupprimerLabel(JLabel supprimerLabel) {
+        this.supprimerLabel = supprimerLabel;
+    }
+
+    public JList<String> getSupprimerList() {
+        return supprimerList;
+    }
+
+    public void setSupprimerList(JList<String> supprimerList) {
+        this.supprimerList = supprimerList;
+    }
+
+    public JPanel getSupprimerPanel() {
+        return supprimerPanel;
+    }
+
+    public void setSupprimerPanel(JPanel supprimerPanel) {
+        this.supprimerPanel = supprimerPanel;
+    }
+
+    public JLabel getSupprimerResultLabel() {
+        return supprimerResultLabel;
+    }
+
+    public void setSupprimerResultLabel(JLabel supprimerResultLabel) {
+        this.supprimerResultLabel = supprimerResultLabel;
+    }
+
+    public JButton getTrimestre() {
+        return trimestre;
+    }
+
+    public void setTrimestre(JButton trimestre) {
+        this.trimestre = trimestre;
+    }
+
+    public JTextField getValeur1Field() {
+        return valeur1Field;
+    }
+
+    public void setValeur1Field(JTextField valeur1Field) {
+        this.valeur1Field = valeur1Field;
+    }
+
+    public JTextField getValeur2Field() {
+        return valeur2Field;
+    }
+
+    public void setValeur2Field(JTextField valeur2Field) {
+        this.valeur2Field = valeur2Field;
+    }
+
+    public JTextField getValeur3Field() {
+        return valeur3Field;
+    }
+
+    public void setValeur3Field(JTextField valeur3Field) {
+        this.valeur3Field = valeur3Field;
+    }
+
+    public JTextField getValeur4Field() {
+        return valeur4Field;
+    }
+
+    public void setValeur4Field(JTextField valeur4Field) {
+        this.valeur4Field = valeur4Field;
+    }
+
+    public JTextField getValeur5Field() {
+        return valeur5Field;
+    }
+
+    public void setValeur5Field(JTextField valeur5Field) {
+        this.valeur5Field = valeur5Field;
+    }
+    
 
     public Menu() {
         mode1 = "Rechercher";
@@ -1175,25 +1720,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifierActionPerformed
 
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-        /* Rechercher.setForeground(new java.awt.Color(255, 255, 255));
-        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
-        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
-        Modifier.setForeground(new java.awt.Color(255, 255, 255));
-        Deconnexion.setForeground(new java.awt.Color(0, 0, 0));
-        recherchePanel.setVisible(false);
-        ajoutPanel.setVisible(false);
-        supprimerPanel.setVisible(false);
-        modifierModifierPanel.setVisible(false);
-        modifierValiderButton.setVisible(false);
-        rechercheButton.setText("Rechercher");
-        mode1 = "Déconnexion";
-        supprimerResultLabel.setText("");
-         */
-         jLayeredPane1.remove(statsPanel);
+        jLayeredPane1.remove(statsPanel);
         statsPanel.setVisible(false);
         setVisible(false);
+        mode1="Deconnexion";
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
         dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_DeconnexionActionPerformed
 
     private void eleveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleveActionPerformed

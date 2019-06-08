@@ -18,7 +18,7 @@ public class ConnectMySQL {
     Connection cnx;
     Statement st;
     ResultSet rst;
-    
+
     private String user;
     private String password;
     private String NomTable;
@@ -52,20 +52,20 @@ public class ConnectMySQL {
     public void setNomTable(String NomTable) {
         this.NomTable = NomTable;
     }
-    
+
     public ConnectMySQL(String user, String password, String NomTable) {
         this.user = user;
         this.password = password;
         this.NomTable = NomTable;
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public void main(String[] args) {
         // TODO code application logic here
 
-        cnx = connecterDB();
+        //cnx = connecterDB("localhost","3306");
 
         AnneeScolaire a = new AnneeScolaire(701, 99, 20);
         Bulletin b = new Bulletin(800, 1900, 1500, "ca modifié");
@@ -79,20 +79,20 @@ public class ConnectMySQL {
         Niveau n = new Niveau(1600, "5eme");
         Eleve e = new Eleve(1700, "CCC", "CCCC");
         Enseignant ensg = new Enseignant(1800, "GGGGG", "GGGG");
-        
+
         modele.Date debut = new modele.Date(01, 12, 1990);
         modele.Date fin = new modele.Date(04, 01, 2200);
         Trimestre t = new Trimestre(1900, 4, debut, fin, 700);
-        
+
         //modifierParId(t.getId(), t);
-          
+
         /*AjouterP(a);
         AjouterP(dis);
         AjouterP(ec);
         AjouterP(n);
         AjouterP(e);
         AjouterP(ensg);
-        
+
         AjouterP(c); //Ecole Niveau AnneeScolaire
         AjouterP(i); //Classe Eleve
         AjouterP(ens); //Classe Discipline Personne
@@ -100,48 +100,103 @@ public class ConnectMySQL {
         AjouterP(b); //Trimestre et Inscription
         AjouterP(d); //Bulletin Enseignement
         AjouterP(ev); //DetailBulletin
-       
-        
-        
+
+
+
         */
         ArrayList<Object> k=new ArrayList<>();
         k=rechercher("Id", "201", "AnneeScolaire");
         /*
         for (Object sublist : k) {
             System.out.println(sublist.toString());
-        } 
+        }
          */
         if(k.isEmpty()){
             System.out.println("Aucun resultat");
         }else{
             Supprimer(k.get(0));
-        }  
+        }
     }
-    
+
     /**
     * Connection à la base de données avec données predefinis
     * @return Connection
     * @see Connection type definis dans les package SQL
     */
-    public Connection connecterDB() {
+    public static Connection connecterDB(String server, String port, String bdd_name, String user, String password) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             System.out.println("Driver ok");
-            String url = "jdbc:mysql://localhost:";
-            if(password == ""){
-                url+="3306/";
-            }else{
-                url+="8889/";
-            }
-            url+=NomTable;
+            String url = "jdbc:mysql://"+server+":"+port+"/"+bdd_name;
             cnx = DriverManager.getConnection(url, user, password);
             System.out.println("Connexion bien établié");
+            setAccepted(true);
             return cnx;
+
         } catch (ClassNotFoundException | SQLException e) {
             System.out.println(e);
+            setAccepted(false);
             return null;
+
         }
     }
+    /**
+     * Getter de l'Objet Connection
+     * @return cnx objet de classe Connection
+     */
+    public static Connection getCnx() {
+        return cnx;
+    }
+    /**
+     * Défini la valeur de l'attribut Objet Connecion
+     * @param cnx un objet de classe Connection
+     */
+    public static void setCnx(Connection cnx) {
+        ConnectMySQL.cnx = cnx;
+    }
+    /**
+     * Getter de l'objet Statement
+     * @return st l'objet de classe Statement
+     */
+    public static Statement getSt() {
+        return st;
+    }
+    /**
+     * Définie l'objet Statement
+     * @param st objet de classe Statement
+     */
+    public static void setSt(Statement st) {
+        ConnectMySQL.st = st;
+    }
+    /**
+     * Getter de l'objet ResultSet
+     * @return rst l'objet de classe ResultSet
+     */
+    public static ResultSet getRst() {
+        return rst;
+    }
+    /**
+     * Défini l'objet ResultSet
+     * @param rst objet de classe ResultSet
+     */
+    public static void setRst(ResultSet rst) {
+        ConnectMySQL.rst = rst;
+    }
+    /**
+     * Getter du boolean accepted
+     * @return accepted attribut booléen
+     */
+    public static boolean getAccepted() {
+        return accepted;
+    }
+    /**
+     * Défini le boolean accepted
+     * @param accepted attribut boolean
+     */
+    public static void setAccepted(boolean accepted) {
+        ConnectMySQL.accepted = accepted;
+    }
+
 
     /**
      * Permet d'ajouter un object dans une table
@@ -153,8 +208,8 @@ public class ConnectMySQL {
             st = cnx.createStatement();
             String query = "";
 
-            //Cherche du type de l'objet recu en paramètre 
-            
+            //Cherche du type de l'objet recu en paramètre
+
             if (o instanceof AnneeScolaire) {
                 query = ((AnneeScolaire) o).ajouterBDD();
             }
@@ -204,13 +259,13 @@ public class ConnectMySQL {
             }
 
             String mdd = String.valueOf(o.getClass());
-        
+
             String NomBDD= mdd.substring(13);
 
             if(o instanceof Enseignant || o instanceof Eleve) {
                 NomBDD = "Personne";
             }
-            
+
             st.executeUpdate(query);
             System.out.println("Produit ajouté " + NomBDD);
 
@@ -220,33 +275,33 @@ public class ConnectMySQL {
     }
 
     /**
-     * 
+     *
      * @param o, Object envoie à supprimer
      */
     public void Supprimer(Object o) {
-        
+
         String mdd = String.valueOf(o.getClass());
-        
+
         String idobj=null;
-        
+
         String NomBDD= mdd.substring(13);
         ArrayList<Object> f=null;
-        
+
         String NomT="";
-        
+
         if(o instanceof Enseignant || o instanceof Eleve) {
             NomBDD = "Personne";
         }
-            
+
             if (o instanceof AnneeScolaire) {
                 f = new ArrayList<>();
-                
+
                 idobj= String.valueOf(((AnneeScolaire) o).getId());
                 NomT = "AnneeScolaire";
-                
+
                 f=rechercher("Id"+NomT, idobj, "Classe");
                 f.addAll(rechercher("Id"+NomT, idobj, "Trimestre"));
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -254,19 +309,19 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
-            
+
             if (o instanceof Bulletin) {
-            
+
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Bulletin) o).getId());
                 NomT = "Bulletin";
-            
+
                 f=rechercher("Id"+NomT, idobj, "DetailBulletin");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -274,20 +329,20 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
-            
+
             if (o instanceof Classe) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Classe) o).getId());
                 NomT = "Classe";
-                
-                
+
+
                 f=rechercher("Id"+NomT, idobj, "Inscription");
                 f.addAll(rechercher("Id"+NomT, idobj, "Enseignement"));
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -295,18 +350,18 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
 
             if (o instanceof DetailBulletin) {
                 f = new ArrayList<>();
-                
+
                 idobj= String.valueOf(((DetailBulletin) o).getId());
                 NomT = "DetailBulletin";
-                
+
                 f=rechercher("Id"+NomT, idobj, "Evaluation");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -314,18 +369,18 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
 
             if (o instanceof Discipline) {
                 f = new ArrayList<>();
-                
+
                 idobj= String.valueOf(((Discipline) o).getId());
                 NomT = "Discipline";
-                
+
                 f=rechercher("Id"+NomT, idobj, "Enseignement");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -338,12 +393,12 @@ public class ConnectMySQL {
 
             if (o instanceof Ecole) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Ecole) o).getId());
                 NomT = "Ecole";
-                
+
                 f=rechercher("Id"+NomT, idobj, "Classe");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -356,10 +411,10 @@ public class ConnectMySQL {
 
             if (o instanceof Personne) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Personne) o).getId());
                 NomT = "Personne";
-                
+
                 if(((Personne) o).isType()){
                     System.out.println("PROF");
                     f=rechercher("Id"+NomT, idobj, "Enseignement");
@@ -367,7 +422,7 @@ public class ConnectMySQL {
                     System.out.println("ELEVE");
                     f=rechercher("Id"+NomT, idobj, "Inscription");
                 }
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -375,18 +430,18 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
 
             if (o instanceof Enseignement) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Enseignement) o).getId());
                 NomT = "Enseignement";
-                
+
                 f=rechercher("Id"+NomT, idobj, "DetailBulletin");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -394,27 +449,27 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
 
             if (o instanceof Evaluation) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Evaluation) o).getId());
                 NomT = "Evaluation";
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
 
             if (o instanceof Inscription) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Inscription) o).getId());
                 NomT = "Inscription";
-                
+
                 f=rechercher("Id"+NomT, idobj, "Bulletin");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -422,18 +477,18 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
 
             if (o instanceof Niveau) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Niveau) o).getId());
                 NomT = "Niveau";
-                
+
                 f=rechercher("Id"+NomT, idobj, "Classe");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -441,18 +496,18 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
 
             if (o instanceof Trimestre) {
                 f = new ArrayList<>();
-            
+
                 idobj= String.valueOf(((Trimestre) o).getId());
                 NomT = "Trimestre";
-                
+
                 f=rechercher("Id"+NomT, idobj, "Bulletin");
-                
+
                 if(f.isEmpty()){
                     System.out.println("Aucun element");
                 }else{
@@ -460,15 +515,15 @@ public class ConnectMySQL {
                         Supprimer(f.get(i));
                     }
                 }
-                
+
                 SupprimerAtt("Id", idobj, NomT);
             }
     }
-    
+
     public void SupprimerAtt(String att, String val, String NomBDD){
-        
+
         String req = "DELETE FROM " + NomBDD + " WHERE "+att+" ='"+val+"'";
-        
+
         try {
             st = cnx.createStatement();
             st.executeUpdate(req);
@@ -479,26 +534,26 @@ public class ConnectMySQL {
     }
 
     /**
-     * 
+     *
      * @param id, l'id de l'objet à rechercher dans notre BDD
      * @param o, l'object que l'on recherche dans notre BDD
      * @return Une liste d'object
      * @see Object comme il est parent de toute nos classe il permet de moduler notre code
      */
     public ArrayList<Object> rechercherParId(int id, Object o) {
-        
+
         String mdd = String.valueOf(o.getClass());
-        
+
         String NomBDD= mdd.substring(13);
         Object temmObj =null;
-        
+
         if(o instanceof Enseignant || o instanceof Eleve) {
             NomBDD = "Personne";
         }
-        
+
         String req = "SELECT * FROM " + NomBDD + " WHERE Id =?";
         ArrayList<Object> temp = new ArrayList<>();
-        
+
         try {
             st = cnx.createStatement();
             PreparedStatement pst = cnx.prepareStatement(req);
@@ -509,7 +564,7 @@ public class ConnectMySQL {
                 System.out.println("Cette Id n'est pas dans la table");
             } else {
                 do {
-                    
+
                     if (o instanceof AnneeScolaire) {
                         temmObj = ((AnneeScolaire) o).recupererInfo(resultat);
                     }
@@ -517,7 +572,7 @@ public class ConnectMySQL {
                     if (o instanceof Bulletin) {
                         temmObj = ((Bulletin) o).recupererInfo(resultat);
                     }
-                    
+
 
                     if (o instanceof Classe) {
                         temmObj = ((Classe) o).recupererInfo(resultat);
@@ -558,12 +613,12 @@ public class ConnectMySQL {
                     if (o instanceof Trimestre) {
                         temmObj = ((Trimestre) o).recupererInfo(resultat);
                     }
-                    
+
                     if(temmObj != null){
                         temp.add(temmObj);
                     }
-                    
-                    temmObj =null; 
+
+                    temmObj =null;
                 } while (resultat.next());
             }
         } catch (SQLException e) {
@@ -572,21 +627,21 @@ public class ConnectMySQL {
 
         return temp;
     }
-    
+
     public ArrayList<Object> rechercher(String attribut, String valAtt, String NomBDD) {
-        
+
         Object temmObj =null;
         Object o = null;
-        
+
         String req ="SELECT * FROM " + NomBDD;
-        
-        
+
+
         if(!valAtt.equals(attribut)){
             req+= " WHERE "+attribut+" = '"+valAtt+"'";
         }
-        
+
         ArrayList<Object> temp = new ArrayList<>();
-        
+
         try {
             st = cnx.createStatement();
             ResultSet resultat = st.executeQuery(req);
@@ -595,7 +650,7 @@ public class ConnectMySQL {
                 System.out.println("Aucun element n'a cette valeur pour l'attribut "+attribut+" dans la table "+NomBDD);
             } else {
                 do {
-                    
+
                     if ("AnneeScolaire".equals(NomBDD) ) {
                         o = new AnneeScolaire();
                         temmObj = ((AnneeScolaire) o).recupererInfo(resultat);
@@ -655,12 +710,12 @@ public class ConnectMySQL {
                         o = new Trimestre();
                         temmObj = ((Trimestre) o).recupererInfo(resultat);
                     }
-                    
+
                     if(temmObj != null){
                         temp.add(temmObj);
                     }
-                    
-                    temmObj =null; 
+
+                    temmObj =null;
                 } while (resultat.next());
             }
         } catch (SQLException e) {
@@ -669,7 +724,7 @@ public class ConnectMySQL {
 
         return temp;
     }
-    
+
     public void modifierParId(int id, Object o){
          try {
             st = cnx.createStatement();
@@ -730,5 +785,5 @@ public class ConnectMySQL {
             System.out.println(e.getMessage());
         }
     }
-    
+
 }
