@@ -3,26 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controleur;
-import java.sql.*;
-import ConnectionBDD.*;
-import static ConnectionBDD.ConnectMySQL.*;
-import java.util.ArrayList;
-import modele.*;
-import vue.*;
+package Reporting;
 
+import ConnectionBDD.ConnectMySQL;
+import java.util.ArrayList;
+import modele.AnneeScolaire;
+import modele.Classe;
+import modele.Niveau;
 
 /**
  *
  * @author elias
  */
-public class recherche {
-    public void main(String[] args){
-            ConnectMySQL m=new ConnectMySQL();
-            m.setCnx(connecterDB("localhost", "8889","Ecole", "root", "root"));
-            
-            InfoClasse(m, "2018", "Ing 3");
-    }
+public class Reporting {
     
     public void InfoClasse(ConnectMySQL s, String Annee, String Niveau){
         ArrayList<Object> result_Annee= new ArrayList<>();
