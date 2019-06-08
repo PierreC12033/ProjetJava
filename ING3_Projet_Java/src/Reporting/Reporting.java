@@ -55,17 +55,21 @@ public class Reporting {
         }
     }
     
-    public void InfoInscription(ConnectMySQL s){
-        ArrayList<ArrayList<Object>> result_Inscri= new ArrayList<>();
+    public void InfoInscription(ConnectMySQL s, Classe c){
+        ArrayList<Inscription> result_Inscri= new ArrayList<>();
         ArrayList<Object> resul=new ArrayList<>();
         
-        if(!classes.isEmpty()){
-            for(int i=0; i<classes.size(); i++){
-                resul = s.rechercher("idClasse", Integer.toString(classes.get(i).getId()), "Inscription");
-                    result_Inscri.add(resul);
+
+        if(c != null){
+            
+            resul = s.rechercher("idClasse", Integer.toString(c.getId()), "Inscription");
+            result_Inscri.addAll(((ArrayList)resul));
+            
+            for(int i=0; i<result_Inscri.size(); i++){
+                result_Inscri.get(i).toString();
             }
-        }
-        
+        }  
+
     }
     
     public float moyenne_eleve(ConnectMySQL bdd,Inscription MrX)
