@@ -7,9 +7,7 @@ package Reporting;
 
 import ConnectionBDD.ConnectMySQL;
 import java.util.ArrayList;
-import modele.AnneeScolaire;
-import modele.Classe;
-import modele.Niveau;
+import modele.*;
 
 /**
  *
@@ -55,17 +53,19 @@ public class Reporting {
         }
     }
     
-    public void InfoInscription(ConnectMySQL s){
-        ArrayList<ArrayList<Object>> result_Inscri= new ArrayList<>();
+    public void InfoInscription(ConnectMySQL s, Classe c){
+        ArrayList<Inscription> result_Inscri= new ArrayList<>();
         ArrayList<Object> resul=new ArrayList<>();
         
-        if(!classes.isEmpty()){
-            for(int i=0; i<classes.size(); i++){
-                resul = s.rechercher("idClasse", Integer.toString(classes.get(i).getId()), "Inscription");
-                result_Inscri.get(i).add(resul);
-            }
+        if(c != null){
             
-        }
+            resul = s.rechercher("idClasse", Integer.toString(c.getId()), "Inscription");
+            result_Inscri.addAll(((ArrayList)resul));
+            
+            for(int i=0; i<result_Inscri.size(); i++){
+                result_Inscri.get(i).toString();
+            }
+        }  
     }
     
     
