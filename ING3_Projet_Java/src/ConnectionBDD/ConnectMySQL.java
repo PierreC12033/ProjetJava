@@ -8,6 +8,7 @@ package ConnectionBDD;
 import java.sql.*;
 import java.util.ArrayList;
 import modele.*;
+import controleur.*;
 
 /**
  *
@@ -20,7 +21,7 @@ public class ConnectMySQL {
     static ResultSet rst;
     static boolean accepted;
     
-    private ArrayList<AnneeScolaire> AnneeScolaires;
+    /*private ArrayList<AnneeScolaire> AnneeScolaires;
     private ArrayList<Bulletin> Bulletins;
     private ArrayList<Classe> Classes;
     private ArrayList<DetailBulletin> DetailBulletins;
@@ -33,7 +34,7 @@ public class ConnectMySQL {
     private ArrayList<Inscription> Inscriptions;
     private ArrayList<Niveau> Niveaux;
     private ArrayList<Trimestre> Trimestres;
-    
+    */
     
     /**
      * Constructeur par défault
@@ -86,19 +87,21 @@ public class ConnectMySQL {
        
         
         
-        */
+        
         ArrayList<Object> k=new ArrayList<>();
         k=rechercher("Id", "201", "AnneeScolaire");
-        /*
+        
         for (Object sublist : k) {
             System.out.println(sublist.toString());
         } 
-         */
+         
         if(k.isEmpty()){
             System.out.println("Aucun resultat");
         }else{
             Supprimer(k.get(0));
-        }  
+        } 
+        */
+        
     }
     
     /**
@@ -114,9 +117,6 @@ public class ConnectMySQL {
             cnx = DriverManager.getConnection(url, user, password);
             System.out.println("Connexion bien établié");
             setAccepted(true);
-            if(accepted){
-                setAnneeScolaires(rechercher("id","id","AnneeScolaire"));
-            }
             return cnx;
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -770,7 +770,7 @@ public class ConnectMySQL {
     public static void setAccepted(boolean accepted) {
         ConnectMySQL.accepted = accepted;
     }
-    
+    /*
     public void setAnneeScolaires(ArrayList<AnneeScolaire> AnneeScolaires) {
         this.AnneeScolaires = AnneeScolaires;
     }
@@ -822,11 +822,11 @@ public class ConnectMySQL {
     public void setTrimestres(ArrayList<Trimestre> Trimestres) {
         this.Trimestres = Trimestres;
     }
-
+*/
     public static boolean isAccepted() {
         return accepted;
     }
-
+/*
     public ArrayList<AnneeScolaire> getAnneeScolaires() {
         return AnneeScolaires;
     }
@@ -878,5 +878,5 @@ public class ConnectMySQL {
     public ArrayList<Trimestre> getTrimestres() {
         return Trimestres;
     }
-    
+    */
 }
