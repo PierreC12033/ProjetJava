@@ -18,7 +18,6 @@ import javax.swing.JTextField;
  */
 public class Accueil extends javax.swing.JFrame {
 
-    Menu menu;
     ConnectMySQL bdd = new ConnectMySQL();
 
     /**
@@ -29,14 +28,6 @@ public class Accueil extends javax.swing.JFrame {
         erreurLabel.setText("");
         buttonGroup1.add(macButton);
         buttonGroup1.add(windowsButton);
-    }
-
-    public Menu getMenu() {
-        return menu;
-    }
-
-    public void setMenu(Menu menu) {
-        this.menu = menu;
     }
 
     public ConnectMySQL getBdd() {
@@ -404,15 +395,12 @@ public class Accueil extends javax.swing.JFrame {
         for (int i = 0; i < password.length; i++) {
             pass += password[i];
         }
-        String port="NULL";
-        if(windowsButton.isSelected())
-        {
-        //Pour Windows
-        port = "3306";
-        }
-        else if(macButton.isSelected())
-        {
-            port ="8889";
+        String port = "NULL";
+        if (windowsButton.isSelected()) {
+            //Pour Windows
+            port = "3306";
+        } else if (macButton.isSelected()) {
+            port = "8889";
         }
         if (adress == "" || name == "" || login == "") {
             erreurLabel.setText("Un des champs est nul");
@@ -420,12 +408,13 @@ public class Accueil extends javax.swing.JFrame {
             bdd.connecterDB(adress, port, name, login, pass);
             boolean trouve = bdd.getAccepted();
             if (trouve) {
-                menu = new Menu();
+                Menu menu = new Menu();
                 menu.setBdd(bdd);
                 menu.setVisible(true);
                 setVisible(false);
+                dispose();
             } else {
-                erreurLabel.setText("BDD non trouvé!");
+                erreurLabel.setText("Erreur de connexion à la BDD");
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed

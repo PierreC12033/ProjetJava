@@ -1720,25 +1720,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifierActionPerformed
 
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-        /* Rechercher.setForeground(new java.awt.Color(255, 255, 255));
-        Ajouter.setForeground(new java.awt.Color(255, 255, 255));
-        Supprimer.setForeground(new java.awt.Color(255, 255, 255));
-        Modifier.setForeground(new java.awt.Color(255, 255, 255));
-        Deconnexion.setForeground(new java.awt.Color(0, 0, 0));
-        recherchePanel.setVisible(false);
-        ajoutPanel.setVisible(false);
-        supprimerPanel.setVisible(false);
-        modifierModifierPanel.setVisible(false);
-        modifierValiderButton.setVisible(false);
-        rechercheButton.setText("Rechercher");
-        mode1 = "Déconnexion";
-        supprimerResultLabel.setText("");
-         */
-         jLayeredPane1.remove(statsPanel);
+        jLayeredPane1.remove(statsPanel);
         statsPanel.setVisible(false);
         setVisible(false);
+        mode1="Deconnexion";
+        Accueil accueil = new Accueil();
+        accueil.setVisible(true);
         dispose();
-        // TODO add your handling code here:
     }//GEN-LAST:event_DeconnexionActionPerformed
 
     private void eleveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleveActionPerformed
