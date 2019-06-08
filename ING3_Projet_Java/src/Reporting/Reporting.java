@@ -7,9 +7,8 @@ package Reporting;
 
 import ConnectionBDD.ConnectMySQL;
 import java.util.ArrayList;
-import modele.AnneeScolaire;
-import modele.Classe;
-import modele.Niveau;
+import modele.*;
+
 
 /**
  *
@@ -18,6 +17,7 @@ import modele.Niveau;
 public class Reporting {
     
     private ArrayList<Classe> classes;
+    
     
     
     public void InfoClasse(ConnectMySQL s, String Annee, String Niveau){
@@ -62,11 +62,76 @@ public class Reporting {
         if(!classes.isEmpty()){
             for(int i=0; i<classes.size(); i++){
                 resul = s.rechercher("idClasse", Integer.toString(classes.get(i).getId()), "Inscription");
-                result_Inscri.get(i).add(resul);
             }
-            
         }
+        
     }
     
-    
+    public float moyenne_eleve(ConnectMySQL bdd,Inscription MrX)
+    {
+       
+        
+        
+        
+        int totmoyenne = 0;
+        int nbnote =0;
+        float finalmoyenne;
+        finalmoyenne = 0;
+        int MrXID=MrX.getId();
+        Bulletin tempoB=new Bulletin();
+        
+        ArrayList<Object> lbul= new ArrayList<>();
+        
+        DetailBulletin tempoDB=new DetailBulletin();
+        
+        ArrayList<Object> lbulD= new ArrayList<>();
+        
+        Evaluation tempoE=new Evaluation();
+        
+        ArrayList<Object> lEval= new ArrayList<>();
+        
+        
+        
+        lbul=bdd.rechercher("IdInscription",Integer.toString(MrXID),"bulletin");
+        if(!lbul.isEmpty())
+            {
+                for(int i=0;i<lbul.size();i++)
+                {
+
+                    //Bulletin ->Detailbulletin
+                    tempoB=(Bulletin) lbul.get(i);
+                    lbulD=bdd.rechercher("IdBulletin",Integer.toString(tempoB.getId()),"detailbulletin");
+                    if(!lbulD.isEmpty())
+                    {
+                         for(int f=0;f<lbulD.size();f++)
+                        {  
+
+                            //Detailbulletin->Evaluation
+                            tempoDB=(DetailBulletin) lbulD.get(f);
+                            lEval=bdd.rechercher("IdDetailBulletin",Integer.toString(tempoDB.getId()),"evaluation");
+                            if(!lEval.isEmpty())
+                            {
+                                for(int g=0;g<lbulD.size();g++)
+                                {  
+                                    tempoE=(Evaluation) lEval.get(g);
+                                    totmoyenne+=tempoE.getNote();
+                                    nbnote++;
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+        finalmoyenne=(float)totmoyenne/(float)nbnote;
+        
+       
+        
+        
+        
+        
+        
+        return finalmoyenne;
+    }
 }
+
