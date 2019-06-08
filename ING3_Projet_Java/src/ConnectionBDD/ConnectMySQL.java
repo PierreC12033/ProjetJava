@@ -8,6 +8,7 @@ package ConnectionBDD;
 import java.sql.*;
 import java.util.ArrayList;
 import modele.*;
+import controleur.*;
 
 /**
  *
@@ -106,11 +107,11 @@ public class ConnectMySQL {
         */
         ArrayList<Object> k=new ArrayList<>();
         k=rechercher("Id", "201", "AnneeScolaire");
-        /*
+        
         for (Object sublist : k) {
             System.out.println(sublist.toString());
-        }
-         */
+        } 
+         
         if(k.isEmpty()){
             System.out.println("Aucun resultat");
         }else{
@@ -641,7 +642,12 @@ public class ConnectMySQL {
         }
 
         ArrayList<Object> temp = new ArrayList<>();
-
+        
+        if(attribut.equals(valAtt)){
+            req =  "SELECT * FROM "+NomBDD;
+        }
+        
+        
         try {
             st = cnx.createStatement();
             ResultSet resultat = st.executeQuery(req);
