@@ -19,6 +19,22 @@ public class ConnectMySQL {
     static Statement st;
     static ResultSet rst;
     static boolean accepted;
+    
+    private ArrayList<AnneeScolaire> AnneeScolaires;
+    private ArrayList<Bulletin> Bulletins;
+    private ArrayList<Classe> Classes;
+    private ArrayList<DetailBulletin> DetailBulletins;
+    private ArrayList<Discipline> Disciplines;
+    private ArrayList<Ecole> Ecoles;
+    private ArrayList<Eleve> Eleves;
+    private ArrayList<Enseignant> Enseignants;
+    private ArrayList<Enseignement> Enseignements;
+    private ArrayList<Evaluation> Evaluations;
+    private ArrayList<Inscription> Inscriptions;
+    private ArrayList<Niveau> Niveaux;
+    private ArrayList<Trimestre> Trimestres;
+    
+    
     /**
      * Constructeur par défault
      */
@@ -98,6 +114,9 @@ public class ConnectMySQL {
             cnx = DriverManager.getConnection(url, user, password);
             System.out.println("Connexion bien établié");
             setAccepted(true);
+            if(accepted){
+                setAnneeScolaires(rechercher("id","id","AnneeScolaire"));
+            }
             return cnx;
             
         } catch (ClassNotFoundException | SQLException e) {
@@ -107,63 +126,6 @@ public class ConnectMySQL {
             
         }
     }
-    /**
-     * Getter de l'Objet Connection
-     * @return cnx objet de classe Connection
-     */
-    public static Connection getCnx() {
-        return cnx;
-    }
-    /**
-     * Défini la valeur de l'attribut Objet Connecion
-     * @param cnx un objet de classe Connection
-     */
-    public static void setCnx(Connection cnx) {
-        ConnectMySQL.cnx = cnx;
-    }
-    /**
-     * Getter de l'objet Statement
-     * @return st l'objet de classe Statement
-     */
-    public static Statement getSt() {
-        return st;
-    }
-    /**
-     * Définie l'objet Statement
-     * @param st objet de classe Statement
-     */
-    public static void setSt(Statement st) {
-        ConnectMySQL.st = st;
-    }
-    /**
-     * Getter de l'objet ResultSet
-     * @return rst l'objet de classe ResultSet
-     */
-    public static ResultSet getRst() {
-        return rst;
-    }
-    /**
-     * Défini l'objet ResultSet
-     * @param rst objet de classe ResultSet
-     */
-    public static void setRst(ResultSet rst) {
-        ConnectMySQL.rst = rst;
-    }
-    /**
-     * Getter du boolean accepted 
-     * @return accepted attribut booléen
-     */
-    public static boolean getAccepted() {
-        return accepted;
-    }
-    /**
-     * Défini le boolean accepted
-     * @param accepted attribut boolean
-     */
-    public static void setAccepted(boolean accepted) {
-        ConnectMySQL.accepted = accepted;
-    }
-    
 
     /**
      * Permet d'ajouter un object dans une table
@@ -603,6 +565,10 @@ public class ConnectMySQL {
         String req = "SELECT * FROM " + NomBDD + " WHERE "+attribut+" = '"+valAtt+"'";
         ArrayList<Object> temp = new ArrayList<>();
         
+        if(attribut.equals(valAtt)){
+            req =  "SELECT * FROM "+NomBDD;
+        }
+        
         try {
             st = cnx.createStatement();
             ResultSet resultat = st.executeQuery(req);
@@ -745,6 +711,171 @@ public class ConnectMySQL {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+    }
+    
+    /**
+     * Getter de l'Objet Connection
+     * @return cnx objet de classe Connection
+     */
+    public static Connection getCnx() {
+        return cnx;
+    }
+    /**
+     * Défini la valeur de l'attribut Objet Connecion
+     * @param cnx un objet de classe Connection
+     */
+    public static void setCnx(Connection cnx) {
+        ConnectMySQL.cnx = cnx;
+    }
+    /**
+     * Getter de l'objet Statement
+     * @return st l'objet de classe Statement
+     */
+    public static Statement getSt() {
+        return st;
+    }
+    /**
+     * Définie l'objet Statement
+     * @param st objet de classe Statement
+     */
+    public static void setSt(Statement st) {
+        ConnectMySQL.st = st;
+    }
+    /**
+     * Getter de l'objet ResultSet
+     * @return rst l'objet de classe ResultSet
+     */
+    public static ResultSet getRst() {
+        return rst;
+    }
+    /**
+     * Défini l'objet ResultSet
+     * @param rst objet de classe ResultSet
+     */
+    public static void setRst(ResultSet rst) {
+        ConnectMySQL.rst = rst;
+    }
+    /**
+     * Getter du boolean accepted 
+     * @return accepted attribut booléen
+     */
+    public static boolean getAccepted() {
+        return accepted;
+    }
+    /**
+     * Défini le boolean accepted
+     * @param accepted attribut boolean
+     */
+    public static void setAccepted(boolean accepted) {
+        ConnectMySQL.accepted = accepted;
+    }
+    
+    public void setAnneeScolaires(ArrayList<AnneeScolaire> AnneeScolaires) {
+        this.AnneeScolaires = AnneeScolaires;
+    }
+
+    public void setBulletins(ArrayList<Bulletin> Bulletins) {
+        this.Bulletins = Bulletins;
+    }
+
+    public void setClasses(ArrayList<Classe> Classes) {
+        this.Classes = Classes;
+    }
+
+    public void setDetailBulletins(ArrayList<DetailBulletin> DetailBulletins) {
+        this.DetailBulletins = DetailBulletins;
+    }
+
+    public void setDisciplines(ArrayList<Discipline> Disciplines) {
+        this.Disciplines = Disciplines;
+    }
+
+    public void setEcoles(ArrayList<Ecole> Ecoles) {
+        this.Ecoles = Ecoles;
+    }
+
+    public void setEleves(ArrayList<Eleve> Eleves) {
+        this.Eleves = Eleves;
+    }
+
+    public void setEnseignants(ArrayList<Enseignant> Enseignants) {
+        this.Enseignants = Enseignants;
+    }
+
+    public void setEnseignements(ArrayList<Enseignement> Enseignements) {
+        this.Enseignements = Enseignements;
+    }
+
+    public void setEvaluations(ArrayList<Evaluation> Evaluations) {
+        this.Evaluations = Evaluations;
+    }
+
+    public void setInscriptions(ArrayList<Inscription> Inscriptions) {
+        this.Inscriptions = Inscriptions;
+    }
+
+    public void setNiveaux(ArrayList<Niveau> Niveaux) {
+        this.Niveaux = Niveaux;
+    }
+
+    public void setTrimestres(ArrayList<Trimestre> Trimestres) {
+        this.Trimestres = Trimestres;
+    }
+
+    public static boolean isAccepted() {
+        return accepted;
+    }
+
+    public ArrayList<AnneeScolaire> getAnneeScolaires() {
+        return AnneeScolaires;
+    }
+
+    public ArrayList<Bulletin> getBulletins() {
+        return Bulletins;
+    }
+
+    public ArrayList<Classe> getClasses() {
+        return Classes;
+    }
+
+    public ArrayList<DetailBulletin> getDetailBulletins() {
+        return DetailBulletins;
+    }
+
+    public ArrayList<Discipline> getDisciplines() {
+        return Disciplines;
+    }
+
+    public ArrayList<Ecole> getEcoles() {
+        return Ecoles;
+    }
+
+    public ArrayList<Eleve> getEleves() {
+        return Eleves;
+    }
+
+    public ArrayList<Enseignant> getEnseignants() {
+        return Enseignants;
+    }
+
+    public ArrayList<Enseignement> getEnseignements() {
+        return Enseignements;
+    }
+
+    public ArrayList<Evaluation> getEvaluations() {
+        return Evaluations;
+    }
+
+    public ArrayList<Inscription> getInscriptions() {
+        return Inscriptions;
+    }
+
+    public ArrayList<Niveau> getNiveaux() {
+        return Niveaux;
+    }
+
+    public ArrayList<Trimestre> getTrimestres() {
+        return Trimestres;
     }
     
 }
