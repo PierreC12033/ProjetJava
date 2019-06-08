@@ -569,6 +569,7 @@ public class ConnectMySQL {
             req =  "SELECT * FROM "+NomBDD;
         }
         
+        
         try {
             st = cnx.createStatement();
             ResultSet resultat = st.executeQuery(req);
