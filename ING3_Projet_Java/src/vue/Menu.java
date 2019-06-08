@@ -7,6 +7,7 @@ package vue;
 
 import javafx.scene.paint.Color;
 import ConnectionBDD.*;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -14,6 +15,7 @@ import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import modele.*;
 /**
  *
  * @author tomjo
@@ -119,6 +121,12 @@ public class Menu extends javax.swing.JFrame {
         ajout2Field = new javax.swing.JTextField();
         ajout5Field = new javax.swing.JTextField();
         ajout4Field = new javax.swing.JTextField();
+        ajout6ComboBox = new javax.swing.JComboBox<>();
+        ajout6Label = new javax.swing.JLabel();
+        ajout7ComboBox = new javax.swing.JComboBox<>();
+        ajout7Label = new javax.swing.JLabel();
+        ajout8Label = new javax.swing.JLabel();
+        ajout8ComboBox = new javax.swing.JComboBox<>();
         recherchePanel = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         bddListe = new javax.swing.JList<>();
@@ -215,6 +223,23 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
+        ajout6ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ajout6ComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajout6ComboBoxActionPerformed(evt);
+            }
+        });
+
+        ajout6Label.setText("ajout6 :");
+
+        ajout7ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        ajout7Label.setText("ajout7");
+
+        ajout8Label.setText("ajout8");
+
+        ajout8ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
         javax.swing.GroupLayout ajoutPanelLayout = new javax.swing.GroupLayout(ajoutPanel);
         ajoutPanel.setLayout(ajoutPanelLayout);
         ajoutPanelLayout.setHorizontalGroup(
@@ -222,7 +247,11 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(ajoutPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(erreurLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(ajoutPanelLayout.createSequentialGroup()
+                        .addComponent(erreurLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30)
+                        .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(155, 155, 155))
                     .addGroup(ajoutPanelLayout.createSequentialGroup()
                         .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(ajoutPanelLayout.createSequentialGroup()
@@ -238,21 +267,24 @@ public class Menu extends javax.swing.JFrame {
                                     .addComponent(ajout3Label)
                                     .addGap(18, 18, 18)
                                     .addComponent(ajout3Field)))
-                            .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(ajoutPanelLayout.createSequentialGroup()
-                                    .addComponent(ajout4Label)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(ajoutPanelLayout.createSequentialGroup()
+                            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                .addComponent(ajout4Label)
+                                .addGap(18, 18, 18)
+                                .addComponent(ajout4Field, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(ajoutPanelLayout.createSequentialGroup()
+                                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(ajout5Label)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(ajout5Field))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(ajoutPanelLayout.createSequentialGroup()
-                .addGap(314, 314, 314)
-                .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(ajout6Label)
+                                    .addComponent(ajout7Label)
+                                    .addComponent(ajout8Label))
+                                .addGap(18, 18, 18)
+                                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(ajout6ComboBox, 0, 211, Short.MAX_VALUE)
+                                        .addComponent(ajout7ComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(ajout5Field, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ajout8ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(31, Short.MAX_VALUE))))
         );
         ajoutPanelLayout.setVerticalGroup(
             ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,10 +310,22 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(ajout5Label)
                     .addComponent(ajout5Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(erreurLabel)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout6ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajout6Label))
+                .addGap(4, 4, 4)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout7ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajout7Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ajout8Label)
+                    .addComponent(ajout8ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7)
+                .addGroup(ajoutPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(erreurLabel)
+                    .addComponent(ajouterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         bddListe.setModel(new javax.swing.AbstractListModel<String>() {
@@ -387,7 +431,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(supprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(supprimerResultLabel)
-                .addContainerGap(58, Short.MAX_VALUE))
+                .addContainerGap(301, Short.MAX_VALUE))
         );
 
         modifier1Button.setText("modifier 1:");
@@ -482,7 +526,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(modifierValiderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel6)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addContainerGap(340, Short.MAX_VALUE))
         );
 
         jLayeredPane1.setLayer(ajoutPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -498,9 +542,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addComponent(supprimerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(modifierModifierPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -508,7 +552,7 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(ajoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(100, Short.MAX_VALUE)))
         );
         jLayeredPane1Layout.setVerticalGroup(
@@ -615,7 +659,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(Rechercher)
                     .addComponent(Deconnexion)
                     .addComponent(Statistiques))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(51, 181, 255));
@@ -792,7 +836,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(bulletindetail)
                     .addComponent(evaluation)
                     .addComponent(ecole))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -808,9 +852,9 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -908,12 +952,19 @@ public class Menu extends javax.swing.JFrame {
                 ajout1Field.setVisible(true);
                 ajout2Label.setVisible(true);
                 ajout2Field.setVisible(true);
+
                 ajout3Label.setVisible(false);
                 ajout3Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
                 ajout1Label.setText("Prénom : ");
                 ajout2Label.setText("Nom : ");
                 break;
@@ -922,12 +973,19 @@ public class Menu extends javax.swing.JFrame {
                 ajout1Field.setVisible(true);
                 ajout2Label.setVisible(true);
                 ajout2Field.setVisible(true);
+
                 ajout3Label.setVisible(false);
                 ajout3Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
                 ajout1Label.setText("Prénom : ");
                 ajout2Label.setText("Nom : ");
                 break;
@@ -944,22 +1002,37 @@ public class Menu extends javax.swing.JFrame {
                 ajout5Field.setVisible(false);
                 ajout1Label.setText("idClasse : ");
                 ajout2Label.setText("idPersonne : ");
+                
+                ajout6ComboBox.removeAllItems();
+                ajout6ComboBox.addItem("Salut");
+                ajout6ComboBox.removeAllItems();
+                
                 break;
             case "Classe":
                 ajout1Label.setVisible(true);
                 ajout1Field.setVisible(true);
-                ajout2Label.setVisible(true);
-                ajout2Field.setVisible(true);
-                ajout3Label.setVisible(true);
-                ajout3Field.setVisible(true);
-                ajout4Label.setVisible(true);
-                ajout4Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
+
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
                 ajout1Label.setText("Nom : ");
-                ajout2Label.setText("idEcole : ");
-                ajout3Label.setText("idNiveau : ");
-                ajout4Label.setText("idAnneeScolaire : ");
+                ajout6Label.setText("Ecole : ");
+                ajout7Label.setText("Niveau : ");
+                ajout8Label.setText("Année Scolaire : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
                 break;
             case "Niveau":
                 ajout1Label.setVisible(true);
@@ -995,44 +1068,71 @@ public class Menu extends javax.swing.JFrame {
                 ajout2Field.setVisible(true);
                 ajout3Label.setVisible(true);
                 ajout3Field.setVisible(true);
-                ajout4Label.setVisible(true);
-                ajout4Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
                 ajout1Label.setText("Numéro : ");
                 ajout2Label.setText("Date de début : ");
                 ajout3Label.setText("Date de fin : ");
-                ajout4Label.setText("idAnneeScolaire : ");
+                ajout6Label.setText("Année Scolaire : ");
+                ajout6ComboBox.removeAllItems();
                 break;
             case "Bulletin":
-                ajout1Label.setVisible(true);
-                ajout1Field.setVisible(true);
-                ajout2Label.setVisible(true);
-                ajout2Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
                 ajout3Label.setVisible(true);
                 ajout3Field.setVisible(true);
+
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout1Label.setText("idTrimestre : ");
-                ajout2Label.setText("idInscription : ");
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout6Label.setText("Trimestre : ");
+                ajout7Label.setText("Inscription : ");
                 ajout3Label.setText("Appréciation : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
                 break;
             case "Enseignement":
-                ajout1Label.setVisible(true);
-                ajout1Field.setVisible(true);
-                ajout2Label.setVisible(true);
-                ajout2Field.setVisible(true);
-                ajout3Label.setVisible(true);
-                ajout3Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
+
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout1Label.setText("idClasse : ");
-                ajout2Label.setText("idDiscipline : ");
-                ajout3Label.setText("idPersonne : ");
+                ajout6Label.setText("Classe : ");
+                ajout7Label.setText("Discipline : ");
+                ajout8Label.setText("Personne : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
                 break;
             case "Discipline":
                 ajout1Label.setVisible(true);
@@ -1250,8 +1350,15 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
+        
     }//GEN-LAST:event_eleveActionPerformed
 
     private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
@@ -1283,12 +1390,19 @@ public class Menu extends javax.swing.JFrame {
         ajout1Field.setVisible(true);
         ajout2Label.setVisible(true);
         ajout2Field.setVisible(true);
+
         ajout3Label.setVisible(false);
         ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
     }//GEN-LAST:event_enseignantActionPerformed
@@ -1318,18 +1432,49 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de l'inscription à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
-        ajout1Label.setVisible(true);
-        ajout1Field.setVisible(true);
-        ajout2Label.setVisible(true);
-        ajout2Field.setVisible(true);
+        ajout1Label.setVisible(false);
+        ajout1Field.setVisible(false);
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        ajout7Label.setVisible(true);
+        ajout7ComboBox.setVisible(true);
         ajout3Label.setVisible(false);
         ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
-        ajout1Label.setText("idClasse : ");
-        ajout2Label.setText("idPersonne : ");
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
+        ajout6Label.setText("Classe : ");
+        ajout7Label.setText("Personne : ");
+        ajout6ComboBox.removeAllItems();
+        ajout7ComboBox.removeAllItems();
+        
+        ArrayList<Object> c = new ArrayList<>();
+        c = bdd.rechercher("i","i","Classe");
+        String nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Classe)c.get(i)).getNom();
+                ajout6ComboBox.addItem(nom);
+            }     
+        }
+        
+        c = bdd.rechercher("Type_P","0","Personne");
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Personne)c.get(i)).getNom() + " " + ((Personne)c.get(i)).getPrenom();
+                ajout7ComboBox.addItem(nom);
+            }     
+        }
+        
+        
+        
     }//GEN-LAST:event_inscriptionActionPerformed
 
     private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
@@ -1359,18 +1504,60 @@ public class Menu extends javax.swing.JFrame {
         erreurLabel.setText("");
         ajout1Label.setVisible(true);
         ajout1Field.setVisible(true);
-        ajout2Label.setVisible(true);
-        ajout2Field.setVisible(true);
-        ajout3Label.setVisible(true);
-        ajout3Field.setVisible(true);
-        ajout4Label.setVisible(true);
-        ajout4Field.setVisible(true);
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        ajout7Label.setVisible(true);
+        ajout7ComboBox.setVisible(true);
+        ajout8Label.setVisible(true);
+        ajout8ComboBox.setVisible(true);
+        
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
         ajout1Label.setText("Nom : ");
-        ajout2Label.setText("idEcole : ");
-        ajout3Label.setText("idNiveau : ");
-        ajout4Label.setText("idAnneeScolaire : ");
+        ajout6Label.setText("Ecole : ");
+        ajout7Label.setText("Niveau : ");
+        ajout8Label.setText("Année Scolaire : ");
+        ajout6ComboBox.removeAllItems();
+        ajout7ComboBox.removeAllItems();
+        ajout8ComboBox.removeAllItems();
+        
+        ArrayList<Object> c = new ArrayList<>();
+        c = bdd.rechercher("i","i","Ecole");
+        String nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Ecole)c.get(i)).getNom();
+                ajout6ComboBox.addItem(nom);
+            }     
+        }
+        
+        c = bdd.rechercher("i","i","Niveau");
+        nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Niveau)c.get(i)).getNom();
+                ajout7ComboBox.addItem(nom);
+            }     
+        }
+        
+        c = bdd.rechercher("i","i","AnneeScolaire");
+        nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((AnneeScolaire)c.get(i)).getAnneeDebut() +"/"+((AnneeScolaire)c.get(i)).getAnneeFin();
+                ajout8ComboBox.addItem(nom);
+            }     
+        }
+        
     }//GEN-LAST:event_classeActionPerformed
 
     private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
@@ -1409,6 +1596,12 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Nom : ");
     }//GEN-LAST:event_niveauActionPerformed
 
@@ -1447,6 +1640,12 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Début : ");
         ajout2Label.setText("Fin : ");
     }//GEN-LAST:event_anneeActionPerformed
@@ -1482,14 +1681,35 @@ public class Menu extends javax.swing.JFrame {
         ajout2Field.setVisible(true);
         ajout3Label.setVisible(true);
         ajout3Field.setVisible(true);
-        ajout4Label.setVisible(true);
-        ajout4Field.setVisible(true);
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        
+        ajout4Label.setVisible(false);
+        ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Numéro : ");
         ajout2Label.setText("Date de début : ");
         ajout3Label.setText("Date de fin : ");
-        ajout4Label.setText("idAnneeScolaire : ");
+        ajout6Label.setText("Année Scolaire : ");
+        ajout6ComboBox.removeAllItems();
+        
+        ArrayList<Object> c = new ArrayList<>();
+        c = bdd.rechercher("i","i","AnneeScolaire");
+        String nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((AnneeScolaire)c.get(i)).getAnneeDebut() +"/"+((AnneeScolaire)c.get(i)).getAnneeFin();
+                ajout6ComboBox.addItem(nom);
+            }     
+        }
+        
+        
     }//GEN-LAST:event_trimestreActionPerformed
 
     private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
@@ -1517,19 +1737,66 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé du bulletin à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        
         ajout1Label.setVisible(true);
         ajout1Field.setVisible(true);
-        ajout2Label.setVisible(true);
-        ajout2Field.setVisible(true);
-        ajout3Label.setVisible(true);
-        ajout3Field.setVisible(true);
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        ajout7Label.setVisible(true);
+        ajout7ComboBox.setVisible(true);
+        
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
-        ajout1Label.setText("idTrimestre : ");
-        ajout2Label.setText("idInscription : ");
-        ajout3Label.setText("Appréciation : ");
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
+        ajout1Label.setText("Appréciation : ");
+        ajout6Label.setText("Trimestre : ");
+        ajout7Label.setText("Inscription : ");
+        ajout6ComboBox.removeAllItems();
+        ajout7ComboBox.removeAllItems();
+        
+        ArrayList<Object> c = new ArrayList<>();
+        ArrayList<Object> d = new ArrayList<>();
+        ArrayList<Object> e = new ArrayList<>();
+        ArrayList<Object> f = new ArrayList<>();
+        
+        c = bdd.rechercher("i","i","Trimestre");
+        String nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Trimestre)c.get(i)).getDebut().toString() + " - "+((Trimestre)c.get(i)).getFin().toString();
+                ajout6ComboBox.addItem(nom);
+            }     
+        }
+        
+        c = bdd.rechercher("Type_P","0","Personne");
+        
+        if(!c.isEmpty()){
+            e = bdd.rechercher("IdPersonne", Integer.toString(((Personne)c.get(0)).getId()), "Inscription");
+            nom="";
+            
+            if(!e.isEmpty()){
+               d = bdd.rechercher("IdInscription",Integer.toString(((Inscription)e.get(0)).getId()),"Bulletin");
+               if(!d.isEmpty()){
+                    for (int i = 0; i < d.size(); i++) {
+                        f = bdd.rechercher("Id",Integer.toString(((Bulletin)d.get(0)).getId()) , "Trimestre");
+                        
+                        for(int j=0; j<f.size(); j++){
+                            nom = ((Personne) c.get(i)).getNom() + " " + ((Personne) c.get(i)).getPrenom()
+                                +" --- "+ ((Trimestre) f.get(i)).getDebut()+" | "+((Trimestre) f.get(i)).getFin();
+                            ajout7ComboBox.addItem(nom);
+                        }   
+                    }   
+               }   
+            }
+        }
     }//GEN-LAST:event_bulletinActionPerformed
 
     private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
@@ -1557,19 +1824,63 @@ public class Menu extends javax.swing.JFrame {
         supprimerLabel.setText("Clé de l'enseignement à supprimer : ");
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
-        ajout1Label.setVisible(true);
-        ajout1Field.setVisible(true);
-        ajout2Label.setVisible(true);
-        ajout2Field.setVisible(true);
-        ajout3Label.setVisible(true);
-        ajout3Field.setVisible(true);
+        
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        ajout7Label.setVisible(true);
+        ajout7ComboBox.setVisible(true);
+        ajout8Label.setVisible(true);
+        ajout8ComboBox.setVisible(true);
+        
+        ajout1Label.setVisible(false);
+        ajout1Field.setVisible(false);
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
-        ajout1Label.setText("idClasse : ");
-        ajout2Label.setText("idDiscipline : ");
-        ajout3Label.setText("idPersonne : ");
+        ajout6Label.setText("Classe : ");
+        ajout7Label.setText("Discipline : ");
+        ajout8Label.setText("Personne : ");
+        ajout6ComboBox.removeAllItems();
+        ajout7ComboBox.removeAllItems();
+        ajout8ComboBox.removeAllItems();
+        
+        ArrayList<Object> c = new ArrayList<>();
+        c = bdd.rechercher("i","i","Classe");
+        String nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Classe)c.get(i)).getNom();
+                ajout6ComboBox.addItem(nom);
+            }     
+        }
+        
+        c = bdd.rechercher("i","i","Discipline");
+        nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Discipline)c.get(i)).getNom();
+                ajout7ComboBox.addItem(nom);
+            }     
+        }
+        
+        c = bdd.rechercher("Type_P","1","Personne");
+        nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){
+                nom = ((Personne)c.get(i)).getNom()+" "+((Personne)c.get(i)).getPrenom();
+                ajout8ComboBox.addItem(nom);
+            }     
+        }
+        
+        
     }//GEN-LAST:event_enseignementActionPerformed
 
     private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
@@ -1607,6 +1918,13 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
+        
         ajout1Label.setText("Nom : ");
     }//GEN-LAST:event_disciplineActionPerformed
 
@@ -1637,17 +1955,49 @@ public class Menu extends javax.swing.JFrame {
         erreurLabel.setText("");
         ajout1Label.setVisible(true);
         ajout1Field.setVisible(true);
-        ajout2Label.setVisible(true);
-        ajout2Field.setVisible(true);
-        ajout3Label.setVisible(true);
-        ajout3Field.setVisible(true);
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        ajout7Label.setVisible(true);
+        ajout7ComboBox.setVisible(true);
+        
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
-        ajout1Label.setText("idBulletin : ");
-        ajout2Label.setText("idEnseignement : ");
-        ajout3Label.setText("Appréciation : ");
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
+        ajout1Label.setText("Appréciation : ");
+        ajout6Label.setText("Bulletin : ");
+        ajout7Label.setText("Eleve : ");
+        ajout6ComboBox.removeAllItems();
+        ajout7ComboBox.removeAllItems();
+        
+        ArrayList<Object> c = new ArrayList<>();
+        
+        c = bdd.rechercher("Type_P","0","Personne");
+        String nom="";
+        
+        if(!c.isEmpty()){
+           for(int i=0; i<c.size();i++){ 
+               nom = ((Eleve)c.get(i)).getId()+" - "+((Eleve)c.get(i)).getNom()+ " "+((Eleve)c.get(i)).getPrenom();
+               ajout6ComboBox.addItem(nom);
+            }     
+        }
+        String NameSelect = (String)ajout6ComboBox.getSelectedItem();
+        String IdSelect= NameSelect.substring(1);
+        c = bdd.rechercher("IdPersonne", IdSelect, "Inscrpition");
+        
+        if(!c.isEmpty()){
+           for(int i=1; i<4;i++){
+                ajout7ComboBox.addItem(Integer.toString(i));
+            }     
+        }
+        
+        
     }//GEN-LAST:event_bulletindetailActionPerformed
 
     private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
@@ -1686,6 +2036,12 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("idDetailsBulletin : ");
         ajout2Label.setText("Note : ");
         ajout3Label.setText("Appréciation : ");
@@ -1758,8 +2114,18 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Label.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Nom : ");
     }//GEN-LAST:event_ecoleActionPerformed
+
+    private void ajout6ComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout6ComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ajout6ComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1814,6 +2180,12 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel ajout4Label;
     private javax.swing.JTextField ajout5Field;
     private javax.swing.JLabel ajout5Label;
+    private javax.swing.JComboBox<String> ajout6ComboBox;
+    private javax.swing.JLabel ajout6Label;
+    private javax.swing.JComboBox<String> ajout7ComboBox;
+    private javax.swing.JLabel ajout7Label;
+    private javax.swing.JComboBox<String> ajout8ComboBox;
+    private javax.swing.JLabel ajout8Label;
     private javax.swing.JPanel ajoutPanel;
     private javax.swing.JButton ajouterButton;
     private javax.swing.JButton annee;

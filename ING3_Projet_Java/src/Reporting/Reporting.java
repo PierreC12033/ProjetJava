@@ -16,14 +16,11 @@ import modele.*;
  */
 public class Reporting {
     
-    private ArrayList<Classe> classes;
-    
-    
-    
     public void InfoClasse(ConnectMySQL s, String Annee, String Niveau){
         ArrayList<Object> result_Annee= new ArrayList<>();
         ArrayList<Object> result_Niv= new ArrayList<>();
         ArrayList<Object> result_Clas= new ArrayList<>();
+        ArrayList<Classe> Classes= new ArrayList<>();
         
         
         result_Annee = s.rechercher("AnneeDebut", Annee, "AnneeScolaire");
@@ -40,13 +37,13 @@ public class Reporting {
            if(!result_Clas.isEmpty()){
                for(int i=0; i < result_Clas.size(); i++){
                    if( ((Classe)result_Clas.get(i)).getIdNiveau() == n.getId()){
-                       classes.add(((Classe)result_Clas.get(i)));
+                       Classes.add(((Classe)result_Clas.get(i)));
                    }
                }
            }
            
-           if(!classes.isEmpty()){
-               for(Classe c : classes){
+           if(!Classes.isEmpty()){
+               for(Classe c : Classes){
                    System.out.println(c.toString());
                }
            }else{
@@ -68,13 +65,13 @@ public class Reporting {
             for(int i=0; i<result_Inscri.size(); i++){
                 result_Inscri.get(i).toString();
             }
-        }  
-
+        }
+        
     }
     
     public float moyenne_eleve(ConnectMySQL bdd,Inscription MrX)
     {
-       
+        
         
         
         
