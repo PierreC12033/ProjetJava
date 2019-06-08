@@ -22,6 +22,7 @@ public class recherche {
             m.setCnx(connecterDB("localhost", "8889","Ecole", "root", "root"));
             
             InfoClasse(m, "2018", "Ing 3");
+            Systssj
     }
     
     public void InfoClasse(ConnectMySQL s, String Annee, String Niveau){
