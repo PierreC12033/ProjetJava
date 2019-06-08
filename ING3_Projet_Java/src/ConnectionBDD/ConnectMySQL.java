@@ -16,10 +16,10 @@ import controleur.*;
  */
 public class ConnectMySQL {
 
-    Connection cnx;
-    Statement st;
-    ResultSet rst;
-
+    static Connection cnx;
+    static Statement st;
+    static ResultSet rst;
+    static boolean accepted;
     private String user;
     private String password;
     private String NomTable;
