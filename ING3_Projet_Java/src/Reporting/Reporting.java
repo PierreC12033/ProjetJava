@@ -17,11 +17,14 @@ import modele.Niveau;
  */
 public class Reporting {
     
+    private ArrayList<Classe> classes;
+    
+    
     public void InfoClasse(ConnectMySQL s, String Annee, String Niveau){
         ArrayList<Object> result_Annee= new ArrayList<>();
         ArrayList<Object> result_Niv= new ArrayList<>();
         ArrayList<Object> result_Clas= new ArrayList<>();
-        ArrayList<Classe> Bon_result= new ArrayList<>();
+        
         
         result_Annee = s.rechercher("AnneeDebut", Annee, "AnneeScolaire");
         result_Niv = s.rechercher("Nom", Niveau, "Niveau");
@@ -37,18 +40,33 @@ public class Reporting {
            if(!result_Clas.isEmpty()){
                for(int i=0; i < result_Clas.size(); i++){
                    if( ((Classe)result_Clas.get(i)).getIdNiveau() == n.getId()){
-                       Bon_result.add(((Classe)result_Clas.get(i)));
+                       classes.add(((Classe)result_Clas.get(i)));
                    }
                }
            }
            
-           if(!Bon_result.isEmpty()){
-               for(Classe c : Bon_result){
+           if(!classes.isEmpty()){
+               for(Classe c : classes){
                    System.out.println(c.toString());
                }
            }else{
                System.out.println("");
            }
         }
+    }
+    
+    public void InfoInscription(ConnectMySQL s){
+        ArrayList<ArrayList<Object>> result_Inscri= new ArrayList<>();
+        ArrayList<Object> resul=new ArrayList<>();
+        
+        if(!classes.isEmpty()){
+            for(int i=0; i<classes.size(); i++){
+                resul = s.rechercher("idClasse", Integer.toString(classes.get(i).getId()), "Inscription");
+                if(!resul.isEmpty()){
+                    result_Inscri.add(resul);
+                }
+            }
+        }
+        
     }
 }
