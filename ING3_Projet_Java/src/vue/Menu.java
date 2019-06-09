@@ -139,6 +139,12 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
     }
@@ -1568,7 +1574,7 @@ public class Menu extends javax.swing.JFrame {
                 rechercherTable.setModel(model);
             default:
         }
-        
+
 // TODO add your handling code here:
     }//GEN-LAST:event_RechercherActionPerformed
 
@@ -2346,7 +2352,7 @@ public class Menu extends javax.swing.JFrame {
                 rechercherTable.setModel(model);
             default:
         }
-             
+
     }//GEN-LAST:event_SupprimerActionPerformed
 
     private void ModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierActionPerformed
@@ -2925,7 +2931,34 @@ public class Menu extends javax.swing.JFrame {
                 rechercherTable.setModel(model);
             default:
         }
-    }//GEN-LAST:event_ModifierActionPerformed
+        rechercherTable.setModel(model);
+
+        if(mode1 == "Modifier"){
+
+            ArrayList c=new ArrayList<>();
+
+            int ligneSelectionne = rechercherTable.getSelectedRow();
+
+            int id_Select = ((AnneeScolaire)rechercherTable.getValueAt(ligneSelectionne, 0)).getId();
+            c=bdd.rechercher("Id", Integer.toString(id_Select), "AnneeScolaire");
+
+            if(!c.isEmpty()){
+                int debut= ((AnneeScolaire)c.get(0)).getAnneeDebut() ;
+                int fin= ((AnneeScolaire)c.get(0)).getAnneeFin();
+
+                for (int i = 2019; i < 2019 + 7; i++) {
+                    if(Integer.toString(debut) == ajout6ComboBox.getItemAt(i))
+                        ajout6ComboBox.setSelectedIndex(i);
+                }
+                for (int i = 2020; i < 2019 + 7; i++) {
+                    if(Integer.toString(fin) == ajout7ComboBox.getItemAt(i))
+                        ajout7ComboBox.setSelectedIndex(i);
+                }
+
+            }
+        }
+
+    }// GEN-LAST:event_anneeActionPerformed
 
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
         jLayeredPane1.remove(statsPanel);
@@ -6243,7 +6276,7 @@ public class Menu extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
