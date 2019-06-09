@@ -141,6 +141,12 @@ public class Menu extends javax.swing.JFrame {
         ajout5Field.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
+        ajout1Field.setText("");
+        ajout2Field.setText("");
+        ajout3Field.setText("");
+        ajout4Field.setText("");
+        ajout5Field.setText("");
+        ajouterButton.setText("Ajouter");
     }
 
     /**
@@ -240,6 +246,11 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ajouterButton.setText("Ajouter");
+        ajouterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajouterButtonActionPerformed(evt);
+            }
+        });
 
         erreurLabel.setText("ERREUR");
 
@@ -1589,6 +1600,12 @@ public class Menu extends javax.swing.JFrame {
         mode1 = "Ajouter";
         supprimerResultLabel.setText("");
         erreurLabel.setText("");
+        ajout1Field.setText("");
+        ajout2Field.setText("");
+        ajout3Field.setText("");
+        ajout4Field.setText("");
+        ajout5Field.setText("");
+        ajouterButton.setText("Ajouter");
         switch (mode2) {
             case "Eleve":
                 ajout1Label.setVisible(true);
@@ -2956,18 +2973,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Prénom");
         rechercheComboBox.addItem("Nom");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Eleve";
@@ -3042,18 +3068,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Prénom");
         rechercheComboBox.addItem("Nom");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Enseignant";// TODO add your handling code here:
@@ -3128,18 +3163,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Nom de la classe");
         rechercheComboBox.addItem("Nom de l'élève");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Inscription";// TODO add your handling code here:
@@ -3217,18 +3261,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Nom du niveau");
         rechercheComboBox.addItem("Début d'année scolaire");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Classe";// TODO add your handling code here:
@@ -3306,18 +3359,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Id");
         rechercheComboBox.addItem("Nom");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Niveau";
@@ -3388,18 +3450,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Début");
         rechercheComboBox.addItem("Fin");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Annee";// TODO add your handling code here:
@@ -3474,18 +3545,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Numéro");
         rechercheComboBox.addItem("Début d'année scolaire");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Trimestre";// TODO add your handling code here:
@@ -3566,18 +3646,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Nom de la classe");
         rechercheComboBox.addItem("Nom de l'élève");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Bulletin";// TODO add your handling code here:
@@ -3662,18 +3751,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Nom de la discipline");
         rechercheComboBox.addItem("Nom du professeur");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Enseignement";// TODO add your handling code here:
@@ -3762,18 +3860,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Id");
         rechercheComboBox.addItem("Nom");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Discipline";// TODO add your handling code here:
@@ -3850,18 +3957,27 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Nom du professeur");
         rechercheComboBox.addItem("Nom de la discipline");
         resultatLabel.setText("");
-        switch (mode1) {
+         switch (mode1) {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "BulletinDetails";// TODO add your handling code here:
@@ -3973,14 +4089,23 @@ public class Menu extends javax.swing.JFrame {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         mode2 = "Evaluation";
@@ -4126,14 +4251,23 @@ public class Menu extends javax.swing.JFrame {
             case "Rechercher":
                 rSupprimerButton.setVisible(false);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Modifier":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Modifier");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
             case "Supprimer":
                 rSupprimerButton.setVisible(true);
                 rSupprimerButton.setText("Supprimer");
+                ajoutPanel.setVisible(false);
+                recherchePanel.setVisible(true);
+                statsPanel.setVisible(false);
                 break;
         }
         supprimerLabel.setText("Clé de l'école à supprimer : ");
@@ -6230,11 +6364,18 @@ public class Menu extends javax.swing.JFrame {
                 }
                 break;
             case "Modifier":
+                        recherchePanel.setVisible(false);
+                        ajoutPanel.setVisible(true);
+                        ajouterButton.setText("Modifier");
                 break;
             default:
                 break;
         }
     }//GEN-LAST:event_rSupprimerButtonActionPerformed
+
+    private void ajouterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterButtonActionPerformed
+
+    }//GEN-LAST:event_ajouterButtonActionPerformed
 
     /**
      * @param args the command line arguments
