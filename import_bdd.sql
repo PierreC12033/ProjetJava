@@ -23,7 +23,8 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
+CREATE DATABASE ecole;
+USE ecole;
 --
 -- Structure de la table `anneescolaire`
 --

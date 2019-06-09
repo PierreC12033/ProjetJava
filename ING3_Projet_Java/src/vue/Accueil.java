@@ -402,9 +402,8 @@ public class Accueil extends javax.swing.JFrame {
             port = "3306";
         } else if (macButton.isSelected()) {
             port = "8889";
-        }
-        
-            bdd.connecterDB("localhost", "3306", "ecole", "root", "");
+        }  
+            bdd.connecterDB(adress, port, name, login, pass);
             boolean trouve = bdd.getAccepted();
             if (trouve) {
                 Menu menu = new Menu();

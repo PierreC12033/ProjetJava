@@ -367,6 +367,11 @@ public class Menu extends javax.swing.JFrame {
         );
 
         ajouterButton.setText("Ajouter");
+        ajouterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ajouterButtonActionPerformed(evt);
+            }
+        });
 
         erreurLabel.setText("ERREUR");
 
@@ -1844,11 +1849,10 @@ public class Menu extends javax.swing.JFrame {
 
                 c = bdd.rechercher("i", "i", "Classe");
                 Nom_Item = "";
-
                 if (!c.isEmpty()) {
                     for (int i = 0; i < c.size(); i++) {
                         Nom_Item = ((Classe) c.get(i)).getNom();
-                        ajout8ComboBox.addItem(Nom_Item);
+                        ajout7ComboBox.addItem(Nom_Item);
                     }
                 }
                 c = bdd.rechercher("Type_P", "0", "Personne");
@@ -1856,8 +1860,8 @@ public class Menu extends javax.swing.JFrame {
 
         if (!c.isEmpty()) {
             for (int i = 0; i < c.size(); i++) {
-                Nom_Item = ((Personne) c.get(i)).getNom()+" "+((Personne) c.get(i)).getNom();
-                ajout7ComboBox.addItem(Nom_Item);
+                Nom_Item = ((Personne) c.get(i)).getPrenom()+" "+((Personne) c.get(i)).getNom();
+                ajout8ComboBox.addItem(Nom_Item);
             }
         }
                 break;
@@ -2528,6 +2532,13 @@ public class Menu extends javax.swing.JFrame {
         ajout5Field.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
+        
         ArrayList<Object> list = bdd.rechercher("a", "a", "Personne");
         Iterator<Object> it = list.iterator();
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
@@ -2615,6 +2626,12 @@ public class Menu extends javax.swing.JFrame {
         ajout5Field.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ArrayList<Object> Enseignantlist = bdd.rechercher("a", "a", "Personne");
         Iterator<Object> Enseignantit = Enseignantlist.iterator();
         TableColumn Enseignantcolumn1 = rechercherTable.getColumnModel().getColumn(0);
@@ -2745,7 +2762,7 @@ public class Menu extends javax.swing.JFrame {
 
         if (!c.isEmpty()) {
             for (int i = 0; i < c.size(); i++){
-                Nom_Item = ((Personne) c.get(i)).getNom()+" "+((Personne) c.get(i)).getNom();
+                Nom_Item = ((Personne) c.get(i)).getPrenom()+" "+((Personne) c.get(i)).getNom();
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
@@ -3467,7 +3484,6 @@ public class Menu extends javax.swing.JFrame {
 
         c = bdd.rechercher("i", "i", "Discipline");
         Nom_Item = "";
-
         if (!c.isEmpty()) {
             for (int i = 0; i < c.size(); i++) {
                 Nom_Item = ((Discipline) c.get(i)).getNom();
@@ -3480,7 +3496,7 @@ public class Menu extends javax.swing.JFrame {
 
         if (!c.isEmpty()) {
             for (int i = 0; i < c.size(); i++) {
-                Nom_Item = ((Personne) c.get(i)).getNom() + " " + ((Personne) c.get(i)).getPrenom();
+                Nom_Item = ((Personne) c.get(i)).getPrenom() + " " + ((Personne) c.get(i)).getNom();
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
@@ -6229,8 +6245,9 @@ public class Menu extends javax.swing.JFrame {
             resultatLabel.setText("Aucun élément sélectionné !");
         }
     }//GEN-LAST:event_rSupprimerButtonActionPerformed
-    private void ajouterButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        if ("Ajouter".equals(mode1)) {
+
+    private void ajouterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterButtonActionPerformed
+     if ("Ajouter".equals(mode1)) {
             switch (mode2) {
                 case "Eleve":
 
@@ -8118,8 +8135,10 @@ public class Menu extends javax.swing.JFrame {
                 default:
                     System.out.println("Erreur Valider, Choix Menu 2");
             }
-        }
-    }                                             
+        }     // TODO add your handling code here:
+    }//GEN-LAST:event_ajouterButtonActionPerformed
+    
+                                                   
 
     /**
      * @param args the command line arguments
