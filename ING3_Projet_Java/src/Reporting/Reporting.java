@@ -236,37 +236,37 @@ public class Reporting {
                                                    
                                                     if(!L_Enseignements.isEmpty())
                                                         {
-//                                                             System.out.println("ok24");
+                                                             System.out.println("ok24");
                                                             L_Disciplines=bdd.rechercher("Id", Integer.toString(((Enseignement)L_Enseignements.get(0)).getIdDiscipline()),"Discipline");
                                                             if(!L_Disciplines.isEmpty())
                                                                 {
-//                                                                    System.out.println("ok1");
+                                                                    System.out.println("ok1");
                                                                     nomsMat.add(((Discipline)L_Disciplines.get(0)).getNom());
                                                                 }
                                                             else
                                                                 System.out.println("\t\t\t\tImpossible de trouver le nom de la matiere");
                                                         }
                                                     else
-//                                                        System.out.println("\t\t\t\tImpossible de trouver le nom de la matiere");
+                                                        System.out.println("\t\t\t\tImpossible de trouver le nom de la matiere");
                                                     
                                                     
-                                                    //recherche de la moyenne de la matiere
-//                                                    System.out.println("ok2");
+//                                                    recherche de la moyenne de la matiere
+                                                    System.out.println("ok2");
                                                     NBnotes=0;
                                                     L_Evaluations=bdd.rechercher("IdDetailBulletin", Integer.toString(ID_DetailBulletin),"Evaluation");
                                                     if(!L_Evaluations.isEmpty())
                                                         {
                                                             tempo=0;
-//                                                            System.out.println("ok3");
+                                                            System.out.println("ok3");
                                                             
                                                             for(int h=0;h<L_Evaluations.size();h++)
                                                             {
-//                                                                System.out.println("ok4");
+                                                                System.out.println("ok4");
                                                                 tempo+=((Evaluation)L_Evaluations.get(h)).getNote();
                                                                 NBnotes++;
                                                                 System.out.println(NBnotes);
                                                             }
-//                                                            System.out.println("calcule de la moyenne   total note: "+tempo+"  nombre de note: "+NBnotes);
+                                                            System.out.println("calcule de la moyenne   total note: "+tempo+"  nombre de note: "+NBnotes);
                                                             MoyennesMat.add(tempo/NBnotes);
                                                         }
                                                     else

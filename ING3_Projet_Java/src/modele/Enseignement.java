@@ -13,7 +13,6 @@ import java.sql.SQLException;
  * @author elias
  */
 public class Enseignement {
-
     private int id;
     private int idClasse;
     private int idDiscipline;
@@ -33,32 +32,30 @@ public class Enseignement {
     public String toString() {
         return "id=" + id + ", idClasse=" + idClasse + ", idDiscipline=" + idDiscipline + ", idPersonne=" + idPersonne;
     }
-
     /**
      * Ajouter un element à notre BDD
-     *
      * @return la requete SQL afin d'ajouter un element dans notre BDD
      */
-    public String ajouterBDD() {
-        return "INSERT INTO Enseignement VALUES(" + this.id + "," + this.idClasse + "," + this.idDiscipline + "," + this.idPersonne + ")";
+    public String ajouterBDD(){
+        return "INSERT INTO Enseignement VALUES("+this.id+","+this.idClasse+","+this.idDiscipline+","+this.idPersonne+")";
     }
-
-    public String modifierBDD() {
-        return "UPDATE Enseignement SET IdClasse = " + this.idClasse + ", IdDiscipline = " + this.idDiscipline
-                + ", IdPersonne = " + this.idPersonne + " WHERE Id = " + this.id;
+    
+    public String modifierBDD(){
+        return "UPDATE Enseignement SET IdClasse = "+this.idClasse+", IdDiscipline = "+this.idDiscipline+
+                ", IdPersonne = "+this.idPersonne+" WHERE Id = "+this.id;
     }
-
-    public Enseignement recupererInfo(ResultSet r) {
+    
+    public Enseignement recupererInfo(ResultSet r){ 
         Enseignement a = null;
-        try {
-            a = new Enseignement(r.getInt(1), r.getInt(2), r.getInt(3), r.getInt(4));
-        } catch (SQLException e) {
+        try{
+            a=new Enseignement(r.getInt(1), r.getInt(2), r.getInt(3), r.getInt(4));
+        }catch(SQLException e){
             System.out.println(e.getMessage());
         }
-
+        
         return a;
     }
-
+    
     public int getId() {
         return id;
     }
@@ -90,5 +87,6 @@ public class Enseignement {
     public void setIdPersonne(int idPersonne) {
         this.idPersonne = idPersonne;
     }
-
+    
+    
 }

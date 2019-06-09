@@ -10,13 +10,13 @@ package modele;
  * @author tomjo
  */
 public class Enseignant extends Personne {
-
-    public Enseignant() {
+    public Enseignant()
+    {
         super();
         this.setType(true);
     }
-
-    public Enseignant(int num, String surname, String name) {
-        super(num, surname, name, true);
+    public Enseignant(int num, String surname, String name)
+    {
+        super(num,surname,name,true);
     }
 }

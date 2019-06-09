@@ -10,13 +10,14 @@ package modele;
  * @author tomjo
  */
 public class Eleve extends Personne {
-
-    public Eleve() {
+    
+    public Eleve()
+    {
         super();
         this.setType(false);
     }
-
-    public Eleve(int num, String firstname, String name) {
+    public Eleve(int num, String firstname, String name)
+    {
         super(num, firstname, name, false);
     }
 }

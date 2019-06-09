@@ -13,56 +13,53 @@ import java.sql.SQLException;
  * @author tomjo
  */
 public class Personne {
-
     protected int id;
     protected String nom;
     protected String prenom;
     protected boolean type; //ELEVE == False && ENSEIGNANT == True
-
-    public Personne() {
-        id = 0;
-        nom = "";
-        prenom = "";
+    
+    public Personne()  {
+        id=0;
+        nom="";
+        prenom="";
     }
-
-    public Personne(int num, String surname, String firstname, boolean type_personne) {
-        id = num;
-        nom = surname;
-        prenom = firstname;
-        type = type_personne;
+    
+    public Personne(int num, String surname, String firstname, boolean type_personne)  {
+        id=num;
+        nom=surname;
+        prenom=firstname;
+        type=type_personne;
     }
 
     @Override
     public String toString() {
-        if (type) {
+        if(type){
             return "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", type=Professeur";
-        } else {
+        }else{
             return "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", type=Eleve";
         }
     }
-
     /**
      * Ajouter un element à notre BDD
-     *
      * @return la requete SQL afin d'ajouter un element dans notre BDD
      */
-    public String ajouterBDD() {
-        return "INSERT INTO Personne VALUES(" + this.id + ",'" + this.nom + "','" + this.prenom + "'," + this.type + ")";
+    public String ajouterBDD(){
+        return "INSERT INTO Personne VALUES("+this.id+",'"+this.nom+"','"+this.prenom+"',"+this.type+")";
     }
-
-    public String modifierBDD() {
-        return "UPDATE Personne SET Nom = \"" + this.nom + "\", Prenom = \"" + this.prenom + "\", "
-                + "Type_P = " + this.type + " WHERE Id = " + this.id;
+    
+    public String modifierBDD(){
+        return "UPDATE Personne SET Nom = \""+this.nom+"\", Prenom = \""+this.prenom+"\", "
+                + "Type_P = "+this.type+" WHERE Id = "+this.id;
     }
-
-    public Personne recupererInfo(ResultSet r) {
+    
+    public Personne recupererInfo(ResultSet r){ 
         Personne a = null;
-        try {
-            a = new Personne(r.getInt(1), r.getString(2), r.getString(3), r.getBoolean(4));
-        } catch (SQLException e) {
+        try{
+            a=new Personne(r.getInt(1), r.getString(2), r.getString(3), r.getBoolean(4));
+        }catch(SQLException e){
             System.out.println(e.getMessage());
         }
-
+        
         return a;
     }
 
@@ -97,5 +94,7 @@ public class Personne {
     public void setType(boolean type) {
         this.type = type;
     }
-
+    
+    
+    
 }

@@ -13,62 +13,61 @@ import java.sql.SQLException;
  * @author tomjo
  */
 public class Ecole {
-
     private int id;
     private String nom;
-
-    public Ecole() {
-        id = 0;
-        nom = "";
+    
+    public Ecole()
+    {
+        id=0;
+        nom="";
     }
-
-    public Ecole(int num, String name) {
-        id = num;
-        nom = name;
+    public Ecole(int num, String name)
+    {
+        id=num;
+        nom=name;        
     }
 
     @Override
     public String toString() {
         return "id=" + id + ", nom=" + nom;
     }
-
     /**
      * Ajouter un element à notre BDD
-     *
      * @return la requete SQL afin d'ajouter un element dans notre BDD
      */
-    public String ajouterBDD() {
-        return "INSERT INTO Ecole VALUES(" + this.id + ",'" + this.nom + "')";
+    public String ajouterBDD(){
+        return "INSERT INTO Ecole VALUES("+this.id+",'"+this.nom+"')";
     }
-
-    public String modifierBDD() {
-        return "UPDATE Ecole SET Nom = \"" + this.nom + "\" WHERE Id = " + this.id;
+    
+    public String modifierBDD(){
+        return "UPDATE Ecole SET Nom = \""+this.nom+"\" WHERE Id = "+this.id;
     }
-
-    public Ecole recupererInfo(ResultSet r) {
+    
+    public Ecole recupererInfo(ResultSet r){ 
         Ecole a = null;
-        try {
-            a = new Ecole(r.getInt(1), r.getString(2));
-        } catch (SQLException e) {
+        try{
+            a=new Ecole(r.getInt(1), r.getString(2));
+        }catch(SQLException e){
             System.out.println(e.getMessage());
         }
-
+        
         return a;
     }
-
-    public int getId() {
+    
+    public int getId()
+    {
         return id;
     }
-
-    public String getNom() {
+    public String getNom()
+    {
         return nom;
     }
-
-    public void setId(int new_id) {
-        id = new_id;
+    public void setId(int new_id)
+    {
+        id=new_id;
     }
-
-    public void setNom(String new_nom) {
-        nom = new_nom;
+    public void setNom(String new_nom)
+    {
+        nom=new_nom;
     }
 }
