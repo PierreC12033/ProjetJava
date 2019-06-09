@@ -53,7 +53,7 @@ public class Bulletin {
         }catch(SQLException e){
             System.out.println(e.getMessage());
         }
-        
+        a.toString();
         return a;
     }
     
