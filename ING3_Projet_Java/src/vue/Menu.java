@@ -996,22 +996,31 @@ public class Menu extends javax.swing.JFrame {
                 ajout2Label.setText("Nom : ");
                 break;
             case "Inscription":
-                ajout1Label.setVisible(true);
-                ajout1Field.setVisible(true);
-                ajout2Label.setVisible(true);
-                ajout2Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
+
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
                 ajout3Label.setVisible(false);
                 ajout3Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout1Label.setText("idClasse : ");
-                ajout2Label.setText("idPersonne : ");
-                
+
+                ajout6Label.setText("Niveau : ");
+                ajout7Label.setText("Classe : ");
+                ajout8Label.setText("Eleve : ");
+
                 ajout6ComboBox.removeAllItems();
-                ajout6ComboBox.addItem("Salut");
-                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
                 
                 break;
             case "Classe":
@@ -1051,49 +1060,67 @@ public class Menu extends javax.swing.JFrame {
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
                 ajout1Label.setText("Nom : ");
                 break;
             case "Annee":
-                ajout1Label.setVisible(true);
-                ajout1Field.setVisible(true);
-                ajout2Label.setVisible(true);
-                ajout2Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
                 ajout3Label.setVisible(false);
                 ajout3Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout1Label.setText("Début : ");
-                ajout2Label.setText("Fin : ");
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout6Label.setText("Début : ");
+                ajout7Label.setText("Fin : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
                 break;
             case "Trimestre":
                 ajout1Label.setVisible(true);
                 ajout1Field.setVisible(true);
                 ajout2Label.setVisible(true);
                 ajout2Field.setVisible(true);
-                ajout3Label.setVisible(true);
-                ajout3Field.setVisible(true);
                 ajout6Label.setVisible(true);
                 ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
 
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout7Label.setVisible(false);
-                ajout7ComboBox.setVisible(false);
                 ajout8Label.setVisible(false);
                 ajout8ComboBox.setVisible(false);
-                ajout1Label.setText("Numéro : ");
-                ajout2Label.setText("Date de début : ");
-                ajout3Label.setText("Date de fin : ");
+                ajout1Label.setText("Date de début : ");
+                ajout2Label.setText("Date de fin : ");
                 ajout6Label.setText("Année Scolaire : ");
+                ajout7Label.setText("Numéro : ");
                 ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
                 break;
             case "Bulletin":
                 ajout1Label.setVisible(true);
                 ajout1Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
                 ajout7Label.setVisible(true);
                 ajout7ComboBox.setVisible(true);
 
@@ -1105,12 +1132,11 @@ public class Menu extends javax.swing.JFrame {
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout6Label.setVisible(false);
-                ajout6ComboBox.setVisible(false);
                 ajout8Label.setVisible(false);
                 ajout8ComboBox.setVisible(false);
                 ajout1Label.setText("Appréciation : ");
-                ajout7Label.setText("Nom -- Trimestre : ");
+                ajout6Label.setText("Trimestre");
+                ajout7Label.setText("Nom : ");
                 ajout6ComboBox.removeAllItems();
                 ajout7ComboBox.removeAllItems();
                 break;
@@ -1134,7 +1160,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout5Field.setVisible(false);
                 ajout6Label.setText("Classe : ");
                 ajout7Label.setText("Discipline : ");
-                ajout8Label.setText("Personne : ");
+                ajout8Label.setText("Professeur : ");
                 ajout6ComboBox.removeAllItems();
                 ajout7ComboBox.removeAllItems();
                 ajout8ComboBox.removeAllItems();
@@ -1150,22 +1176,38 @@ public class Menu extends javax.swing.JFrame {
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
                 ajout1Label.setText("Nom : ");
                 break;
             case "BulletinDetails":
                 ajout1Label.setVisible(true);
                 ajout1Field.setVisible(true);
-                ajout2Label.setVisible(true);
-                ajout2Field.setVisible(true);
-                ajout3Label.setVisible(true);
-                ajout3Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
+
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
                 ajout4Label.setVisible(false);
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
-                ajout1Label.setText("idBulletin : ");
-                ajout2Label.setText("idEnseignement : ");
-                ajout3Label.setText("Appréciation : ");
+                ajout1Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre: ");
+                ajout7Label.setText("Eleve : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
                 break;
             case "Evaluation":
                 ajout1Label.setVisible(true);
@@ -1174,6 +1216,10 @@ public class Menu extends javax.swing.JFrame {
                 ajout2Field.setVisible(true);
                 ajout6Label.setVisible(true);
                 ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
                 ajout3Label.setVisible(false);
                 ajout3Field.setVisible(false);
@@ -1181,14 +1227,33 @@ public class Menu extends javax.swing.JFrame {
                 ajout4Field.setVisible(false);
                 ajout5Label.setVisible(false);
                 ajout5Field.setVisible(false);
+                ajout1Label.setText("Note : ");
+                ajout2Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre: ");
+                ajout7Label.setText("Eleve");
+                ajout8Label.setText("Discipline : ");
+                ajout6ComboBox.removeAll();
+                ajout7ComboBox.removeAll();
+                ajout8ComboBox.removeAll();
+                break;
+            case "Ecole":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
                 ajout7Label.setVisible(false);
                 ajout7ComboBox.setVisible(false);
                 ajout8Label.setVisible(false);
                 ajout8ComboBox.setVisible(false);
-                ajout6Label.setText("DetailsBulletin : ");
-                ajout1Label.setText("Note : ");
-                ajout2Label.setText("Appréciation : ");
-                ajout6ComboBox.removeAll();
+                ajout1Label.setText("Nom : ");
                 break;
             default:
         }
@@ -1812,7 +1877,6 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
-        
         ajout8Label.setVisible(false);
         ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Appréciation : ");
@@ -2019,7 +2083,6 @@ public class Menu extends javax.swing.JFrame {
         ajout7ComboBox.setVisible(false);
         ajout8Label.setVisible(false);
         ajout8ComboBox.setVisible(false);
-        
         ajout1Label.setText("Nom : ");
     }//GEN-LAST:event_disciplineActionPerformed
 
