@@ -11,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import Reporting.*;
 
 /**
  *
@@ -402,10 +403,8 @@ public class Accueil extends javax.swing.JFrame {
         } else if (macButton.isSelected()) {
             port = "8889";
         }
-        if (adress == "" || name == "" || login == "") {
-            erreurLabel.setText("Un des champs est nul");
-        } else {
-            bdd.connecterDB(adress, port, name, login, pass);
+        
+            bdd.connecterDB("localhost", "3306", "ecole", "root", "");
             boolean trouve = bdd.getAccepted();
             if (trouve) {
                 Menu menu = new Menu();
@@ -413,10 +412,17 @@ public class Accueil extends javax.swing.JFrame {
                 menu.setVisible(true);
                 setVisible(false);
                 dispose();
+                
+                
+                Reporting rep = new Reporting();
+                rep.InfoClasse(bdd,Integer.toString(2018),"Ing 3");
+                rep.afficher_info_reporting();
+                rep.tracer_graphe_reporting();
+                
             } else {
                 erreurLabel.setText("Erreur de connexion à la BDD");
             }
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -447,10 +453,15 @@ public class Accueil extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        
+        
+        
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Accueil().setVisible(true);
             }
+            
         });
     }
 
