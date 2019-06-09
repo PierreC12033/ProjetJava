@@ -1772,6 +1772,30 @@ public class Menu extends javax.swing.JFrame {
                 ajout6ComboBox.removeAllItems();
                 ajout7ComboBox.removeAllItems();
                 ajout8ComboBox.removeAllItems();
+                ajout6ComboBox.addItem("");
+        ajout7ComboBox.addItem("");
+        ajout8ComboBox.addItem("");
+
+        ArrayList<Object> c = new ArrayList<>();
+        c = bdd.rechercher("i", "i", "Niveau");
+        String Nom_Item = "";
+
+        if (!c.isEmpty()) {
+            for (int i = 0; i < c.size(); i++) {
+                Nom_Item = ((Niveau) c.get(i)).getNom();
+                ajout6ComboBox.addItem(Nom_Item);
+            }
+        }
+
+        c = bdd.rechercher("i", "i", "Classe");
+        Nom_Item = "";
+
+        if (!c.isEmpty()) {
+            for (int i = 0; i < c.size(); i++) {
+                Nom_Item = ((Classe) c.get(i)).getNom();
+                ajout7ComboBox.addItem(Nom_Item);
+            }
+        }
 
                 break;
             case "Classe":
