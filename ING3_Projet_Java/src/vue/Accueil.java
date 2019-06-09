@@ -402,14 +402,6 @@ public class Accueil extends javax.swing.JFrame {
         } else if (macButton.isSelected()) {
             port = "8889";
         }
-        
-        //Pour par ecrire à chaque fois 
-        adress="localhost";
-        name="ecole";
-        login="root";
-        pass="root";
-        port="8889";
-        
         if (adress == "" || name == "" || login == "") {
             erreurLabel.setText("Un des champs est nul");
         } else {
