@@ -140,6 +140,12 @@ public class Menu extends javax.swing.JFrame {
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
+        ajout6Label.setVisible(false);
+        ajout6ComboBox.setVisible(false);
+        ajout7Label.setVisible(false);
+        ajout7ComboBox.setVisible(false);
+        ajout8Label.setVisible(false);
+        ajout8ComboBox.setVisible(false);
         ajout1Label.setText("Prénom : ");
         ajout2Label.setText("Nom : ");
     }
@@ -2951,9 +2957,7 @@ public class Menu extends javax.swing.JFrame {
         for (int i = 2020; i < 2019 + 7; i++) {
             ajout7ComboBox.addItem(Integer.toString(i));
         }
-
-        ajout1Label.setText("Début : ");
-        ajout2Label.setText("Fin : ");
+        
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -2989,6 +2993,32 @@ public class Menu extends javax.swing.JFrame {
             }
         }
         rechercherTable.setModel(model);
+        
+        if(mode1 == "Modifier"){
+            
+            ArrayList c=new ArrayList<>();
+            
+            int ligneSelectionne = rechercherTable.getSelectedRow();
+            
+            int id_Select = ((AnneeScolaire)rechercherTable.getValueAt(ligneSelectionne, 0)).getId();
+            c=bdd.rechercher("Id", Integer.toString(id_Select), "AnneeScolaire");
+            
+            if(!c.isEmpty()){
+                int debut= ((AnneeScolaire)c.get(0)).getAnneeDebut() ;
+                int fin= ((AnneeScolaire)c.get(0)).getAnneeFin();
+               
+                for (int i = 2019; i < 2019 + 7; i++) {
+                    if(Integer.toString(debut) == ajout6ComboBox.getItemAt(i))
+                        ajout6ComboBox.setSelectedIndex(i);
+                }
+                for (int i = 2020; i < 2019 + 7; i++) {
+                    if(Integer.toString(fin) == ajout7ComboBox.getItemAt(i))
+                        ajout7ComboBox.setSelectedIndex(i);
+                }
+               
+            }
+        }
+        
     }// GEN-LAST:event_anneeActionPerformed
 
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trimestreActionPerformed
@@ -4064,6 +4094,951 @@ public class Menu extends javax.swing.JFrame {
     private void ajouterButtonActionPerformed(java.awt.event.ActionEvent evt) {
 
         if ("Ajouter".equals(mode1)) {
+            switch (mode2) {
+                case "Eleve":
+
+                    if (!ajout1Field.getText().isEmpty() && !ajout2Field.getText().isEmpty()) {
+
+                        Eleve e = new Eleve();
+                        e.setNom(ajout2Field.getText());
+                        e.setPrenom(ajout1Field.getText());
+
+                        boolean dup = false;
+
+                        ArrayList<Object> duplica = new ArrayList<>();
+                        duplica = bdd.rechercher("Type_P", "0", "Personne");
+
+                        if (!duplica.isEmpty()) {
+                            for (int i = 0; i < duplica.size(); i++) {
+                                if (e.getPrenom().equals(((Eleve) duplica.get(i)).getPrenom())) {
+                                    if (e.getNom().equals(((Eleve) duplica.get(i)).getNom())) {
+                                        dup = true;
+                                    }
+                                }
+                            }
+
+                            if (!dup) {
+                                bdd.AjouterP(e);
+
+                                ajout1Field.setText("");
+                                ajout2Field.setText("");
+                            } else {
+                                System.out.println("Cet element existe deja");
+                            }
+                        }
+
+                    }
+
+                    break;
+                case "Enseignant":
+
+                    if (!ajout1Field.getText().isEmpty() && !ajout2Field.getText().isEmpty()) {
+
+                        Enseignant e = new Enseignant();
+                        e.setNom(ajout2Field.getText());
+                        e.setPrenom(ajout1Field.getText());
+
+                        boolean dup = false;
+
+                        ArrayList<Object> duplica = new ArrayList<>();
+                        duplica = bdd.rechercher("Type_P", "1", "Personne");
+
+                        if (!duplica.isEmpty()) {
+                            for (int i = 0; i < duplica.size(); i++) {
+                                if (e.getNom().equals(((Enseignant) duplica.get(i)).getNom())) {
+                                    if (e.getPrenom().equals(((Enseignant) duplica.get(i)).getPrenom())) {
+                                        dup = true;
+                                    }
+                                }
+                            }
+
+                            if (!dup) {
+                                bdd.AjouterP(e);
+
+                                ajout1Field.setText("");
+                                ajout2Field.setText("");
+                            } else {
+                                System.out.println("Cet element existe deja");
+                            }
+                        }
+                    }
+
+                    break;
+                case "Inscription":
+
+                    if (!ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout8ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        ArrayList<Object> d = new ArrayList<>();
+                        ArrayList<Object> e = new ArrayList<>();
+                        ArrayList<Object> eleve = new ArrayList<>();
+
+                        d = bdd.rechercher("Nom", ajout6ComboBox.getSelectedItem().toString(), "Niveau");
+
+                        if (!d.isEmpty()) {
+                            int id_Niveau = ((Niveau) d.get(0)).getId();
+                            int id_Classe = 0;
+                            int id_Eleve = 0;
+                            boolean dup = false;
+                            e = bdd.rechercher("IdNiveau", Integer.toString(id_Niveau), "Classe");
+
+                            String newStr = ajout8ComboBox.getSelectedItem().toString().substring(0, ajout8ComboBox.getSelectedItem().toString().indexOf(" "));
+                            eleve = bdd.rechercher("Nom", newStr, "Personne");
+
+                            if (!e.isEmpty() && !eleve.isEmpty()) {
+                                for (int i = 0; i < e.size(); i++) {
+                                    if (((Classe) e.get(i)).getNom().equals(ajout7ComboBox.getSelectedItem().toString())) {
+                                        id_Classe = ((Classe) e.get(i)).getId();
+                                    }
+                                }
+
+                                for (int i = 0; i < eleve.size(); i++) {
+                                    String test = newStr + " " + ((Personne) eleve.get(i)).getPrenom();
+
+                                    if (test.equals(ajout8ComboBox.getSelectedItem().toString())) {
+                                        id_Eleve = ((Personne) eleve.get(i)).getId();
+                                    }
+                                }
+
+                                if (id_Classe != 0 && id_Eleve != 0) {
+                                    Inscription ins = new Inscription();
+                                    ins.setIdPersonne(id_Eleve);
+                                    ins.setIdClasse(id_Classe);
+
+                                    ArrayList<Object> duplica = new ArrayList<>();
+
+                                    duplica = bdd.rechercher("d", "d", "Inscription");
+
+                                    if (!duplica.isEmpty()) {
+                                        for (int i = 0; i < duplica.size(); i++) {
+                                            if (ins.getIdClasse() == ((Inscription) duplica.get(i)).getIdClasse()
+                                                    && ins.getIdPersonne() == ((Inscription) duplica.get(i)).getIdPersonne()) {
+                                                dup = true;
+                                            }
+                                        }
+                                        if (!dup) {
+                                            bdd.AjouterP(ins);
+                                            ajout6ComboBox.setSelectedIndex(0);
+                                            ajout7ComboBox.setSelectedIndex(0);
+                                            ajout8ComboBox.setSelectedIndex(0);
+                                        } else {
+                                            System.out.println("Cet element existe deja");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    break;
+                case "Classe":
+                    if (!ajout1Field.getText().isEmpty()
+                            && !ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout8ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        ArrayList<Object> d = new ArrayList<>();
+                        ArrayList<Object> e = new ArrayList<>();
+                        ArrayList<Object> f = new ArrayList<>();
+
+                        String AnneeDebut = ajout8ComboBox.getSelectedItem().toString().substring(0, ajout8ComboBox.getSelectedItem().toString().indexOf("/"));
+
+                        d = bdd.rechercher("Nom", ajout6ComboBox.getSelectedItem().toString(), "Ecole");
+                        e = bdd.rechercher("Nom", ajout7ComboBox.getSelectedItem().toString(), "Niveau");
+                        f = bdd.rechercher("AnneeDebut", AnneeDebut, "AnneeScolaire");
+
+                        if (!d.isEmpty() && !e.isEmpty() && !f.isEmpty()) {
+
+                            int id_Ecole = ((Ecole) d.get(0)).getId();
+                            int id_Niveau = ((Niveau) e.get(0)).getId();
+                            int id_Annee = ((AnneeScolaire) f.get(0)).getId();
+                            String AnneeDF = Integer.toString(((AnneeScolaire) f.get(0)).getAnneeDebut()) + "/"
+                                    + Integer.toString(((AnneeScolaire) f.get(0)).getAnneeFin());
+                            boolean dup = false;
+
+                            if (AnneeDF.equals(ajout8ComboBox.getSelectedItem().toString())) {
+                                if (id_Ecole != 0 && id_Niveau != 0 && id_Annee != 0) {
+                                    Classe c = new Classe();
+                                    c.setIdEcole(id_Ecole);
+                                    c.setIdNiveau(id_Niveau);
+                                    c.setIdAnneeScolaire(id_Annee);
+                                    c.setNom(ajout1Field.getText());
+
+                                    ArrayList<Object> duplica = new ArrayList<>();
+
+                                    duplica = bdd.rechercher("d", "d", "Classe");
+
+                                    if (!duplica.isEmpty()) {
+                                        for (int i = 0; i < duplica.size(); i++) {
+                                            if (c.getIdEcole() == ((Classe) duplica.get(i)).getIdEcole()
+                                                    && c.getIdNiveau() == ((Classe) duplica.get(i)).getIdNiveau()
+                                                    && c.getIdAnneeScolaire() == ((Classe) duplica.get(i)).getIdAnneeScolaire()
+                                                    && c.getNom().equals(((Classe) duplica.get(i)).getNom())) {
+                                                dup = true;
+                                            }
+                                        }
+                                        if (!dup) {
+                                            bdd.AjouterP(c);
+
+                                            ajout1Field.setText("");
+                                            ajout6ComboBox.setSelectedIndex(0);
+                                            ajout7ComboBox.setSelectedIndex(0);
+                                            ajout8ComboBox.setSelectedIndex(0);
+                                        } else {
+                                            System.out.println("Cet element existe deja");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    break;
+                case "Niveau":
+                    if (!ajout1Field.getText().isEmpty()) {
+                        Niveau n = new Niveau();
+                        n.setNom(ajout1Field.getText());
+
+                        boolean dup = false;
+
+                        ArrayList<Object> duplica = new ArrayList<>();
+                        duplica = bdd.rechercher("", "", "Niveau");
+
+                        if (!duplica.isEmpty()) {
+                            for (int i = 0; i < duplica.size(); i++) {
+                                if (n.getNom().equals(((Niveau) duplica.get(i)).getNom())) {
+                                    dup = true;
+                                }
+                            }
+
+                            if (!dup) {
+                                bdd.AjouterP(n);
+
+                                ajout1Field.setText("");
+                            } else {
+                                System.out.println("Cet element existe deja");
+                            }
+                        }
+
+                    }
+                    break;
+                case "Annee":
+
+                    if (!ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        int AnneeDebut = Integer.valueOf(ajout6ComboBox.getSelectedItem().toString());
+                        int AnneeFin = Integer.valueOf(ajout7ComboBox.getSelectedItem().toString());
+
+                        if (AnneeDebut == AnneeFin + 1) {
+
+                            ArrayList<Object> duplica = new ArrayList<>();
+
+                            duplica = bdd.rechercher("", "", "AnneeScolaire");
+
+                            if (!duplica.isEmpty()) {
+
+                                boolean dup = false;
+
+                                for (int i = 0; i < duplica.size(); i++) {
+                                    if (((AnneeScolaire) duplica.get(i)).getAnneeDebut() == AnneeDebut
+                                            && ((AnneeScolaire) duplica.get(i)).getAnneeFin() == AnneeFin) {
+                                        dup = true;
+                                    }
+                                }
+
+                                if (!dup) {
+                                    AnneeScolaire a = new AnneeScolaire();
+                                    a.setAnneeDebut(AnneeDebut);
+                                    a.setAnneeFin(AnneeFin);
+                                    bdd.AjouterP(a);
+
+                                    ajout6ComboBox.setSelectedIndex(0);
+                                    ajout7ComboBox.setSelectedIndex(0);
+
+                                } else {
+                                    System.out.println("Cet element existe deja");
+                                }
+
+                            }
+
+                        }
+                    }
+
+                    break;
+                case "Trimestre":
+
+                    if (!ajout1Field.getText().isEmpty()
+                            && !ajout2Field.getText().isEmpty()
+                            && !ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        ArrayList<Object> d = new ArrayList<>();
+
+                        modele.Date DateD = null;
+                        modele.Date DateF = null;
+
+                        String[] Annee = ajout6ComboBox.getSelectedItem().toString().split("/");
+
+                        String[] JDepart = ajout1Field.getText().split("/");
+                        String[] JFin = ajout2Field.getText().split("/");
+
+                        if (JDepart.length == 3 && JFin.length == 3) {
+                            if (Integer.valueOf(JDepart[0]) > 0 && Integer.valueOf(JDepart[0]) < 32
+                                    && Integer.valueOf(JDepart[1]) > 0 && Integer.valueOf(JDepart[1]) < 13
+                                    && Integer.valueOf(JDepart[2]) > 1990 && Integer.valueOf(JDepart[2]) < 2025
+                                    && Integer.valueOf(JFin[0]) > 0 && Integer.valueOf(JFin[0]) < 32
+                                    && Integer.valueOf(JFin[1]) > 0 && Integer.valueOf(JFin[1]) < 13
+                                    && Integer.valueOf(JFin[2]) > 1990 && Integer.valueOf(JFin[2]) < 2025) {
+
+                                DateD = new modele.Date();
+                                DateD.setJour(Integer.valueOf(JDepart[0]));
+                                DateD.setMois(Integer.valueOf(JDepart[1]));
+                                DateD.setAnnee(Integer.valueOf(JDepart[2]));
+
+                                DateF = new modele.Date();
+                                DateF.setJour(Integer.valueOf(JFin[0]));
+                                DateF.setMois(Integer.valueOf(JFin[1]));
+                                DateF.setAnnee(Integer.valueOf(JFin[2]));
+
+                            } else {
+                                System.out.println("Probleme dans le format de vos informations");
+                            }
+                        }
+
+                        if (DateD != null && DateF != null) {
+
+                            d = bdd.rechercher("AnneeDebut", Annee[0], "AnneeScolaire");
+
+                            if (!d.isEmpty()) {
+
+                                int id_Annee = 0;
+                                id_Annee = ((AnneeScolaire) d.get(0)).getId();
+
+                                boolean dup = false;
+
+                                if (id_Annee != 0) {
+                                    Trimestre t = new Trimestre();
+                                    t.setIdAnneeScolaire(id_Annee);
+                                    t.setNumero(Integer.valueOf(ajout7ComboBox.getSelectedItem().toString()));
+                                    t.setDebut(DateD);
+                                    t.setFin(DateF);
+
+                                    ArrayList<Object> duplica = new ArrayList<>();
+
+                                    duplica = bdd.rechercher("d", "d", "Trimestre");
+
+                                    if (!duplica.isEmpty()) {
+                                        for (int i = 0; i < duplica.size(); i++) {
+                                            if (t.getIdAnneeScolaire() == ((Trimestre) duplica.get(i)).getIdAnneeScolaire()
+                                                    && t.getDebut() == ((Trimestre) duplica.get(i)).getDebut()
+                                                    && t.getFin() == ((Trimestre) duplica.get(i)).getFin()
+                                                    && t.getNumero() == ((Trimestre) duplica.get(i)).getNumero()) {
+
+                                                dup = true;
+                                            }
+                                        }
+                                        if (!dup) {
+                                            bdd.AjouterP(t);
+
+                                            ajout1Field.setText("");
+                                            ajout2Field.setText("");
+                                            ajout6ComboBox.setSelectedIndex(0);
+                                            ajout7ComboBox.setSelectedIndex(0);
+                                        } else {
+                                            System.out.println("Cet element existe deja");
+                                        }
+                                    }
+
+                                }
+                            }
+                        }
+                    }
+
+                    break;
+                case "Bulletin":
+
+                    if (!ajout1Field.getText().isEmpty() && !ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        ArrayList<Object> d = new ArrayList<>();
+                        ArrayList<Object> e = new ArrayList<>();
+                        ArrayList<Object> f = new ArrayList<>();
+
+                        String[] Date = ajout6ComboBox.getSelectedItem().toString().split(" :: ");
+
+                        String[] NomPrenom = ajout7ComboBox.getSelectedItem().toString().split(" ");
+                        String[] JDepart = Date[0].split("/");
+                        String[] JFin = Date[1].split("/");
+
+                        modele.Date DateD = null;
+                        modele.Date DateF = null;
+
+                        if (JDepart.length == 3 && JFin.length == 3) {
+                            if (Integer.valueOf(JDepart[0]) > 0 && Integer.valueOf(JDepart[0]) < 32
+                                    && Integer.valueOf(JDepart[1]) > 0 && Integer.valueOf(JDepart[1]) < 13
+                                    && Integer.valueOf(JDepart[2]) > 1990 && Integer.valueOf(JDepart[2]) < 2025
+                                    && Integer.valueOf(JFin[0]) > 0 && Integer.valueOf(JFin[0]) < 32
+                                    && Integer.valueOf(JFin[1]) > 0 && Integer.valueOf(JFin[1]) < 13
+                                    && Integer.valueOf(JFin[2]) > 1990 && Integer.valueOf(JFin[2]) < 2025) {
+
+                                DateD = new modele.Date();
+                                DateD.setJour(Integer.valueOf(JDepart[0]));
+                                DateD.setMois(Integer.valueOf(JDepart[1]));
+                                DateD.setAnnee(Integer.valueOf(JDepart[2]));
+
+                                DateF = new modele.Date();
+                                DateF.setJour(Integer.valueOf(JFin[0]));
+                                DateF.setMois(Integer.valueOf(JFin[1]));
+                                DateF.setAnnee(Integer.valueOf(JFin[2]));
+
+                            } else {
+                                System.out.println("Probleme dans le format de vos informations");
+                            }
+                        }
+
+                        if (DateD != null && DateF != null) {
+
+                            String DateRechercheDebut = DateD.getAnnee() + "-" + DateD.getMois() + "-" + DateD.getJour();
+
+                            d = bdd.rechercher("Debut", DateRechercheDebut, "Trimestre");
+                            e = bdd.rechercher("Nom", NomPrenom[0], "Personne");
+
+                            int id_Eleve = 0;
+                            int id_Inscription = 0;
+                            int id_Trimestre = 0;
+
+                            if (!d.isEmpty() && !e.isEmpty()) {
+
+                                for (int i = 0; i < e.size(); i++) {
+                                    if (((Personne) e.get(i)).getPrenom().equals(NomPrenom[1])) {
+                                        id_Eleve = ((Personne) e.get(i)).getId();
+                                    }
+                                }
+
+                                f = bdd.rechercher("IdPersonne", Integer.toString(id_Eleve), "Inscription");
+
+                                if (!f.isEmpty()) {
+                                    id_Inscription = ((Inscription) f.get(0)).getId();
+                                }
+
+                                for (int i = 0; i < d.size(); i++) {
+                                    if (((Trimestre) d.get(i)).getFin().toString().equals(DateF.toString())) {
+                                        id_Trimestre = ((Trimestre) d.get(i)).getId();
+                                    }
+                                }
+
+                                if (id_Inscription != 0 && id_Trimestre != 0) {
+
+                                    boolean dup = false;
+
+                                    Bulletin b = new Bulletin();
+                                    b.setIdInscription(id_Inscription);
+                                    b.setIdTrimestre(id_Trimestre);
+                                    b.setAppreciation(ajout1Field.getText());
+
+                                    ArrayList<Object> duplica = new ArrayList<>();
+
+                                    duplica = bdd.rechercher("d", "d", "Bulletin");
+
+                                    if (!duplica.isEmpty()) {
+                                        for (int i = 0; i < duplica.size(); i++) {
+                                            if (b.getIdInscription() == ((Bulletin) duplica.get(i)).getIdInscription()
+                                                    && b.getIdTrimestre() == ((Bulletin) duplica.get(i)).getIdTrimestre()
+                                                    && b.getAppreciation().equals(((Bulletin) duplica.get(i)).getAppreciation())) {
+
+                                                dup = true;
+                                            }
+                                        }
+                                        if (!dup) {
+                                            bdd.AjouterP(b);
+
+                                            ajout1Field.setText("");
+                                            ajout6ComboBox.setSelectedIndex(0);
+                                            ajout7ComboBox.setSelectedIndex(0);
+                                        } else {
+                                            System.out.println("Cet element existe deja");
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    break;
+                case "Enseignement":
+
+                    if (!ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout8ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        String NomNiveauClasse = ajout6ComboBox.getSelectedItem().toString();
+                        String NomDiscipline = ajout7ComboBox.getSelectedItem().toString();
+                        String NomProf = ajout8ComboBox.getSelectedItem().toString();
+
+                        String[] CN = NomNiveauClasse.split(" - ");
+                        String[] NP = NomProf.split(" ");
+
+                        ArrayList<Object> c = new ArrayList<>();
+                        ArrayList<Object> d = new ArrayList<>();
+                        ArrayList<Object> e = new ArrayList<>();
+                        ArrayList<Object> f = new ArrayList<>();
+
+                        c = bdd.rechercher("Nom", CN[0], "Niveau");
+                        d = bdd.rechercher("Nom", CN[1], "Classe");
+                        e = bdd.rechercher("Nom", NomDiscipline, "Discipline");
+                        f = bdd.rechercher("Nom", NP[0], "Personne");
+
+                        if (!c.isEmpty() && !d.isEmpty() && !e.isEmpty() && !f.isEmpty()) {
+
+                            int id_Classe = 0;
+                            int id_Discipline = ((Discipline) e.get(0)).getId();
+                            int id_Prof = 0;
+
+                            for (int i = 0; i < d.size(); i++) {
+                                if (((Classe) d.get(i)).getIdNiveau() == ((Niveau) c.get(0)).getId()) {
+                                    id_Classe = ((Classe) d.get(i)).getId();
+                                }
+                            }
+
+                            for (int i = 0; i < f.size(); i++) {
+                                if (((Personne) f.get(i)).getPrenom().equals(NP[1])) {
+                                    id_Prof = ((Personne) f.get(i)).getId();
+                                }
+                            }
+
+                            if (id_Classe != 0 && id_Discipline != 0 && id_Prof != 0) {
+
+                                boolean dup = false;
+
+                                ArrayList<Object> duplica = new ArrayList<>();
+                                duplica = bdd.rechercher("s", "s", "Enseignement");
+
+                                Enseignement ens = new Enseignement();
+                                ens.setIdClasse(id_Classe);
+                                ens.setIdDiscipline(id_Discipline);
+                                ens.setIdPersonne(id_Prof);
+
+                                if (!duplica.isEmpty()) {
+                                    for (int i = 0; i < duplica.size(); i++) {
+                                        if (ens.getIdClasse() == ((Enseignement) duplica.get(i)).getIdClasse()
+                                                && ens.getIdDiscipline() == ((Enseignement) duplica.get(i)).getIdDiscipline()
+                                                && ens.getIdPersonne() == ((Enseignement) duplica.get(i)).getIdPersonne()) {
+                                            dup = true;
+                                        }
+                                    }
+
+                                    if (!dup) {
+                                        bdd.AjouterP(ens);
+
+                                        ajout6ComboBox.setSelectedIndex(0);
+                                        ajout7ComboBox.setSelectedIndex(0);
+                                        ajout8ComboBox.setSelectedIndex(0);
+                                    } else {
+                                        System.out.println("Cet element existe deja");
+                                    }
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                    break;
+                case "Discipline":
+
+                    if (!ajout1Field.getText().isEmpty()) {
+                        Discipline d = new Discipline();
+                        d.setNom(ajout1Field.getText());
+
+                        boolean dup = false;
+
+                        ArrayList<Object> duplica = new ArrayList<>();
+                        duplica = bdd.rechercher("s", "s", "Discipline");
+
+                        if (!duplica.isEmpty()) {
+                            for (int i = 0; i < duplica.size(); i++) {
+                                if (d.getNom().equals(((Discipline) duplica.get(i)).getNom())) {
+                                    dup = true;
+                                }
+                            }
+
+                            if (!dup) {
+                                bdd.AjouterP(d);
+
+                                ajout1Field.setText("");
+                            } else {
+                                System.out.println("Cet element existe deja");
+                            }
+                        }
+
+                    }
+
+                    break;
+                case "BulletinDetails":
+
+                    if (!ajout1Field.getText().isEmpty()
+                            && !ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout8ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        String App = ajout1Field.getText();
+
+                        //Recherche Id Discipline
+                        ArrayList<Object> d = new ArrayList<>();
+                        String Discipline = ajout8ComboBox.getSelectedItem().toString();
+                        int id_Discipline = 0;
+
+                        d = bdd.rechercher("Nom", Discipline, "Discipline");
+
+                        if (!d.isEmpty()) {
+                            id_Discipline = ((Discipline) d.get(0)).getId();
+                        }
+
+                        //Recherche Id Eleve
+                        ArrayList<Object> e = new ArrayList<>();
+                        ArrayList<Object> f = new ArrayList<>();
+                        ArrayList<Object> g = new ArrayList<>();
+                        String NomPrenom = ajout7ComboBox.getSelectedItem().toString();
+                        String[] NP = NomPrenom.split(" ");
+                        int id_Eleve = 0;
+                        int id_Inscription = 0;
+                        int id_Classe = 0;
+                        int id_Enseignement = 0;
+                        int id_Trimestre = 0;
+                        int id_Bulletin = 0;
+
+                        e = bdd.rechercher("Nom", NP[0], "Personne");
+
+                        if (!e.isEmpty()) {
+                            for (int i = 0; i < e.size(); i++) {
+                                if (((Personne) e.get(i)).getPrenom().equals(NP[1])) {
+                                    id_Eleve = ((Personne) e.get(i)).getId();
+                                }
+                            }
+
+                            f = bdd.rechercher("IdPersonne", Integer.toString(id_Eleve), "Inscription");
+
+                            if (!f.isEmpty()) {
+                                id_Inscription = ((Inscription) f.get(0)).getId();
+                                id_Classe = ((Inscription) f.get(0)).getIdClasse();
+                            }
+                        }
+
+                        if (id_Classe != 0 && id_Discipline != 0) {
+                            g = bdd.rechercher("IdClasse", Integer.toString(id_Classe), "Enseignement");
+
+                            if (!g.isEmpty()) {
+                                for (int i = 0; i < g.size(); i++) {
+                                    if (((Enseignement) g.get(i)).getIdDiscipline() == id_Discipline) {
+                                        id_Enseignement = ((Enseignement) g.get(i)).getId();
+                                    }
+                                }
+                            }
+                        }
+
+                        //Recherche Id Bulletin
+                        ArrayList<Object> h = new ArrayList<>();
+                        ArrayList<Object> c = new ArrayList<>();
+                        ArrayList<Object> q = new ArrayList<>();
+
+                        String[] Date = ajout6ComboBox.getSelectedItem().toString().split(" :: ");
+
+                        String[] JDepart = Date[0].split("/");
+                        String[] JFin = Date[1].split("/");
+
+                        modele.Date DateD = null;
+                        modele.Date DateF = null;
+
+                        if (JDepart.length == 3 && JFin.length == 3) {
+                            if (Integer.valueOf(JDepart[0]) > 0 && Integer.valueOf(JDepart[0]) < 32
+                                    && Integer.valueOf(JDepart[1]) > 0 && Integer.valueOf(JDepart[1]) < 13
+                                    && Integer.valueOf(JDepart[2]) > 1990 && Integer.valueOf(JDepart[2]) < 2025
+                                    && Integer.valueOf(JFin[0]) > 0 && Integer.valueOf(JFin[0]) < 32
+                                    && Integer.valueOf(JFin[1]) > 0 && Integer.valueOf(JFin[1]) < 13
+                                    && Integer.valueOf(JFin[2]) > 1990 && Integer.valueOf(JFin[2]) < 2025) {
+
+                                DateD = new modele.Date();
+                                DateD.setJour(Integer.valueOf(JDepart[0]));
+                                DateD.setMois(Integer.valueOf(JDepart[1]));
+                                DateD.setAnnee(Integer.valueOf(JDepart[2]));
+
+                                DateF = new modele.Date();
+                                DateF.setJour(Integer.valueOf(JFin[0]));
+                                DateF.setMois(Integer.valueOf(JFin[1]));
+                                DateF.setAnnee(Integer.valueOf(JFin[2]));
+
+                            } else {
+                                System.out.println("Probleme dans le format de vos informations");
+                            }
+                        }
+
+                        if (DateD != null && DateF != null) {
+
+                            String DateRechercheDebut = DateD.getAnnee() + "-" + DateD.getMois() + "-" + DateD.getJour();
+
+                            h = bdd.rechercher("Debut", DateRechercheDebut, "Trimestre");
+
+                            if (!h.isEmpty()) {
+
+                                for (int i = 0; i < h.size(); i++) {
+                                    if (((Trimestre) h.get(i)).getFin().toString().equals(DateF.toString())) {
+                                        id_Trimestre = ((Trimestre) h.get(i)).getId();
+                                    }
+                                }
+                            }
+
+                            if (id_Trimestre != 0 && id_Inscription != 0) {
+                                c = bdd.rechercher("IdTrimestre", Integer.toString(id_Trimestre), "Bulletin");
+
+                                if (!c.isEmpty()) {
+
+                                    for (int i = 0; i < c.size(); i++) {
+                                        if (((Bulletin) c.get(i)).getIdInscription() == id_Inscription) {
+                                            id_Bulletin = ((Bulletin) c.get(i)).getId();
+                                        }
+                                    }
+                                }
+                            }
+
+                            if (id_Enseignement != 0 && id_Bulletin != 0) {
+
+                                DetailBulletin Db = new DetailBulletin();
+                                Db.setAppreciation(App);
+                                Db.setIdBulletin(id_Bulletin);
+                                Db.setIdEnseignement(id_Enseignement);
+
+                                boolean dup = false;
+
+                                ArrayList<Object> duplica = new ArrayList<>();
+                                duplica = bdd.rechercher("s", "s", "DetailBulletin");
+
+                                if (!duplica.isEmpty()) {
+                                    for (int i = 0; i < duplica.size(); i++) {
+                                        if (Db.getAppreciation().equals(((DetailBulletin) duplica.get(i)).getAppreciation())
+                                                && Db.getIdBulletin() == ((DetailBulletin) duplica.get(i)).getIdBulletin()
+                                                && Db.getIdEnseignement() == ((DetailBulletin) duplica.get(i)).getIdEnseignement()) {
+                                            dup = true;
+                                        }
+                                    }
+
+                                    if (!dup) {
+                                        bdd.AjouterP(Db);
+
+                                        ajout1Field.setText("");
+                                        ajout6ComboBox.setSelectedIndex(0);
+                                        ajout7ComboBox.setSelectedIndex(0);
+                                        ajout8ComboBox.setSelectedIndex(0);
+
+                                    } else {
+                                        System.out.println("Cet element existe deja");
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    break;
+                case "Evaluation":
+                    if (!ajout1Field.getText().isEmpty()
+                            && !ajout2Field.getText().isEmpty()
+                            && !ajout6ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout7ComboBox.getSelectedItem().toString().isEmpty()
+                            && !ajout8ComboBox.getSelectedItem().toString().isEmpty()) {
+
+                        String Note = ajout1Field.getText();
+                        String App = ajout2Field.getText();
+
+                        //Recherche Id Discipline
+                        ArrayList<Object> d = new ArrayList<>();
+                        String Discipline = ajout8ComboBox.getSelectedItem().toString();
+                        int id_Discipline = 0;
+
+                        d = bdd.rechercher("Nom", Discipline, "Discipline");
+
+                        if (!d.isEmpty()) {
+                            id_Discipline = ((Discipline) d.get(0)).getId();
+                        }
+
+                        //Recherche Id Eleve
+                        ArrayList<Object> e = new ArrayList<>();
+                        ArrayList<Object> f = new ArrayList<>();
+                        ArrayList<Object> g = new ArrayList<>();
+                        String NomPrenom = ajout7ComboBox.getSelectedItem().toString();
+                        String[] NP = NomPrenom.split(" ");
+                        int id_Eleve = 0;
+                        int id_Inscription = 0;
+                        int id_Classe = 0;
+                        int id_Enseignement = 0;
+                        int id_Trimestre = 0;
+                        int id_Bulletin = 0;
+                        int id_DetailBulletin = 0;
+
+                        e = bdd.rechercher("Nom", NP[0], "Personne");
+
+                        if (!e.isEmpty()) {
+                            for (int i = 0; i < e.size(); i++) {
+                                if (((Personne) e.get(i)).getPrenom().equals(NP[1])) {
+                                    id_Eleve = ((Personne) e.get(i)).getId();
+                                }
+                            }
+
+                            f = bdd.rechercher("IdPersonne", Integer.toString(id_Eleve), "Inscription");
+
+                            if (!f.isEmpty()) {
+                                id_Inscription = ((Inscription) f.get(0)).getId();
+                                id_Classe = ((Inscription) f.get(0)).getIdClasse();
+                            }
+                        }
+
+                        if (id_Classe != 0 && id_Discipline != 0) {
+                            g = bdd.rechercher("IdClasse", Integer.toString(id_Classe), "Enseignement");
+
+                            if (!g.isEmpty()) {
+                                for (int i = 0; i < g.size(); i++) {
+                                    if (((Enseignement) g.get(i)).getIdDiscipline() == id_Discipline) {
+                                        id_Enseignement = ((Enseignement) g.get(i)).getId();
+                                    }
+                                }
+                            }
+                        }
+
+                        //Recherche Id Bulletin
+                        ArrayList<Object> h = new ArrayList<>();
+                        ArrayList<Object> c = new ArrayList<>();
+                        ArrayList<Object> q = new ArrayList<>();
+
+                        String[] Date = ajout6ComboBox.getSelectedItem().toString().split(" :: ");
+
+                        String[] JDepart = Date[0].split("/");
+                        String[] JFin = Date[1].split("/");
+
+                        modele.Date DateD = null;
+                        modele.Date DateF = null;
+
+                        if (JDepart.length == 3 && JFin.length == 3) {
+                            if (Integer.valueOf(JDepart[0]) > 0 && Integer.valueOf(JDepart[0]) < 32
+                                    && Integer.valueOf(JDepart[1]) > 0 && Integer.valueOf(JDepart[1]) < 13
+                                    && Integer.valueOf(JDepart[2]) > 1990 && Integer.valueOf(JDepart[2]) < 2025
+                                    && Integer.valueOf(JFin[0]) > 0 && Integer.valueOf(JFin[0]) < 32
+                                    && Integer.valueOf(JFin[1]) > 0 && Integer.valueOf(JFin[1]) < 13
+                                    && Integer.valueOf(JFin[2]) > 1990 && Integer.valueOf(JFin[2]) < 2025) {
+
+                                DateD = new modele.Date();
+                                DateD.setJour(Integer.valueOf(JDepart[0]));
+                                DateD.setMois(Integer.valueOf(JDepart[1]));
+                                DateD.setAnnee(Integer.valueOf(JDepart[2]));
+
+                                DateF = new modele.Date();
+                                DateF.setJour(Integer.valueOf(JFin[0]));
+                                DateF.setMois(Integer.valueOf(JFin[1]));
+                                DateF.setAnnee(Integer.valueOf(JFin[2]));
+
+                            } else {
+                                System.out.println("Probleme dans le format de vos informations");
+                            }
+                        }
+
+                        if (DateD != null && DateF != null) {
+
+                            String DateRechercheDebut = DateD.getAnnee() + "-" + DateD.getMois() + "-" + DateD.getJour();
+
+                            h = bdd.rechercher("Debut", DateRechercheDebut, "Trimestre");
+
+                            if (!h.isEmpty()) {
+
+                                for (int i = 0; i < h.size(); i++) {
+                                    if (((Trimestre) h.get(i)).getFin().toString().equals(DateF.toString())) {
+                                        id_Trimestre = ((Trimestre) h.get(i)).getId();
+                                    }
+                                }
+
+                                if (id_Trimestre != 0 && id_Inscription != 0) {
+                                    c = bdd.rechercher("IdTrimestre", Integer.toString(id_Trimestre), "Bulletin");
+
+                                    if (!c.isEmpty()) {
+
+                                        for (int i = 0; i < c.size(); i++) {
+                                            if (((Bulletin) c.get(i)).getIdInscription() == id_Inscription) {
+                                                id_Bulletin = ((Bulletin) c.get(i)).getId();
+                                            }
+                                        }
+
+                                        if (id_Enseignement != 0 && id_Bulletin != 0) {
+                                            q = bdd.rechercher("IdEnseignement", Integer.toString(id_Enseignement), "DetailBulletin");
+
+                                            if (!q.isEmpty()) {
+
+                                                for (int i = 0; i < q.size(); i++) {
+                                                    if (((DetailBulletin) q.get(i)).getIdBulletin() == id_Bulletin) {
+                                                        id_DetailBulletin = ((DetailBulletin) q.get(i)).getId();
+                                                    }
+                                                }
+                                            }
+
+                                        }
+
+                                        if (id_DetailBulletin != 0) {
+
+                                            Evaluation ev = new Evaluation();
+                                            ev.setAppreciation(App);
+                                            ev.setIdDetailBulletin(id_DetailBulletin);
+                                            ev.setNote(Integer.valueOf(Note));
+
+                                            bdd.AjouterP(ev);
+                                            ajout1Field.setText("");
+                                            ajout2Field.setText("");
+
+                                            ajout6ComboBox.setSelectedIndex(0);
+                                            ajout7ComboBox.setSelectedIndex(0);
+                                            ajout8ComboBox.setSelectedIndex(0);
+
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                    }
+
+                    break;
+                case "Ecole":
+                    if (!ajout1Field.getText().isEmpty()) {
+                        Ecole e = new Ecole();
+                        e.setNom(ajout1Field.getText());
+
+                        boolean dup = false;
+
+                        ArrayList<Object> duplica = new ArrayList<>();
+                        duplica = bdd.rechercher("s", "s", "Ecole");
+
+                        if (!duplica.isEmpty()) {
+                            for (int i = 0; i < duplica.size(); i++) {
+                                if (e.getNom().equals(((Discipline) duplica.get(i)).getNom())) {
+                                    dup = true;
+                                }
+                            }
+
+                            if (!dup) {
+                                bdd.AjouterP(e);
+
+                                ajout1Field.setText("");
+                            } else {
+                                System.out.println("Cet element existe deja");
+                            }
+                        }
+
+                    }
+                    break;
+                default:
+                    System.out.println("Erreur Valider, Choix Menu 2");
+            }
+        }
+        
+        if ("Modifer".equals(mode1)) {
             switch (mode2) {
                 case "Eleve":
 
