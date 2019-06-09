@@ -171,14 +171,14 @@
                                           <Component id="ajout7Label" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="ajout8Label" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" min="-2" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="ajout6ComboBox" pref="211" max="32767" attributes="0"/>
-                                              <Component id="ajout7ComboBox" max="32767" attributes="0"/>
-                                          </Group>
                                           <Component id="ajout5Field" min="-2" pref="700" max="-2" attributes="0"/>
-                                          <Component id="ajout8ComboBox" alignment="0" min="-2" pref="214" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="ajout6ComboBox" alignment="0" pref="292" max="32767" attributes="0"/>
+                                              <Component id="ajout7ComboBox" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="ajout8ComboBox" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                               </Group>
@@ -246,6 +246,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ajouter"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ajouterButtonActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="erreurLabel">
               <Properties>
