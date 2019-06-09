@@ -13,6 +13,7 @@ import java.sql.SQLException;
  * @author elias
  */
 public class Evaluation {
+
     private int id;
     private int idDetailBulletin;
     private int Note;
@@ -32,30 +33,32 @@ public class Evaluation {
     public String toString() {
         return "id=" + id + ", idDetailBulletin=" + idDetailBulletin + ", Note=" + Note + ", Appreciation=" + Appreciation;
     }
+
     /**
      * Ajouter un element à notre BDD
+     *
      * @return la requete SQL afin d'ajouter un element dans notre BDD
      */
-    public String ajouterBDD(){
-        return "INSERT INTO Evaluation VALUES("+this.id+","+this.idDetailBulletin+","+this.Note+",'"+this.Appreciation+"')";
+    public String ajouterBDD() {
+        return "INSERT INTO Evaluation VALUES(" + this.id + "," + this.idDetailBulletin + "," + this.Note + ",'" + this.Appreciation + "')";
     }
-    
-    public String modifierBDD(){
-        return "UPDATE Evaluation SET Appreciation = \""+this.Appreciation+"\", IdDetailBulletin = "
-                +this.idDetailBulletin+", Note = "+this.Note+" WHERE Id = "+this.id;
+
+    public String modifierBDD() {
+        return "UPDATE Evaluation SET Appreciation = \"" + this.Appreciation + "\", IdDetailBulletin = "
+                + this.idDetailBulletin + ", Note = " + this.Note + " WHERE Id = " + this.id;
     }
-    
-    public Evaluation recupererInfo(ResultSet r){ 
+
+    public Evaluation recupererInfo(ResultSet r) {
         Evaluation a = null;
-        try{
-            a=new Evaluation(r.getInt(1), r.getInt(2), r.getInt(3), r.getString(4));
-        }catch(SQLException e){
+        try {
+            a = new Evaluation(r.getInt(1), r.getInt(2), r.getInt(3), r.getString(4));
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return a;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -87,5 +90,5 @@ public class Evaluation {
     public void setAppreciation(String Appreciation) {
         this.Appreciation = Appreciation;
     }
-    
+
 }

@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package ConnectionBDD;
-
+/**
+ * Bibliothèques et packages
+ */
 import java.sql.*;
 import java.util.ArrayList;
 import modele.*;
@@ -24,37 +26,62 @@ public class ConnectMySQL {
     private String user;
     private String password;
     private String NomTable;
-
+    /**
+     * Constructeur par défault
+     */
     public ConnectMySQL() {
         user="";
         password="";
         NomTable="";
     }
-
+    /**
+     * Getter de String user
+     * @return user String
+     */
     public String getUser() {
         return user;
     }
-
+    /**
+     * Getter de String password
+     * @return password String
+     */
     public String getPassword() {
         return password;
     }
-
+    /**
+     * Getter de String Nom Table
+     * @return NomTable String
+     */
     public String getNomTable() {
         return NomTable;
     }
-
+    /**
+     * Setter de String User
+     * @param user String
+     */
     public void setUser(String user) {
         this.user = user;
     }
-
+    /**
+     * Setter de String Password
+     * @param password String
+     */
     public void setPassword(String password) {
         this.password = password;
     }
-
+    /**
+     * Setter de NomTable
+     * @param NomTable String
+     */
     public void setNomTable(String NomTable) {
         this.NomTable = NomTable;
     }
-
+    /**
+     * Constructeur surchargé
+     * @param user String
+     * @param password String
+     * @param NomTable String
+     */
     public ConnectMySQL(String user, String password, String NomTable) {
         this.user = user;
         this.password = password;
@@ -248,8 +275,8 @@ public class ConnectMySQL {
     }
 
     /**
-     *
-     * @param o, Object envoie à supprimer
+     * Supprime un objet d'une table et des tables associés
+     * @param o Object envoie à supprimer
      */
     public void Supprimer(Object o) {
 
@@ -492,7 +519,12 @@ public class ConnectMySQL {
                 SupprimerAtt("Id", idobj, NomT);
             }
     }
-
+    /**
+     * Supprimer les objets qui ont la valeur val pour l'attribut att dans la table NomBDD
+     * @param att attribut de recherche
+     * @param val valeur de sélection
+     * @param NomBDD Nom de la Table pour supprimer
+     */
     public void SupprimerAtt(String att, String val, String NomBDD){
 
         String req = "DELETE FROM " + NomBDD + " WHERE "+att+" ='"+val+"'";
@@ -507,7 +539,7 @@ public class ConnectMySQL {
     }
 
     /**
-     *
+     * recherche l'id d'un ojet du type de l'Object o
      * @param id, l'id de l'objet à rechercher dans notre BDD
      * @param o, l'object que l'on recherche dans notre BDD
      * @return Une liste d'object
@@ -600,7 +632,13 @@ public class ConnectMySQL {
 
         return temp;
     }
-
+    /**
+     * Recherche les objets qui ont la valeur valAtt  pour l'attribut attribut de la table NomBDD
+     * @param attribut
+     * @param valAtt
+     * @param NomBDD
+     * @return un arraylist d'objets
+     */
     public ArrayList<Object> rechercher(String attribut, String valAtt, String NomBDD) {
 
         Object temmObj =null;
@@ -697,7 +735,11 @@ public class ConnectMySQL {
 
         return temp;
     }
-
+    /**
+     * Modifie l'objet du type o et d'id id
+     * @param id id de l'objet dans la table
+     * @param o type de l'objet / table
+     */
     public void modifierParId(int id, Object o){
          try {
             st = cnx.createStatement();
