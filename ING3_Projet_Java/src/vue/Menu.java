@@ -94,7 +94,9 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }
-
+    /**
+     * Constructeur par défault
+     */
     public Menu() {
         mode1 = "Rechercher";
         mode2 = "Eleve";
@@ -1165,7 +1167,11 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ajout4FieldActionPerformed
     private void Trim_id_FieldActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
-    }                                        
+    }           
+    /**
+     * Quand on clique sur Rechercher
+     * @param evt 
+     */
     private void RechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RechercherActionPerformed
         Rechercher.setForeground(new java.awt.Color(0, 0, 0));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -1744,7 +1750,10 @@ public class Menu extends javax.swing.JFrame {
         }
 // TODO add your handling code here:
     }//GEN-LAST:event_RechercherActionPerformed
-
+    /**
+     * Quand on clique sur Ajouter
+     * @param evt 
+     */
     private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(0, 0, 0));
@@ -2335,7 +2344,10 @@ public class Menu extends javax.swing.JFrame {
             default:
         }
     }//GEN-LAST:event_AjouterActionPerformed
-
+    /**
+     * Quand on clique sur Supprimer
+     * @param evt 
+     */
     private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -2398,7 +2410,10 @@ public class Menu extends javax.swing.JFrame {
             default:
         }
     }//GEN-LAST:event_SupprimerActionPerformed
-
+    /**
+     * Quand on clique sur modifier
+     * @param evt 
+     */
     private void ModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -2471,7 +2486,10 @@ public class Menu extends javax.swing.JFrame {
             default:
         }
     }//GEN-LAST:event_ModifierActionPerformed
-
+    /**
+     * Quand on clique sur Deconnexion
+     * @param evt 
+     */
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
 
         statsPanel.setVisible(false);
@@ -2481,7 +2499,10 @@ public class Menu extends javax.swing.JFrame {
         accueil.setVisible(true);
         dispose();
     }//GEN-LAST:event_DeconnexionActionPerformed
-
+    /**
+     * Quand on clique sur eleve
+     * @param evt 
+     */
     private void eleveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleveActionPerformed
         eleve.setForeground(new java.awt.Color(0, 0, 0));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -2575,7 +2596,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_eleveActionPerformed
-
+    /**
+     * Quand on clique sur enseignant
+     * @param evt 
+     */
     private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(0, 0, 0));
@@ -2668,7 +2692,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Enseignantmodel);
     }//GEN-LAST:event_enseignantActionPerformed
-
+    /**
+     * Quand on clique sur inscription
+     * @param evt 
+     */
     private void inscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscriptionActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -2803,7 +2830,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Inscription_model);
     }//GEN-LAST:event_inscriptionActionPerformed
-
+    /**
+     * Quand on clique sur classe
+     * @param evt 
+     */
     private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -2941,7 +2971,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Classe_model);
     }//GEN-LAST:event_classeActionPerformed
-
+    /**
+     * Quand on clique sur niveau
+     * @param evt 
+     */
     private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3029,7 +3062,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Niveau_model);
     }//GEN-LAST:event_niveauActionPerformed
-
+    /**
+     * Quand on clique sur le bouton annee
+     * @param evt 
+     */
     private void anneeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anneeActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3136,7 +3172,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_anneeActionPerformed
-
+    /**
+     * Quand on clique sur Trimestre
+     * @param evt 
+     */
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trimestreActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3255,7 +3294,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_trimestreActionPerformed
-
+    /**
+     * Quand on clique sur bulletin
+     * @param evt 
+     */
     private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3396,7 +3438,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_bulletinActionPerformed
-
+    /**
+     * Quand on clique sur enseignement
+     * @param evt 
+     */
     private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3550,7 +3595,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_enseignementActionPerformed
-
+    /**
+     * Quand on clique sur discipline
+     * @param evt 
+     */
     private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3641,7 +3689,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_disciplineActionPerformed
-
+    /**
+     * Quand on clique sur bulletin détaillé
+     * @param evt 
+     */
     private void bulletindetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletindetailActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3818,7 +3869,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_bulletindetailActionPerformed
-
+    /**
+     * Quand on clique sur évaluation
+     * @param evt 
+     */
     private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -4016,7 +4070,10 @@ public class Menu extends javax.swing.JFrame {
     private void modifierValiderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierValiderButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modifierValiderButtonActionPerformed
-
+    /**
+     * Quand on clique sur Statistiques
+     * @param evt 
+     */
     private void StatistiquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatistiquesActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -4036,7 +4093,10 @@ public class Menu extends javax.swing.JFrame {
         statsPanel.setVisible(true);
 
     }//GEN-LAST:event_StatistiquesActionPerformed
-
+    /**
+     * Quand on clique sur ecole
+     * @param evt 
+     */
     private void ecoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ecoleActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -4126,7 +4186,10 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_ecoleActionPerformed
-
+    /**
+     * Quand on clique sur le bouton Rechercher
+     * @param evt 
+     */
     private void rechercheButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechercheButtonActionPerformed
         String type = (String) rechercheComboBox.getSelectedItem();
         String value = String.valueOf(rechercheField.getText());
@@ -5781,7 +5844,10 @@ public class Menu extends javax.swing.JFrame {
         Reporting rep = new Reporting();
         rep.reporting_elev_enseignant(bdd);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    /**
+     * Quand on clique sur le bouton Supprimer ou Modifier 
+     * @param evt 
+     */
     private void rSupprimerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSupprimerButtonActionPerformed
       DefaultTableModel model = (DefaultTableModel) rechercherTable.getModel();
         int r = rechercherTable.getSelectedRow();
@@ -6245,7 +6311,10 @@ public class Menu extends javax.swing.JFrame {
             resultatLabel.setText("Aucun élément sélectionné !");
         }
     }//GEN-LAST:event_rSupprimerButtonActionPerformed
-
+    /**
+     * Quand on clique sur le bouton Ajouter
+     * @param evt 
+     */
     private void ajouterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterButtonActionPerformed
      if ("Ajouter".equals(mode1)) {
             switch (mode2) {
