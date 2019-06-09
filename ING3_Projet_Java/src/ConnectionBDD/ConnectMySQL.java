@@ -8,6 +8,8 @@ package ConnectionBDD;
 import java.sql.*;
 import java.util.ArrayList;
 import modele.*;
+import controleur.*;
+import Reporting.*;
 
 /**
  *
@@ -65,24 +67,7 @@ public class ConnectMySQL {
     public void main(String[] args) {
         // TODO code application logic here
 
-        //cnx = connecterDB("localhost","3306");
-
-        AnneeScolaire a = new AnneeScolaire(701, 99, 20);
-        Bulletin b = new Bulletin(800, 1900, 1500, "ca modifié");
-        Classe c = new Classe(900, "99", 1200, 1600, 700);
-        DetailBulletin d = new DetailBulletin(1000, 800, 1300, "ololllll");
-        Discipline dis = new Discipline(1100, "Sport");
-        Ecole ec = new Ecole(1200, "Paris");
-        Enseignement ens = new Enseignement(1300, 900, 1100, 1800);
-        Evaluation ev = new Evaluation(1400, 1000, 16, "dddddddd");
-        Inscription i = new Inscription(1500, 900, 1700);
-        Niveau n = new Niveau(1600, "5eme");
-        Eleve e = new Eleve(1700, "CCC", "CCCC");
-        Enseignant ensg = new Enseignant(1800, "GGGGG", "GGGG");
-
-        modele.Date debut = new modele.Date(01, 12, 1990);
-        modele.Date fin = new modele.Date(04, 01, 2200);
-        Trimestre t = new Trimestre(1900, 4, debut, fin, 700);
+        cnx = connecterDB("localhost","3306","ecole","root","");
 
         //modifierParId(t.getId(), t);
 
@@ -104,18 +89,6 @@ public class ConnectMySQL {
 
 
         */
-        ArrayList<Object> k=new ArrayList<>();
-        k=rechercher("Id", "201", "AnneeScolaire");
-        /*
-        for (Object sublist : k) {
-            System.out.println(sublist.toString());
-        }
-         */
-        if(k.isEmpty()){
-            System.out.println("Aucun resultat");
-        }else{
-            Supprimer(k.get(0));
-        }
     }
 
     /**
@@ -658,7 +631,7 @@ public class ConnectMySQL {
 
                     if ("Bulletin".equals(NomBDD)) {
                         o = new Bulletin();
-                        temmObj = ((Bulletin) o).recupererInfo(resultat);
+                        temmObj = ((Bulletin) o).recupererInfo(resultat);              
                     }
 
                     if ("Classe".equals(NomBDD)) {

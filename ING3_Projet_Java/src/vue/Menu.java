@@ -11,6 +11,7 @@ package vue;
  */
 import javafx.scene.paint.Color;
 import ConnectionBDD.*;
+import Reporting.*;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
@@ -158,9 +159,22 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        statsPanel = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        statsPanel = new javax.swing.JPanel();
+        stat_annee_debut_field = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        stat_niveau_field = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        nom_Eleve_field = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        Trim_id_Field = new javax.swing.JTextField();
         ajoutPanel = new javax.swing.JPanel();
         ajouterButton = new javax.swing.JButton();
         erreurLabel = new javax.swing.JLabel();
@@ -224,26 +238,132 @@ public class Menu extends javax.swing.JFrame {
         trimestre = new javax.swing.JButton();
         ecole = new javax.swing.JButton();
 
-        jLabel1.setText("Work in progress!");
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        stat_annee_debut_field.setText("2018");
+        stat_annee_debut_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stat_annee_debut_fieldActionPerformed(evt);
+            }
+        });
+
+        jLabel2.setText("Graphe de moyenne de TD en fonction de l'annee et du niveau");
+
+        jLabel3.setText("Annee de début de la période");
+
+        jLabel4.setText("Niveau des classes");
+
+        stat_niveau_field.setText("Ing 3");
+
+        jButton1.setText("Tracer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Graphe de la moyenne d'un elève en fonction de ses matières");
+
+        nom_Eleve_field.setText("Camugli");
+        nom_Eleve_field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nom_Eleve_fieldActionPerformed(evt);
+            }
+        });
+
+        jLabel7.setText("Nom de l'elève");
+
+        jButton2.setText("Tracer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Camembert representant la proportion d'étudiants par rapport au proffesseurs");
+
+        jButton3.setText("Tracer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Trimestre");
+
+        Trim_id_Field.setText("2");
+        Trim_id_Field.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Trim_id_FieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout statsPanelLayout = new javax.swing.GroupLayout(statsPanel);
         statsPanel.setLayout(statsPanelLayout);
         statsPanelLayout.setHorizontalGroup(
             statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statsPanelLayout.createSequentialGroup()
-                .addGap(308, 308, 308)
-                .addComponent(jLabel1)
-                .addContainerGap(448, Short.MAX_VALUE))
+                .addGap(83, 83, 83)
+                .addGroup(statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addGroup(statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(statsPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(stat_niveau_field, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(statsPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(stat_annee_debut_field, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, statsPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Trim_id_Field, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(statsPanelLayout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addGap(18, 18, 18)
+                            .addComponent(nom_Eleve_field, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         statsPanelLayout.setVerticalGroup(
             statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(statsPanelLayout.createSequentialGroup()
-                .addGap(166, 166, 166)
+                .addGap(49, 49, 49)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addGroup(statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(stat_annee_debut_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(stat_niveau_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(62, 62, 62)
                 .addComponent(jLabel1)
-                .addContainerGap(492, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(nom_Eleve_field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(statsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(Trim_id_Field, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addComponent(jButton2)
+                .addGap(75, 75, 75)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addContainerGap(33, Short.MAX_VALUE))
         );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         ajouterButton.setText("Ajouter");
         ajouterButton.addActionListener(new java.awt.event.ActionListener() {
@@ -487,7 +607,7 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(recherchePanelLayout.createSequentialGroup()
                         .addComponent(rechercheButton, javax.swing.GroupLayout.PREFERRED_SIZE, 325, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 228, Short.MAX_VALUE)
                         .addComponent(rSupprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(recherchePanelLayout.createSequentialGroup()
                         .addGroup(recherchePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -566,7 +686,7 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(supprimerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(supprimerResultLabel)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         modifier1Button.setText("modifier 1:");
@@ -661,9 +781,10 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(modifierValiderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jLabel6)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLayeredPane1.setLayer(statsPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(ajoutPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(recherchePanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(supprimerPanel, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -677,9 +798,9 @@ public class Menu extends javax.swing.JFrame {
                 .addComponent(recherchePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
                 .addComponent(supprimerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(modifierModifierPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -687,8 +808,13 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(ajoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 870, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ajoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(100, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(211, Short.MAX_VALUE)
+                    .addComponent(statsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(211, Short.MAX_VALUE)))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -703,7 +829,12 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jLayeredPane1Layout.createSequentialGroup()
                     .addContainerGap()
                     .addComponent(ajoutPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(1436, Short.MAX_VALUE)))
+                    .addContainerGap(888, Short.MAX_VALUE)))
+            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                    .addContainerGap(47, Short.MAX_VALUE)
+                    .addComponent(statsPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(610, Short.MAX_VALUE)))
         );
 
         jPanel2.setBackground(new java.awt.Color(51, 153, 255));
@@ -794,7 +925,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(Rechercher)
                     .addComponent(Deconnexion)
                     .addComponent(Statistiques))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         jPanel3.setBackground(new java.awt.Color(51, 181, 255));
@@ -971,7 +1102,7 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(bulletindetail)
                     .addComponent(evaluation)
                     .addComponent(ecole))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(56, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -987,9 +1118,9 @@ public class Menu extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(1, 1, 1)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLayeredPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -1013,7 +1144,7 @@ public class Menu extends javax.swing.JFrame {
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
         modifierModifierPanel.setVisible(false);
-        jLayeredPane1.remove(statsPanel);
+        
         statsPanel.setVisible(false);
         rSupprimerButton.setVisible(false);
         resultatLabel.setText("");
@@ -1594,7 +1725,7 @@ public class Menu extends javax.swing.JFrame {
         ajoutPanel.setVisible(true);
         supprimerPanel.setVisible(false);
         modifierModifierPanel.setVisible(false);
-        jLayeredPane1.remove(statsPanel);
+        
         statsPanel.setVisible(false);
         rechercheButton.setText("Rechercher");
         mode1 = "Ajouter";
@@ -1797,7 +1928,7 @@ public class Menu extends javax.swing.JFrame {
         ajoutPanel.setVisible(false);
         supprimerPanel.setVisible(false);
         modifierModifierPanel.setVisible(false);
-        jLayeredPane1.remove(statsPanel);
+        
         statsPanel.setVisible(false);
         rSupprimerButton.setVisible(true);
         rSupprimerButton.setText("Supprimer");
@@ -1816,6 +1947,17 @@ public class Menu extends javax.swing.JFrame {
         Iterator<Object> it;
         int taille;
 
+        recherchePanel.setVisible(true);
+        ajoutPanel.setVisible(false);
+        supprimerPanel.setVisible(false);
+        
+        statsPanel.setVisible(false);
+        supprimerResultLabel.setText("");
+        modifierModifierPanel.setVisible(false);
+        erreurLabel.setText("");
+        rSupprimerButton.setVisible(true);
+        rSupprimerButton.setText("Modifier");
+        mode1 = "Modifier";
         switch (mode2) {
             case "Eleve":
                 rechercheComboBox.removeAllItems();
@@ -2945,7 +3087,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifierActionPerformed
 
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-        jLayeredPane1.remove(statsPanel);
+        
         statsPanel.setVisible(false);
         setVisible(false);
         mode1 = "Deconnexion";
@@ -4223,7 +4365,7 @@ public class Menu extends javax.swing.JFrame {
         supprimerResultLabel.setText("");
         rechercheButton.setText("Rechercher");
         mode1 = "Statistiques";
-        jLayeredPane1.add(statsPanel);
+        //jLayeredPane1.add(statsPanel);
         statsPanel.setVisible(true);
 
     }//GEN-LAST:event_StatistiquesActionPerformed
@@ -6410,6 +6552,42 @@ public class Menu extends javax.swing.JFrame {
 
     }//GEN-LAST:event_ajouterButtonActionPerformed
 
+    private void stat_annee_debut_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stat_annee_debut_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stat_annee_debut_fieldActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Reporting rep = new Reporting();
+                rep.InfoClasse(bdd,stat_annee_debut_field.getText(),stat_niveau_field.getText());
+                rep.afficher_info_reporting();
+                rep.tracer_graphe_reporting();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void nom_Eleve_fieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_Eleve_fieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nom_Eleve_fieldActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Reporting rep = new Reporting();
+                
+                rep.notes_elev(bdd, nom_Eleve_field.getText(), Integer.parseInt(Trim_id_Field.getText()));
+                rep.afficher_info_reporting2();
+                rep.tracer_graphe_reporting2();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        Reporting rep = new Reporting();
+        rep.reporting_elev_enseignant(bdd);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void Trim_id_FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Trim_id_FieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Trim_id_FieldActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -6446,6 +6624,7 @@ public class Menu extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Menu().setVisible(true);
+                
             }
         });
     }
@@ -6457,6 +6636,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton Rechercher;
     private javax.swing.JButton Statistiques;
     private javax.swing.JButton Supprimer;
+    private javax.swing.JTextField Trim_id_Field;
     private javax.swing.JTextField ajout1Field;
     private javax.swing.JLabel ajout1Label;
     private javax.swing.JTextField ajout2Field;
@@ -6481,8 +6661,17 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel erreurLabel;
     private javax.swing.JButton evaluation;
     private javax.swing.JButton inscription;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -6496,6 +6685,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel modifierModifierPanel;
     private javax.swing.JButton modifierValiderButton;
     private javax.swing.JButton niveau;
+    private javax.swing.JTextField nom_Eleve_field;
     private javax.swing.JButton rSupprimerButton;
     private javax.swing.JButton rechercheButton;
     private javax.swing.JComboBox<String> rechercheComboBox;
@@ -6503,6 +6693,8 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel recherchePanel;
     private javax.swing.JTable rechercherTable;
     private javax.swing.JLabel resultatLabel;
+    private javax.swing.JTextField stat_annee_debut_field;
+    private javax.swing.JTextField stat_niveau_field;
     private javax.swing.JPanel statsPanel;
     private javax.swing.JButton supprimerButton;
     private javax.swing.JTextField supprimerField;
