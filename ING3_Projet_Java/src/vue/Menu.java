@@ -82,7 +82,7 @@ public class Menu extends javax.swing.JFrame {
                 int id = o.getId();
                 String prenom = o.getPrenom();
                 String nom = o.getNom();
-                Object[] data = { id, prenom, nom };
+                Object[] data = {id, prenom, nom};
                 model.addRow(data);
             }
 
@@ -1087,595 +1087,595 @@ public class Menu extends javax.swing.JFrame {
         int taille;
 
         switch (mode2) {
-        case "Eleve":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Prénom");
-            rechercheComboBox.addItem("Nom");
-            list = bdd.rechercher("a", "a", "Personne");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Prénom");
-            column3.setHeaderValue("Nom");
-            column4.setHeaderValue("");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                Personne o = (Personne) it.next();
-                if (o.isType() == false) {
-                    int id = o.getId();
-                    String prenom = o.getPrenom();
-                    String nom = o.getNom();
-                    Object[] data = { id, prenom, nom };
-                    model.addRow(data);
-                }
-
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+            case "Eleve":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Prénom");
+                rechercheComboBox.addItem("Nom");
+                list = bdd.rechercher("a", "a", "Personne");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Prénom");
+                column3.setHeaderValue("Nom");
+                column4.setHeaderValue("");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "Enseignant":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Prénom");
-            rechercheComboBox.addItem("Nom");
-            ArrayList<Object> Enseignantlist = bdd.rechercher("a", "a", "Personne");
-            Iterator<Object> Enseignantit = Enseignantlist.iterator();
-            TableColumn Enseignantcolumn1 = rechercherTable.getColumnModel().getColumn(0);
-            Enseignantcolumn1.setHeaderValue("Id");
-            TableColumn Enseignantcolumn2 = rechercherTable.getColumnModel().getColumn(1);
-            Enseignantcolumn2.setHeaderValue("Prénom");
-            TableColumn Enseignantcolumn3 = rechercherTable.getColumnModel().getColumn(2);
-            Enseignantcolumn3.setHeaderValue("Nom");
-            TableColumn Enseignantcolumn4 = rechercherTable.getColumnModel().getColumn(3);
-            Enseignantcolumn4.setHeaderValue("");
-            TableColumn Enseignantcolumn5 = rechercherTable.getColumnModel().getColumn(4);
-            Enseignantcolumn5.setHeaderValue("");
-            DefaultTableModel Enseignantmodel = (DefaultTableModel) rechercherTable.getModel();
-            for (int i = Enseignantmodel.getRowCount() - 1; i >= 0; i--) {
-                Enseignantmodel.removeRow(i);
-            }
-            int Enseignanttaille = Enseignantlist.size();
-            Enseignantmodel.setNumRows(Enseignanttaille);
-            while (Enseignantit.hasNext()) {
-                Personne o = (Personne) Enseignantit.next();
-                if (o.isType() == true) {
-                    int id = o.getId();
-                    String prenom = o.getPrenom();
-                    String nom = o.getNom();
-                    Object[] data = { id, prenom, nom };
-                    Enseignantmodel.addRow(data);
-                }
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    Personne o = (Personne) it.next();
+                    if (o.isType() == false) {
+                        int id = o.getId();
+                        String prenom = o.getPrenom();
+                        String nom = o.getNom();
+                        Object[] data = {id, prenom, nom};
+                        model.addRow(data);
+                    }
 
-            }
-            for (int i = Enseignantmodel.getRowCount() - 1; i >= 0; i--) {
-                if (Enseignantmodel.getValueAt(i, 0) == null) {
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "Enseignant":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Prénom");
+                rechercheComboBox.addItem("Nom");
+                ArrayList<Object> Enseignantlist = bdd.rechercher("a", "a", "Personne");
+                Iterator<Object> Enseignantit = Enseignantlist.iterator();
+                TableColumn Enseignantcolumn1 = rechercherTable.getColumnModel().getColumn(0);
+                Enseignantcolumn1.setHeaderValue("Id");
+                TableColumn Enseignantcolumn2 = rechercherTable.getColumnModel().getColumn(1);
+                Enseignantcolumn2.setHeaderValue("Prénom");
+                TableColumn Enseignantcolumn3 = rechercherTable.getColumnModel().getColumn(2);
+                Enseignantcolumn3.setHeaderValue("Nom");
+                TableColumn Enseignantcolumn4 = rechercherTable.getColumnModel().getColumn(3);
+                Enseignantcolumn4.setHeaderValue("");
+                TableColumn Enseignantcolumn5 = rechercherTable.getColumnModel().getColumn(4);
+                Enseignantcolumn5.setHeaderValue("");
+                DefaultTableModel Enseignantmodel = (DefaultTableModel) rechercherTable.getModel();
+                for (int i = Enseignantmodel.getRowCount() - 1; i >= 0; i--) {
                     Enseignantmodel.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(Enseignantmodel);
-            break;
-        case "Inscription":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Nom de la classe");
-            rechercheComboBox.addItem("Nom de l'élève");
-            ArrayList<Object> Inscription_list = bdd.rechercher("a", "a", "Inscription");
-            Iterator<Object> Inscription_it = Inscription_list.iterator();
-            TableColumn Inscription_column1 = rechercherTable.getColumnModel().getColumn(0);
-            Inscription_column1.setHeaderValue("Id");
-            TableColumn Inscription_column2 = rechercherTable.getColumnModel().getColumn(1);
-            Inscription_column2.setHeaderValue("Classe");
-            TableColumn Inscription_column3 = rechercherTable.getColumnModel().getColumn(2);
-            Inscription_column3.setHeaderValue("Eleve");
-            TableColumn Inscription_column4 = rechercherTable.getColumnModel().getColumn(3);
-            Inscription_column4.setHeaderValue("");
-            TableColumn Inscription_column5 = rechercherTable.getColumnModel().getColumn(4);
-            Inscription_column5.setHeaderValue("");
-            DefaultTableModel Inscription_model = (DefaultTableModel) rechercherTable.getModel();
-            for (int i = Inscription_model.getRowCount() - 1; i >= 0; i--) {
-                Inscription_model.removeRow(i);
-            }
-            int Inscription_taille = Inscription_list.size();
-            Inscription_model.setNumRows(Inscription_taille);
-            while (Inscription_it.hasNext()) {
-                Inscription o = (Inscription) Inscription_it.next();
-                int id = o.getId();
-                ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
-                String classe = ((Classe) idclasse.get(0)).getNom();
-                ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
-                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                String nom = ((Personne) idEleve.get(0)).getNom();
-                String eleve = prenom + " " + nom;
-                Object[] data = { id, classe, eleve };
-                Inscription_model.addRow(data);
-            }
-            for (int i = Inscription_model.getRowCount() - 1; i >= 0; i--) {
-                if (Inscription_model.getValueAt(i, 0) == null) {
+                int Enseignanttaille = Enseignantlist.size();
+                Enseignantmodel.setNumRows(Enseignanttaille);
+                while (Enseignantit.hasNext()) {
+                    Personne o = (Personne) Enseignantit.next();
+                    if (o.isType() == true) {
+                        int id = o.getId();
+                        String prenom = o.getPrenom();
+                        String nom = o.getNom();
+                        Object[] data = {id, prenom, nom};
+                        Enseignantmodel.addRow(data);
+                    }
+
+                }
+                for (int i = Enseignantmodel.getRowCount() - 1; i >= 0; i--) {
+                    if (Enseignantmodel.getValueAt(i, 0) == null) {
+                        Enseignantmodel.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(Enseignantmodel);
+                break;
+            case "Inscription":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Nom de la classe");
+                rechercheComboBox.addItem("Nom de l'élève");
+                ArrayList<Object> Inscription_list = bdd.rechercher("a", "a", "Inscription");
+                Iterator<Object> Inscription_it = Inscription_list.iterator();
+                TableColumn Inscription_column1 = rechercherTable.getColumnModel().getColumn(0);
+                Inscription_column1.setHeaderValue("Id");
+                TableColumn Inscription_column2 = rechercherTable.getColumnModel().getColumn(1);
+                Inscription_column2.setHeaderValue("Classe");
+                TableColumn Inscription_column3 = rechercherTable.getColumnModel().getColumn(2);
+                Inscription_column3.setHeaderValue("Eleve");
+                TableColumn Inscription_column4 = rechercherTable.getColumnModel().getColumn(3);
+                Inscription_column4.setHeaderValue("");
+                TableColumn Inscription_column5 = rechercherTable.getColumnModel().getColumn(4);
+                Inscription_column5.setHeaderValue("");
+                DefaultTableModel Inscription_model = (DefaultTableModel) rechercherTable.getModel();
+                for (int i = Inscription_model.getRowCount() - 1; i >= 0; i--) {
                     Inscription_model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(Inscription_model);
-            break;
-        case "Classe":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Nom");
-            rechercheComboBox.addItem("Nom de l'école");
-            rechercheComboBox.addItem("Nom du niveau");
-            rechercheComboBox.addItem("Début d'année scolaire");
-            ArrayList<Object> Classe_list = bdd.rechercher("a", "a", "Classe");
-            Iterator<Object> Classe_it = Classe_list.iterator();
-            TableColumn Classe_column1 = rechercherTable.getColumnModel().getColumn(0);
-            Classe_column1.setHeaderValue("Id");
-            TableColumn Classe_column2 = rechercherTable.getColumnModel().getColumn(1);
-            Classe_column2.setHeaderValue("Nom");
-            TableColumn Classe_column3 = rechercherTable.getColumnModel().getColumn(2);
-            Classe_column3.setHeaderValue("Ecole");
-            TableColumn Classe_column4 = rechercherTable.getColumnModel().getColumn(3);
-            Classe_column4.setHeaderValue("Niveau");
-            TableColumn Classe_column5 = rechercherTable.getColumnModel().getColumn(4);
-            Classe_column5.setHeaderValue("Annee scolaire");
-            DefaultTableModel Classe_model = (DefaultTableModel) rechercherTable.getModel();
-            for (int i = Classe_model.getRowCount() - 1; i >= 0; i--) {
-                Classe_model.removeRow(i);
-            }
-            int Classe_taille = Classe_list.size();
-            Classe_model.setNumRows(Classe_taille);
-            while (Classe_it.hasNext()) {
-                Classe o = (Classe) Classe_it.next();
-                int id = o.getId();
-                ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                        "AnneeScolaire");
-                String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
-                String ecole = ((Ecole) idEcole.get(0)).getNom();
-                ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
-                String niveau = ((Niveau) idNiveau.get(0)).getNom();
-                String nom = o.getNom();
-                Object[] data = { id, nom, ecole, niveau, annee };
-                Classe_model.addRow(data);
-            }
-            for (int i = Classe_model.getRowCount() - 1; i >= 0; i--) {
-                if (Classe_model.getValueAt(i, 0) == null) {
+                int Inscription_taille = Inscription_list.size();
+                Inscription_model.setNumRows(Inscription_taille);
+                while (Inscription_it.hasNext()) {
+                    Inscription o = (Inscription) Inscription_it.next();
+                    int id = o.getId();
+                    ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
+                    String classe = ((Classe) idclasse.get(0)).getNom();
+                    ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
+                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                    String nom = ((Personne) idEleve.get(0)).getNom();
+                    String eleve = prenom + " " + nom;
+                    Object[] data = {id, classe, eleve};
+                    Inscription_model.addRow(data);
+                }
+                for (int i = Inscription_model.getRowCount() - 1; i >= 0; i--) {
+                    if (Inscription_model.getValueAt(i, 0) == null) {
+                        Inscription_model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(Inscription_model);
+                break;
+            case "Classe":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Nom");
+                rechercheComboBox.addItem("Nom de l'école");
+                rechercheComboBox.addItem("Nom du niveau");
+                rechercheComboBox.addItem("Début d'année scolaire");
+                ArrayList<Object> Classe_list = bdd.rechercher("a", "a", "Classe");
+                Iterator<Object> Classe_it = Classe_list.iterator();
+                TableColumn Classe_column1 = rechercherTable.getColumnModel().getColumn(0);
+                Classe_column1.setHeaderValue("Id");
+                TableColumn Classe_column2 = rechercherTable.getColumnModel().getColumn(1);
+                Classe_column2.setHeaderValue("Nom");
+                TableColumn Classe_column3 = rechercherTable.getColumnModel().getColumn(2);
+                Classe_column3.setHeaderValue("Ecole");
+                TableColumn Classe_column4 = rechercherTable.getColumnModel().getColumn(3);
+                Classe_column4.setHeaderValue("Niveau");
+                TableColumn Classe_column5 = rechercherTable.getColumnModel().getColumn(4);
+                Classe_column5.setHeaderValue("Annee scolaire");
+                DefaultTableModel Classe_model = (DefaultTableModel) rechercherTable.getModel();
+                for (int i = Classe_model.getRowCount() - 1; i >= 0; i--) {
                     Classe_model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(Classe_model);
-            break;
-        case "Niveau":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Nom");
-            ArrayList<Object> Niveau_list = bdd.rechercher("a", "a", "Niveau");
-            Iterator<Object> Niveau_it = Niveau_list.iterator();
-            TableColumn Niveau_column1 = rechercherTable.getColumnModel().getColumn(0);
-            Niveau_column1.setHeaderValue("Id");
-            TableColumn Niveau_column2 = rechercherTable.getColumnModel().getColumn(1);
-            Niveau_column2.setHeaderValue("Nom");
-            TableColumn Niveau_column3 = rechercherTable.getColumnModel().getColumn(2);
-            Niveau_column3.setHeaderValue("");
-            TableColumn Niveau_column4 = rechercherTable.getColumnModel().getColumn(3);
-            Niveau_column4.setHeaderValue("");
-            TableColumn Niveau_column5 = rechercherTable.getColumnModel().getColumn(4);
-            Niveau_column5.setHeaderValue("");
-            DefaultTableModel Niveau_model = (DefaultTableModel) rechercherTable.getModel();
-            for (int i = Niveau_model.getRowCount() - 1; i >= 0; i--) {
-                Niveau_model.removeRow(i);
-            }
-            int Niveau_taille = Niveau_list.size();
-            Niveau_model.setNumRows(Niveau_taille);
-            while (Niveau_it.hasNext()) {
-                Niveau o = (Niveau) Niveau_it.next();
-                int id = o.getId();
-                String nom = o.getNom();
-                Object[] data = { id, nom };
-                Niveau_model.addRow(data);
-            }
-            for (int i = Niveau_model.getRowCount() - 1; i >= 0; i--) {
-                if (Niveau_model.getValueAt(i, 0) == null) {
+                int Classe_taille = Classe_list.size();
+                Classe_model.setNumRows(Classe_taille);
+                while (Classe_it.hasNext()) {
+                    Classe o = (Classe) Classe_it.next();
+                    int id = o.getId();
+                    ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                            "AnneeScolaire");
+                    String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                    ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
+                    String ecole = ((Ecole) idEcole.get(0)).getNom();
+                    ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
+                    String niveau = ((Niveau) idNiveau.get(0)).getNom();
+                    String nom = o.getNom();
+                    Object[] data = {id, nom, ecole, niveau, annee};
+                    Classe_model.addRow(data);
+                }
+                for (int i = Classe_model.getRowCount() - 1; i >= 0; i--) {
+                    if (Classe_model.getValueAt(i, 0) == null) {
+                        Classe_model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(Classe_model);
+                break;
+            case "Niveau":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Nom");
+                ArrayList<Object> Niveau_list = bdd.rechercher("a", "a", "Niveau");
+                Iterator<Object> Niveau_it = Niveau_list.iterator();
+                TableColumn Niveau_column1 = rechercherTable.getColumnModel().getColumn(0);
+                Niveau_column1.setHeaderValue("Id");
+                TableColumn Niveau_column2 = rechercherTable.getColumnModel().getColumn(1);
+                Niveau_column2.setHeaderValue("Nom");
+                TableColumn Niveau_column3 = rechercherTable.getColumnModel().getColumn(2);
+                Niveau_column3.setHeaderValue("");
+                TableColumn Niveau_column4 = rechercherTable.getColumnModel().getColumn(3);
+                Niveau_column4.setHeaderValue("");
+                TableColumn Niveau_column5 = rechercherTable.getColumnModel().getColumn(4);
+                Niveau_column5.setHeaderValue("");
+                DefaultTableModel Niveau_model = (DefaultTableModel) rechercherTable.getModel();
+                for (int i = Niveau_model.getRowCount() - 1; i >= 0; i--) {
                     Niveau_model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(Niveau_model);
-            break;
-        case "Annee":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Début");
-            rechercheComboBox.addItem("Fin");
-            list = bdd.rechercher("a", "a", "AnneeScolaire");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Début");
-            column3.setHeaderValue("Fin");
-            column4.setHeaderValue("");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                AnneeScolaire o = (AnneeScolaire) it.next();
-                int id = o.getId();
-                int debut = o.getAnneeDebut();
-                int fin = o.getAnneeFin();
-                Object[] data = { id, debut, fin };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+                int Niveau_taille = Niveau_list.size();
+                Niveau_model.setNumRows(Niveau_taille);
+                while (Niveau_it.hasNext()) {
+                    Niveau o = (Niveau) Niveau_it.next();
+                    int id = o.getId();
+                    String nom = o.getNom();
+                    Object[] data = {id, nom};
+                    Niveau_model.addRow(data);
+                }
+                for (int i = Niveau_model.getRowCount() - 1; i >= 0; i--) {
+                    if (Niveau_model.getValueAt(i, 0) == null) {
+                        Niveau_model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(Niveau_model);
+                break;
+            case "Annee":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Début");
+                rechercheComboBox.addItem("Fin");
+                list = bdd.rechercher("a", "a", "AnneeScolaire");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Début");
+                column3.setHeaderValue("Fin");
+                column4.setHeaderValue("");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "Trimestre":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Numéro");
-            rechercheComboBox.addItem("Début d'année scolaire");
-            list = bdd.rechercher("a", "a", "Trimestre");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Numéro");
-            column3.setHeaderValue("Début");
-            column4.setHeaderValue("Fin");
-            column5.setHeaderValue("Année scolaire");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                Trimestre o = (Trimestre) it.next();
-                int id = o.getId();
-                int numero = o.getNumero();
-                String debut = o.getDebut().toString();
-                String fin = o.getFin().toString();
-                ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                        "AnneeScolaire");
-                String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                Object[] data = { id, numero, debut, fin, annee };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    AnneeScolaire o = (AnneeScolaire) it.next();
+                    int id = o.getId();
+                    int debut = o.getAnneeDebut();
+                    int fin = o.getAnneeFin();
+                    Object[] data = {id, debut, fin};
+                    model.addRow(data);
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "Trimestre":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Numéro");
+                rechercheComboBox.addItem("Début d'année scolaire");
+                list = bdd.rechercher("a", "a", "Trimestre");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Numéro");
+                column3.setHeaderValue("Début");
+                column4.setHeaderValue("Fin");
+                column5.setHeaderValue("Année scolaire");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "Bulletin":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Début d'année scolaire");
-            rechercheComboBox.addItem("Nom de la classe");
-            rechercheComboBox.addItem("Nom de l'élève");
-            list = bdd.rechercher("a", "a", "Bulletin");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Trimestre");
-            column3.setHeaderValue("Inscription");
-            column4.setHeaderValue("Appréciation");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                Bulletin o = (Bulletin) it.next();
-                int id = o.getId();
-                String appreciation = o.getAppreciation();
-                ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()), "Trimestre");
-                String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                ArrayList<Object> idInscription = bdd.rechercher("Id", String.valueOf(o.getIdInscription()),
-                        "Inscription");
-                ArrayList<Object> idclasse = bdd.rechercher("Id",
-                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                String classe = ((Classe) idclasse.get(0)).getNom();
-                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                String nom = ((Personne) idEleve.get(0)).getNom();
-                String inscription = classe + "-" + prenom + " " + nom;
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    Trimestre o = (Trimestre) it.next();
+                    int id = o.getId();
+                    int numero = o.getNumero();
+                    String debut = o.getDebut().toString();
+                    String fin = o.getFin().toString();
+                    ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                            "AnneeScolaire");
+                    String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                    Object[] data = {id, numero, debut, fin, annee};
+                    model.addRow(data);
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "Bulletin":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Début d'année scolaire");
+                rechercheComboBox.addItem("Nom de la classe");
+                rechercheComboBox.addItem("Nom de l'élève");
+                list = bdd.rechercher("a", "a", "Bulletin");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Trimestre");
+                column3.setHeaderValue("Inscription");
+                column4.setHeaderValue("Appréciation");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    model.removeRow(i);
+                }
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    Bulletin o = (Bulletin) it.next();
+                    int id = o.getId();
+                    String appreciation = o.getAppreciation();
+                    ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()), "Trimestre");
+                    String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                    ArrayList<Object> idInscription = bdd.rechercher("Id", String.valueOf(o.getIdInscription()),
+                            "Inscription");
+                    ArrayList<Object> idclasse = bdd.rechercher("Id",
+                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                    String classe = ((Classe) idclasse.get(0)).getNom();
+                    ArrayList<Object> idEleve = bdd.rechercher("Id",
+                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                    String nom = ((Personne) idEleve.get(0)).getNom();
+                    String inscription = classe + "-" + prenom + " " + nom;
 
-                Object[] data = { id, trimestre, inscription, appreciation };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+                    Object[] data = {id, trimestre, inscription, appreciation};
+                    model.addRow(data);
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "Enseignement":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Nom de la classe");
+                rechercheComboBox.addItem("Nom de la discipline");
+                rechercheComboBox.addItem("Nom du professeur");
+                list = bdd.rechercher("a", "a", "Enseignement");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Classe");
+                column3.setHeaderValue("Discipline");
+                column4.setHeaderValue("Professeur");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "Enseignement":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Nom de la classe");
-            rechercheComboBox.addItem("Nom de la discipline");
-            rechercheComboBox.addItem("Nom du professeur");
-            list = bdd.rechercher("a", "a", "Enseignement");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Classe");
-            column3.setHeaderValue("Discipline");
-            column4.setHeaderValue("Professeur");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                Enseignement o = (Enseignement) it.next();
-                int id = o.getId();
-                ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
-                ArrayList<Object> idEcole = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
-                        "Discipline");
-                String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
-                String prenom = ((Personne) idProf.get(0)).getPrenom();
-                String nom = ((Personne) idProf.get(0)).getNom();
-                String professeur = prenom + " " + nom;
-                Object[] data = { id, classe, discipline, professeur };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    Enseignement o = (Enseignement) it.next();
+                    int id = o.getId();
+                    ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
+                    ArrayList<Object> idEcole = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                    ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
+                            "Discipline");
+                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                    String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
+                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                    ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
+                    String prenom = ((Personne) idProf.get(0)).getPrenom();
+                    String nom = ((Personne) idProf.get(0)).getNom();
+                    String professeur = prenom + " " + nom;
+                    Object[] data = {id, classe, discipline, professeur};
+                    model.addRow(data);
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "Discipline":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Nom");
+                list = bdd.rechercher("a", "a", "Discipline");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Nom");
+                column3.setHeaderValue("");
+                column4.setHeaderValue("");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "Discipline":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Nom");
-            list = bdd.rechercher("a", "a", "Discipline");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Nom");
-            column3.setHeaderValue("");
-            column4.setHeaderValue("");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                Discipline o = (Discipline) it.next();
-                int id = o.getId();
-                String nom = o.getNom();
-                Object[] data = { id, nom };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    Discipline o = (Discipline) it.next();
+                    int id = o.getId();
+                    String nom = o.getNom();
+                    Object[] data = {id, nom};
+                    model.addRow(data);
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "BulletinDetails":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Début d'année scolaire");
+                rechercheComboBox.addItem("Nom de la classe");
+                rechercheComboBox.addItem("Nom de l'élève");
+                rechercheComboBox.addItem("Nom du professeur");
+                rechercheComboBox.addItem("Nom de la discipline");
+                list = bdd.rechercher("a", "a", "DetailBulletin");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Bulletin");
+                column3.setHeaderValue("Enseignement");
+                column4.setHeaderValue("Appreciation");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "BulletinDetails":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Début d'année scolaire");
-            rechercheComboBox.addItem("Nom de la classe");
-            rechercheComboBox.addItem("Nom de l'élève");
-            rechercheComboBox.addItem("Nom du professeur");
-            rechercheComboBox.addItem("Nom de la discipline");
-            list = bdd.rechercher("a", "a", "DetailBulletin");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Bulletin");
-            column3.setHeaderValue("Enseignement");
-            column4.setHeaderValue("Appreciation");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                DetailBulletin o = (DetailBulletin) it.next();
-                int id = o.getId();
-                String appreciation = o.getAppreciation();
-                ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()), "Bulletin");
-                ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                ArrayList<Object> idInscription = bdd.rechercher("Id",
-                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
-                ArrayList<Object> idclasse = bdd.rechercher("Id",
-                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                String classe = ((Classe) idclasse.get(0)).getNom();
-                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                String nom = ((Personne) idEleve.get(0)).getNom();
-                String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                ArrayList<Object> idEnseignement = bdd.rechercher("Id", String.valueOf(o.getIdEnseignement()),
-                        "Enseignement");
-                ArrayList<Object> idClasse = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
-                ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                ArrayList<Object> idEcole = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                ArrayList<Object> idProf = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                String prof_nom = ((Personne) idProf.get(0)).getNom();
-                String enseignement_professeur = prof_prenom + " " + prof_nom;
-                String enseignement = discipline + " " + enseignement_professeur;
-                Object[] data = { id, bulletin, enseignement, appreciation };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    DetailBulletin o = (DetailBulletin) it.next();
+                    int id = o.getId();
+                    String appreciation = o.getAppreciation();
+                    ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()), "Bulletin");
+                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                    String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                    ArrayList<Object> idInscription = bdd.rechercher("Id",
+                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
+                    ArrayList<Object> idclasse = bdd.rechercher("Id",
+                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                    String classe = ((Classe) idclasse.get(0)).getNom();
+                    ArrayList<Object> idEleve = bdd.rechercher("Id",
+                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                    String nom = ((Personne) idEleve.get(0)).getNom();
+                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                    ArrayList<Object> idEnseignement = bdd.rechercher("Id", String.valueOf(o.getIdEnseignement()),
+                            "Enseignement");
+                    ArrayList<Object> idClasse = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
+                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                    ArrayList<Object> idEcole = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
+                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                    ArrayList<Object> idProf = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                    String prof_nom = ((Personne) idProf.get(0)).getNom();
+                    String enseignement_professeur = prof_prenom + " " + prof_nom;
+                    String enseignement = discipline + " " + enseignement_professeur;
+                    Object[] data = {id, bulletin, enseignement, appreciation};
+                    model.addRow(data);
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "Evaluation":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Début d'année scolaire");
+                rechercheComboBox.addItem("Nom de la classe");
+                rechercheComboBox.addItem("Nom de l'élève");
+                rechercheComboBox.addItem("Nom du professeur");
+                rechercheComboBox.addItem("Nom de la discipline");
+                rechercheComboBox.addItem("Note");
+                list = bdd.rechercher("a", "a", "Evaluation");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Bulletin détaillé");
+                column3.setHeaderValue("Note");
+                column4.setHeaderValue("Appréciation");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "Evaluation":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Début d'année scolaire");
-            rechercheComboBox.addItem("Nom de la classe");
-            rechercheComboBox.addItem("Nom de l'élève");
-            rechercheComboBox.addItem("Nom du professeur");
-            rechercheComboBox.addItem("Nom de la discipline");
-            rechercheComboBox.addItem("Note");
-            list = bdd.rechercher("a", "a", "Evaluation");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Bulletin détaillé");
-            column3.setHeaderValue("Note");
-            column4.setHeaderValue("Appréciation");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                Evaluation o = (Evaluation) it.next();
-                int id = o.getId();
-                String appreciation = o.getAppreciation();
-                int note = o.getNote();
-                ArrayList<Object> idBulletinDetails = bdd.rechercher("Id", String.valueOf(o.getIdDetailBulletin()),
-                        "DetailBulletin");
-                String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0)).getAppreciation();
-                ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                        String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()), "Bulletin");
-                ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                ArrayList<Object> idInscription = bdd.rechercher("Id",
-                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
-                ArrayList<Object> idclasse = bdd.rechercher("Id",
-                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                String classe = ((Classe) idclasse.get(0)).getNom();
-                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                String nom = ((Personne) idEleve.get(0)).getNom();
-                String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                        String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                        "Enseignement");
-                ArrayList<Object> idClasse = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
-                ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                ArrayList<Object> idEcole = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                ArrayList<Object> idProf = bdd.rechercher("Id",
-                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                String prof_nom = ((Personne) idProf.get(0)).getNom();
-                String enseignement_professeur = prof_prenom + " " + prof_nom;
-                String enseignement = discipline + " " + enseignement_professeur;
-                String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                Object[] data = { id, bulletindetails, note, appreciation };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    Evaluation o = (Evaluation) it.next();
+                    int id = o.getId();
+                    String appreciation = o.getAppreciation();
+                    int note = o.getNote();
+                    ArrayList<Object> idBulletinDetails = bdd.rechercher("Id", String.valueOf(o.getIdDetailBulletin()),
+                            "DetailBulletin");
+                    String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0)).getAppreciation();
+                    ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()), "Bulletin");
+                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                    String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                    ArrayList<Object> idInscription = bdd.rechercher("Id",
+                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
+                    ArrayList<Object> idclasse = bdd.rechercher("Id",
+                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                    String classe = ((Classe) idclasse.get(0)).getNom();
+                    ArrayList<Object> idEleve = bdd.rechercher("Id",
+                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                    String nom = ((Personne) idEleve.get(0)).getNom();
+                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                            "Enseignement");
+                    ArrayList<Object> idClasse = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
+                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                    ArrayList<Object> idEcole = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
+                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                    ArrayList<Object> idProf = bdd.rechercher("Id",
+                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                    String prof_nom = ((Personne) idProf.get(0)).getNom();
+                    String enseignement_professeur = prof_prenom + " " + prof_nom;
+                    String enseignement = discipline + " " + enseignement_professeur;
+                    String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
+                    Object[] data = {id, bulletindetails, note, appreciation};
+                    model.addRow(data);
+                }
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+                break;
+            case "Ecole":
+                rechercheComboBox.removeAllItems();
+                rechercheComboBox.addItem("Id");
+                rechercheComboBox.addItem("Nom");
+                list = bdd.rechercher("a", "a", "Ecole");
+                it = list.iterator();
+                column1.setHeaderValue("Id");
+                column2.setHeaderValue("Nom");
+                column3.setHeaderValue("");
+                column4.setHeaderValue("");
+                column5.setHeaderValue("");
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
                     model.removeRow(i);
                 }
-            }
-            rechercherTable.setModel(model);
-            break;
-        case "Ecole":
-            rechercheComboBox.removeAllItems();
-            rechercheComboBox.addItem("Id");
-            rechercheComboBox.addItem("Nom");
-            list = bdd.rechercher("a", "a", "Ecole");
-            it = list.iterator();
-            column1.setHeaderValue("Id");
-            column2.setHeaderValue("Nom");
-            column3.setHeaderValue("");
-            column4.setHeaderValue("");
-            column5.setHeaderValue("");
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                model.removeRow(i);
-            }
-            taille = list.size();
-            model.setNumRows(taille);
-            while (it.hasNext()) {
-                Ecole o = (Ecole) it.next();
-                int id = o.getId();
-                String nom = o.getNom();
-                Object[] data = { id, nom };
-                model.addRow(data);
-            }
-            for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                if (model.getValueAt(i, 0) == null) {
-                    model.removeRow(i);
+                taille = list.size();
+                model.setNumRows(taille);
+                while (it.hasNext()) {
+                    Ecole o = (Ecole) it.next();
+                    int id = o.getId();
+                    String nom = o.getNom();
+                    Object[] data = {id, nom};
+                    model.addRow(data);
                 }
-            }
-            rechercherTable.setModel(model);
-        default:
+                for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                    if (model.getValueAt(i, 0) == null) {
+                        model.removeRow(i);
+                    }
+                }
+                rechercherTable.setModel(model);
+            default:
         }
         // TODO add your handling code here:
     }// GEN-LAST:event_RechercherActionPerformed
@@ -1704,309 +1704,309 @@ public class Menu extends javax.swing.JFrame {
         ajout5Field.setText("");
         ajouterButton.setText("Ajouter");
         switch (mode2) {
-        case "Eleve":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
+            case "Eleve":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Prénom : ");
-            ajout2Label.setText("Nom : ");
-            break;
-        case "Enseignant":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Prénom : ");
+                ajout2Label.setText("Nom : ");
+                break;
+            case "Enseignant":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Prénom : ");
-            ajout2Label.setText("Nom : ");
-            break;
-        case "Inscription":
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Prénom : ");
+                ajout2Label.setText("Nom : ");
+                break;
+            case "Inscription":
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout1Label.setVisible(false);
-            ajout1Field.setVisible(false);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
 
-            ajout6Label.setText("Niveau : ");
-            ajout7Label.setText("Classe : ");
-            ajout8Label.setText("Eleve : ");
+                ajout6Label.setText("Niveau : ");
+                ajout7Label.setText("Classe : ");
+                ajout8Label.setText("Eleve : ");
 
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
 
-            break;
-        case "Classe":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                break;
+            case "Classe":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            ajout6Label.setText("Ecole : ");
-            ajout7Label.setText("Niveau : ");
-            ajout8Label.setText("Année Scolaire : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
-            break;
-        case "Niveau":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            break;
-        case "Annee":
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                ajout6Label.setText("Ecole : ");
+                ajout7Label.setText("Niveau : ");
+                ajout8Label.setText("Année Scolaire : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
+                break;
+            case "Niveau":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                break;
+            case "Annee":
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
 
-            ajout1Label.setVisible(false);
-            ajout1Field.setVisible(false);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout6Label.setText("Début : ");
-            ajout7Label.setText("Fin : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            break;
-        case "Trimestre":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout6Label.setText("Début : ");
+                ajout7Label.setText("Fin : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                break;
+            case "Trimestre":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Date de début : ");
-            ajout2Label.setText("Date de fin : ");
-            ajout6Label.setText("Année Scolaire : ");
-            ajout7Label.setText("Numéro : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            break;
-        case "Bulletin":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Date de début : ");
+                ajout2Label.setText("Date de fin : ");
+                ajout6Label.setText("Année Scolaire : ");
+                ajout7Label.setText("Numéro : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                break;
+            case "Bulletin":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
 
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Appréciation : ");
-            ajout6Label.setText("Trimestre");
-            ajout7Label.setText("Nom : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            break;
-        case "Enseignement":
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre");
+                ajout7Label.setText("Nom : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                break;
+            case "Enseignement":
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout1Label.setVisible(false);
-            ajout1Field.setVisible(false);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setText("Classe : ");
-            ajout7Label.setText("Discipline : ");
-            ajout8Label.setText("Professeur : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
-            break;
-        case "Discipline":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            break;
-        case "BulletinDetails":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setText("Classe : ");
+                ajout7Label.setText("Discipline : ");
+                ajout8Label.setText("Professeur : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
+                break;
+            case "Discipline":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                break;
+            case "BulletinDetails":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout1Label.setText("Appréciation : ");
-            ajout6Label.setText("Trimestre: ");
-            ajout7Label.setText("Eleve : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
-            break;
-        case "Evaluation":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre: ");
+                ajout7Label.setText("Eleve : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
+                break;
+            case "Evaluation":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout1Label.setText("Note : ");
-            ajout2Label.setText("Appréciation : ");
-            ajout6Label.setText("Trimestre: ");
-            ajout7Label.setText("Eleve");
-            ajout8Label.setText("Discipline : ");
-            ajout6ComboBox.removeAll();
-            ajout7ComboBox.removeAll();
-            ajout8ComboBox.removeAll();
-            break;
-        case "Ecole":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            break;
-        default:
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Note : ");
+                ajout2Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre: ");
+                ajout7Label.setText("Eleve");
+                ajout8Label.setText("Discipline : ");
+                ajout6ComboBox.removeAll();
+                ajout7ComboBox.removeAll();
+                ajout8ComboBox.removeAll();
+                break;
+            case "Ecole":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                break;
+            default:
         }
 
     }// GEN-LAST:event_AjouterActionPerformed
@@ -2031,46 +2031,46 @@ public class Menu extends javax.swing.JFrame {
         mode1 = "Supprimer";
         erreurLabel.setText("");
         switch (mode2) {
-        case "Eleve":
-            supprimerLabel.setText("Clé de l'élève à supprimer : ");
-            break;
-        case "Enseignant":
-            supprimerLabel.setText("Clé de l'enseignant à supprimer : ");
-            break;
-        case "Inscription":
-            supprimerLabel.setText("Clé de l'inscription à supprimer : ");
-            break;
-        case "Classe":
-            supprimerLabel.setText("Clé de la classe à supprimer : ");
-            break;
-        case "Niveau":
-            supprimerLabel.setText("Clé du niveau à supprimer : ");
-            break;
-        case "Annee":
-            supprimerLabel.setText("Clé de l'année à supprimer : ");
-            break;
-        case "Trimestre":
-            supprimerLabel.setText("Clé du trimestre à supprimer : ");
-            break;
-        case "Bulletin":
-            supprimerLabel.setText("Clé du bulletin à supprimer : ");
-            break;
-        case "Enseignement":
-            supprimerLabel.setText("Clé de l'enseignement à supprimer : ");
-            break;
-        case "Discipline":
-            supprimerLabel.setText("Clé de la discipline à supprimer : ");
-            break;
-        case "BulletinDetails":
-            supprimerLabel.setText("Clé de du bulletin détaillé à supprimer : ");
-            break;
-        case "Evaluation":
-            supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
-            break;
-        case "Ecole":
-            supprimerLabel.setText("Clé de l'école à supprimer : ");
-            break;
-        default:
+            case "Eleve":
+                supprimerLabel.setText("Clé de l'élève à supprimer : ");
+                break;
+            case "Enseignant":
+                supprimerLabel.setText("Clé de l'enseignant à supprimer : ");
+                break;
+            case "Inscription":
+                supprimerLabel.setText("Clé de l'inscription à supprimer : ");
+                break;
+            case "Classe":
+                supprimerLabel.setText("Clé de la classe à supprimer : ");
+                break;
+            case "Niveau":
+                supprimerLabel.setText("Clé du niveau à supprimer : ");
+                break;
+            case "Annee":
+                supprimerLabel.setText("Clé de l'année à supprimer : ");
+                break;
+            case "Trimestre":
+                supprimerLabel.setText("Clé du trimestre à supprimer : ");
+                break;
+            case "Bulletin":
+                supprimerLabel.setText("Clé du bulletin à supprimer : ");
+                break;
+            case "Enseignement":
+                supprimerLabel.setText("Clé de l'enseignement à supprimer : ");
+                break;
+            case "Discipline":
+                supprimerLabel.setText("Clé de la discipline à supprimer : ");
+                break;
+            case "BulletinDetails":
+                supprimerLabel.setText("Clé de du bulletin détaillé à supprimer : ");
+                break;
+            case "Evaluation":
+                supprimerLabel.setText("Clé de l'évaluation à supprimer : ");
+                break;
+            case "Ecole":
+                supprimerLabel.setText("Clé de l'école à supprimer : ");
+                break;
+            default:
         }
     }// GEN-LAST:event_SupprimerActionPerformed
 
@@ -2094,309 +2094,309 @@ public class Menu extends javax.swing.JFrame {
         rSupprimerButton.setText("Modifier");
         mode1 = "Modifier";
         switch (mode2) {
-        case "Eleve":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
+            case "Eleve":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Prénom : ");
-            ajout2Label.setText("Nom : ");
-            break;
-        case "Enseignant":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Prénom : ");
+                ajout2Label.setText("Nom : ");
+                break;
+            case "Enseignant":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Prénom : ");
-            ajout2Label.setText("Nom : ");
-            break;
-        case "Inscription":
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Prénom : ");
+                ajout2Label.setText("Nom : ");
+                break;
+            case "Inscription":
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout1Label.setVisible(false);
-            ajout1Field.setVisible(false);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
 
-            ajout6Label.setText("Niveau : ");
-            ajout7Label.setText("Classe : ");
-            ajout8Label.setText("Eleve : ");
+                ajout6Label.setText("Niveau : ");
+                ajout7Label.setText("Classe : ");
+                ajout8Label.setText("Eleve : ");
 
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
 
-            break;
-        case "Classe":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                break;
+            case "Classe":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            ajout6Label.setText("Ecole : ");
-            ajout7Label.setText("Niveau : ");
-            ajout8Label.setText("Année Scolaire : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
-            break;
-        case "Niveau":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            break;
-        case "Annee":
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                ajout6Label.setText("Ecole : ");
+                ajout7Label.setText("Niveau : ");
+                ajout8Label.setText("Année Scolaire : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
+                break;
+            case "Niveau":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                break;
+            case "Annee":
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
 
-            ajout1Label.setVisible(false);
-            ajout1Field.setVisible(false);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout6Label.setText("Début : ");
-            ajout7Label.setText("Fin : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            break;
-        case "Trimestre":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout6Label.setText("Début : ");
+                ajout7Label.setText("Fin : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                break;
+            case "Trimestre":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Date de début : ");
-            ajout2Label.setText("Date de fin : ");
-            ajout6Label.setText("Année Scolaire : ");
-            ajout7Label.setText("Numéro : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            break;
-        case "Bulletin":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Date de début : ");
+                ajout2Label.setText("Date de fin : ");
+                ajout6Label.setText("Année Scolaire : ");
+                ajout7Label.setText("Numéro : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                break;
+            case "Bulletin":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
 
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Appréciation : ");
-            ajout6Label.setText("Trimestre");
-            ajout7Label.setText("Nom : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            break;
-        case "Enseignement":
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre");
+                ajout7Label.setText("Nom : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                break;
+            case "Enseignement":
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout1Label.setVisible(false);
-            ajout1Field.setVisible(false);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setText("Classe : ");
-            ajout7Label.setText("Discipline : ");
-            ajout8Label.setText("Professeur : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
-            break;
-        case "Discipline":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            break;
-        case "BulletinDetails":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout1Label.setVisible(false);
+                ajout1Field.setVisible(false);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setText("Classe : ");
+                ajout7Label.setText("Discipline : ");
+                ajout8Label.setText("Professeur : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
+                break;
+            case "Discipline":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                break;
+            case "BulletinDetails":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout1Label.setText("Appréciation : ");
-            ajout6Label.setText("Trimestre: ");
-            ajout7Label.setText("Eleve : ");
-            ajout6ComboBox.removeAllItems();
-            ajout7ComboBox.removeAllItems();
-            ajout8ComboBox.removeAllItems();
-            break;
-        case "Evaluation":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(true);
-            ajout2Field.setVisible(true);
-            ajout6Label.setVisible(true);
-            ajout6ComboBox.setVisible(true);
-            ajout7Label.setVisible(true);
-            ajout7ComboBox.setVisible(true);
-            ajout8Label.setVisible(true);
-            ajout8ComboBox.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre: ");
+                ajout7Label.setText("Eleve : ");
+                ajout6ComboBox.removeAllItems();
+                ajout7ComboBox.removeAllItems();
+                ajout8ComboBox.removeAllItems();
+                break;
+            case "Evaluation":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(true);
+                ajout2Field.setVisible(true);
+                ajout6Label.setVisible(true);
+                ajout6ComboBox.setVisible(true);
+                ajout7Label.setVisible(true);
+                ajout7ComboBox.setVisible(true);
+                ajout8Label.setVisible(true);
+                ajout8ComboBox.setVisible(true);
 
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Field.setVisible(false);
-            ajout1Label.setText("Note : ");
-            ajout2Label.setText("Appréciation : ");
-            ajout6Label.setText("Trimestre: ");
-            ajout7Label.setText("Eleve");
-            ajout8Label.setText("Discipline : ");
-            ajout6ComboBox.removeAll();
-            ajout7ComboBox.removeAll();
-            ajout8ComboBox.removeAll();
-            break;
-        case "Ecole":
-            ajout1Label.setVisible(true);
-            ajout1Field.setVisible(true);
-            ajout2Label.setVisible(false);
-            ajout2Field.setVisible(false);
-            ajout3Label.setVisible(false);
-            ajout3Field.setVisible(false);
-            ajout4Label.setVisible(false);
-            ajout4Field.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout5Label.setVisible(false);
-            ajout6Label.setVisible(false);
-            ajout6ComboBox.setVisible(false);
-            ajout7Label.setVisible(false);
-            ajout7ComboBox.setVisible(false);
-            ajout8Label.setVisible(false);
-            ajout8ComboBox.setVisible(false);
-            ajout1Label.setText("Nom : ");
-            break;
-        default:
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Field.setVisible(false);
+                ajout1Label.setText("Note : ");
+                ajout2Label.setText("Appréciation : ");
+                ajout6Label.setText("Trimestre: ");
+                ajout7Label.setText("Eleve");
+                ajout8Label.setText("Discipline : ");
+                ajout6ComboBox.removeAll();
+                ajout7ComboBox.removeAll();
+                ajout8ComboBox.removeAll();
+                break;
+            case "Ecole":
+                ajout1Label.setVisible(true);
+                ajout1Field.setVisible(true);
+                ajout2Label.setVisible(false);
+                ajout2Field.setVisible(false);
+                ajout3Label.setVisible(false);
+                ajout3Field.setVisible(false);
+                ajout4Label.setVisible(false);
+                ajout4Field.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout5Label.setVisible(false);
+                ajout6Label.setVisible(false);
+                ajout6ComboBox.setVisible(false);
+                ajout7Label.setVisible(false);
+                ajout7ComboBox.setVisible(false);
+                ajout8Label.setVisible(false);
+                ajout8ComboBox.setVisible(false);
+                ajout1Label.setText("Nom : ");
+                break;
+            default:
         }
     }// GEN-LAST:event_ModifierActionPerformed
 
@@ -2430,18 +2430,18 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Nom");
         resultatLabel.setText("");
         switch (mode1) {
-        case "Rechercher":
-            rSupprimerButton.setVisible(false);
-            rSupprimerButton.setText("Supprimer");
-            break;
-        case "Modifier":
-            rSupprimerButton.setVisible(true);
-            rSupprimerButton.setText("Modifier");
-            break;
-        case "Supprimer":
-            rSupprimerButton.setVisible(true);
-            rSupprimerButton.setText("Supprimer");
-            break;
+            case "Rechercher":
+                rSupprimerButton.setVisible(false);
+                rSupprimerButton.setText("Supprimer");
+                break;
+            case "Modifier":
+                rSupprimerButton.setVisible(true);
+                rSupprimerButton.setText("Modifier");
+                break;
+            case "Supprimer":
+                rSupprimerButton.setVisible(true);
+                rSupprimerButton.setText("Supprimer");
+                break;
         }
         mode2 = "Eleve";
         supprimerLabel.setText("Clé de l'élève à supprimer : ");
@@ -2489,7 +2489,7 @@ public class Menu extends javax.swing.JFrame {
                 int id = o.getId();
                 String prenom = o.getPrenom();
                 String nom = o.getNom();
-                Object[] data = { id, prenom, nom };
+                Object[] data = {id, prenom, nom};
                 model.addRow(data);
             }
 
@@ -2522,18 +2522,18 @@ public class Menu extends javax.swing.JFrame {
         rechercheComboBox.addItem("Nom de l'élève");
         resultatLabel.setText("");
         switch (mode1) {
-        case "Rechercher":
-            rSupprimerButton.setVisible(false);
-            rSupprimerButton.setText("Supprimer");
-            break;
-        case "Modifier":
-            rSupprimerButton.setVisible(true);
-            rSupprimerButton.setText("Modifier");
-            break;
-        case "Supprimer":
-            rSupprimerButton.setVisible(true);
-            rSupprimerButton.setText("Supprimer");
-            break;
+            case "Rechercher":
+                rSupprimerButton.setVisible(false);
+                rSupprimerButton.setText("Supprimer");
+                break;
+            case "Modifier":
+                rSupprimerButton.setVisible(true);
+                rSupprimerButton.setText("Modifier");
+                break;
+            case "Supprimer":
+                rSupprimerButton.setVisible(true);
+                rSupprimerButton.setText("Supprimer");
+                break;
         }
         mode2 = "Inscription";// TODO add your handling code here:
         supprimerLabel.setText("Clé de l'inscription à supprimer : ");
@@ -2624,7 +2624,7 @@ public class Menu extends javax.swing.JFrame {
         }
 
         c = bdd.rechercher("i", "i", "Classe");
-        Nom_Item="";
+        Nom_Item = "";
 
         if (!c.isEmpty()) {
             for (int i = 0; i < c.size(); i++) {
@@ -2633,7 +2633,7 @@ public class Menu extends javax.swing.JFrame {
             }
         }
     }
-        
+
     private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(0, 0, 0));
@@ -2725,7 +2725,7 @@ public class Menu extends javax.swing.JFrame {
 
         ArrayList<Object> c = new ArrayList<>();
         c = bdd.rechercher("Type_P", "0", "Personne");
-        String Nom_Item="";    
+        String Nom_Item = "";
 
         if (!c.isEmpty()) {
             for (int i = 0; i < c.size(); i++) {
@@ -2842,7 +2842,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
-        
+
         ArrayList<Object> Classe_list = bdd.rechercher("a", "a", "Classe");
         Iterator<Object> Classe_it = Classe_list.iterator();
         TableColumn Classe_column1 = rechercherTable.getColumnModel().getColumn(0);
@@ -2872,7 +2872,7 @@ public class Menu extends javax.swing.JFrame {
             ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
             String niveau = ((Niveau) idNiveau.get(0)).getNom();
             String nom = o.getNom();
-            Object[] data = { id, nom, ecole, niveau, annee };
+            Object[] data = {id, nom, ecole, niveau, annee};
             Classe_model.addRow(data);
         }
         for (int i = Classe_model.getRowCount() - 1; i >= 0; i--) {
@@ -2968,7 +2968,7 @@ public class Menu extends javax.swing.JFrame {
             Niveau o = (Niveau) Niveau_it.next();
             int id = o.getId();
             String nom = o.getNom();
-            Object[] data = { id, nom };
+            Object[] data = {id, nom};
             Niveau_model.addRow(data);
         }
         for (int i = Niveau_model.getRowCount() - 1; i >= 0; i--) {
@@ -3057,7 +3057,7 @@ public class Menu extends javax.swing.JFrame {
         for (int i = 2020; i < 2019 + 7; i++) {
             ajout7ComboBox.addItem(Integer.toString(i));
         }
-        
+
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3084,7 +3084,7 @@ public class Menu extends javax.swing.JFrame {
             int id = o.getId();
             int debut = o.getAnneeDebut();
             int fin = o.getAnneeFin();
-            Object[] data = { id, debut, fin };
+            Object[] data = {id, debut, fin};
             model.addRow(data);
         }
         for (int i = model.getRowCount() - 1; i >= 0; i--) {
@@ -3093,32 +3093,34 @@ public class Menu extends javax.swing.JFrame {
             }
         }
         rechercherTable.setModel(model);
-        
-        if(mode1 == "Modifier"){
-            
-            ArrayList c=new ArrayList<>();
-            
+
+        if (mode1 == "Modifier") {
+
+            ArrayList c = new ArrayList<>();
+
             int ligneSelectionne = rechercherTable.getSelectedRow();
-            
-            int id_Select = ((AnneeScolaire)rechercherTable.getValueAt(ligneSelectionne, 0)).getId();
-            c=bdd.rechercher("Id", Integer.toString(id_Select), "AnneeScolaire");
-            
-            if(!c.isEmpty()){
-                int debut= ((AnneeScolaire)c.get(0)).getAnneeDebut() ;
-                int fin= ((AnneeScolaire)c.get(0)).getAnneeFin();
-               
+
+            int id_Select = ((AnneeScolaire) rechercherTable.getValueAt(ligneSelectionne, 0)).getId();
+            c = bdd.rechercher("Id", Integer.toString(id_Select), "AnneeScolaire");
+
+            if (!c.isEmpty()) {
+                int debut = ((AnneeScolaire) c.get(0)).getAnneeDebut();
+                int fin = ((AnneeScolaire) c.get(0)).getAnneeFin();
+
                 for (int i = 2019; i < 2019 + 7; i++) {
-                    if(Integer.toString(debut) == ajout6ComboBox.getItemAt(i))
+                    if (Integer.toString(debut) == ajout6ComboBox.getItemAt(i)) {
                         ajout6ComboBox.setSelectedIndex(i);
+                    }
                 }
                 for (int i = 2020; i < 2019 + 7; i++) {
-                    if(Integer.toString(fin) == ajout7ComboBox.getItemAt(i))
+                    if (Integer.toString(fin) == ajout7ComboBox.getItemAt(i)) {
                         ajout7ComboBox.setSelectedIndex(i);
+                    }
                 }
-               
+
             }
         }
-        
+
     }// GEN-LAST:event_anneeActionPerformed
 
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_trimestreActionPerformed
@@ -3208,7 +3210,7 @@ public class Menu extends javax.swing.JFrame {
         for (int i = 1; i < 4; i++) {
             ajout7ComboBox.addItem(Integer.toString(i));
         }
-        
+
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3239,7 +3241,7 @@ public class Menu extends javax.swing.JFrame {
             ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()), "AnneeScolaire");
             String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
                     + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-            Object[] data = { id, numero, debut, fin, annee };
+            Object[] data = {id, numero, debut, fin, annee};
             model.addRow(data);
         }
         for (int i = model.getRowCount() - 1; i >= 0; i--) {
@@ -3376,7 +3378,7 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         }
-        
+
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3414,7 +3416,7 @@ public class Menu extends javax.swing.JFrame {
             String prenom = ((Personne) idEleve.get(0)).getPrenom();
             String nom = ((Personne) idEleve.get(0)).getNom();
             String inscription = classe + "-" + prenom + " " + nom;
-            Object[] data = { id, trimestre, inscription, appreciation };
+            Object[] data = {id, trimestre, inscription, appreciation};
             model.addRow(data);
         }
         for (int i = model.getRowCount() - 1; i >= 0; i--) {
@@ -3538,7 +3540,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
-        
+
         rechercherTable.removeAll();
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
@@ -3583,7 +3585,7 @@ public class Menu extends javax.swing.JFrame {
             String prenom = ((Personne) idProf.get(0)).getPrenom();
             String nom = ((Personne) idProf.get(0)).getNom();
             String professeur = prenom + " " + nom;
-            Object[] data = { id, classe, discipline, professeur };
+            Object[] data = {id, classe, discipline, professeur};
             model.addRow(data);
         }
         for (int i = model.getRowCount() - 1; i >= 0; i--) {
@@ -3682,7 +3684,7 @@ public class Menu extends javax.swing.JFrame {
             Discipline o = (Discipline) it.next();
             int id = o.getId();
             String nom = o.getNom();
-            Object[] data = { id, nom };
+            Object[] data = {id, nom};
             model.addRow(data);
         }
         for (int i = model.getRowCount() - 1; i >= 0; i--) {
@@ -3744,17 +3746,27 @@ public class Menu extends javax.swing.JFrame {
         erreurLabel.setText("");
         ajout1Label.setVisible(true);
         ajout1Field.setVisible(true);
-        ajout2Label.setVisible(true);
-        ajout2Field.setVisible(true);
-        ajout3Label.setVisible(true);
-        ajout3Field.setVisible(true);
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        ajout7Label.setVisible(true);
+        ajout7ComboBox.setVisible(true);
+        ajout8Label.setVisible(true);
+        ajout8ComboBox.setVisible(true);
+
+        ajout2Label.setVisible(false);
+        ajout2Field.setVisible(false);
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
-        ajout1Label.setText("idBulletin : ");
-        ajout2Label.setText("idEnseignement : ");
-        ajout3Label.setText("Appréciation : ");
+        ajout1Label.setText("Appréciation : ");
+        ajout6Label.setText("Trimestre: ");
+        ajout7Label.setText("Eleve : ");
+        ajout6ComboBox.removeAllItems();
+        ajout7ComboBox.removeAllItems();
+        ajout8ComboBox.removeAllItems();
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3875,15 +3887,27 @@ public class Menu extends javax.swing.JFrame {
         ajout1Field.setVisible(true);
         ajout2Label.setVisible(true);
         ajout2Field.setVisible(true);
-        ajout3Label.setVisible(true);
-        ajout3Field.setVisible(true);
+        ajout6Label.setVisible(true);
+        ajout6ComboBox.setVisible(true);
+        ajout7Label.setVisible(true);
+        ajout7ComboBox.setVisible(true);
+        ajout8Label.setVisible(true);
+        ajout8ComboBox.setVisible(true);
+
+        ajout3Label.setVisible(false);
+        ajout3Field.setVisible(false);
         ajout4Label.setVisible(false);
         ajout4Field.setVisible(false);
         ajout5Label.setVisible(false);
         ajout5Field.setVisible(false);
-        ajout1Label.setText("idDetailsBulletin : ");
-        ajout2Label.setText("Note : ");
-        ajout3Label.setText("Appréciation : ");
+        ajout1Label.setText("Note : ");
+        ajout2Label.setText("Appréciation : ");
+        ajout6Label.setText("Trimestre: ");
+        ajout7Label.setText("Eleve");
+        ajout8Label.setText("Discipline : ");
+        ajout6ComboBox.removeAll();
+        ajout7ComboBox.removeAll();
+        ajout8ComboBox.removeAll();
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3986,7 +4010,7 @@ public class Menu extends javax.swing.JFrame {
 
     }// GEN-LAST:event_StatistiquesActionPerformed
 
-    private void ecoleActionPerformed(java.awt.event.ActionEvent evt) {                                      
+    private void ecoleActionPerformed(java.awt.event.ActionEvent evt) {
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
         inscription.setForeground(new java.awt.Color(255, 255, 255));
@@ -4073,7 +4097,7 @@ public class Menu extends javax.swing.JFrame {
             Ecole o = (Ecole) it.next();
             int id = o.getId();
             String nom = o.getNom();
-            Object[] data = { id, nom };
+            Object[] data = {id, nom};
             model.addRow(data);
         }
         for (int i = model.getRowCount() - 1; i >= 0; i--) {
@@ -5034,7 +5058,7 @@ public class Menu extends javax.swing.JFrame {
                     System.out.println("Erreur Valider, Choix Menu 2");
             }
         }
-        
+
         if ("Modifer".equals(mode1)) {
             switch (mode2) {
                 case "Eleve":
@@ -5991,592 +6015,555 @@ public class Menu extends javax.swing.JFrame {
         }
         ArrayList<Object> list;
         switch (mode2) {
-        case "Eleve":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Personne");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Personne p = (Personne) list.get(i);
-                    if (!p.isType()) {
-                        int id = p.getId();
-                        String nom = p.getNom();
-                        String prenom = p.getPrenom();
-                        Object[] data = { id, prenom, nom };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Prénom":
-                list = bdd.rechercher("Prenom", value, "Personne");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Personne p = (Personne) list.get(i);
-                    if (!p.isType()) {
-                        int id = p.getId();
-                        String nom = p.getNom();
-                        String prenom = p.getPrenom();
-                        Object[] data = { id, prenom, nom };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom":
-                list = bdd.rechercher("Nom", value, "Personne");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Personne p = (Personne) list.get(i);
-                    if (!p.isType()) {
-                        int id = p.getId();
-                        String nom = p.getNom();
-                        String prenom = p.getPrenom();
-                        Object[] data = { id, prenom, nom };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Enseignant":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Personne");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Personne p = (Personne) list.get(i);
-                    if (p.isType()) {
-                        int id = p.getId();
-                        String nom = p.getNom();
-                        String prenom = p.getPrenom();
-                        Object[] data = { id, prenom, nom };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Prénom":
-                list = bdd.rechercher("Prenom", value, "Personne");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Personne p = (Personne) list.get(i);
-                    if (p.isType()) {
-                        int id = p.getId();
-                        String nom = p.getNom();
-                        String prenom = p.getPrenom();
-                        Object[] data = { id, prenom, nom };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom":
-                list = bdd.rechercher("Nom", value, "Personne");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Personne p = (Personne) list.get(i);
-                    if (p.isType()) {
-                        int id = p.getId();
-                        String nom = p.getNom();
-                        String prenom = p.getPrenom();
-                        Object[] data = { id, prenom, nom };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Inscription":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Inscription");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Inscription o = (Inscription) list.get(i);
-                    int id = o.getId();
-                    ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
-                    String classe = ((Classe) idclasse.get(0)).getNom();
-                    ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
-                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                    String nom = ((Personne) idEleve.get(0)).getNom();
-                    String eleve = prenom + " " + nom;
-                    Object[] data = { id, classe, eleve };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de la classe":
-                ArrayList<Object> idClasse = bdd.rechercher("Nom", value, "Classe");
-                for (int i = 0; i < idClasse.size(); i++) {
-                    list = bdd.rechercher("IdClasse", String.valueOf(((Classe) idClasse.get(i)).getId()),
-                            "Inscription");
-                    model.setNumRows(list.size());
-                    for (int j = 0; i < list.size(); i++) {
-                        Inscription o = (Inscription) list.get(j);
-                        int id = o.getId();
-                        ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
-                        String classe = ((Classe) idclasse.get(0)).getNom();
-                        ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
-                        String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                        String nom = ((Personne) idEleve.get(0)).getNom();
-                        String eleve = prenom + " " + nom;
-                        Object[] data = { id, classe, eleve };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de l'élève":
-                ArrayList<Object> idEleves = bdd.rechercher("Nom", value, "Personne");
-                for (int i = 0; i < idEleves.size(); i++) {
-                    if (!((Personne) idEleves.get(i)).isType()) {
-                        list = bdd.rechercher("IdPersonne", String.valueOf(((Personne) idEleves.get(i)).getId()),
-                                "Inscription");
+            case "Eleve":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Personne");
                         model.setNumRows(list.size());
-                        for (int j = 0; j < list.size(); j++) {
-                            Inscription o = (Inscription) list.get(j);
+                        for (int i = 0; i < list.size(); i++) {
+                            Personne p = (Personne) list.get(i);
+                            if (!p.isType()) {
+                                int id = p.getId();
+                                String nom = p.getNom();
+                                String prenom = p.getPrenom();
+                                Object[] data = {id, prenom, nom};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Prénom":
+                        list = bdd.rechercher("Prenom", value, "Personne");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Personne p = (Personne) list.get(i);
+                            if (!p.isType()) {
+                                int id = p.getId();
+                                String nom = p.getNom();
+                                String prenom = p.getPrenom();
+                                Object[] data = {id, prenom, nom};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom":
+                        list = bdd.rechercher("Nom", value, "Personne");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Personne p = (Personne) list.get(i);
+                            if (!p.isType()) {
+                                int id = p.getId();
+                                String nom = p.getNom();
+                                String prenom = p.getPrenom();
+                                Object[] data = {id, prenom, nom};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
+                }
+                break;
+            case "Enseignant":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Personne");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Personne p = (Personne) list.get(i);
+                            if (p.isType()) {
+                                int id = p.getId();
+                                String nom = p.getNom();
+                                String prenom = p.getPrenom();
+                                Object[] data = {id, prenom, nom};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Prénom":
+                        list = bdd.rechercher("Prenom", value, "Personne");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Personne p = (Personne) list.get(i);
+                            if (p.isType()) {
+                                int id = p.getId();
+                                String nom = p.getNom();
+                                String prenom = p.getPrenom();
+                                Object[] data = {id, prenom, nom};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom":
+                        list = bdd.rechercher("Nom", value, "Personne");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Personne p = (Personne) list.get(i);
+                            if (p.isType()) {
+                                int id = p.getId();
+                                String nom = p.getNom();
+                                String prenom = p.getPrenom();
+                                Object[] data = {id, prenom, nom};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
+                }
+                break;
+            case "Inscription":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Inscription");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Inscription o = (Inscription) list.get(i);
                             int id = o.getId();
-                            ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()),
-                                    "Classe");
+                            ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
                             String classe = ((Classe) idclasse.get(0)).getNom();
-                            ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()),
-                                    "Personne");
+                            ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
                             String prenom = ((Personne) idEleve.get(0)).getPrenom();
                             String nom = ((Personne) idEleve.get(0)).getNom();
                             String eleve = prenom + " " + nom;
-                            Object[] data = { id, classe, eleve };
+                            Object[] data = {id, classe, eleve};
                             model.addRow(data);
                         }
-                    }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de la classe":
+                        ArrayList<Object> idClasse = bdd.rechercher("Nom", value, "Classe");
+                        for (int i = 0; i < idClasse.size(); i++) {
+                            list = bdd.rechercher("IdClasse", String.valueOf(((Classe) idClasse.get(i)).getId()),
+                                    "Inscription");
+                            model.setNumRows(list.size());
+                            for (int j = 0; i < list.size(); i++) {
+                                Inscription o = (Inscription) list.get(j);
+                                int id = o.getId();
+                                ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
+                                String classe = ((Classe) idclasse.get(0)).getNom();
+                                ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
+                                String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                String nom = ((Personne) idEleve.get(0)).getNom();
+                                String eleve = prenom + " " + nom;
+                                Object[] data = {id, classe, eleve};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de l'élève":
+                        ArrayList<Object> idEleves = bdd.rechercher("Nom", value, "Personne");
+                        for (int i = 0; i < idEleves.size(); i++) {
+                            if (!((Personne) idEleves.get(i)).isType()) {
+                                list = bdd.rechercher("IdPersonne", String.valueOf(((Personne) idEleves.get(i)).getId()),
+                                        "Inscription");
+                                model.setNumRows(list.size());
+                                for (int j = 0; j < list.size(); j++) {
+                                    Inscription o = (Inscription) list.get(j);
+                                    int id = o.getId();
+                                    ArrayList<Object> idclasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()),
+                                            "Classe");
+                                    String classe = ((Classe) idclasse.get(0)).getNom();
+                                    ArrayList<Object> idEleve = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()),
+                                            "Personne");
+                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                    String nom = ((Personne) idEleve.get(0)).getNom();
+                                    String eleve = prenom + " " + nom;
+                                    Object[] data = {id, classe, eleve};
+                                    model.addRow(data);
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Classe":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Classe");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Classe o = (Classe) list.get(i);
-                    int id = o.getId();
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                            "AnneeScolaire");
-                    String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
-                    String ecole = ((Ecole) idEcole.get(0)).getNom();
-                    ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
-                    String niveau = ((Niveau) idNiveau.get(0)).getNom();
-                    String nom = o.getNom();
-                    Object[] data = { id, nom, ecole, niveau, annee };
-                    model.addRow(data);
+            case "Classe":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Classe");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Classe o = (Classe) list.get(i);
+                            int id = o.getId();
+                            ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                    "AnneeScolaire");
+                            String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                            ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
+                            String ecole = ((Ecole) idEcole.get(0)).getNom();
+                            ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
+                            String niveau = ((Niveau) idNiveau.get(0)).getNom();
+                            String nom = o.getNom();
+                            Object[] data = {id, nom, ecole, niveau, annee};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom":
+                        list = bdd.rechercher("Nom", value, "Classe");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Classe o = (Classe) list.get(i);
+                            int id = o.getId();
+                            ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                    "AnneeScolaire");
+                            String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                            ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
+                            String ecole = ((Ecole) idEcole.get(0)).getNom();
+                            ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
+                            String niveau = ((Niveau) idNiveau.get(0)).getNom();
+                            String nom = o.getNom();
+                            Object[] data = {id, nom, ecole, niveau, annee};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de l'école":
+                        ArrayList<Object> idecole = bdd.rechercher("Nom", value, "Ecole");
+                        for (int i = 0; i < idecole.size(); i++) {
+                            list = bdd.rechercher("IdEcole", String.valueOf(((Ecole) idecole.get(i)).getId()), "Classe");
+                            model.setNumRows(list.size());
+                            for (int j = 0; j < list.size(); j++) {
+                                Classe o = (Classe) list.get(j);
+                                int id = o.getId();
+                                ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                        "AnneeScolaire");
+                                String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
+                                String ecole = ((Ecole) idEcole.get(0)).getNom();
+                                ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
+                                String niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                String nom = o.getNom();
+                                Object[] data = {id, nom, ecole, niveau, annee};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom du niveau":
+                        ArrayList<Object> idniveau = bdd.rechercher("Nom", value, "Niveau");
+                        for (int i = 0; i < idniveau.size(); i++) {
+                            list = bdd.rechercher("IdNiveau", String.valueOf(((Niveau) idniveau.get(i)).getId()), "Classe");
+                            model.setNumRows(list.size());
+                            for (int j = 0; j < list.size(); j++) {
+                                Classe o = (Classe) list.get(j);
+                                int id = o.getId();
+                                ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                        "AnneeScolaire");
+                                String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
+                                String ecole = ((Ecole) idEcole.get(0)).getNom();
+                                ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
+                                String niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                String nom = o.getNom();
+                                Object[] data = {id, nom, ecole, niveau, annee};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Début d'année scolaire":
+                        ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
+                        for (int i = 0; i < idannee.size(); i++) {
+                            list = bdd.rechercher("IdAnneeScolaire", String.valueOf(((AnneeScolaire) idannee.get(i)).getId()),
+                                    "Classe");
+                            model.setNumRows(list.size());
+                            for (int j = 0; j < list.size(); j++) {
+                                Classe o = (Classe) list.get(j);
+                                int id = o.getId();
+                                ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                        "AnneeScolaire");
+                                String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
+                                String ecole = ((Ecole) idEcole.get(0)).getNom();
+                                ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
+                                String niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                String nom = o.getNom();
+                                Object[] data = {id, nom, ecole, niveau, annee};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            case "Nom":
-                list = bdd.rechercher("Nom", value, "Classe");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Classe o = (Classe) list.get(i);
-                    int id = o.getId();
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                            "AnneeScolaire");
-                    String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
-                    String ecole = ((Ecole) idEcole.get(0)).getNom();
-                    ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
-                    String niveau = ((Niveau) idNiveau.get(0)).getNom();
-                    String nom = o.getNom();
-                    Object[] data = { id, nom, ecole, niveau, annee };
-                    model.addRow(data);
+            case "Niveau":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Niveau");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Niveau p = (Niveau) list.get(i);
+                            int id = p.getId();
+                            String nom = p.getNom();
+                            Object[] data = {id, nom};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom":
+                        list = bdd.rechercher("Nom", value, "Niveau");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Niveau p = (Niveau) list.get(i);
+                            int id = p.getId();
+                            String nom = p.getNom();
+                            Object[] data = {id, nom};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            case "Nom de l'école":
-                ArrayList<Object> idecole = bdd.rechercher("Nom", value, "Ecole");
-                for (int i = 0; i < idecole.size(); i++) {
-                    list = bdd.rechercher("IdEcole", String.valueOf(((Ecole) idecole.get(i)).getId()), "Classe");
-                    model.setNumRows(list.size());
-                    for (int j = 0; j < list.size(); j++) {
-                        Classe o = (Classe) list.get(j);
-                        int id = o.getId();
-                        ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                                "AnneeScolaire");
-                        String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                        ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
-                        String ecole = ((Ecole) idEcole.get(0)).getNom();
-                        ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
-                        String niveau = ((Niveau) idNiveau.get(0)).getNom();
-                        String nom = o.getNom();
-                        Object[] data = { id, nom, ecole, niveau, annee };
-                        model.addRow(data);
-                    }
+            case "Annee":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "AnneeScolaire");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            AnneeScolaire o = (AnneeScolaire) list.get(i);
+                            int id = o.getId();
+                            int debut = o.getAnneeDebut();
+                            int fin = o.getAnneeFin();
+                            Object[] data = {id, debut, fin};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Début":
+                        list = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            AnneeScolaire o = (AnneeScolaire) list.get(i);
+                            int id = o.getId();
+                            int debut = o.getAnneeDebut();
+                            int fin = o.getAnneeFin();
+                            Object[] data = {id, debut, fin};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Fin":
+                        list = bdd.rechercher("AnneeFin", value, "AnneeScolaire");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            AnneeScolaire o = (AnneeScolaire) list.get(i);
+                            int id = o.getId();
+                            int debut = o.getAnneeDebut();
+                            int fin = o.getAnneeFin();
+                            Object[] data = {id, debut, fin};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            case "Nom du niveau":
-                ArrayList<Object> idniveau = bdd.rechercher("Nom", value, "Niveau");
-                for (int i = 0; i < idniveau.size(); i++) {
-                    list = bdd.rechercher("IdNiveau", String.valueOf(((Niveau) idniveau.get(i)).getId()), "Classe");
-                    model.setNumRows(list.size());
-                    for (int j = 0; j < list.size(); j++) {
-                        Classe o = (Classe) list.get(j);
-                        int id = o.getId();
-                        ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                                "AnneeScolaire");
-                        String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                        ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
-                        String ecole = ((Ecole) idEcole.get(0)).getNom();
-                        ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
-                        String niveau = ((Niveau) idNiveau.get(0)).getNom();
-                        String nom = o.getNom();
-                        Object[] data = { id, nom, ecole, niveau, annee };
-                        model.addRow(data);
-                    }
+            case "Trimestre":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Trimestre");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Trimestre o = (Trimestre) list.get(i);
+                            int id = o.getId();
+                            int numero = o.getNumero();
+                            String debut = o.getDebut().toString();
+                            String fin = o.getFin().toString();
+                            ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                    "AnneeScolaire");
+                            String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                            Object[] data = {id, numero, debut, fin, annee};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Numéro":
+                        list = bdd.rechercher("Numero", value, "Trimestre");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Trimestre o = (Trimestre) list.get(i);
+                            int id = o.getId();
+                            int numero = o.getNumero();
+                            String debut = o.getDebut().toString();
+                            String fin = o.getFin().toString();
+                            ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                    "AnneeScolaire");
+                            String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                            Object[] data = {id, numero, debut, fin, annee};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Début d'année scolaire":
+                        ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
+                        for (int i = 0; i < idannee.size(); i++) {
+                            list = bdd.rechercher("idAnneeScolaire", String.valueOf(((AnneeScolaire) idannee.get(i)).getId()),
+                                    "Trimestre");
+                            model.setNumRows(list.size());
+                            for (int j = 0; j < list.size(); j++) {
+                                Trimestre o = (Trimestre) list.get(j);
+                                int id = o.getId();
+                                int numero = o.getNumero();
+                                String debut = o.getDebut().toString();
+                                String fin = o.getFin().toString();
+                                ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
+                                        "AnneeScolaire");
+                                String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                Object[] data = {id, numero, debut, fin, annee};
+                                model.addRow(data);
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            case "Début d'année scolaire":
-                ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
-                for (int i = 0; i < idannee.size(); i++) {
-                    list = bdd.rechercher("IdAnneeScolaire", String.valueOf(((AnneeScolaire) idannee.get(i)).getId()),
-                            "Classe");
-                    model.setNumRows(list.size());
-                    for (int j = 0; j < list.size(); j++) {
-                        Classe o = (Classe) list.get(j);
-                        int id = o.getId();
-                        ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                                "AnneeScolaire");
-                        String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                        ArrayList<Object> idEcole = bdd.rechercher("Id", String.valueOf(o.getIdEcole()), "Ecole");
-                        String ecole = ((Ecole) idEcole.get(0)).getNom();
-                        ArrayList<Object> idNiveau = bdd.rechercher("Id", String.valueOf(o.getIdNiveau()), "Niveau");
-                        String niveau = ((Niveau) idNiveau.get(0)).getNom();
-                        String nom = o.getNom();
-                        Object[] data = { id, nom, ecole, niveau, annee };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Niveau":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Niveau");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Niveau p = (Niveau) list.get(i);
-                    int id = p.getId();
-                    String nom = p.getNom();
-                    Object[] data = { id, nom };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom":
-                list = bdd.rechercher("Nom", value, "Niveau");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Niveau p = (Niveau) list.get(i);
-                    int id = p.getId();
-                    String nom = p.getNom();
-                    Object[] data = { id, nom };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Annee":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "AnneeScolaire");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    AnneeScolaire o = (AnneeScolaire) list.get(i);
-                    int id = o.getId();
-                    int debut = o.getAnneeDebut();
-                    int fin = o.getAnneeFin();
-                    Object[] data = { id, debut, fin };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Début":
-                list = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    AnneeScolaire o = (AnneeScolaire) list.get(i);
-                    int id = o.getId();
-                    int debut = o.getAnneeDebut();
-                    int fin = o.getAnneeFin();
-                    Object[] data = { id, debut, fin };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Fin":
-                list = bdd.rechercher("AnneeFin", value, "AnneeScolaire");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    AnneeScolaire o = (AnneeScolaire) list.get(i);
-                    int id = o.getId();
-                    int debut = o.getAnneeDebut();
-                    int fin = o.getAnneeFin();
-                    Object[] data = { id, debut, fin };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Trimestre":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Trimestre");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Trimestre o = (Trimestre) list.get(i);
-                    int id = o.getId();
-                    int numero = o.getNumero();
-                    String debut = o.getDebut().toString();
-                    String fin = o.getFin().toString();
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                            "AnneeScolaire");
-                    String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    Object[] data = { id, numero, debut, fin, annee };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Numéro":
-                list = bdd.rechercher("Numero", value, "Trimestre");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Trimestre o = (Trimestre) list.get(i);
-                    int id = o.getId();
-                    int numero = o.getNumero();
-                    String debut = o.getDebut().toString();
-                    String fin = o.getFin().toString();
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                            "AnneeScolaire");
-                    String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    Object[] data = { id, numero, debut, fin, annee };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Début d'année scolaire":
-                ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
-                for (int i = 0; i < idannee.size(); i++) {
-                    list = bdd.rechercher("idAnneeScolaire", String.valueOf(((AnneeScolaire) idannee.get(i)).getId()),
-                            "Trimestre");
-                    model.setNumRows(list.size());
-                    for (int j = 0; j < list.size(); j++) {
-                        Trimestre o = (Trimestre) list.get(j);
-                        int id = o.getId();
-                        int numero = o.getNumero();
-                        String debut = o.getDebut().toString();
-                        String fin = o.getFin().toString();
-                        ArrayList<Object> idAnnee = bdd.rechercher("Id", String.valueOf(o.getIdAnneeScolaire()),
-                                "AnneeScolaire");
-                        String annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                        Object[] data = { id, numero, debut, fin, annee };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Bulletin":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Bulletin");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Bulletin o = (Bulletin) list.get(i);
-                    int id = o.getId();
-                    String appreciation = o.getAppreciation();
-                    ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()),
-                            "Trimestre");
-                    String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                    ArrayList<Object> idInscription = bdd.rechercher("Id", String.valueOf(o.getIdInscription()),
-                            "Inscription");
-                    ArrayList<Object> idclasse = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                    String classe = ((Classe) idclasse.get(0)).getNom();
-                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                    String nom = ((Personne) idEleve.get(0)).getNom();
-                    String inscription = classe + "-" + prenom + " " + nom;
-                    Object[] data = { id, trimestre, inscription, appreciation };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Début d'année scolaire":
-                ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
-                for (int i = 0; i < idannee.size(); i++) {
-                    ArrayList<Object> idtrimestre = bdd.rechercher("idAnneeScolaire",
-                            String.valueOf(((AnneeScolaire) idannee.get(i)).getId()), "Trimestre");
-                    for (int k = 0; k < idtrimestre.size(); k++) {
-                        list = bdd.rechercher("IdTrimestre", String.valueOf(((Trimestre) idtrimestre.get(k)).getId()),
-                                "Bulletin");
-                        // model.setNumRows(list.size());
-                        for (int j = 0; j < list.size(); j++) {
-                            Bulletin o = (Bulletin) list.get(j);
+            case "Bulletin":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Bulletin");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Bulletin o = (Bulletin) list.get(i);
                             int id = o.getId();
                             String appreciation = o.getAppreciation();
                             ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()),
                                     "Trimestre");
-                            String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
-                                    + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                            String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                    + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
                             ArrayList<Object> idInscription = bdd.rechercher("Id", String.valueOf(o.getIdInscription()),
                                     "Inscription");
                             ArrayList<Object> idclasse = bdd.rechercher("Id",
@@ -6587,234 +6574,150 @@ public class Menu extends javax.swing.JFrame {
                             String prenom = ((Personne) idEleve.get(0)).getPrenom();
                             String nom = ((Personne) idEleve.get(0)).getNom();
                             String inscription = classe + "-" + prenom + " " + nom;
-                            Object[] data = { id, trimestre, inscription, appreciation };
+                            Object[] data = {id, trimestre, inscription, appreciation};
                             model.addRow(data);
                         }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de la classe":
-                ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
-                for (int i = 0; i < idclasse.size(); i++) {
-                    ArrayList<Object> idinscription = bdd.rechercher("idClasse",
-                            String.valueOf(((Classe) idclasse.get(i)).getId()), "Inscription");
-                    for (int k = 0; k < idinscription.size(); k++) {
-                        list = bdd.rechercher("IdInscription",
-                                String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
-                        // model.setNumRows(list.size());
-                        for (int j = 0; j < list.size(); j++) {
-                            Bulletin o = (Bulletin) list.get(j);
-                            int id = o.getId();
-                            String appreciation = o.getAppreciation();
-                            ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()),
-                                    "Trimestre");
-                            String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
-                                    + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                            ArrayList<Object> idInscription = bdd.rechercher("Id", String.valueOf(o.getIdInscription()),
-                                    "Inscription");
-                            ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                    String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                            String classe = ((Classe) idClasse.get(0)).getNom();
-                            ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                    String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                            String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                            String nom = ((Personne) idEleve.get(0)).getNom();
-                            String inscription = classe + "-" + prenom + " " + nom;
-                            Object[] data = { id, trimestre, inscription, appreciation };
-                            model.addRow(data);
-                        }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de l'élève":
-                ArrayList<Object> ideleve = bdd.rechercher("Nom", value, "Personne");
-                for (int i = 0; i < ideleve.size(); i++) {
-                    if (!((Personne) ideleve.get(i)).isType()) {
-                        ArrayList<Object> idinscription = bdd.rechercher("idPersonne",
-                                String.valueOf(((Personne) ideleve.get(i)).getId()), "Inscription");
-                        for (int k = 0; k < idinscription.size(); k++) {
-                            list = bdd.rechercher("IdInscription",
-                                    String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
-                            // model.setNumRows(list.size());
-                            for (int j = 0; j < list.size(); j++) {
-                                Bulletin o = (Bulletin) list.get(j);
-                                int id = o.getId();
-                                String appreciation = o.getAppreciation();
-                                ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()),
-                                        "Trimestre");
-                                String trimestre = String
-                                        .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                        String.valueOf(o.getIdInscription()), "Inscription");
-                                ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                                String classe = ((Classe) idClasse.get(0)).getNom();
-                                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                String nom = ((Personne) idEleve.get(0)).getNom();
-                                String inscription = classe + "-" + prenom + " " + nom;
-                                Object[] data = { id, trimestre, inscription, appreciation };
-                                model.addRow(data);
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
                             }
                         }
-                    }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Début d'année scolaire":
+                        ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
+                        for (int i = 0; i < idannee.size(); i++) {
+                            ArrayList<Object> idtrimestre = bdd.rechercher("idAnneeScolaire",
+                                    String.valueOf(((AnneeScolaire) idannee.get(i)).getId()), "Trimestre");
+                            for (int k = 0; k < idtrimestre.size(); k++) {
+                                list = bdd.rechercher("IdTrimestre", String.valueOf(((Trimestre) idtrimestre.get(k)).getId()),
+                                        "Bulletin");
+                                // model.setNumRows(list.size());
+                                for (int j = 0; j < list.size(); j++) {
+                                    Bulletin o = (Bulletin) list.get(j);
+                                    int id = o.getId();
+                                    String appreciation = o.getAppreciation();
+                                    ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()),
+                                            "Trimestre");
+                                    String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
+                                            + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                    ArrayList<Object> idInscription = bdd.rechercher("Id", String.valueOf(o.getIdInscription()),
+                                            "Inscription");
+                                    ArrayList<Object> idclasse = bdd.rechercher("Id",
+                                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                    String classe = ((Classe) idclasse.get(0)).getNom();
+                                    ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                    String nom = ((Personne) idEleve.get(0)).getNom();
+                                    String inscription = classe + "-" + prenom + " " + nom;
+                                    Object[] data = {id, trimestre, inscription, appreciation};
+                                    model.addRow(data);
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de la classe":
+                        ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
+                        for (int i = 0; i < idclasse.size(); i++) {
+                            ArrayList<Object> idinscription = bdd.rechercher("idClasse",
+                                    String.valueOf(((Classe) idclasse.get(i)).getId()), "Inscription");
+                            for (int k = 0; k < idinscription.size(); k++) {
+                                list = bdd.rechercher("IdInscription",
+                                        String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
+                                // model.setNumRows(list.size());
+                                for (int j = 0; j < list.size(); j++) {
+                                    Bulletin o = (Bulletin) list.get(j);
+                                    int id = o.getId();
+                                    String appreciation = o.getAppreciation();
+                                    ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()),
+                                            "Trimestre");
+                                    String trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
+                                            + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                    ArrayList<Object> idInscription = bdd.rechercher("Id", String.valueOf(o.getIdInscription()),
+                                            "Inscription");
+                                    ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                    String classe = ((Classe) idClasse.get(0)).getNom();
+                                    ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                    String nom = ((Personne) idEleve.get(0)).getNom();
+                                    String inscription = classe + "-" + prenom + " " + nom;
+                                    Object[] data = {id, trimestre, inscription, appreciation};
+                                    model.addRow(data);
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de l'élève":
+                        ArrayList<Object> ideleve = bdd.rechercher("Nom", value, "Personne");
+                        for (int i = 0; i < ideleve.size(); i++) {
+                            if (!((Personne) ideleve.get(i)).isType()) {
+                                ArrayList<Object> idinscription = bdd.rechercher("idPersonne",
+                                        String.valueOf(((Personne) ideleve.get(i)).getId()), "Inscription");
+                                for (int k = 0; k < idinscription.size(); k++) {
+                                    list = bdd.rechercher("IdInscription",
+                                            String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
+                                    // model.setNumRows(list.size());
+                                    for (int j = 0; j < list.size(); j++) {
+                                        Bulletin o = (Bulletin) list.get(j);
+                                        int id = o.getId();
+                                        String appreciation = o.getAppreciation();
+                                        ArrayList<Object> idTrimestre = bdd.rechercher("Id", String.valueOf(o.getIdTrimestre()),
+                                                "Trimestre");
+                                        String trimestre = String
+                                                .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                        ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                String.valueOf(o.getIdInscription()), "Inscription");
+                                        ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                        String classe = ((Classe) idClasse.get(0)).getNom();
+                                        ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                        String nom = ((Personne) idEleve.get(0)).getNom();
+                                        String inscription = classe + "-" + prenom + " " + nom;
+                                        Object[] data = {id, trimestre, inscription, appreciation};
+                                        model.addRow(data);
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Enseignement":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Enseignement");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Enseignement o = (Enseignement) list.get(i);
-                    int id = o.getId();
-                    ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
-                    ArrayList<Object> idEcole = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                    ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
-                            "Discipline");
-                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                    ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
-                    String prenom = ((Personne) idProf.get(0)).getPrenom();
-                    String nom = ((Personne) idProf.get(0)).getNom();
-                    String professeur = prenom + " " + nom;
-                    Object[] data = { id, classe, discipline, professeur };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de la classe":
-                ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
-                for (int i = 0; i < idclasse.size(); i++) {
-                    list = bdd.rechercher("IdClasse", String.valueOf(((Classe) idclasse.get(i)).getId()),
-                            "Enseignement");
-                    model.setNumRows(list.size());
-                    for (int j = 0; j < list.size(); j++) {
-                        Enseignement o = (Enseignement) list.get(j);
-                        int id = o.getId();
-                        ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
-                        ArrayList<Object> idEcole = bdd.rechercher("Id",
-                                String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                        ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                                String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                        ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                        ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
-                                "Discipline");
-                        String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                        String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                        String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                        String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                        String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                        String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                        ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
-                        String prenom = ((Personne) idProf.get(0)).getPrenom();
-                        String nom = ((Personne) idProf.get(0)).getNom();
-                        String professeur = prenom + " " + nom;
-                        Object[] data = { id, classe, discipline, professeur };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de la discipline":
-                ArrayList<Object> iddiscipline = bdd.rechercher("Nom", value, "Discipline");
-                for (int i = 0; i < iddiscipline.size(); i++) {
-                    list = bdd.rechercher("IdDiscipline", String.valueOf(((Discipline) iddiscipline.get(i)).getId()),
-                            "Enseignement");
-                    model.setNumRows(list.size());
-                    for (int j = 0; j < list.size(); j++) {
-                        Enseignement o = (Enseignement) list.get(j);
-                        int id = o.getId();
-                        ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
-                        ArrayList<Object> idEcole = bdd.rechercher("Id",
-                                String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                        ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                                String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                        ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                        ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
-                                "Discipline");
-                        String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                        String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                        String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                        String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                        String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                        String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                        ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
-                        String prenom = ((Personne) idProf.get(0)).getPrenom();
-                        String nom = ((Personne) idProf.get(0)).getNom();
-                        String professeur = prenom + " " + nom;
-                        Object[] data = { id, classe, discipline, professeur };
-                        model.addRow(data);
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom du professeur":
-                ArrayList<Object> idprof = bdd.rechercher("Nom", value, "Personne");
-                for (int i = 0; i < idprof.size(); i++) {
-                    if (((Personne) idprof.get(i)).isType()) {
-                        list = bdd.rechercher("IdPersonne", String.valueOf(((Personne) idprof.get(i)).getId()),
-                                "Enseignement");
+            case "Enseignement":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Enseignement");
                         model.setNumRows(list.size());
-                        for (int j = 0; j < list.size(); j++) {
-                            Enseignement o = (Enseignement) list.get(j);
+                        for (int i = 0; i < list.size(); i++) {
+                            Enseignement o = (Enseignement) list.get(i);
                             int id = o.getId();
-                            ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()),
-                                    "Classe");
+                            ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
                             ArrayList<Object> idEcole = bdd.rechercher("Id",
                                     String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
                             ArrayList<Object> idNiveau = bdd.rechercher("Id",
@@ -6830,496 +6733,219 @@ public class Menu extends javax.swing.JFrame {
                                     + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
                             String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
                             String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                            ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()),
-                                    "Personne");
+                            ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
                             String prenom = ((Personne) idProf.get(0)).getPrenom();
                             String nom = ((Personne) idProf.get(0)).getNom();
                             String professeur = prenom + " " + nom;
-                            Object[] data = { id, classe, discipline, professeur };
+                            Object[] data = {id, classe, discipline, professeur};
                             model.addRow(data);
                         }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Discipline":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Discipline");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Discipline p = (Discipline) list.get(i);
-                    int id = p.getId();
-                    String nom = p.getNom();
-                    Object[] data = { id, nom };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom":
-                list = bdd.rechercher("Nom", value, "Discipline");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Discipline p = (Discipline) list.get(i);
-                    int id = p.getId();
-                    String nom = p.getNom();
-                    Object[] data = { id, nom };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "BulletinDetails":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "DetailBulletin");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    DetailBulletin o = (DetailBulletin) list.get(i);
-                    int id = o.getId();
-                    String appreciation = o.getAppreciation();
-                    ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()), "Bulletin");
-                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                    String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
-                            + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                    ArrayList<Object> idInscription = bdd.rechercher("Id",
-                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
-                    ArrayList<Object> idclasse = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                    String classe = ((Classe) idclasse.get(0)).getNom();
-                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                    String nom = ((Personne) idEleve.get(0)).getNom();
-                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                    ArrayList<Object> idEnseignement = bdd.rechercher("Id", String.valueOf(o.getIdEnseignement()),
-                            "Enseignement");
-                    ArrayList<Object> idClasse = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
-                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                    ArrayList<Object> idEcole = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                    ArrayList<Object> idProf = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                    String prof_nom = ((Personne) idProf.get(0)).getNom();
-                    String enseignement_professeur = prof_prenom + " " + prof_nom;
-                    String enseignement = discipline + " " + enseignement_professeur;
-                    Object[] data = { id, bulletin, enseignement, appreciation };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Début d'année scolaire":
-                ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
-                for (int i = 0; i < idannee.size(); i++) {
-                    ArrayList<Object> idtrimestre = bdd.rechercher("idAnneeScolaire",
-                            String.valueOf(((AnneeScolaire) idannee.get(i)).getId()), "Trimestre");
-                    for (int k = 0; k < idtrimestre.size(); k++) {
-                        ArrayList<Object> idbulletin = bdd.rechercher("idTrimestre",
-                                String.valueOf(((Trimestre) idtrimestre.get(k)).getId()), "Bulletin");
-                        for (int h = 0; h < idbulletin.size(); h++) {
-                            list = bdd.rechercher("idBulletin", String.valueOf(((Bulletin) idbulletin.get(h)).getId()),
-                                    "DetailBulletin");
-                            // model.setNumRows(list.size());
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de la classe":
+                        ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
+                        for (int i = 0; i < idclasse.size(); i++) {
+                            list = bdd.rechercher("IdClasse", String.valueOf(((Classe) idclasse.get(i)).getId()),
+                                    "Enseignement");
+                            model.setNumRows(list.size());
                             for (int j = 0; j < list.size(); j++) {
-                                DetailBulletin o = (DetailBulletin) list.get(j);
+                                Enseignement o = (Enseignement) list.get(j);
                                 int id = o.getId();
-                                String appreciation = o.getAppreciation();
-                                ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
-                                        "Bulletin");
-                                ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                                String bulletin_trimestre = String
-                                        .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                        "Inscription");
-                                ArrayList<Object> idclasse = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                                String classe = ((Classe) idclasse.get(0)).getNom();
-                                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                String nom = ((Personne) idEleve.get(0)).getNom();
-                                String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                        String.valueOf(o.getIdEnseignement()), "Enseignement");
-                                ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                                ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                        "Discipline");
-                                ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
                                 ArrayList<Object> idEcole = bdd.rechercher("Id",
                                         String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
                                 ArrayList<Object> idNiveau = bdd.rechercher("Id",
                                         String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
                                 ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                        "AnneeScolaire");
-                                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
-                                        + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                        + classe_annee;
+                                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                                ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
+                                        "Discipline");
+                                String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
                                 String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                ArrayList<Object> idProf = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                String enseignement = discipline + " " + enseignement_professeur;
-                                Object[] data = { id, bulletin, enseignement, appreciation };
+                                ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
+                                String prenom = ((Personne) idProf.get(0)).getPrenom();
+                                String nom = ((Personne) idProf.get(0)).getNom();
+                                String professeur = prenom + " " + nom;
+                                Object[] data = {id, classe, discipline, professeur};
                                 model.addRow(data);
                             }
                         }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de la classe":
-                ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
-                for (int i = 0; i < idclasse.size(); i++) {
-                    ArrayList<Object> idinscription = bdd.rechercher("idClasse",
-                            String.valueOf(((Classe) idclasse.get(i)).getId()), "Inscription");
-                    for (int k = 0; k < idinscription.size(); k++) {
-                        ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
-                                String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
-                        for (int h = 0; h < idbulletin.size(); h++) {
-                            list = bdd.rechercher("idBulletin", String.valueOf(((Bulletin) idbulletin.get(h)).getId()),
-                                    "DetailBulletin");
-                            // model.setNumRows(list.size());
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de la discipline":
+                        ArrayList<Object> iddiscipline = bdd.rechercher("Nom", value, "Discipline");
+                        for (int i = 0; i < iddiscipline.size(); i++) {
+                            list = bdd.rechercher("IdDiscipline", String.valueOf(((Discipline) iddiscipline.get(i)).getId()),
+                                    "Enseignement");
+                            model.setNumRows(list.size());
                             for (int j = 0; j < list.size(); j++) {
-                                DetailBulletin o = (DetailBulletin) list.get(j);
+                                Enseignement o = (Enseignement) list.get(j);
                                 int id = o.getId();
-                                String appreciation = o.getAppreciation();
-                                ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
-                                        "Bulletin");
-                                ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                                String bulletin_trimestre = String
-                                        .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                        "Inscription");
-                                ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                                String classe = ((Classe) idclasse_2.get(0)).getNom();
-                                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                String nom = ((Personne) idEleve.get(0)).getNom();
-                                String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                        String.valueOf(o.getIdEnseignement()), "Enseignement");
-                                ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                                ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                        "Discipline");
-                                ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()), "Classe");
                                 ArrayList<Object> idEcole = bdd.rechercher("Id",
                                         String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
                                 ArrayList<Object> idNiveau = bdd.rechercher("Id",
                                         String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
                                 ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                        "AnneeScolaire");
-                                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
-                                        + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                        + classe_annee;
+                                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                                ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
+                                        "Discipline");
+                                String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
                                 String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                ArrayList<Object> idProf = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                String enseignement = discipline + " " + enseignement_professeur;
-                                Object[] data = { id, bulletin, enseignement, appreciation };
+                                ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()), "Personne");
+                                String prenom = ((Personne) idProf.get(0)).getPrenom();
+                                String nom = ((Personne) idProf.get(0)).getNom();
+                                String professeur = prenom + " " + nom;
+                                Object[] data = {id, classe, discipline, professeur};
                                 model.addRow(data);
                             }
                         }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de l'élève":
-                ArrayList<Object> ideleve = bdd.rechercher("Nom", value, "Personne");
-                for (int i = 0; i < ideleve.size(); i++) {
-                    if (!((Personne) ideleve.get(i)).isType()) {
-                        ArrayList<Object> idinscription = bdd.rechercher("idClasse",
-                                String.valueOf(((Personne) ideleve.get(i)).getId()), "Inscription");
-                        for (int k = 0; k < idinscription.size(); k++) {
-                            ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
-                                    String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
-                            for (int h = 0; h < idbulletin.size(); h++) {
-                                list = bdd.rechercher("idBulletin",
-                                        String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
-                                // model.setNumRows(list.size());
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom du professeur":
+                        ArrayList<Object> idprof = bdd.rechercher("Nom", value, "Personne");
+                        for (int i = 0; i < idprof.size(); i++) {
+                            if (((Personne) idprof.get(i)).isType()) {
+                                list = bdd.rechercher("IdPersonne", String.valueOf(((Personne) idprof.get(i)).getId()),
+                                        "Enseignement");
+                                model.setNumRows(list.size());
                                 for (int j = 0; j < list.size(); j++) {
-                                    DetailBulletin o = (DetailBulletin) list.get(j);
+                                    Enseignement o = (Enseignement) list.get(j);
                                     int id = o.getId();
-                                    String appreciation = o.getAppreciation();
-                                    ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                                            String.valueOf(o.getIdBulletin()), "Bulletin");
-                                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
-                                            "Trimestre");
-                                    String bulletin_trimestre = String
-                                            .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                    ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                            "Inscription");
-                                    ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
+                                    ArrayList<Object> idClasse = bdd.rechercher("Id", String.valueOf(o.getIdClasse()),
                                             "Classe");
-                                    String classe = ((Classe) idclasse_2.get(0)).getNom();
-                                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                    String nom = ((Personne) idEleve.get(0)).getNom();
-                                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                            String.valueOf(o.getIdEnseignement()), "Enseignement");
-                                    ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
-                                            "Classe");
-                                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                            "Discipline");
-                                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
                                     ArrayList<Object> idEcole = bdd.rechercher("Id",
                                             String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
                                     ArrayList<Object> idNiveau = bdd.rechercher("Id",
                                             String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
                                     ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                            "AnneeScolaire");
-                                    String classe_annee = String
-                                            .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                                    ArrayList<Object> idDiscipline = bdd.rechercher("Id", String.valueOf(o.getIdDiscipline()),
+                                            "Discipline");
+                                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
                                             + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                            + classe_annee;
+                                    String classe = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
                                     String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                    ArrayList<Object> idProf = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                    ArrayList<Object> idProf = bdd.rechercher("Id", String.valueOf(o.getIdPersonne()),
                                             "Personne");
-                                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                    String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                    String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                    String enseignement = discipline + " " + enseignement_professeur;
-                                    Object[] data = { id, bulletin, enseignement, appreciation };
+                                    String prenom = ((Personne) idProf.get(0)).getPrenom();
+                                    String nom = ((Personne) idProf.get(0)).getNom();
+                                    String professeur = prenom + " " + nom;
+                                    Object[] data = {id, classe, discipline, professeur};
                                     model.addRow(data);
                                 }
                             }
                         }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom du professeur":
-                ArrayList<Object> idprof = bdd.rechercher("Nom", value, "Personne");
-                for (int i = 0; i < idprof.size(); i++) {
-                    if (((Personne) idprof.get(i)).isType()) {
-                        ArrayList<Object> idenseignement = bdd.rechercher("idPersonne",
-                                String.valueOf(((Personne) idprof.get(i)).getId()), "Enseignement");
-                        for (int k = 0; k < idenseignement.size(); k++) {
-                            list = bdd.rechercher("idEnseignement",
-                                    String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
-                            // model.setNumRows(list.size());
-                            for (int j = 0; j < list.size(); j++) {
-                                DetailBulletin o = (DetailBulletin) list.get(j);
-                                int id = o.getId();
-                                String appreciation = o.getAppreciation();
-                                ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
-                                        "Bulletin");
-                                ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                                String bulletin_trimestre = String
-                                        .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                        "Inscription");
-                                ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                                String classe = ((Classe) idclasse_2.get(0)).getNom();
-                                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                String nom = ((Personne) idEleve.get(0)).getNom();
-                                String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                        String.valueOf(o.getIdEnseignement()), "Enseignement");
-                                ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                                ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                        "Discipline");
-                                ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                                ArrayList<Object> idEcole = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                                ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                                ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                        "AnneeScolaire");
-                                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
-                                        + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                        + classe_annee;
-                                String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                ArrayList<Object> idProf = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                String enseignement = discipline + " " + enseignement_professeur;
-                                Object[] data = { id, bulletin, enseignement, appreciation };
-                                model.addRow(data);
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
                             }
-
                         }
-                    }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            case "Nom de la discipline":
-                ArrayList<Object> iddiscipline = bdd.rechercher("Nom", value, "Discipline");
-                for (int i = 0; i < iddiscipline.size(); i++) {
-                    ArrayList<Object> idenseignement = bdd.rechercher("idDiscipline",
-                            String.valueOf(((Discipline) iddiscipline.get(i)).getId()), "Enseignement");
-                    for (int k = 0; k < idenseignement.size(); k++) {
-                        list = bdd.rechercher("idEnseignement",
-                                String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
-                        // model.setNumRows(list.size());
-                        for (int j = 0; j < list.size(); j++) {
-                            DetailBulletin o = (DetailBulletin) list.get(j);
+            case "Discipline":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Discipline");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Discipline p = (Discipline) list.get(i);
+                            int id = p.getId();
+                            String nom = p.getNom();
+                            Object[] data = {id, nom};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom":
+                        list = bdd.rechercher("Nom", value, "Discipline");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Discipline p = (Discipline) list.get(i);
+                            int id = p.getId();
+                            String nom = p.getNom();
+                            Object[] data = {id, nom};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
+                }
+                break;
+            case "BulletinDetails":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "DetailBulletin");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            DetailBulletin o = (DetailBulletin) list.get(i);
                             int id = o.getId();
                             String appreciation = o.getAppreciation();
-                            ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
-                                    "Bulletin");
+                            ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()), "Bulletin");
                             ArrayList<Object> idTrimestre = bdd.rechercher("Id",
                                     String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                            String bulletin_trimestre = String
-                                    .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                    + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                            String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
+                                    + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
                             ArrayList<Object> idInscription = bdd.rechercher("Id",
                                     String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
-                            ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                            ArrayList<Object> idclasse = bdd.rechercher("Id",
                                     String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                            String classe = ((Classe) idclasse_2.get(0)).getNom();
+                            String classe = ((Classe) idclasse.get(0)).getNom();
                             ArrayList<Object> idEleve = bdd.rechercher("Id",
                                     String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
                             String prenom = ((Personne) idEleve.get(0)).getPrenom();
                             String nom = ((Personne) idEleve.get(0)).getNom();
                             String bulletin_inscription = classe + "-" + prenom + " " + nom;
                             String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                            ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                    String.valueOf(o.getIdEnseignement()), "Enseignement");
+                            ArrayList<Object> idEnseignement = bdd.rechercher("Id", String.valueOf(o.getIdEnseignement()),
+                                    "Enseignement");
                             ArrayList<Object> idClasse = bdd.rechercher("Id",
                                     String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
                             ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                    "Discipline");
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
                             ArrayList<Object> idPersonne = bdd.rechercher("Id",
                                     String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
                             String classe_nom = ((Classe) idClasse.get(0)).getNom();
@@ -7341,401 +6967,45 @@ public class Menu extends javax.swing.JFrame {
                             String prof_nom = ((Personne) idProf.get(0)).getNom();
                             String enseignement_professeur = prof_prenom + " " + prof_nom;
                             String enseignement = discipline + " " + enseignement_professeur;
-                            Object[] data = { id, bulletin, enseignement, appreciation };
+                            Object[] data = {id, bulletin, enseignement, appreciation};
                             model.addRow(data);
                         }
-
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        case "Evaluation":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Evaluation");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Evaluation o = (Evaluation) list.get(i);
-                    int id = o.getId();
-                    String appreciation = o.getAppreciation();
-                    int note = o.getNote();
-                    ArrayList<Object> idBulletinDetails = bdd.rechercher("Id", String.valueOf(o.getIdDetailBulletin()),
-                            "DetailBulletin");
-                    String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0)).getAppreciation();
-                    ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()), "Bulletin");
-                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                    String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
-                            + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                    ArrayList<Object> idInscription = bdd.rechercher("Id",
-                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
-                    ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                    String classe = ((Classe) idclasse_2.get(0)).getNom();
-                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                    String nom = ((Personne) idEleve.get(0)).getNom();
-                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                            "Enseignement");
-                    ArrayList<Object> idClasse = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
-                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                    ArrayList<Object> idEcole = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                    ArrayList<Object> idProf = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                    String prof_nom = ((Personne) idProf.get(0)).getNom();
-                    String enseignement_professeur = prof_prenom + " " + prof_nom;
-                    String enseignement = discipline + " " + enseignement_professeur;
-                    String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                    Object[] data = { id, bulletindetails, note, appreciation };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Note":
-                list = bdd.rechercher("Note", value, "Evaluation");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Evaluation o = (Evaluation) list.get(i);
-                    int id = o.getId();
-                    String appreciation = o.getAppreciation();
-                    int note = o.getNote();
-                    ArrayList<Object> idBulletinDetails = bdd.rechercher("Id", String.valueOf(o.getIdDetailBulletin()),
-                            "DetailBulletin");
-                    String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0)).getAppreciation();
-                    ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()), "Bulletin");
-                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                    String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
-                            + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                    ArrayList<Object> idInscription = bdd.rechercher("Id",
-                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
-                    ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                    String classe = ((Classe) idclasse_2.get(0)).getNom();
-                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
-                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                    String nom = ((Personne) idEleve.get(0)).getNom();
-                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                            "Enseignement");
-                    ArrayList<Object> idClasse = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
-                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                    ArrayList<Object> idEcole = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
-                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
-                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                    ArrayList<Object> idProf = bdd.rechercher("Id",
-                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
-                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                    String prof_nom = ((Personne) idProf.get(0)).getNom();
-                    String enseignement_professeur = prof_prenom + " " + prof_nom;
-                    String enseignement = discipline + " " + enseignement_professeur;
-                    String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                    Object[] data = { id, bulletindetails, note, appreciation };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-
-            case "Nom de la classe":
-                ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
-                for (int i = 0; i < idclasse.size(); i++) {
-                    ArrayList<Object> idinscription = bdd.rechercher("idClasse",
-                            String.valueOf(((Classe) idclasse.get(i)).getId()), "Inscription");
-                    for (int k = 0; k < idinscription.size(); k++) {
-                        ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
-                                String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
-                        for (int h = 0; h < idbulletin.size(); h++) {
-                            ArrayList<Object> iddetailbulletin = bdd.rechercher("idBulletin",
-                                    String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
-                            for (int l = 0; l < iddetailbulletin.size(); l++) {
-                                list = bdd.rechercher("idDetailBulletin",
-                                        String.valueOf(((DetailBulletin) iddetailbulletin.get(h)).getId()),
-                                        "Evaluation");
-                                // model.setNumRows(list.size());
-                                for (int j = 0; j < list.size(); j++) {
-                                    Evaluation o = (Evaluation) list.get(j);
-                                    int id = o.getId();
-                                    String appreciation = o.getAppreciation();
-                                    int note = o.getNote();
-                                    ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
-                                            String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
-                                    String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
-                                            .getAppreciation();
-                                    ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
-                                            "Bulletin");
-                                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
-                                            "Trimestre");
-                                    String bulletin_trimestre = String
-                                            .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                    ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                            "Inscription");
-                                    ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
-                                            "Classe");
-                                    String classe = ((Classe) idclasse_2.get(0)).getNom();
-                                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                    String nom = ((Personne) idEleve.get(0)).getNom();
-                                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                            String.valueOf(
-                                                    ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                                            "Enseignement");
-                                    ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
-                                            "Classe");
-                                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                            "Discipline");
-                                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                                    ArrayList<Object> idEcole = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                            "AnneeScolaire");
-                                    String classe_annee = String
-                                            .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                            + classe_annee;
-                                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                    ArrayList<Object> idProf = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                    String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                    String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                    String enseignement = discipline + " " + enseignement_professeur;
-                                    String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                                    Object[] data = { id, bulletindetails, note, appreciation };
-                                    model.addRow(data);
-                                }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
                             }
                         }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Début d'année scolaire":
-                ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
-                for (int i = 0; i < idannee.size(); i++) {
-                    ArrayList<Object> idtrimestre = bdd.rechercher("idAnneeScolaire",
-                            String.valueOf(((AnneeScolaire) idannee.get(i)).getId()), "Trimestre");
-                    for (int k = 0; k < idtrimestre.size(); k++) {
-                        ArrayList<Object> idbulletin = bdd.rechercher("idTrimestre",
-                                String.valueOf(((Trimestre) idtrimestre.get(k)).getId()), "Bulletin");
-                        for (int h = 0; h < idbulletin.size(); h++) {
-                            ArrayList<Object> iddetailbulletin = bdd.rechercher("idBulletin",
-                                    String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
-                            for (int l = 0; l < iddetailbulletin.size(); l++) {
-                                list = bdd.rechercher("idDetailBulletin",
-                                        String.valueOf(((DetailBulletin) iddetailbulletin.get(h)).getId()),
-                                        "Evaluation");
-                                // model.setNumRows(list.size());
-                                for (int j = 0; j < list.size(); j++) {
-                                    Evaluation o = (Evaluation) list.get(j);
-                                    int id = o.getId();
-                                    String appreciation = o.getAppreciation();
-                                    int note = o.getNote();
-                                    ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
-                                            String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
-                                    String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
-                                            .getAppreciation();
-                                    ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
-                                            "Bulletin");
-                                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
-                                            "Trimestre");
-                                    String bulletin_trimestre = String
-                                            .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                    ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                            "Inscription");
-                                    ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
-                                            "Classe");
-                                    String classe = ((Classe) idclasse_2.get(0)).getNom();
-                                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                    String nom = ((Personne) idEleve.get(0)).getNom();
-                                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                            String.valueOf(
-                                                    ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                                            "Enseignement");
-                                    ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
-                                            "Classe");
-                                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                            "Discipline");
-                                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                                    ArrayList<Object> idEcole = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                            "AnneeScolaire");
-                                    String classe_annee = String
-                                            .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                            + classe_annee;
-                                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                    ArrayList<Object> idProf = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                    String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                    String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                    String enseignement = discipline + " " + enseignement_professeur;
-                                    String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                                    Object[] data = { id, bulletindetails, note, appreciation };
-                                    model.addRow(data);
-                                }
-                            }
-                        }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom de l'élève":
-                ArrayList<Object> ideleve = bdd.rechercher("Nom", value, "Personne");
-                for (int i = 0; i < ideleve.size(); i++) {
-                    if (!((Personne) ideleve.get(i)).isType()) {
-                        ArrayList<Object> idinscription = bdd.rechercher("idPersonne",
-                                String.valueOf(((Personne) ideleve.get(i)).getId()), "Inscription");
-                        for (int k = 0; k < idinscription.size(); k++) {
-                            ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
-                                    String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
-                            for (int h = 0; h < idbulletin.size(); h++) {
-                                ArrayList<Object> iddetailbulletin = bdd.rechercher("idBulletin",
-                                        String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
-                                for (int l = 0; l < iddetailbulletin.size(); l++) {
-                                    list = bdd.rechercher("idDetailBulletin",
-                                            String.valueOf(((DetailBulletin) iddetailbulletin.get(l)).getId()),
-                                            "Evaluation");
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Début d'année scolaire":
+                        ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
+                        for (int i = 0; i < idannee.size(); i++) {
+                            ArrayList<Object> idtrimestre = bdd.rechercher("idAnneeScolaire",
+                                    String.valueOf(((AnneeScolaire) idannee.get(i)).getId()), "Trimestre");
+                            for (int k = 0; k < idtrimestre.size(); k++) {
+                                ArrayList<Object> idbulletin = bdd.rechercher("idTrimestre",
+                                        String.valueOf(((Trimestre) idtrimestre.get(k)).getId()), "Bulletin");
+                                for (int h = 0; h < idbulletin.size(); h++) {
+                                    list = bdd.rechercher("idBulletin", String.valueOf(((Bulletin) idbulletin.get(h)).getId()),
+                                            "DetailBulletin");
                                     // model.setNumRows(list.size());
                                     for (int j = 0; j < list.size(); j++) {
-                                        Evaluation o = (Evaluation) list.get(j);
+                                        DetailBulletin o = (DetailBulletin) list.get(j);
                                         int id = o.getId();
                                         String appreciation = o.getAppreciation();
-                                        int note = o.getNote();
-                                        ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
-                                                String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
-                                        String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails
-                                                .get(0)).getAppreciation();
-                                        ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                                                String.valueOf(
-                                                        ((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
+                                        ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
                                                 "Bulletin");
                                         ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
-                                                "Trimestre");
+                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
                                         String bulletin_trimestre = String
                                                 .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
                                                 + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
                                         ArrayList<Object> idInscription = bdd.rechercher("Id",
                                                 String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
                                                 "Inscription");
-                                        ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                                String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
-                                                "Classe");
-                                        String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                        ArrayList<Object> idclasse = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                        String classe = ((Classe) idclasse.get(0)).getNom();
                                         ArrayList<Object> idEleve = bdd.rechercher("Id",
                                                 String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
                                                 "Personne");
@@ -7743,15 +7013,12 @@ public class Menu extends javax.swing.JFrame {
                                         String nom = ((Personne) idEleve.get(0)).getNom();
                                         String bulletin_inscription = classe + "-" + prenom + " " + nom;
                                         String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                        ArrayList<Object> idEnseignement = bdd.rechercher("Id", String.valueOf(
-                                                ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                                                "Enseignement");
+                                        ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                String.valueOf(o.getIdEnseignement()), "Enseignement");
                                         ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
-                                                "Classe");
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
                                         ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                                String.valueOf(
-                                                        ((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
                                                 "Discipline");
                                         ArrayList<Object> idPersonne = bdd.rechercher("Id",
                                                 String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
@@ -7766,9 +7033,954 @@ public class Menu extends javax.swing.JFrame {
                                         ArrayList<Object> idAnnee = bdd.rechercher("Id",
                                                 String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
                                                 "AnneeScolaire");
-                                        String classe_annee = String
-                                                .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                                + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                        String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
+                                                + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                        String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                + classe_annee;
+                                        String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                        ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                        String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                        String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                        String enseignement = discipline + " " + enseignement_professeur;
+                                        Object[] data = {id, bulletin, enseignement, appreciation};
+                                        model.addRow(data);
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de la classe":
+                        ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
+                        for (int i = 0; i < idclasse.size(); i++) {
+                            ArrayList<Object> idinscription = bdd.rechercher("idClasse",
+                                    String.valueOf(((Classe) idclasse.get(i)).getId()), "Inscription");
+                            for (int k = 0; k < idinscription.size(); k++) {
+                                ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
+                                        String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
+                                for (int h = 0; h < idbulletin.size(); h++) {
+                                    list = bdd.rechercher("idBulletin", String.valueOf(((Bulletin) idbulletin.get(h)).getId()),
+                                            "DetailBulletin");
+                                    // model.setNumRows(list.size());
+                                    for (int j = 0; j < list.size(); j++) {
+                                        DetailBulletin o = (DetailBulletin) list.get(j);
+                                        int id = o.getId();
+                                        String appreciation = o.getAppreciation();
+                                        ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
+                                                "Bulletin");
+                                        ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                                        String bulletin_trimestre = String
+                                                .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                        ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                "Inscription");
+                                        ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                        String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                        ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                        String nom = ((Personne) idEleve.get(0)).getNom();
+                                        String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                        String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                        ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                String.valueOf(o.getIdEnseignement()), "Enseignement");
+                                        ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                                        ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                "Discipline");
+                                        ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                        ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                        String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                        ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                        String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                        ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                "AnneeScolaire");
+                                        String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
+                                                + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                        String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                + classe_annee;
+                                        String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                        ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                        String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                        String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                        String enseignement = discipline + " " + enseignement_professeur;
+                                        Object[] data = {id, bulletin, enseignement, appreciation};
+                                        model.addRow(data);
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de l'élève":
+                        ArrayList<Object> ideleve = bdd.rechercher("Nom", value, "Personne");
+                        for (int i = 0; i < ideleve.size(); i++) {
+                            if (!((Personne) ideleve.get(i)).isType()) {
+                                ArrayList<Object> idinscription = bdd.rechercher("idClasse",
+                                        String.valueOf(((Personne) ideleve.get(i)).getId()), "Inscription");
+                                for (int k = 0; k < idinscription.size(); k++) {
+                                    ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
+                                            String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
+                                    for (int h = 0; h < idbulletin.size(); h++) {
+                                        list = bdd.rechercher("idBulletin",
+                                                String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
+                                        // model.setNumRows(list.size());
+                                        for (int j = 0; j < list.size(); j++) {
+                                            DetailBulletin o = (DetailBulletin) list.get(j);
+                                            int id = o.getId();
+                                            String appreciation = o.getAppreciation();
+                                            ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                                    String.valueOf(o.getIdBulletin()), "Bulletin");
+                                            ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
+                                                    "Trimestre");
+                                            String bulletin_trimestre = String
+                                                    .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                    + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                            ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                    "Inscription");
+                                            ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                            ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                            String nom = ((Personne) idEleve.get(0)).getNom();
+                                            String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                            String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                            ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                    String.valueOf(o.getIdEnseignement()), "Enseignement");
+                                            ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                    "Discipline");
+                                            ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                            ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                            String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                            ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                            String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                            ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                    "AnneeScolaire");
+                                            String classe_annee = String
+                                                    .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                            String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                    + classe_annee;
+                                            String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                            ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                            String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                            String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                            String enseignement = discipline + " " + enseignement_professeur;
+                                            Object[] data = {id, bulletin, enseignement, appreciation};
+                                            model.addRow(data);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom du professeur":
+                        ArrayList<Object> idprof = bdd.rechercher("Nom", value, "Personne");
+                        for (int i = 0; i < idprof.size(); i++) {
+                            if (((Personne) idprof.get(i)).isType()) {
+                                ArrayList<Object> idenseignement = bdd.rechercher("idPersonne",
+                                        String.valueOf(((Personne) idprof.get(i)).getId()), "Enseignement");
+                                for (int k = 0; k < idenseignement.size(); k++) {
+                                    list = bdd.rechercher("idEnseignement",
+                                            String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
+                                    // model.setNumRows(list.size());
+                                    for (int j = 0; j < list.size(); j++) {
+                                        DetailBulletin o = (DetailBulletin) list.get(j);
+                                        int id = o.getId();
+                                        String appreciation = o.getAppreciation();
+                                        ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
+                                                "Bulletin");
+                                        ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                                        String bulletin_trimestre = String
+                                                .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                        ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                "Inscription");
+                                        ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                        String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                        ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                        String nom = ((Personne) idEleve.get(0)).getNom();
+                                        String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                        String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                        ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                String.valueOf(o.getIdEnseignement()), "Enseignement");
+                                        ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                                        ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                "Discipline");
+                                        ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                        ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                        String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                        ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                        String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                        ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                "AnneeScolaire");
+                                        String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
+                                                + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                        String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                + classe_annee;
+                                        String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                        ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                        String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                        String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                        String enseignement = discipline + " " + enseignement_professeur;
+                                        Object[] data = {id, bulletin, enseignement, appreciation};
+                                        model.addRow(data);
+                                    }
+
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de la discipline":
+                        ArrayList<Object> iddiscipline = bdd.rechercher("Nom", value, "Discipline");
+                        for (int i = 0; i < iddiscipline.size(); i++) {
+                            ArrayList<Object> idenseignement = bdd.rechercher("idDiscipline",
+                                    String.valueOf(((Discipline) iddiscipline.get(i)).getId()), "Enseignement");
+                            for (int k = 0; k < idenseignement.size(); k++) {
+                                list = bdd.rechercher("idEnseignement",
+                                        String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
+                                // model.setNumRows(list.size());
+                                for (int j = 0; j < list.size(); j++) {
+                                    DetailBulletin o = (DetailBulletin) list.get(j);
+                                    int id = o.getId();
+                                    String appreciation = o.getAppreciation();
+                                    ArrayList<Object> idBulletin = bdd.rechercher("Id", String.valueOf(o.getIdBulletin()),
+                                            "Bulletin");
+                                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                                    String bulletin_trimestre = String
+                                            .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                    ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
+                                    ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                    String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                    ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                    String nom = ((Personne) idEleve.get(0)).getNom();
+                                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                            String.valueOf(o.getIdEnseignement()), "Enseignement");
+                                    ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                            "Discipline");
+                                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                    ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                                    String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
+                                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                    ArrayList<Object> idProf = bdd.rechercher("Id",
+                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                    String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                    String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                    String enseignement = discipline + " " + enseignement_professeur;
+                                    Object[] data = {id, bulletin, enseignement, appreciation};
+                                    model.addRow(data);
+                                }
+
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
+                }
+                break;
+            case "Evaluation":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Evaluation");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Evaluation o = (Evaluation) list.get(i);
+                            int id = o.getId();
+                            String appreciation = o.getAppreciation();
+                            int note = o.getNote();
+                            ArrayList<Object> idBulletinDetails = bdd.rechercher("Id", String.valueOf(o.getIdDetailBulletin()),
+                                    "DetailBulletin");
+                            String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0)).getAppreciation();
+                            ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                    String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()), "Bulletin");
+                            ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                            String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
+                                    + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                            ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
+                            ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                    String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                            String classe = ((Classe) idclasse_2.get(0)).getNom();
+                            ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                    String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                            String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                            String nom = ((Personne) idEleve.get(0)).getNom();
+                            String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                            String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                            ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                    String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                                    "Enseignement");
+                            ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                            ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
+                            ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                            String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                            ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                    String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                            String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                            ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                    String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                            String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                            ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                    String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                            String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                            String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
+                            String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                            ArrayList<Object> idProf = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                            String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                            String prof_nom = ((Personne) idProf.get(0)).getNom();
+                            String enseignement_professeur = prof_prenom + " " + prof_nom;
+                            String enseignement = discipline + " " + enseignement_professeur;
+                            String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
+                            Object[] data = {id, bulletindetails, note, appreciation};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Note":
+                        list = bdd.rechercher("Note", value, "Evaluation");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Evaluation o = (Evaluation) list.get(i);
+                            int id = o.getId();
+                            String appreciation = o.getAppreciation();
+                            int note = o.getNote();
+                            ArrayList<Object> idBulletinDetails = bdd.rechercher("Id", String.valueOf(o.getIdDetailBulletin()),
+                                    "DetailBulletin");
+                            String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0)).getAppreciation();
+                            ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                    String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()), "Bulletin");
+                            ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                            String bulletin_trimestre = String.valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString())
+                                    + "-" + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                            ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()), "Inscription");
+                            ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                    String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                            String classe = ((Classe) idclasse_2.get(0)).getNom();
+                            ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                    String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()), "Personne");
+                            String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                            String nom = ((Personne) idEleve.get(0)).getNom();
+                            String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                            String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                            ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                    String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                                    "Enseignement");
+                            ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                            ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()), "Discipline");
+                            ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                            String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                            ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                    String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                            String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                            ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                    String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                            String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                            ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                    String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()), "AnneeScolaire");
+                            String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                            String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " " + classe_annee;
+                            String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                            ArrayList<Object> idProf = bdd.rechercher("Id",
+                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()), "Personne");
+                            String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                            String prof_nom = ((Personne) idProf.get(0)).getNom();
+                            String enseignement_professeur = prof_prenom + " " + prof_nom;
+                            String enseignement = discipline + " " + enseignement_professeur;
+                            String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
+                            Object[] data = {id, bulletindetails, note, appreciation};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+
+                    case "Nom de la classe":
+                        ArrayList<Object> idclasse = bdd.rechercher("Nom", value, "Classe");
+                        for (int i = 0; i < idclasse.size(); i++) {
+                            ArrayList<Object> idinscription = bdd.rechercher("idClasse",
+                                    String.valueOf(((Classe) idclasse.get(i)).getId()), "Inscription");
+                            for (int k = 0; k < idinscription.size(); k++) {
+                                ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
+                                        String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
+                                for (int h = 0; h < idbulletin.size(); h++) {
+                                    ArrayList<Object> iddetailbulletin = bdd.rechercher("idBulletin",
+                                            String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
+                                    for (int l = 0; l < iddetailbulletin.size(); l++) {
+                                        list = bdd.rechercher("idDetailBulletin",
+                                                String.valueOf(((DetailBulletin) iddetailbulletin.get(h)).getId()),
+                                                "Evaluation");
+                                        // model.setNumRows(list.size());
+                                        for (int j = 0; j < list.size(); j++) {
+                                            Evaluation o = (Evaluation) list.get(j);
+                                            int id = o.getId();
+                                            String appreciation = o.getAppreciation();
+                                            int note = o.getNote();
+                                            ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
+                                                    String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
+                                            String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
+                                                    .getAppreciation();
+                                            ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                                    String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
+                                                    "Bulletin");
+                                            ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
+                                                    "Trimestre");
+                                            String bulletin_trimestre = String
+                                                    .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                    + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                            ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                    "Inscription");
+                                            ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                            ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                            String nom = ((Personne) idEleve.get(0)).getNom();
+                                            String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                            String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                            ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                    String.valueOf(
+                                                            ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                                                    "Enseignement");
+                                            ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                    "Discipline");
+                                            ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                            ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                            String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                            ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                            String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                            ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                    "AnneeScolaire");
+                                            String classe_annee = String
+                                                    .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                            String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                    + classe_annee;
+                                            String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                            ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                            String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                            String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                            String enseignement = discipline + " " + enseignement_professeur;
+                                            String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
+                                            Object[] data = {id, bulletindetails, note, appreciation};
+                                            model.addRow(data);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Début d'année scolaire":
+                        ArrayList<Object> idannee = bdd.rechercher("AnneeDebut", value, "AnneeScolaire");
+                        for (int i = 0; i < idannee.size(); i++) {
+                            ArrayList<Object> idtrimestre = bdd.rechercher("idAnneeScolaire",
+                                    String.valueOf(((AnneeScolaire) idannee.get(i)).getId()), "Trimestre");
+                            for (int k = 0; k < idtrimestre.size(); k++) {
+                                ArrayList<Object> idbulletin = bdd.rechercher("idTrimestre",
+                                        String.valueOf(((Trimestre) idtrimestre.get(k)).getId()), "Bulletin");
+                                for (int h = 0; h < idbulletin.size(); h++) {
+                                    ArrayList<Object> iddetailbulletin = bdd.rechercher("idBulletin",
+                                            String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
+                                    for (int l = 0; l < iddetailbulletin.size(); l++) {
+                                        list = bdd.rechercher("idDetailBulletin",
+                                                String.valueOf(((DetailBulletin) iddetailbulletin.get(h)).getId()),
+                                                "Evaluation");
+                                        // model.setNumRows(list.size());
+                                        for (int j = 0; j < list.size(); j++) {
+                                            Evaluation o = (Evaluation) list.get(j);
+                                            int id = o.getId();
+                                            String appreciation = o.getAppreciation();
+                                            int note = o.getNote();
+                                            ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
+                                                    String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
+                                            String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
+                                                    .getAppreciation();
+                                            ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                                    String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
+                                                    "Bulletin");
+                                            ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
+                                                    "Trimestre");
+                                            String bulletin_trimestre = String
+                                                    .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                    + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                            ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                    "Inscription");
+                                            ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                            ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                            String nom = ((Personne) idEleve.get(0)).getNom();
+                                            String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                            String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                            ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                    String.valueOf(
+                                                            ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                                                    "Enseignement");
+                                            ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                    "Discipline");
+                                            ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                            ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                            String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                            ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                            String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                            ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                    "AnneeScolaire");
+                                            String classe_annee = String
+                                                    .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                            String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                    + classe_annee;
+                                            String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                            ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                            String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                            String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                            String enseignement = discipline + " " + enseignement_professeur;
+                                            String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
+                                            Object[] data = {id, bulletindetails, note, appreciation};
+                                            model.addRow(data);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de l'élève":
+                        ArrayList<Object> ideleve = bdd.rechercher("Nom", value, "Personne");
+                        for (int i = 0; i < ideleve.size(); i++) {
+                            if (!((Personne) ideleve.get(i)).isType()) {
+                                ArrayList<Object> idinscription = bdd.rechercher("idPersonne",
+                                        String.valueOf(((Personne) ideleve.get(i)).getId()), "Inscription");
+                                for (int k = 0; k < idinscription.size(); k++) {
+                                    ArrayList<Object> idbulletin = bdd.rechercher("idInscription",
+                                            String.valueOf(((Inscription) idinscription.get(k)).getId()), "Bulletin");
+                                    for (int h = 0; h < idbulletin.size(); h++) {
+                                        ArrayList<Object> iddetailbulletin = bdd.rechercher("idBulletin",
+                                                String.valueOf(((Bulletin) idbulletin.get(h)).getId()), "DetailBulletin");
+                                        for (int l = 0; l < iddetailbulletin.size(); l++) {
+                                            list = bdd.rechercher("idDetailBulletin",
+                                                    String.valueOf(((DetailBulletin) iddetailbulletin.get(l)).getId()),
+                                                    "Evaluation");
+                                            // model.setNumRows(list.size());
+                                            for (int j = 0; j < list.size(); j++) {
+                                                Evaluation o = (Evaluation) list.get(j);
+                                                int id = o.getId();
+                                                String appreciation = o.getAppreciation();
+                                                int note = o.getNote();
+                                                ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
+                                                        String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
+                                                String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails
+                                                        .get(0)).getAppreciation();
+                                                ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                                        String.valueOf(
+                                                                ((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
+                                                        "Bulletin");
+                                                ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
+                                                        "Trimestre");
+                                                String bulletin_trimestre = String
+                                                        .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                                ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                        "Inscription");
+                                                ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
+                                                        "Classe");
+                                                String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                                ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                        "Personne");
+                                                String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                                String nom = ((Personne) idEleve.get(0)).getNom();
+                                                String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                                String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                                ArrayList<Object> idEnseignement = bdd.rechercher("Id", String.valueOf(
+                                                        ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                                                        "Enseignement");
+                                                ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
+                                                        "Classe");
+                                                ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                        String.valueOf(
+                                                                ((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                        "Discipline");
+                                                ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                        "Personne");
+                                                String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                                ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                        String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                                ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                        String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                                ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                        "AnneeScolaire");
+                                                String classe_annee = String
+                                                        .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                                        + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                                String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                        + classe_annee;
+                                                String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                                ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                        "Personne");
+                                                String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                                String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                                String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                                String enseignement = discipline + " " + enseignement_professeur;
+                                                String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
+                                                Object[] data = {id, bulletindetails, note, appreciation};
+                                                model.addRow(data);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom du professeur":
+                        ArrayList<Object> idprof = bdd.rechercher("Nom", value, "Personne");
+                        for (int i = 0; i < idprof.size(); i++) {
+                            if (((Personne) idprof.get(i)).isType()) {
+                                ArrayList<Object> idenseignement = bdd.rechercher("idPersonne",
+                                        String.valueOf(((Personne) idprof.get(i)).getId()), "Enseignement");
+                                for (int k = 0; k < idenseignement.size(); k++) {
+                                    ArrayList<Object> iddetailbulletin = bdd.rechercher("idEnseignement",
+                                            String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
+                                    for (int l = 0; l < iddetailbulletin.size(); l++) {
+                                        list = bdd.rechercher("idDetailBulletin",
+                                                String.valueOf(((DetailBulletin) iddetailbulletin.get(l)).getId()),
+                                                "Evaluation");
+                                        // model.setNumRows(list.size());
+                                        for (int j = 0; j < list.size(); j++) {
+                                            Evaluation o = (Evaluation) list.get(j);
+                                            int id = o.getId();
+                                            String appreciation = o.getAppreciation();
+                                            int note = o.getNote();
+                                            ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
+                                                    String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
+                                            String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
+                                                    .getAppreciation();
+                                            ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                                    String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
+                                                    "Bulletin");
+                                            ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
+                                                    "Trimestre");
+                                            String bulletin_trimestre = String
+                                                    .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                    + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                            ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                    String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                    "Inscription");
+                                            ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                            ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                    String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                            String nom = ((Personne) idEleve.get(0)).getNom();
+                                            String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                            String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                            ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                    String.valueOf(
+                                                            ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                                                    "Enseignement");
+                                            ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
+                                                    "Classe");
+                                            ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                    "Discipline");
+                                            ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                            ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                            String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                            ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                            String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                            ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                    String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                    "AnneeScolaire");
+                                            String classe_annee = String
+                                                    .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
+                                                    + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
+                                            String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
+                                                    + classe_annee;
+                                            String discipline = ((Discipline) idDiscipline.get(0)).getNom();
+                                            ArrayList<Object> idProf = bdd.rechercher("Id",
+                                                    String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                    "Personne");
+                                            String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
+                                            String prof_nom = ((Personne) idProf.get(0)).getNom();
+                                            String enseignement_professeur = prof_prenom + " " + prof_nom;
+                                            String enseignement = discipline + " " + enseignement_professeur;
+                                            String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
+                                            Object[] data = {id, bulletindetails, note, appreciation};
+                                            model.addRow(data);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom de la discipline":
+                        ArrayList<Object> iddiscipline = bdd.rechercher("Nom", value, "Discipline");
+                        for (int i = 0; i < iddiscipline.size(); i++) {
+                            ArrayList<Object> idenseignement = bdd.rechercher("idDiscipline",
+                                    String.valueOf(((Discipline) iddiscipline.get(i)).getId()), "Enseignement");
+                            for (int k = 0; k < idenseignement.size(); k++) {
+                                ArrayList<Object> iddetailbulletin = bdd.rechercher("idEnseignement",
+                                        String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
+                                for (int l = 0; l < iddetailbulletin.size(); l++) {
+                                    list = bdd.rechercher("idDetailBulletin",
+                                            String.valueOf(((DetailBulletin) iddetailbulletin.get(l)).getId()), "Evaluation");
+                                    // model.setNumRows(list.size());
+                                    for (int j = 0; j < list.size(); j++) {
+                                        Evaluation o = (Evaluation) list.get(j);
+                                        int id = o.getId();
+                                        String appreciation = o.getAppreciation();
+                                        int note = o.getNote();
+                                        ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
+                                                String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
+                                        String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
+                                                .getAppreciation();
+                                        ArrayList<Object> idBulletin = bdd.rechercher("Id",
+                                                String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
+                                                "Bulletin");
+                                        ArrayList<Object> idTrimestre = bdd.rechercher("Id",
+                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
+                                        String bulletin_trimestre = String
+                                                .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
+                                                + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
+                                        ArrayList<Object> idInscription = bdd.rechercher("Id",
+                                                String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
+                                                "Inscription");
+                                        ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
+                                        String classe = ((Classe) idclasse_2.get(0)).getNom();
+                                        ArrayList<Object> idEleve = bdd.rechercher("Id",
+                                                String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String prenom = ((Personne) idEleve.get(0)).getPrenom();
+                                        String nom = ((Personne) idEleve.get(0)).getNom();
+                                        String bulletin_inscription = classe + "-" + prenom + " " + nom;
+                                        String bulletin = bulletin_trimestre + " " + bulletin_inscription;
+                                        ArrayList<Object> idEnseignement = bdd.rechercher("Id",
+                                                String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
+                                                "Enseignement");
+                                        ArrayList<Object> idClasse = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
+                                        ArrayList<Object> idDiscipline = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
+                                                "Discipline");
+                                        ArrayList<Object> idPersonne = bdd.rechercher("Id",
+                                                String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
+                                                "Personne");
+                                        String classe_nom = ((Classe) idClasse.get(0)).getNom();
+                                        ArrayList<Object> idEcole = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
+                                        String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
+                                        ArrayList<Object> idNiveau = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
+                                        String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
+                                        ArrayList<Object> idAnnee = bdd.rechercher("Id",
+                                                String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
+                                                "AnneeScolaire");
+                                        String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
+                                                + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
                                         String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
                                                 + classe_annee;
                                         String discipline = ((Discipline) idDiscipline.get(0)).getNom();
@@ -7780,264 +7992,76 @@ public class Menu extends javax.swing.JFrame {
                                         String enseignement_professeur = prof_prenom + " " + prof_nom;
                                         String enseignement = discipline + " " + enseignement_professeur;
                                         String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                                        Object[] data = { id, bulletindetails, note, appreciation };
+                                        Object[] data = {id, bulletindetails, note, appreciation};
                                         model.addRow(data);
                                     }
                                 }
                             }
                         }
-                    }
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom du professeur":
-                ArrayList<Object> idprof = bdd.rechercher("Nom", value, "Personne");
-                for (int i = 0; i < idprof.size(); i++) {
-                    if (((Personne) idprof.get(i)).isType()) {
-                        ArrayList<Object> idenseignement = bdd.rechercher("idPersonne",
-                                String.valueOf(((Personne) idprof.get(i)).getId()), "Enseignement");
-                        for (int k = 0; k < idenseignement.size(); k++) {
-                            ArrayList<Object> iddetailbulletin = bdd.rechercher("idEnseignement",
-                                    String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
-                            for (int l = 0; l < iddetailbulletin.size(); l++) {
-                                list = bdd.rechercher("idDetailBulletin",
-                                        String.valueOf(((DetailBulletin) iddetailbulletin.get(l)).getId()),
-                                        "Evaluation");
-                                // model.setNumRows(list.size());
-                                for (int j = 0; j < list.size(); j++) {
-                                    Evaluation o = (Evaluation) list.get(j);
-                                    int id = o.getId();
-                                    String appreciation = o.getAppreciation();
-                                    int note = o.getNote();
-                                    ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
-                                            String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
-                                    String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
-                                            .getAppreciation();
-                                    ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                                            String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
-                                            "Bulletin");
-                                    ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()),
-                                            "Trimestre");
-                                    String bulletin_trimestre = String
-                                            .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                            + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                    ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                            String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                            "Inscription");
-                                    ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()),
-                                            "Classe");
-                                    String classe = ((Classe) idclasse_2.get(0)).getNom();
-                                    ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                            String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                    String nom = ((Personne) idEleve.get(0)).getNom();
-                                    String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                    String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                    ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                            String.valueOf(
-                                                    ((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                                            "Enseignement");
-                                    ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()),
-                                            "Classe");
-                                    ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                            "Discipline");
-                                    ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                                    ArrayList<Object> idEcole = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                    String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                                    ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                    String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                                    ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                            String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                            "AnneeScolaire");
-                                    String classe_annee = String
-                                            .valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut()) + "-"
-                                            + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                    String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                            + classe_annee;
-                                    String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                    ArrayList<Object> idProf = bdd.rechercher("Id",
-                                            String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                            "Personne");
-                                    String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                    String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                    String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                    String enseignement = discipline + " " + enseignement_professeur;
-                                    String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                                    Object[] data = { id, bulletindetails, note, appreciation };
-                                    model.addRow(data);
-                                }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
                             }
                         }
-                    }
+                        rechercherTable.setModel(model);
+                        break;
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
-            case "Nom de la discipline":
-                ArrayList<Object> iddiscipline = bdd.rechercher("Nom", value, "Discipline");
-                for (int i = 0; i < iddiscipline.size(); i++) {
-                    ArrayList<Object> idenseignement = bdd.rechercher("idDiscipline",
-                            String.valueOf(((Discipline) iddiscipline.get(i)).getId()), "Enseignement");
-                    for (int k = 0; k < idenseignement.size(); k++) {
-                        ArrayList<Object> iddetailbulletin = bdd.rechercher("idEnseignement",
-                                String.valueOf(((Enseignement) idenseignement.get(k)).getId()), "DetailBulletin");
-                        for (int l = 0; l < iddetailbulletin.size(); l++) {
-                            list = bdd.rechercher("idDetailBulletin",
-                                    String.valueOf(((DetailBulletin) iddetailbulletin.get(l)).getId()), "Evaluation");
-                            // model.setNumRows(list.size());
-                            for (int j = 0; j < list.size(); j++) {
-                                Evaluation o = (Evaluation) list.get(j);
-                                int id = o.getId();
-                                String appreciation = o.getAppreciation();
-                                int note = o.getNote();
-                                ArrayList<Object> idBulletinDetails = bdd.rechercher("Id",
-                                        String.valueOf(o.getIdDetailBulletin()), "DetailBulletin");
-                                String bulletinDetails_appreciation = ((DetailBulletin) idBulletinDetails.get(0))
-                                        .getAppreciation();
-                                ArrayList<Object> idBulletin = bdd.rechercher("Id",
-                                        String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdBulletin()),
-                                        "Bulletin");
-                                ArrayList<Object> idTrimestre = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdTrimestre()), "Trimestre");
-                                String bulletin_trimestre = String
-                                        .valueOf(((Trimestre) idTrimestre.get(0)).getDebut().toString()) + "-"
-                                        + String.valueOf(((Trimestre) idTrimestre.get(0)).getFin().toString());
-                                ArrayList<Object> idInscription = bdd.rechercher("Id",
-                                        String.valueOf(((Bulletin) idBulletin.get(0)).getIdInscription()),
-                                        "Inscription");
-                                ArrayList<Object> idclasse_2 = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdClasse()), "Classe");
-                                String classe = ((Classe) idclasse_2.get(0)).getNom();
-                                ArrayList<Object> idEleve = bdd.rechercher("Id",
-                                        String.valueOf(((Inscription) idInscription.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prenom = ((Personne) idEleve.get(0)).getPrenom();
-                                String nom = ((Personne) idEleve.get(0)).getNom();
-                                String bulletin_inscription = classe + "-" + prenom + " " + nom;
-                                String bulletin = bulletin_trimestre + " " + bulletin_inscription;
-                                ArrayList<Object> idEnseignement = bdd.rechercher("Id",
-                                        String.valueOf(((DetailBulletin) idBulletinDetails.get(0)).getIdEnseignement()),
-                                        "Enseignement");
-                                ArrayList<Object> idClasse = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdClasse()), "Classe");
-                                ArrayList<Object> idDiscipline = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdDiscipline()),
-                                        "Discipline");
-                                ArrayList<Object> idPersonne = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String classe_nom = ((Classe) idClasse.get(0)).getNom();
-                                ArrayList<Object> idEcole = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdEcole()), "Ecole");
-                                String classe_ecole = ((Ecole) idEcole.get(0)).getNom();
-                                ArrayList<Object> idNiveau = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdNiveau()), "Niveau");
-                                String classe_niveau = ((Niveau) idNiveau.get(0)).getNom();
-                                ArrayList<Object> idAnnee = bdd.rechercher("Id",
-                                        String.valueOf(((Classe) idClasse.get(0)).getIdAnneeScolaire()),
-                                        "AnneeScolaire");
-                                String classe_annee = String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeDebut())
-                                        + "-" + String.valueOf(((AnneeScolaire) idAnnee.get(0)).getAnneeFin());
-                                String classe2 = classe_nom + " " + classe_ecole + " " + classe_niveau + " "
-                                        + classe_annee;
-                                String discipline = ((Discipline) idDiscipline.get(0)).getNom();
-                                ArrayList<Object> idProf = bdd.rechercher("Id",
-                                        String.valueOf(((Enseignement) idEnseignement.get(0)).getIdPersonne()),
-                                        "Personne");
-                                String prof_prenom = ((Personne) idProf.get(0)).getPrenom();
-                                String prof_nom = ((Personne) idProf.get(0)).getNom();
-                                String enseignement_professeur = prof_prenom + " " + prof_nom;
-                                String enseignement = discipline + " " + enseignement_professeur;
-                                String bulletindetails = bulletin + " " + enseignement + " " + appreciation;
-                                Object[] data = { id, bulletindetails, note, appreciation };
-                                model.addRow(data);
+
+            case "Ecole":
+                switch (type) {
+                    case "Id":
+                        list = bdd.rechercher("Id", value, "Ecole");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Ecole p = (Ecole) list.get(i);
+                            int id = p.getId();
+                            String nom = p.getNom();
+                            Object[] data = {id, nom};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
                             }
                         }
-                    }
+                        rechercherTable.setModel(model);
+                        break;
+                    case "Nom":
+                        list = bdd.rechercher("Nom", value, "Ecole");
+                        model.setNumRows(list.size());
+                        for (int i = 0; i < list.size(); i++) {
+                            Ecole p = (Ecole) list.get(i);
+                            int id = p.getId();
+                            String nom = p.getNom();
+                            Object[] data = {id, nom};
+                            model.addRow(data);
+                        }
+                        for (int i = model.getRowCount() - 1; i >= 0; i--) {
+                            if (model.getValueAt(i, 0) == null) {
+                                model.removeRow(i);
+                            }
+                        }
+                        rechercherTable.setModel(model);
+                        break;
+
+                    default:
+                        resultatLabel.setText("Erreur de sélection de variable");
                 }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
                 break;
             default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-
-        case "Ecole":
-            switch (type) {
-            case "Id":
-                list = bdd.rechercher("Id", value, "Ecole");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Ecole p = (Ecole) list.get(i);
-                    int id = p.getId();
-                    String nom = p.getNom();
-                    Object[] data = { id, nom };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-            case "Nom":
-                list = bdd.rechercher("Nom", value, "Ecole");
-                model.setNumRows(list.size());
-                for (int i = 0; i < list.size(); i++) {
-                    Ecole p = (Ecole) list.get(i);
-                    int id = p.getId();
-                    String nom = p.getNom();
-                    Object[] data = { id, nom };
-                    model.addRow(data);
-                }
-                for (int i = model.getRowCount() - 1; i >= 0; i--) {
-                    if (model.getValueAt(i, 0) == null) {
-                        model.removeRow(i);
-                    }
-                }
-                rechercherTable.setModel(model);
-                break;
-
-            default:
-                resultatLabel.setText("Erreur de sélection de variable");
-            }
-            break;
-        default:
 
         }
     }// GEN-LAST:event_rechercheButtonActionPerformed
 
-    private void rSupprimerButtonActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+    private void rSupprimerButtonActionPerformed(java.awt.event.ActionEvent evt) {
         DefaultTableModel model = (DefaultTableModel) rechercherTable.getModel();
         int r = rechercherTable.getSelectedRow();
         System.out.println("Val " + r);
         resultatLabel.setText("");
-        if (r >=0) {
+        if (r >= 0) {
             int id_row = (int) model.getValueAt(r, 0);
             ArrayList<Object> list;
             Iterator<Object> it;
@@ -8047,7 +8071,7 @@ public class Menu extends javax.swing.JFrame {
                 case "Supprimer":
                     switch (mode2) {
                         case "Eleve":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Personne");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Personne");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Personne");
                             list = bdd.rechercher("a", "a", "Personne");
@@ -8076,7 +8100,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Enseignant":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Personne");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Personne");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Personne");
                             list = bdd.rechercher("a", "a", "Personne");
@@ -8105,7 +8129,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Inscription":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Inscription");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Inscription");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Inscription");
                             list = bdd.rechercher("a", "a", "Inscription");
@@ -8135,7 +8159,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Classe":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Classe");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Classe");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Classe");
                             list = bdd.rechercher("a", "a", "Classe");
@@ -8166,7 +8190,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Niveau":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Niveau");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Niveau");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Niveau");
                             list = bdd.rechercher("a", "a", "Niveau");
@@ -8191,7 +8215,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Annee":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Annee");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Annee");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "AnneeScolaire");
                             list = bdd.rechercher("a", "a", "AnneeScolaire");
@@ -8217,7 +8241,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Trimestre":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Trimestre");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Trimestre");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Trimestre");
                             list = bdd.rechercher("a", "a", "Trimestre");
@@ -8246,7 +8270,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Bulletin":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Bulletin");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Bulletin");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Bulletin");
                             list = bdd.rechercher("a", "a", "Bulletin");
@@ -8281,7 +8305,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Enseignement":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Enseignement");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Enseignement");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Enseignement");
                             list = bdd.rechercher("a", "a", "Enseignement");
@@ -8320,7 +8344,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Discipline":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Discipline");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Discipline");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Discipline");
                             list = bdd.rechercher("a", "a", "Discipline");
@@ -8345,7 +8369,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "BulletinDetails":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "DetailBulletin");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "DetailBulletin");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "DetailBulletin");
                             list = bdd.rechercher("a", "a", "DetailBulletin");
@@ -8399,7 +8423,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Evaluation":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Evaluation");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Evaluation");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Evaluation");
                             list = bdd.rechercher("a", "a", "Evaluation");
@@ -8457,7 +8481,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Ecole":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Ecole");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Ecole");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Ecole");
                             list = bdd.rechercher("a", "a", "Ecole");
@@ -8492,7 +8516,7 @@ public class Menu extends javax.swing.JFrame {
                     break;
             }
         } else {
-            resultatLabel.setText("Aucun élément sélectionné !"); 
+            resultatLabel.setText("Aucun élément sélectionné !");
         }
     }
 
