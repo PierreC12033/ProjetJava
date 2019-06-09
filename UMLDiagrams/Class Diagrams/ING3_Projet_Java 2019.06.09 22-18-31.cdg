@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ING3_Projet_Java">
+  <ClassDiagramComponents>
+    <Class name="ConnectMySQL" package="ConnectionBDD" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="cnx" type="Connection" visibility="package" isStatic="true"/>
+        <Field name="st" type="Statement" visibility="package" isStatic="true"/>
+        <Field name="rst" type="ResultSet" visibility="package" isStatic="true"/>
+        <Field name="accepted" type="boolean" visibility="package" isStatic="true"/>
+        <Field name="user" type="String" visibility="private"/>
+        <Field name="password" type="String" visibility="private"/>
+        <Field name="NomTable" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="user"/>
+          <Argument type="String" name="password"/>
+          <Argument type="String" name="NomTable"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getUser" returnType="String" visibility="public"/>
+        <Method name="getPassword" returnType="String" visibility="public"/>
+        <Method name="getNomTable" returnType="String" visibility="public"/>
+        <Method name="setUser" returnType="void" visibility="public">
+          <Argument type="String" name="user"/>
+        </Method>
+        <Method name="setPassword" returnType="void" visibility="public">
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="setNomTable" returnType="void" visibility="public">
+          <Argument type="String" name="NomTable"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="connecterDB" returnType="Connection" visibility="public" isStatic="true">
+          <Argument type="String" name="server"/>
+          <Argument type="String" name="port"/>
+          <Argument type="String" name="bdd_name"/>
+          <Argument type="String" name="user"/>
+          <Argument type="String" name="password"/>
+        </Method>
+        <Method name="getCnx" returnType="Connection" visibility="public" isStatic="true"/>
+        <Method name="setCnx" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Connection" name="cnx"/>
+        </Method>
+        <Method name="getSt" returnType="Statement" visibility="public" isStatic="true"/>
+        <Method name="setSt" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Statement" name="st"/>
+        </Method>
+        <Method name="getRst" returnType="ResultSet" visibility="public" isStatic="true"/>
+        <Method name="setRst" returnType="void" visibility="public" isStatic="true">
+          <Argument type="ResultSet" name="rst"/>
+        </Method>
+        <Method name="getAccepted" returnType="boolean" visibility="public" isStatic="true"/>
+        <Method name="setAccepted" returnType="void" visibility="public" isStatic="true">
+          <Argument type="boolean" name="accepted"/>
+        </Method>
+        <Method name="AjouterP" returnType="void" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="Supprimer" returnType="void" visibility="public">
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="SupprimerAtt" returnType="void" visibility="public">
+          <Argument type="String" name="att"/>
+          <Argument type="String" name="val"/>
+          <Argument type="String" name="NomBDD"/>
+        </Method>
+        <Method name="rechercherParId" returnType="ArrayList&lt;Object&gt;" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="Object" name="o"/>
+        </Method>
+        <Method name="rechercher" returnType="ArrayList&lt;Object&gt;" visibility="public">
+          <Argument type="String" name="attribut"/>
+          <Argument type="String" name="valAtt"/>
+          <Argument type="String" name="NomBDD"/>
+        </Method>
+        <Method name="modifierParId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="Object" name="o"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PasdeReponse" package="controleur" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="getMessage" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AnneeScolaire" package="modele" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="AnneeDebut" type="int" visibility="private"/>
+        <Field name="AnneeFin" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="AnneeDebut"/>
+          <Argument type="int" name="AnneeFin"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="AnneeScolaire" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getAnneeDebut" returnType="int" visibility="public"/>
+        <Method name="setAnneeDebut" returnType="void" visibility="public">
+          <Argument type="int" name="AnneeDebut"/>
+        </Method>
+        <Method name="getAnneeFin" returnType="int" visibility="public"/>
+        <Method name="setAnneeFin" returnType="void" visibility="public">
+          <Argument type="int" name="AnneeFin"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Bulletin" package="modele" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="idTrimestre" type="int" visibility="private"/>
+        <Field name="idInscription" type="int" visibility="private"/>
+        <Field name="Appreciation" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="idTrimestre"/>
+          <Argument type="int" name="idInscription"/>
+          <Argument type="String" name="Appreciation"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Bulletin" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getIdTrimestre" returnType="int" visibility="public"/>
+        <Method name="setIdTrimestre" returnType="void" visibility="public">
+          <Argument type="int" name="idTrimestre"/>
+        </Method>
+        <Method name="getIdInscription" returnType="int" visibility="public"/>
+        <Method name="setIdInscription" returnType="void" visibility="public">
+          <Argument type="int" name="idInscription"/>
+        </Method>
+        <Method name="getAppreciation" returnType="String" visibility="public"/>
+        <Method name="setAppreciation" returnType="void" visibility="public">
+          <Argument type="String" name="Appreciation"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Classe" package="modele" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="Nom" type="String" visibility="private"/>
+        <Field name="idEcole" type="int" visibility="private"/>
+        <Field name="idNiveau" type="int" visibility="private"/>
+        <Field name="idAnneeScolaire" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="Nom"/>
+          <Argument type="int" name="idEcole"/>
+          <Argument type="int" name="idNiveau"/>
+          <Argument type="int" name="idAnneeScolaire"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Classe" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="Nom"/>
+        </Method>
+        <Method name="getIdEcole" returnType="int" visibility="public"/>
+        <Method name="setIdEcole" returnType="void" visibility="public">
+          <Argument type="int" name="idEcole"/>
+        </Method>
+        <Method name="getIdNiveau" returnType="int" visibility="public"/>
+        <Method name="setIdNiveau" returnType="void" visibility="public">
+          <Argument type="int" name="idNiveau"/>
+        </Method>
+        <Method name="getIdAnneeScolaire" returnType="int" visibility="public"/>
+        <Method name="setIdAnneeScolaire" returnType="void" visibility="public">
+          <Argument type="int" name="IdAnneeScolaire"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Date" package="modele" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="Jour" type="int" visibility="private"/>
+        <Field name="Mois" type="int" visibility="private"/>
+        <Field name="Annee" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="Jour"/>
+          <Argument type="int" name="Mois"/>
+          <Argument type="int" name="Annee"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="date"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Date" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getJour" returnType="int" visibility="public"/>
+        <Method name="setJour" returnType="void" visibility="public">
+          <Argument type="int" name="Jour"/>
+        </Method>
+        <Method name="getMois" returnType="int" visibility="public"/>
+        <Method name="setMois" returnType="void" visibility="public">
+          <Argument type="int" name="Mois"/>
+        </Method>
+        <Method name="getAnnee" returnType="int" visibility="public"/>
+        <Method name="setAnnee" returnType="void" visibility="public">
+          <Argument type="int" name="Annee"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DetailBulletin" package="modele" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="idBulletin" type="int" visibility="private"/>
+        <Field name="idEnseignement" type="int" visibility="private"/>
+        <Field name="Appreciation" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="idBulletin"/>
+          <Argument type="int" name="idEnseignement"/>
+          <Argument type="String" name="Appreciation"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="DetailBulletin" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getIdBulletin" returnType="int" visibility="public"/>
+        <Method name="setIdBulletin" returnType="void" visibility="public">
+          <Argument type="int" name="idBulletin"/>
+        </Method>
+        <Method name="getIdEnseignement" returnType="int" visibility="public"/>
+        <Method name="setIdEnseignement" returnType="void" visibility="public">
+          <Argument type="int" name="idEnseignement"/>
+        </Method>
+        <Method name="getAppreciation" returnType="String" visibility="public"/>
+        <Method name="setAppreciation" returnType="void" visibility="public">
+          <Argument type="String" name="Appreciation"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Discipline" package="modele" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="Nom" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String" name="Nom"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Discipline" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="Nom"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Ecole" package="modele" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nom" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Ecole" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="new_id"/>
+        </Method>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="new_nom"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Eleve" package="modele" visibility="public" xPosition="320.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="String" name="firstname"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Enseignant" package="modele" visibility="public" xPosition="620.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="String" name="surname"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Enseignement" package="modele" visibility="public" xPosition="920.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="idClasse" type="int" visibility="private"/>
+        <Field name="idDiscipline" type="int" visibility="private"/>
+        <Field name="idPersonne" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="idClasse"/>
+          <Argument type="int" name="idDiscipline"/>
+          <Argument type="int" name="idPersonne"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Enseignement" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getIdClasse" returnType="int" visibility="public"/>
+        <Method name="setIdClasse" returnType="void" visibility="public">
+          <Argument type="int" name="idClasse"/>
+        </Method>
+        <Method name="getIdDiscipline" returnType="int" visibility="public"/>
+        <Method name="setIdDiscipline" returnType="void" visibility="public">
+          <Argument type="int" name="idDiscipline"/>
+        </Method>
+        <Method name="getIdPersonne" returnType="int" visibility="public"/>
+        <Method name="setIdPersonne" returnType="void" visibility="public">
+          <Argument type="int" name="idPersonne"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Evaluation" package="modele" visibility="public" xPosition="1220.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="idDetailBulletin" type="int" visibility="private"/>
+        <Field name="Note" type="int" visibility="private"/>
+        <Field name="Appreciation" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="idDetailBulletin"/>
+          <Argument type="int" name="Note"/>
+          <Argument type="String" name="Appreciation"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Evaluation" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getIdDetailBulletin" returnType="int" visibility="public"/>
+        <Method name="setIdDetailBulletin" returnType="void" visibility="public">
+          <Argument type="int" name="idDetailBulletin"/>
+        </Method>
+        <Method name="getNote" returnType="int" visibility="public"/>
+        <Method name="setNote" returnType="void" visibility="public">
+          <Argument type="int" name="Note"/>
+        </Method>
+        <Method name="getAppreciation" returnType="String" visibility="public"/>
+        <Method name="setAppreciation" returnType="void" visibility="public">
+          <Argument type="String" name="Appreciation"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Inscription" package="modele" visibility="public" xPosition="1520.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="idClasse" type="int" visibility="private"/>
+        <Field name="idPersonne" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="idClasse"/>
+          <Argument type="int" name="idPersonne"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Inscription" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getIdClasse" returnType="int" visibility="public"/>
+        <Method name="setIdClasse" returnType="void" visibility="public">
+          <Argument type="int" name="idClasse"/>
+        </Method>
+        <Method name="getIdPersonne" returnType="int" visibility="public"/>
+        <Method name="setIdPersonne" returnType="void" visibility="public">
+          <Argument type="int" name="idPersonne"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Niveau" package="modele" visibility="public" xPosition="1820.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="nom" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Niveau" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="new_id"/>
+        </Method>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="new_nom"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Personne" package="modele" visibility="public" xPosition="2120.0" yPosition="420.0">
+      <Fields>
+        <Field name="id" type="int" visibility="protected"/>
+        <Field name="nom" type="String" visibility="protected"/>
+        <Field name="prenom" type="String" visibility="protected"/>
+        <Field name="type" type="boolean" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="num"/>
+          <Argument type="String" name="surname"/>
+          <Argument type="String" name="firstname"/>
+          <Argument type="boolean" name="type_personne"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Personne" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNom" returnType="String" visibility="public"/>
+        <Method name="setNom" returnType="void" visibility="public">
+          <Argument type="String" name="nom"/>
+        </Method>
+        <Method name="getPrenom" returnType="String" visibility="public"/>
+        <Method name="setPrenom" returnType="void" visibility="public">
+          <Argument type="String" name="prenom"/>
+        </Method>
+        <Method name="isType" returnType="boolean" visibility="public"/>
+        <Method name="setType" returnType="void" visibility="public">
+          <Argument type="boolean" name="type"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Trimestre" package="modele" visibility="public" xPosition="20.0" yPosition="820.0">
+      <Fields>
+        <Field name="id" type="int" visibility="private"/>
+        <Field name="Numero" type="int" visibility="private"/>
+        <Field name="Debut" type="Date" visibility="private"/>
+        <Field name="Fin" type="Date" visibility="private"/>
+        <Field name="idAnneeScolaire" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="int" name="Numero"/>
+          <Argument type="Date" name="Debut"/>
+          <Argument type="Date" name="Fin"/>
+          <Argument type="int" name="idAnneeScolaire"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="ajouterBDD" returnType="String" visibility="public"/>
+        <Method name="modifierBDD" returnType="String" visibility="public"/>
+        <Method name="recupererInfo" returnType="Trimestre" visibility="public">
+          <Argument type="ResultSet" name="r"/>
+        </Method>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="setId" returnType="void" visibility="public">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="getNumero" returnType="int" visibility="public"/>
+        <Method name="setNumero" returnType="void" visibility="public">
+          <Argument type="int" name="Numero"/>
+        </Method>
+        <Method name="getDebut" returnType="Date" visibility="public"/>
+        <Method name="setDebut" returnType="void" visibility="public">
+          <Argument type="Date" name="Debut"/>
+        </Method>
+        <Method name="getFin" returnType="Date" visibility="public"/>
+        <Method name="setFin" returnType="void" visibility="public">
+          <Argument type="Date" name="Fin"/>
+        </Method>
+        <Method name="getIdAnneeScolaire" returnType="int" visibility="public"/>
+        <Method name="setIdAnneeScolaire" returnType="void" visibility="public">
+          <Argument type="int" name="idAnneeScolaire"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Reporting" package="Reporting" visibility="public" xPosition="320.0" yPosition="820.0">
+      <Fields>
+        <Field name="nomsTD" type="ArrayList&lt;String&gt;" visibility="private"/>
+        <Field name="moyennesTD" type="ArrayList&lt;Double&gt;" visibility="private"/>
+        <Field name="MoyennesMat" type="ArrayList&lt;Double&gt;" visibility="private"/>
+        <Field name="nomsMat" type="ArrayList&lt;String&gt;" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="Reporting" returnType="void" visibility="public"/>
+        <Method name="InfoClasse" returnType="void" visibility="public">
+          <Argument type="ConnectMySQL" name="s"/>
+          <Argument type="String" name="Annee"/>
+          <Argument type="String" name="Niveau"/>
+        </Method>
+        <Method name="InfoInscription" returnType="void" visibility="public">
+          <Argument type="ConnectMySQL" name="s"/>
+          <Argument type="Classe" name="c"/>
+        </Method>
+        <Method name="moyenne_eleve" returnType="double" visibility="public">
+          <Argument type="ConnectMySQL" name="bdd"/>
+          <Argument type="Inscription" name="MrX"/>
+        </Method>
+        <Method name="notes_elev" returnType="void" visibility="public">
+          <Argument type="ConnectMySQL" name="bdd"/>
+          <Argument type="String" name="nomEleve"/>
+          <Argument type="int" name="trim"/>
+        </Method>
+        <Method name="reporting_elev_enseignant" returnType="void" visibility="public">
+          <Argument type="ConnectMySQL" name="bdd"/>
+        </Method>
+        <Method name="afficher_info_reporting" returnType="void" visibility="public"/>
+        <Method name="afficher_info_reporting2" returnType="void" visibility="public"/>
+        <Method name="tracer_graphe_reporting" returnType="void" visibility="public"/>
+        <Method name="tracer_graphe_reporting2" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Accueil" package="vue" visibility="public" xPosition="620.0" yPosition="820.0">
+      <Fields>
+        <Field name="bdd" type="ConnectMySQL" visibility="package"/>
+        <Field name="adressLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="adresseField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="buttonGroup1" type="javax.swing.ButtonGroup" visibility="private"/>
+        <Field name="erreurLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jPanel1" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel4" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="loginField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="loginLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="macButton" type="javax.swing.JRadioButton" visibility="private"/>
+        <Field name="nameLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="nomField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="passwordField" type="javax.swing.JPasswordField" visibility="private"/>
+        <Field name="passwordLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="windowsButton" type="javax.swing.JRadioButton" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getBdd" returnType="ConnectMySQL" visibility="public"/>
+        <Method name="setBdd" returnType="void" visibility="public">
+          <Argument type="ConnectMySQL" name="bdd"/>
+        </Method>
+        <Method name="getAdresseField" returnType="JTextField" visibility="public"/>
+        <Method name="setAdresseField" returnType="void" visibility="public">
+          <Argument type="JTextField" name="adresseField"/>
+        </Method>
+        <Method name="getErreurLabel" returnType="JLabel" visibility="public"/>
+        <Method name="setErreurLabel" returnType="void" visibility="public">
+          <Argument type="JLabel" name="erreurLabel"/>
+        </Method>
+        <Method name="getjButton1" returnType="JButton" visibility="public"/>
+        <Method name="setjButton1" returnType="void" visibility="public">
+          <Argument type="JButton" name="jButton1"/>
+        </Method>
+        <Method name="getjLabel1" returnType="JLabel" visibility="public"/>
+        <Method name="setjLabel1" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jLabel1"/>
+        </Method>
+        <Method name="getjLabel2" returnType="JLabel" visibility="public"/>
+        <Method name="setjLabel2" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jLabel2"/>
+        </Method>
+        <Method name="getjLabel3" returnType="JLabel" visibility="public"/>
+        <Method name="setjLabel3" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jLabel3"/>
+        </Method>
+        <Method name="getjLabel4" returnType="JLabel" visibility="public"/>
+        <Method name="setjLabel4" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jLabel4"/>
+        </Method>
+        <Method name="getjLabel5" returnType="JLabel" visibility="public"/>
+        <Method name="setjLabel5" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jLabel5"/>
+        </Method>
+        <Method name="getjLabel6" returnType="JLabel" visibility="public"/>
+        <Method name="setjLabel6" returnType="void" visibility="public">
+          <Argument type="JLabel" name="jLabel6"/>
+        </Method>
+        <Method name="getjPanel1" returnType="JPanel" visibility="public"/>
+        <Method name="setjPanel1" returnType="void" visibility="public">
+          <Argument type="JPanel" name="jPanel1"/>
+        </Method>
+        <Method name="getjPanel2" returnType="JPanel" visibility="public"/>
+        <Method name="setjPanel2" returnType="void" visibility="public">
+          <Argument type="JPanel" name="jPanel2"/>
+        </Method>
+        <Method name="getjPanel3" returnType="JPanel" visibility="public"/>
+        <Method name="setjPanel3" returnType="void" visibility="public">
+          <Argument type="JPanel" name="jPanel3"/>
+        </Method>
+        <Method name="getLoginField" returnType="JTextField" visibility="public"/>
+        <Method name="setLoginField" returnType="void" visibility="public">
+          <Argument type="JTextField" name="loginField"/>
+        </Method>
+        <Method name="getNomField" returnType="JTextField" visibility="public"/>
+        <Method name="setNomField" returnType="void" visibility="public">
+          <Argument type="JTextField" name="nomField"/>
+        </Method>
+        <Method name="getPasswordField" returnType="JPasswordField" visibility="public"/>
+        <Method name="setPasswordField" returnType="void" visibility="public">
+          <Argument type="JPasswordField" name="passwordField"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="nomFieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="passwordFieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Menu" package="vue" visibility="public" xPosition="920.0" yPosition="820.0">
+      <Fields>
+        <Field name="mode1" type="String" visibility="package"/>
+        <Field name="bdd" type="ConnectMySQL" visibility="package"/>
+        <Field name="Ajouter" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Deconnexion" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Modifier" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Rechercher" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Statistiques" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Supprimer" type="javax.swing.JButton" visibility="private"/>
+        <Field name="Trim_id_Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ajout1Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ajout1Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajout2Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ajout2Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajout3Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ajout3Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajout4Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ajout4Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajout5Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="ajout5Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajout6ComboBox" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="ajout6Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajout7ComboBox" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="ajout7Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajout8ComboBox" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="ajout8Label" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="ajoutPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="ajouterButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="annee" type="javax.swing.JButton" visibility="private"/>
+        <Field name="bulletin" type="javax.swing.JButton" visibility="private"/>
+        <Field name="bulletindetail" type="javax.swing.JButton" visibility="private"/>
+        <Field name="classe" type="javax.swing.JButton" visibility="private"/>
+        <Field name="discipline" type="javax.swing.JButton" visibility="private"/>
+        <Field name="ecole" type="javax.swing.JButton" visibility="private"/>
+        <Field name="eleve" type="javax.swing.JButton" visibility="private"/>
+        <Field name="enseignant" type="javax.swing.JButton" visibility="private"/>
+        <Field name="enseignement" type="javax.swing.JButton" visibility="private"/>
+        <Field name="erreurLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="evaluation" type="javax.swing.JButton" visibility="private"/>
+        <Field name="inscription" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton1" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton2" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jButton3" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel5" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel6" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel7" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel8" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLayeredPane1" type="javax.swing.JLayeredPane" visibility="private"/>
+        <Field name="jPanel2" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jPanel3" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jScrollPane3" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="modifier1Button" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="modifier2Button" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="modifier3Button" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="modifier4Button" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="modifier5Button" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="modifierModifierPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="modifierValiderButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="niveau" type="javax.swing.JButton" visibility="private"/>
+        <Field name="nom_Eleve_field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="rSupprimerButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="rechercheButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="rechercheComboBox" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="rechercheField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="recherchePanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="rechercherTable" type="javax.swing.JTable" visibility="private"/>
+        <Field name="resultatLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="stat_annee_debut_field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="stat_niveau_field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="statsPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="supprimerButton" type="javax.swing.JButton" visibility="private"/>
+        <Field name="supprimerField" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="supprimerLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="supprimerList" type="javax.swing.JList&lt;String&gt;" visibility="private"/>
+        <Field name="supprimerPanel" type="javax.swing.JPanel" visibility="private"/>
+        <Field name="supprimerResultLabel" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="trimestre" type="javax.swing.JButton" visibility="private"/>
+        <Field name="valeur1Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="valeur2Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="valeur3Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="valeur4Field" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="valeur5Field" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="getMode1" returnType="String" visibility="public"/>
+        <Method name="setMode1" returnType="void" visibility="public">
+          <Argument type="String" name="mode1"/>
+        </Method>
+        <Method name="getMode2" returnType="String" visibility="public"/>
+        <Method name="setMode2" returnType="void" visibility="public">
+          <Argument type="String" name="mode2"/>
+        </Method>
+        <Method name="getBdd" returnType="ConnectMySQL" visibility="public"/>
+        <Method name="setBdd" returnType="void" visibility="public">
+          <Argument type="ConnectMySQL" name="bdd"/>
+        </Method>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents
+void" visibility="private"/>
+        <Method name="ajout4FieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="Trim_id_FieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="RechercherActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="AjouterActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="SupprimerActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="ModifierActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="DeconnexionActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="eleveActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="enseignantActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="inscriptionActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="classeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="niveauActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="anneeActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="trimestreActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="bulletinActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="enseignementActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="disciplineActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="bulletindetailActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="evaluationActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="ajout1FieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="rechercheFieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="modifierValiderButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="StatistiquesActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="ecoleActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="rechercheButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="stat_annee_debut_fieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton1ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="nom_Eleve_fieldActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton2ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="jButton3ActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="rSupprimerButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="ajouterButtonActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="modele.Classe" target="modele.Classe" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Fin" source="modele.Trimestre" target="modele.Date" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Reporting.Reporting" target="modele.Classe" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="vue.Accueil" target="ConnectionBDD.ConnectMySQL" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="modele.Eleve" target="modele.Personne"/>
+    <UseRelation source="modele.Trimestre" target="modele.Trimestre" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Reporting.Reporting" target="modele.Inscription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Ecole" target="modele.Ecole" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="Debut" source="modele.Trimestre" target="modele.Date" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.AnneeScolaire" target="modele.AnneeScolaire" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bdd" source="vue.Accueil" target="ConnectionBDD.ConnectMySQL" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Evaluation" target="modele.Evaluation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Niveau" target="modele.Niveau" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="vue.Menu" target="ConnectionBDD.ConnectMySQL" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Personne" target="modele.Personne" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Trimestre" target="modele.Date" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Date" target="modele.Date" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Inscription" target="modele.Inscription" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Discipline" target="modele.Discipline" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="bdd" source="vue.Menu" target="ConnectionBDD.ConnectMySQL" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Enseignement" target="modele.Enseignement" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="modele.Bulletin" target="modele.Bulletin" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="modele.Enseignant" target="modele.Personne"/>
+    <UseRelation source="modele.DetailBulletin" target="modele.DetailBulletin" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Reporting.Reporting" target="ConnectionBDD.ConnectMySQL" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
