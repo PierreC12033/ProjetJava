@@ -6199,7 +6199,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Annee":
-                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Annee");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "AnneeScolaire");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "AnneeScolaire");
                             list = bdd.rechercher("a", "a", "AnneeScolaire");
