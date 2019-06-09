@@ -13,62 +13,63 @@ import java.sql.SQLException;
  * @author tomjo
  */
 public class Niveau {
+
     private int id;
     private String nom;
-    
-    public Niveau()
-    {
-        id=0;
-        nom="";
+
+    public Niveau() {
+        id = 0;
+        nom = "";
     }
-    public Niveau(int num, String name)
-    {
-        id=num;
-        nom=name;
+
+    public Niveau(int num, String name) {
+        id = num;
+        nom = name;
     }
 
     @Override
     public String toString() {
         return "id=" + id + ", nom=" + nom;
     }
+
     /**
      * Ajouter un element à notre BDD
+     *
      * @return la requete SQL afin d'ajouter un element dans notre BDD
      */
-    public String ajouterBDD(){
-        return "INSERT INTO Niveau VALUES("+this.id+",'"+this.nom+"')";
+    public String ajouterBDD() {
+        return "INSERT INTO Niveau VALUES(" + this.id + ",'" + this.nom + "')";
     }
-    
-    public String modifierBDD(){
-        return "UPDATE Niveau SET Nom = \""+this.nom+"\" WHERE Id = "+this.id;
+
+    public String modifierBDD() {
+        return "UPDATE Niveau SET Nom = \"" + this.nom + "\" WHERE Id = " + this.id;
     }
-    
-    public Niveau recupererInfo(ResultSet r){ 
+
+    public Niveau recupererInfo(ResultSet r) {
         Niveau a = null;
-        try{
-            a=new Niveau(r.getInt(1), r.getString(2));
-        }catch(SQLException e){
+        try {
+            a = new Niveau(r.getInt(1), r.getString(2));
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return a;
     }
-    
-    public int getId()
-    {
+
+    public int getId() {
         return id;
     }
-    public String getNom()
-    {
+
+    public String getNom() {
         return nom;
     }
-    public void setId(int new_id)
-    {
-        id=new_id;
+
+    public void setId(int new_id) {
+        id = new_id;
     }
-    public void setNom(String new_nom)
-    {
-        nom=new_nom;
+
+    public void setNom(String new_nom) {
+        nom = new_nom;
     }
-    
+
 }
