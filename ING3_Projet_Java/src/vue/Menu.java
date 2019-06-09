@@ -2681,9 +2681,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
-
-        ajout1Label.setText("idClasse : ");
-        ajout2Label.setText("idPersonne : ");
+        
         ArrayList<Object> Inscription_list = bdd.rechercher("a", "a", "Inscription");
         Iterator<Object> Inscription_it = Inscription_list.iterator();
         TableColumn Inscription_column1 = rechercherTable.getColumnModel().getColumn(0);
@@ -2820,10 +2818,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
-
-        ajout2Label.setText("idEcole : ");
-        ajout3Label.setText("idNiveau : ");
-        ajout4Label.setText("idAnneeScolaire : ");
+        
         ArrayList<Object> Classe_list = bdd.rechercher("a", "a", "Classe");
         Iterator<Object> Classe_it = Classe_list.iterator();
         TableColumn Classe_column1 = rechercherTable.getColumnModel().getColumn(0);
@@ -3162,11 +3157,7 @@ public class Menu extends javax.swing.JFrame {
         for (int i = 1; i < 4; i++) {
             ajout7ComboBox.addItem(Integer.toString(i));
         }
-
-        ajout1Label.setText("Numéro : ");
-        ajout2Label.setText("Date de début : ");
-        ajout3Label.setText("Date de fin : ");
-        ajout4Label.setText("idAnneeScolaire : ");
+        
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3325,10 +3316,7 @@ public class Menu extends javax.swing.JFrame {
                 }
             }
         }
-
-        ajout1Label.setText("idTrimestre : ");
-        ajout2Label.setText("idInscription : ");
-        ajout3Label.setText("Appréciation : ");
+        
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3481,10 +3469,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
-
-        ajout1Label.setText("idClasse : ");
-        ajout2Label.setText("idDiscipline : ");
-        ajout3Label.setText("idPersonne : ");
+        
         rechercherTable.removeAll();
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
@@ -3690,6 +3675,7 @@ public class Menu extends javax.swing.JFrame {
         ajout1Label.setText("Appréciation : ");
         ajout6Label.setText("Trimestre: ");
         ajout7Label.setText("Eleve : ");
+        ajout8Label.setText("Discipline : ");
         ajout6ComboBox.removeAllItems();
         ajout7ComboBox.removeAllItems();
         ajout8ComboBox.removeAllItems();
@@ -3740,10 +3726,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
-
-        ajout1Label.setText("idBulletin : ");
-        ajout2Label.setText("idEnseignement : ");
-        ajout3Label.setText("Appréciation : ");
+        
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -3939,10 +3922,7 @@ public class Menu extends javax.swing.JFrame {
                 ajout8ComboBox.addItem(Nom_Item);
             }
         }
-
-        ajout1Label.setText("idDetailsBulletin : ");
-        ajout2Label.setText("Note : ");
-        ajout3Label.setText("Appréciation : ");
+        
         TableColumn column1 = rechercherTable.getColumnModel().getColumn(0);
         TableColumn column2 = rechercherTable.getColumnModel().getColumn(1);
         TableColumn column3 = rechercherTable.getColumnModel().getColumn(2);
@@ -4173,8 +4153,8 @@ public class Menu extends javax.swing.JFrame {
 
                         if (!duplica.isEmpty()) {
                             for (int i = 0; i < duplica.size(); i++) {
-                                if (e.getPrenom().equals(((Eleve) duplica.get(i)).getPrenom())) {
-                                    if (e.getNom().equals(((Eleve) duplica.get(i)).getNom())) {
+                                if (e.getPrenom().equals(((Personne) duplica.get(i)).getPrenom())) {
+                                    if (e.getNom().equals(((Personne) duplica.get(i)).getNom())) {
                                         dup = true;
                                     }
                                 }
@@ -4208,8 +4188,8 @@ public class Menu extends javax.swing.JFrame {
 
                         if (!duplica.isEmpty()) {
                             for (int i = 0; i < duplica.size(); i++) {
-                                if (e.getNom().equals(((Enseignant) duplica.get(i)).getNom())) {
-                                    if (e.getPrenom().equals(((Enseignant) duplica.get(i)).getPrenom())) {
+                                if (e.getNom().equals(((Personne) duplica.get(i)).getNom())) {
+                                    if (e.getPrenom().equals(((Personne) duplica.get(i)).getPrenom())) {
                                         dup = true;
                                     }
                                 }
