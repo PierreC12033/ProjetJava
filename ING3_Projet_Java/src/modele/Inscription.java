@@ -13,6 +13,7 @@ import java.sql.SQLException;
  * @author elias
  */
 public class Inscription {
+
     private int id;
     private int idClasse;
     private int idPersonne;
@@ -25,35 +26,37 @@ public class Inscription {
         this.idClasse = idClasse;
         this.idPersonne = idPersonne;
     }
-    
+
     @Override
-    public String toString(){
-        return "id : "+id+" | idClasse : "+idClasse+" | idPersonne : "+idPersonne;
+    public String toString() {
+        return "id : " + id + " | idClasse : " + idClasse + " | idPersonne : " + idPersonne;
     }
+
     /**
      * Ajouter un element à notre BDD
+     *
      * @return la requete SQL afin d'ajouter un element dans notre BDD
      */
-    public String ajouterBDD(){
-        return "INSERT INTO Inscription VALUES("+this.id+","+this.idClasse+","+this.idPersonne+")";
+    public String ajouterBDD() {
+        return "INSERT INTO Inscription VALUES(" + this.id + "," + this.idClasse + "," + this.idPersonne + ")";
     }
-    
-    public String modifierBDD(){
-        return "UPDATE Inscription SET IdClasse = "+this.idClasse+", IdPersonne = "+this.idPersonne+
-                " WHERE Id = "+this.id;
+
+    public String modifierBDD() {
+        return "UPDATE Inscription SET IdClasse = " + this.idClasse + ", IdPersonne = " + this.idPersonne
+                + " WHERE Id = " + this.id;
     }
-    
-    public Inscription recupererInfo(ResultSet r){ 
+
+    public Inscription recupererInfo(ResultSet r) {
         Inscription a = null;
-        try{
-            a=new Inscription(r.getInt(1), r.getInt(2), r.getInt(3));
-        }catch(SQLException e){
+        try {
+            a = new Inscription(r.getInt(1), r.getInt(2), r.getInt(3));
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        
+
         return a;
     }
-    
+
     public int getId() {
         return id;
     }
@@ -77,5 +80,5 @@ public class Inscription {
     public void setIdPersonne(int idPersonne) {
         this.idPersonne = idPersonne;
     }
-    
+
 }

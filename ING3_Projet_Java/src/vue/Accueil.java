@@ -21,7 +21,7 @@ public class Accueil extends javax.swing.JFrame {
     ConnectMySQL bdd = new ConnectMySQL();
 
     /**
-     * Creates new form Accueil
+     * Constructeur par défault
      */
     public Accueil() {
         initComponents();
@@ -30,130 +30,290 @@ public class Accueil extends javax.swing.JFrame {
         buttonGroup1.add(windowsButton);
     }
 
+    /**
+     * Getter de bdd
+     *
+     * @return bdd
+     */
     public ConnectMySQL getBdd() {
         return bdd;
     }
 
+    /**
+     * Setter de Bdd
+     *
+     * @param bdd
+     */
     public void setBdd(ConnectMySQL bdd) {
         this.bdd = bdd;
     }
 
+    /**
+     * Getter de adresseField
+     *
+     * @return adresseField
+     */
     public JTextField getAdresseField() {
         return adresseField;
     }
 
+    /**
+     * Settter de adresseField
+     *
+     * @param adresseField
+     */
     public void setAdresseField(JTextField adresseField) {
         this.adresseField = adresseField;
     }
 
+    /**
+     * Getter de erreurLabel
+     *
+     * @return erreurLabel
+     */
     public JLabel getErreurLabel() {
         return erreurLabel;
     }
 
+    /**
+     * Setter de erreurLabel
+     *
+     * @param erreurLabel
+     */
     public void setErreurLabel(JLabel erreurLabel) {
         this.erreurLabel = erreurLabel;
     }
 
+    /**
+     * Getter de jButton1
+     *
+     * @return jButton1
+     */
     public JButton getjButton1() {
         return jButton1;
     }
 
+    /**
+     * Setter de jButton1
+     *
+     * @param jButton1
+     */
     public void setjButton1(JButton jButton1) {
         this.jButton1 = jButton1;
     }
 
+    /**
+     * Getter de jLabel1
+     *
+     * @return jLabel1
+     */
     public JLabel getjLabel1() {
         return jLabel1;
     }
 
+    /**
+     * Setter de jLabel1
+     *
+     * @param jLabel1
+     */
     public void setjLabel1(JLabel jLabel1) {
         this.jLabel1 = jLabel1;
     }
 
+    /**
+     * Getter de jLabel2
+     *
+     * @return jLabel2
+     */
     public JLabel getjLabel2() {
         return jLabel2;
     }
 
+    /**
+     * Setter de jLabel2
+     *
+     * @param jLabel2
+     */
     public void setjLabel2(JLabel jLabel2) {
         this.jLabel2 = jLabel2;
     }
 
+    /**
+     * Getter de jLabel3
+     *
+     * @return jLabel3
+     */
     public JLabel getjLabel3() {
         return adressLabel;
     }
 
+    /**
+     * Setter de jLabel3
+     *
+     * @param jLabel3
+     */
     public void setjLabel3(JLabel jLabel3) {
         this.adressLabel = jLabel3;
     }
 
+    /**
+     * Setter de jLabel4
+     *
+     * @return jLabel4
+     */
     public JLabel getjLabel4() {
         return nameLabel;
     }
 
+    /**
+     * Setter de jLabel4
+     *
+     * @param jLabel4
+     */
     public void setjLabel4(JLabel jLabel4) {
         this.nameLabel = jLabel4;
     }
 
+    /**
+     * Getter de jLabel5
+     *
+     * @return jLabel6
+     */
     public JLabel getjLabel5() {
         return loginLabel;
     }
 
+    /**
+     * Setter de jLabel5
+     *
+     * @param jLabel5
+     */
     public void setjLabel5(JLabel jLabel5) {
         this.loginLabel = jLabel5;
     }
 
+    /**
+     * Getter de jLabel6
+     *
+     * @return jLabel6
+     */
     public JLabel getjLabel6() {
         return passwordLabel;
     }
 
+    /**
+     * Setter de jLabel6
+     *
+     * @param jLabel6
+     */
     public void setjLabel6(JLabel jLabel6) {
         this.passwordLabel = jLabel6;
     }
 
+    /**
+     * Getter de jPanel1
+     *
+     * @return jPanel1
+     */
     public JPanel getjPanel1() {
         return jPanel1;
     }
 
+    /**
+     * Setter de jPanel1
+     *
+     * @param jPanel1
+     */
     public void setjPanel1(JPanel jPanel1) {
         this.jPanel1 = jPanel1;
     }
 
+    /**
+     * Getter de jPanel2
+     *
+     * @return jPanel2
+     */
     public JPanel getjPanel2() {
         return jPanel2;
     }
 
+    /**
+     * Setter de jPanel2
+     *
+     * @param jPanel2
+     */
     public void setjPanel2(JPanel jPanel2) {
         this.jPanel2 = jPanel2;
     }
 
+    /**
+     * Getter de jPanel3
+     *
+     * @return jPanel3
+     */
     public JPanel getjPanel3() {
         return jPanel3;
     }
 
+    /**
+     * Setter de jPanel3
+     *
+     * @param jPanel3
+     */
     public void setjPanel3(JPanel jPanel3) {
         this.jPanel3 = jPanel3;
     }
 
+    /**
+     * Getter de loginField
+     *
+     * @return loginField
+     */
     public JTextField getLoginField() {
         return loginField;
     }
 
+    /**
+     * Setter de loginField
+     *
+     * @param loginField
+     */
     public void setLoginField(JTextField loginField) {
         this.loginField = loginField;
     }
 
+    /**
+     * Getter de nomField
+     *
+     * @return nomField
+     */
     public JTextField getNomField() {
         return nomField;
     }
 
+    /**
+     * Setter de nomField
+     *
+     * @param nomField
+     */
     public void setNomField(JTextField nomField) {
         this.nomField = nomField;
     }
 
+    /**
+     * Getter de passwordField
+     *
+     * @return passwordField
+     */
     public JPasswordField getPasswordField() {
         return passwordField;
     }
 
+    /**
+     * Setter de passwordField
+     *
+     * @param passwordField
+     */
     public void setPasswordField(JPasswordField passwordField) {
         this.passwordField = passwordField;
     }
@@ -376,15 +536,27 @@ public class Accueil extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Si on clique sur nomField
+     *
+     * @param evt
+     */
     private void nomFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomFieldActionPerformed
-
+    /**
+     * Si on clique sur passwordField
+     *
+     * @param evt
+     */
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
-
+    /**
+     * Si on clique sur "Se connecter"
+     *
+     * @param evt ActionEvent
+     */
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
         String adress = adresseField.getText();
@@ -420,6 +592,8 @@ public class Accueil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
+     * Main du projet
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {

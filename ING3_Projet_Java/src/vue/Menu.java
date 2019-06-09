@@ -94,6 +94,9 @@ public class Menu extends javax.swing.JFrame {
         rechercherTable.setModel(model);
     }
 
+    /**
+     * Constructeur par défault
+     */
     public Menu() {
         mode1 = "Rechercher";
         mode2 = "Eleve";
@@ -997,11 +1000,19 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * Si on clique sur ajout4Field
+     *
+     * @param evt
+     */
     private void ajout4FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout4FieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ajout4FieldActionPerformed
-
+    /**
+     * Si on clique sur l'icone Rechercher
+     *
+     * @param evt ActionEvent
+     */
     private void RechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RechercherActionPerformed
         Rechercher.setForeground(new java.awt.Color(0, 0, 0));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -1582,7 +1593,11 @@ public class Menu extends javax.swing.JFrame {
 
 // TODO add your handling code here:
     }//GEN-LAST:event_RechercherActionPerformed
-
+    /**
+     * Si on clique sur l'icone Ajouter
+     *
+     * @param evt Action Event
+     */
     private void AjouterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AjouterActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(0, 0, 0));
@@ -1785,7 +1800,11 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_AjouterActionPerformed
-
+    /**
+     * Si on clique sur Supprimer
+     *
+     * @param evt ActionEvent
+     */
     private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -2365,7 +2384,11 @@ public class Menu extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_SupprimerActionPerformed
-
+    /**
+     * Si on clique sur Modifier
+     *
+     * @param evt
+     */
     private void ModifierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifierActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -2943,7 +2966,11 @@ public class Menu extends javax.swing.JFrame {
             default:
         }
     }//GEN-LAST:event_ModifierActionPerformed
-
+    /**
+     * Si on clique sur Deconnexion
+     *
+     * @param evt
+     */
     private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
         jLayeredPane1.remove(statsPanel);
         statsPanel.setVisible(false);
@@ -2953,7 +2980,11 @@ public class Menu extends javax.swing.JFrame {
         accueil.setVisible(true);
         dispose();
     }//GEN-LAST:event_DeconnexionActionPerformed
-
+    /**
+     * Si on clique sur Eleve
+     *
+     * @param evt
+     */
     private void eleveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eleveActionPerformed
         eleve.setForeground(new java.awt.Color(0, 0, 0));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3048,7 +3079,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_eleveActionPerformed
-
+    /**
+     * Si on clique sur Enseignant
+     *
+     * @param evt
+     */
     private void enseignantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignantActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(0, 0, 0));
@@ -3143,7 +3178,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Enseignantmodel);
     }//GEN-LAST:event_enseignantActionPerformed
-
+    /**
+     * Si on clique sur Inscription
+     *
+     * @param evt
+     */
     private void inscriptionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inscriptionActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3239,7 +3278,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Inscription_model);
     }//GEN-LAST:event_inscriptionActionPerformed
-
+    /**
+     * Si on clique sur Classe
+     *
+     * @param evt
+     */
     private void classeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_classeActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3340,7 +3383,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Classe_model);
     }//GEN-LAST:event_classeActionPerformed
-
+    /**
+     * Si on clique sur Niveau
+     *
+     * @param evt
+     */
     private void niveauActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_niveauActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3430,7 +3477,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(Niveau_model);
     }//GEN-LAST:event_niveauActionPerformed
-
+    /**
+     * Si on clique sur Annee
+     *
+     * @param evt
+     */
     private void anneeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_anneeActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3525,7 +3576,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_anneeActionPerformed
-
+    /**
+     * Si on clique sur Trimestre
+     *
+     * @param evt
+     */
     private void trimestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_trimestreActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3625,7 +3680,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_trimestreActionPerformed
-
+    /**
+     * Si on clique sur Bulletin
+     *
+     * @param evt
+     */
     private void bulletinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletinActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3730,7 +3789,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_bulletinActionPerformed
-
+    /**
+     * Si on clique sur Enseignement
+     *
+     * @param evt
+     */
     private void enseignementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enseignementActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3841,7 +3904,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_enseignementActionPerformed
-
+    /**
+     * Si on clique sur Discipline
+     *
+     * @param evt
+     */
     private void disciplineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_disciplineActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -3934,7 +4001,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_disciplineActionPerformed
-
+    /**
+     * Si on clique sur Bulletin détaillé
+     *
+     * @param evt
+     */
     private void bulletindetailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bulletindetailActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -4061,7 +4132,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_bulletindetailActionPerformed
-
+    /**
+     * Si on clique sur Evaluation
+     *
+     * @param evt
+     */
     private void evaluationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_evaluationActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -4194,19 +4269,35 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_evaluationActionPerformed
-
+    /**
+     * Si on clique sur ajout1Field
+     *
+     * @param evt
+     */
     private void ajout1FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout1FieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ajout1FieldActionPerformed
-
+    /**
+     * Si on clique sur rechercheField
+     *
+     * @param evt
+     */
     private void rechercheFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechercheFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_rechercheFieldActionPerformed
-
+    /**
+     * Si on clique sur le bouton modifierValiderButton
+     *
+     * @param evt
+     */
     private void modifierValiderButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modifierValiderButtonActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modifierValiderButtonActionPerformed
-
+    /**
+     * Si on clique sur Statistiques
+     *
+     * @param evt
+     */
     private void StatistiquesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StatistiquesActionPerformed
         Rechercher.setForeground(new java.awt.Color(255, 255, 255));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -4227,7 +4318,11 @@ public class Menu extends javax.swing.JFrame {
         statsPanel.setVisible(true);
 
     }//GEN-LAST:event_StatistiquesActionPerformed
-
+    /**
+     * Si on clique sur Ecole
+     *
+     * @param evt
+     */
     private void ecoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ecoleActionPerformed
         eleve.setForeground(new java.awt.Color(255, 255, 255));
         enseignant.setForeground(new java.awt.Color(255, 255, 255));
@@ -4319,7 +4414,11 @@ public class Menu extends javax.swing.JFrame {
         }
         rechercherTable.setModel(model);
     }//GEN-LAST:event_ecoleActionPerformed
-
+    /**
+     * Si on clique sur le bouton Rechercher
+     *
+     * @param evt
+     */
     private void rechercheButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rechercheButtonActionPerformed
         String type = (String) rechercheComboBox.getSelectedItem();
         String value = String.valueOf(rechercheField.getText());
@@ -5939,7 +6038,6 @@ public class Menu extends javax.swing.JFrame {
                 }
                 break;
             default:
-
         }
     }//GEN-LAST:event_rechercheButtonActionPerformed
     private void rSupprimerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSupprimerButtonActionPerformed
@@ -5947,7 +6045,7 @@ public class Menu extends javax.swing.JFrame {
         int r = rechercherTable.getSelectedRow();
         System.out.println("Val " + r);
         resultatLabel.setText("");
-        if (r >=0) {
+        if (r >= 0) {
             int id_row = (int) model.getValueAt(r, 0);
             ArrayList<Object> list;
             Iterator<Object> it;
@@ -5957,7 +6055,7 @@ public class Menu extends javax.swing.JFrame {
                 case "Supprimer":
                     switch (mode2) {
                         case "Eleve":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Personne");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Personne");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Personne");
                             list = bdd.rechercher("a", "a", "Personne");
@@ -5986,7 +6084,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Enseignant":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Personne");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Personne");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Personne");
                             list = bdd.rechercher("a", "a", "Personne");
@@ -6015,7 +6113,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Inscription":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Inscription");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Inscription");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Inscription");
                             list = bdd.rechercher("a", "a", "Inscription");
@@ -6045,7 +6143,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Classe":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Classe");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Classe");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Classe");
                             list = bdd.rechercher("a", "a", "Classe");
@@ -6076,7 +6174,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Niveau":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Niveau");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Niveau");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Niveau");
                             list = bdd.rechercher("a", "a", "Niveau");
@@ -6101,7 +6199,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Annee":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Annee");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Annee");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "AnneeScolaire");
                             list = bdd.rechercher("a", "a", "AnneeScolaire");
@@ -6127,7 +6225,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Trimestre":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Trimestre");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Trimestre");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Trimestre");
                             list = bdd.rechercher("a", "a", "Trimestre");
@@ -6156,7 +6254,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Bulletin":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Bulletin");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Bulletin");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Bulletin");
                             list = bdd.rechercher("a", "a", "Bulletin");
@@ -6191,7 +6289,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Enseignement":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Enseignement");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Enseignement");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Enseignement");
                             list = bdd.rechercher("a", "a", "Enseignement");
@@ -6230,7 +6328,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Discipline":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Discipline");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Discipline");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Discipline");
                             list = bdd.rechercher("a", "a", "Discipline");
@@ -6255,7 +6353,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "BulletinDetails":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "DetailBulletin");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "DetailBulletin");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "DetailBulletin");
                             list = bdd.rechercher("a", "a", "DetailBulletin");
@@ -6309,7 +6407,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Evaluation":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Evaluation");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Evaluation");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Evaluation");
                             list = bdd.rechercher("a", "a", "Evaluation");
@@ -6367,7 +6465,7 @@ public class Menu extends javax.swing.JFrame {
                             rechercherTable.setModel(model);
                             break;
                         case "Ecole":
-                            ids = bdd.rechercher("Id",String.valueOf(id_row), "Ecole");
+                            ids = bdd.rechercher("Id", String.valueOf(id_row), "Ecole");
                             bdd.Supprimer(ids.get(0));
                             bdd.SupprimerAtt("Id", String.valueOf(id_row), "Ecole");
                             list = bdd.rechercher("a", "a", "Ecole");
@@ -6405,12 +6503,18 @@ public class Menu extends javax.swing.JFrame {
             resultatLabel.setText("Aucun élément sélectionné !");
         }
     }//GEN-LAST:event_rSupprimerButtonActionPerformed
-
+    /**
+     * Si on clique sur le bouton Ajouter
+     *
+     * @param evt
+     */
     private void ajouterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajouterButtonActionPerformed
 
     }//GEN-LAST:event_ajouterButtonActionPerformed
 
     /**
+     * Main de la classe
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
