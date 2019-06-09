@@ -414,10 +414,7 @@ public class Accueil extends javax.swing.JFrame {
                 dispose();
                 
                 
-                Reporting rep = new Reporting();
-                rep.InfoClasse(bdd,Integer.toString(2018),"Ing 3");
-                rep.afficher_info_reporting();
-                rep.tracer_graphe_reporting();
+                
                 
             } else {
                 erreurLabel.setText("Erreur de connexion à la BDD");

@@ -14,6 +14,7 @@ import org.jfree.chart.ChartFrame;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 
 /**
@@ -25,6 +26,10 @@ public class Reporting {
    
     private ArrayList<String> nomsTD= new ArrayList<>();
     private ArrayList<Double> moyennesTD= new ArrayList<>();
+    
+    private ArrayList<Double> MoyennesMat= new ArrayList<>();
+    private ArrayList<String> nomsMat= new ArrayList<>();
+    
     
     public void Reporting(){
 //        nomsTD= new ArrayList<String>();
@@ -110,10 +115,6 @@ public class Reporting {
     
     public double moyenne_eleve(ConnectMySQL bdd,Inscription MrX)
     {
-       
-        
-        
-        
         int totmoyenne = 0;
         int nbnote =0;
         double finalmoyenne;
@@ -185,6 +186,144 @@ public class Reporting {
         return finalmoyenne;
     }
     
+    public void notes_elev(ConnectMySQL bdd,String nomEleve,int trim)
+    {
+        ArrayList<Object> L_pers= new ArrayList<>();
+        ArrayList<Object> L_Inscriptions= new ArrayList<>();
+        ArrayList<Object> L_Bulletins= new ArrayList<>();
+        ArrayList<Object> L_DetailBulletin = new ArrayList<>();
+        ArrayList<Object> L_Evaluations = new ArrayList<>();
+        ArrayList<Object> L_Enseignements = new ArrayList<>();
+        ArrayList<Object> L_Disciplines = new ArrayList<>();
+        L_pers=bdd.rechercher("Nom",nomEleve,"Personne");
+        int ID_eleve=0;
+        int ID_inscription=0;
+        int trouver=0;
+        int ID_lebulletin=0;
+        int ID_DetailBulletin=0;
+        double tempo=0;
+        double NBnotes=0;
+        if(!L_pers.isEmpty())
+            {
+                ID_eleve=((Personne)L_pers.get(0)).getId();
+                L_Inscriptions=bdd.rechercher("IdPersonne", Integer.toString(ID_eleve),"Inscription");
+                if(!L_pers.isEmpty())
+                    {
+                          ID_inscription=((Inscription)L_Inscriptions.get(0)).getId();
+                          L_Bulletins=bdd.rechercher("IdInscription", Integer.toString(ID_inscription),"Bulletin");
+                          if(!L_Bulletins.isEmpty())
+                            {
+                               for(int i=0;i<L_Bulletins.size();i++)
+                               {
+                                   if(trim==(((Bulletin)L_Bulletins.get(i)).getIdTrimestre()))
+                                   {
+                                       ID_lebulletin=((Bulletin)L_Bulletins.get(i)).getId();
+                                       L_DetailBulletin=bdd.rechercher("IdBulletin", Integer.toString(ID_lebulletin),"DetailBulletin");
+                                       trouver=1;
+                                       if(!L_DetailBulletin.isEmpty())
+                                            {
+                                                for(int g=0;g<L_DetailBulletin.size();g++)
+                                                {
+                                                    ID_DetailBulletin=((DetailBulletin)L_DetailBulletin.get(g)).getId();
+                                                    
+                                                    //Recherche du noms de la matière
+                                                    int tempppo=((DetailBulletin)L_DetailBulletin.get(g)).getIdEnseignement();
+                                                    
+                                                    Enseignement biiii= new Enseignement();
+                                                    
+                                                    
+                                                    L_Enseignements=bdd.rechercherParId(tempppo, biiii);
+                                                   
+                                                    if(!L_Enseignements.isEmpty())
+                                                        {
+//                                                             System.out.println("ok24");
+                                                            L_Disciplines=bdd.rechercher("Id", Integer.toString(((Enseignement)L_Enseignements.get(0)).getIdDiscipline()),"Discipline");
+                                                            if(!L_Disciplines.isEmpty())
+                                                                {
+//                                                                    System.out.println("ok1");
+                                                                    nomsMat.add(((Discipline)L_Disciplines.get(0)).getNom());
+                                                                }
+                                                            else
+                                                                System.out.println("\t\t\t\tImpossible de trouver le nom de la matiere");
+                                                        }
+                                                    else
+//                                                        System.out.println("\t\t\t\tImpossible de trouver le nom de la matiere");
+                                                    
+                                                    
+                                                    //recherche de la moyenne de la matiere
+//                                                    System.out.println("ok2");
+                                                    NBnotes=0;
+                                                    L_Evaluations=bdd.rechercher("IdDetailBulletin", Integer.toString(ID_DetailBulletin),"Evaluation");
+                                                    if(!L_Evaluations.isEmpty())
+                                                        {
+                                                            tempo=0;
+//                                                            System.out.println("ok3");
+                                                            
+                                                            for(int h=0;h<L_Evaluations.size();h++)
+                                                            {
+//                                                                System.out.println("ok4");
+                                                                tempo+=((Evaluation)L_Evaluations.get(h)).getNote();
+                                                                NBnotes++;
+                                                                System.out.println(NBnotes);
+                                                            }
+//                                                            System.out.println("calcule de la moyenne   total note: "+tempo+"  nombre de note: "+NBnotes);
+                                                            MoyennesMat.add(tempo/NBnotes);
+                                                        }
+                                                    else
+                                                    {
+                                                        System.out.println("\t\t\t\tAucune Evaluations lié à cette matiere pour ce Trimestre trouvée");
+                                                        MoyennesMat.add(0.0);
+                                                    }
+                                                    
+                                                }
+                                            }
+                                       else
+                                           System.out.println("\t\t\t\tAucuns DetailBulletin lié à ce nom de ce Trimestre trouvée");
+                                   }
+                               }
+                               if(trouver==0)
+                                   System.out.println("\t\t\t\tAucuns Bulletin lié à ce nom de ce Trimestre trouvée");
+                            }
+                          else
+                              System.out.println("\t\t\tAucuns Bulletin lié à ce nom trouvée");
+                    }
+                else
+                    System.out.println("\t\tAucune Inscription lié à ce nom trouvée");
+                
+            }
+        else
+            System.out.println("\tAucune Personne de ce nom trouvée");
+    }
+    
+    public void reporting_elev_enseignant(ConnectMySQL bdd)
+    {
+        ArrayList<Object> L_eleves= new ArrayList<>();
+        ArrayList<Object> L_enseignant= new ArrayList<>();
+        L_eleves=bdd.rechercher("Type_P", "0","Personne");
+        L_enseignant=bdd.rechercher("Type_P", "1","Personne");
+        
+        DefaultPieDataset dataset = new DefaultPieDataset();
+        for(int i=0;i<L_enseignant.size();i++){
+        dataset.setValue("Eleve",L_eleves.size());
+        dataset.setValue("Enseignants",L_enseignant.size());
+        }
+        
+        // create a chart...
+        JFreeChart chart = ChartFactory.createPieChart(
+                "Camembert Enseignants/Etudiants",
+                dataset,
+                true, // legend?
+                true, // tooltips?
+                false // URLs?
+        );
+        // create and display a frame...
+        ChartFrame frame = new ChartFrame("Camembert Enseignants/Etudiants", chart);
+        frame.pack();
+        frame.setVisible(true);
+        
+    }
+    
+    
     public void afficher_info_reporting()
     {
         int i;
@@ -204,6 +343,25 @@ public class Reporting {
         
     }
     
+     public void afficher_info_reporting2()
+    {
+        int i;
+        System.out.println("Nom Matieres:" );
+        if(!nomsMat.isEmpty()){
+        for(i=0;i<nomsMat.size();i++)
+            System.out.print(" "+ nomsMat.get(i));
+        }
+        i=0;
+        System.out.println("Moyennes:" );
+        if(MoyennesMat==null) { System.out.print("Aucune moyenne à afficher");
+        } else {
+            System.out.print("moyenne sont:");
+            for(i=0;i<MoyennesMat.size();i++)
+                System.out.print(" "+ MoyennesMat.get(i) );
+        }
+        
+    }
+    
     public void tracer_graphe_reporting()
     {
         
@@ -215,6 +373,29 @@ public class Reporting {
         JFreeChart chart = ChartFactory.createBarChart(
                 "Moyenne par TD", // chart title
                 "TD", // domain axis label
+                "Moyenne", // range axis label
+                dataset, // data
+                PlotOrientation.VERTICAL, // orientation
+                true, // include legend
+                false, // tooltips?
+                false // URLs?
+        );
+       
+        ChartFrame frame = new ChartFrame("Reporting", chart);
+        frame.pack();
+        frame.setVisible(true);
+    }
+    
+    public void tracer_graphe_reporting2()
+    {
+         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        for(int i=0;i<nomsMat.size();i++){
+        dataset.addValue(MoyennesMat.get(i),"Moyennes", nomsMat.get(i));
+        }
+
+        JFreeChart chart = ChartFactory.createBarChart(
+                "Moyenne de l'eleve", // chart title
+                "Matières", // domain axis label
                 "Moyenne", // range axis label
                 dataset, // data
                 PlotOrientation.VERTICAL, // orientation
