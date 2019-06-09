@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 31 mai 2019 à 01:50
+-- Généré le :  Dim 09 juin 2019 à 19:18
 -- Version du serveur :  5.7.24
 -- Version de PHP :  7.2.14
 
@@ -19,10 +19,9 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `Ecole`
+-- Base de données :  `ecole`
 --
-CREATE DATABASE Ecole;
-USE Ecole;
+
 -- --------------------------------------------------------
 
 --
@@ -58,16 +57,19 @@ CREATE TABLE IF NOT EXISTS `bulletin` (
   `IdInscription` int(8) NOT NULL,
   `Appreciation` varchar(255) NOT NULL,
   PRIMARY KEY (`Id`),
-  KEY `IdTrimestre` (`IdTrimestre`),
-  KEY `IdInscription` (`IdInscription`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  KEY `IdInscription` (`IdInscription`),
+  KEY `IdTrimestre` (`IdTrimestre`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `bulletin`
 --
 
 INSERT INTO `bulletin` (`Id`, `IdTrimestre`, `IdInscription`, `Appreciation`) VALUES
-(1, 3, 1, 'Trimestre satisfaisant');
+(1, 3, 1, 'Trimestre satisfaisant'),
+(2, 2, 1, 'En bonne voie'),
+(3, 1, 4, 'Ensemble correcte'),
+(4, 2, 4, 'Ensemble satisfaisant');
 
 -- --------------------------------------------------------
 
@@ -111,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `detailbulletin` (
   PRIMARY KEY (`Id`),
   KEY `IdBulletin` (`IdBulletin`),
   KEY `IdEnseignement` (`IdEnseignement`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `detailbulletin`
@@ -119,7 +121,13 @@ CREATE TABLE IF NOT EXISTS `detailbulletin` (
 
 INSERT INTO `detailbulletin` (`Id`, `IdBulletin`, `IdEnseignement`, `Appreciation`) VALUES
 (1, 1, 2, 'A de forte capacité en analyse mathématiques. '),
-(2, 1, 1, 'Possède certaine lacune en expression orale. ');
+(2, 1, 1, 'Possède certaine lacune en expression orale. '),
+(3, 2, 2, 'Suit les cours avec attention'),
+(4, 2, 1, 'Bonne appréhention de l\'alphabet'),
+(5, 3, 2, 'Mauvais en logique'),
+(6, 3, 1, 'Ne sais pas parler la langue'),
+(7, 4, 2, 'S’améliore lentement'),
+(8, 4, 1, 'connais maintenant l\'alphabet');
 
 -- --------------------------------------------------------
 
@@ -203,7 +211,7 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
   `Appreciation` varchar(255) NOT NULL,
   PRIMARY KEY (`Id`),
   KEY `IdDetailBulletin` (`IdDetailBulletin`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `evaluation`
@@ -213,7 +221,13 @@ INSERT INTO `evaluation` (`Id`, `IdDetailBulletin`, `Note`, `Appreciation`) VALU
 (1, 1, 18, 'Note de suivie'),
 (2, 1, 14, 'DS 1'),
 (3, 2, 12, 'Interrogation écrite'),
-(4, 2, 8, 'Oral de fin de semestre');
+(4, 2, 8, 'Oral de fin de semestre'),
+(5, 3, 20, 'Interrogation de suivie en maths'),
+(6, 4, 20, 'Interrogation sur l\'alphabet coreen'),
+(7, 5, 7, 'DS maths'),
+(8, 6, 8, 'note d\'orale'),
+(9, 7, 2, 'DS maths 2'),
+(10, 8, 5, 'Note de suivie à l\'oral');
 
 -- --------------------------------------------------------
 

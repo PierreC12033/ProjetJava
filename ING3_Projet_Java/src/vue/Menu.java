@@ -1157,7 +1157,9 @@ public class Menu extends javax.swing.JFrame {
     private void ajout4FieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ajout4FieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ajout4FieldActionPerformed
-
+    private void Trim_id_FieldActionPerformed(java.awt.event.ActionEvent evt) {                                            
+        // TODO add your handling code here:
+    }                                        
     private void RechercherActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RechercherActionPerformed
         Rechercher.setForeground(new java.awt.Color(0, 0, 0));
         Ajouter.setForeground(new java.awt.Color(255, 255, 255));
@@ -7653,7 +7655,7 @@ public class Menu extends javax.swing.JFrame {
                     System.out.println("Erreur Valider, Choix Menu 2");
             }
         }
-    }//GEN-LAST:event_ajouterButtonActionPerformed
+    }                                             
 
     /**
      * @param args the command line arguments
@@ -7695,7 +7697,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Ajouter;
     private javax.swing.JButton Deconnexion;
