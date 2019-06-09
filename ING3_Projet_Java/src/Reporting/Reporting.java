@@ -19,7 +19,7 @@ import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
- * @author elias
+ * @author PierreCAMU
  */
 public class Reporting {
     
@@ -38,7 +38,12 @@ public class Reporting {
     
     
     
-    
+    /**
+     * Recherche d'une classe possedant les paramèters prédefinit par l'utilisateur Annee et niveau
+     * @param s La base de donnée
+     * @param Annee L'année de début de la période à annalyser exemple(pour l'année 2018-2019 on tapera 2018)
+     * @param Niveau Niveau des classes à étudier exemple (Ing 1)
+     */
     public void InfoClasse(ConnectMySQL s, String Annee, String Niveau){
         
         ArrayList<Object> result_Annee= new ArrayList<>();
@@ -78,7 +83,11 @@ public class Reporting {
            }
         }
     }
-    
+    /**
+     * recherche des inscriptions de d'une classe spécifique
+     * @param s la base de donnée
+     * @param c la classe à partir de laquelle on effectue les recherche
+     */
     public void InfoInscription(ConnectMySQL s, Classe c){
         ArrayList<Inscription> result_Inscri= new ArrayList<>();
         ArrayList<Object> resul=new ArrayList<>();
@@ -112,6 +121,12 @@ public class Reporting {
         }  
         moyennesTD.add(moyenne_td);
     }
+   /**
+    * calcule la moyenne d'un élèves d'une classe
+    * @param bdd la base de donnée
+    * @param MrX l'inscription à partir de laquelle on va chercher les notes
+    * @return 
+    */
     
     public double moyenne_eleve(ConnectMySQL bdd,Inscription MrX)
     {
@@ -185,7 +200,12 @@ public class Reporting {
             finalmoyenne=-1.0;
         return finalmoyenne;
     }
-    
+    /**
+     * Permet de mettre en place la classe reporting pour afficher la moyenne d'un eleve selon un trimestre par rapport à ses notes
+     * @param bdd base de donnée
+     * @param nomEleve nom de l'eleve pour lequel n cherche à afficher les info
+     * @param trim numero du trimestre qu'on veut ajouter
+     */
     public void notes_elev(ConnectMySQL bdd,String nomEleve,int trim)
     {
         ArrayList<Object> L_pers= new ArrayList<>();
@@ -294,7 +314,10 @@ public class Reporting {
         else
             System.out.println("\tAucune Personne de ce nom trouvée");
     }
-    
+    /**
+     * cherche et trace un graphique en camembert affichant le rapport du nombre de prof et d'eleve
+     * @param bdd base de donnée
+     */
     public void reporting_elev_enseignant(ConnectMySQL bdd)
     {
         ArrayList<Object> L_eleves= new ArrayList<>();
@@ -323,7 +346,9 @@ public class Reporting {
         
     }
     
-    
+    /**
+     * affiche en console les infos du reporting pour debug du premier type de reporting
+     */
     public void afficher_info_reporting()
     {
         int i;
@@ -342,7 +367,9 @@ public class Reporting {
         }
         
     }
-    
+    /**
+     * affiche en console les infos du reporting pour debug du deucième type de reporting
+     */
      public void afficher_info_reporting2()
     {
         int i;
@@ -361,7 +388,9 @@ public class Reporting {
         }
         
     }
-    
+    /**
+     * trace le graphique de la moyenne de chaque td par rapport au classe
+     */
     public void tracer_graphe_reporting()
     {
         
@@ -385,7 +414,9 @@ public class Reporting {
         frame.pack();
         frame.setVisible(true);
     }
-    
+    /**
+     * trace la moyenne d'un eleve par rapport à ses cours
+     */
     public void tracer_graphe_reporting2()
     {
          DefaultCategoryDataset dataset = new DefaultCategoryDataset();
